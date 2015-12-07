@@ -1,0 +1,74 @@
+
+@import 'custom/custom.scss';
+@import 'custom/mixin.scss';
+
+// 字符长度限制
+@include elimit(13);
+
+// 图片大小
+@include size-icon(90);
+
+// 设置textarea
+// .item-input textarea {
+//   width: calc(100% - 155px);
+// }
+
+// 圆角按钮
+.button-round {
+  border-radius: 30px;
+  margin: 0 10px;
+}
+
+// 设置全局背景色
+.scroll-content,
+.list {
+  background-image: url('../images/bg.png');
+  background-size: cover;
+}
+
+// 列表
+.list {
+  display: block;
+}
+.list-space .item {
+  margin-bottom: 10px;
+  background-color: #fff;
+  white-space: normal;
+}
+
+// 分割线
+.division {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+// 错误提示
+.error_tip {
+  @include position-basic(fixed, bottom, 40px, left, 50%);
+  width: 180px;
+  color: #fff;
+  background: rgba(0, 0, 0, .7);
+  opacity: .7;
+  border-radius: 4px;
+  padding: 5px 7px;
+  text-align: center;
+  margin-left: -90px;
+  font-size: .9em;
+  z-index: 10;
+}
+
+// 链接
+.link-green {
+  @include link(#33cd5f);
+}
+
+// 颜色
+@include color('gray_light', '#bbb');
+@include color('gray_mid', '#666');
+@include color('green', '#1b9f60');
+@include color('orange', '#ff802e');
+@include color('blue', '#1baee4');
+@include color('red');
+@include color('white');
+@include color('black');

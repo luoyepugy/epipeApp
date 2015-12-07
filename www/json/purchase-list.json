@@ -1,0 +1,64 @@
+{
+    "success": true,
+    "message": "失败",
+    "data": {
+        "total": 2,
+        "items": 
+        [
+            {
+                "id": 1,
+                "title": "高密度聚乙烯HDPE独山子48025555",
+                "status": "待支付",
+                "offerNum": "3",
+                "num": "3吨",
+                "time": "2014-11-20",
+                "logistics": true
+            },
+            {
+                "id": 2,
+                "title": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
+                "status": "已完成",
+                "offerNum": "3",
+                "num": "3吨",
+                "time": "2014-11-20",
+                "logistics": true
+            },
+            {
+                "id": 3,
+                "title": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
+                "status": null,
+                "offerNum": "3",
+                "num": "3吨",
+                "time": "2014-11-20",
+                "logistics": false
+            },
+            {
+                "id": 4,
+                "title": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
+                "status": "已完成",
+                "offerNum": "3",
+                "num": "3吨",
+                "time": "2014-11-20",
+                "logistics": true
+            },
+            {
+                "id": 5,
+                "title": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
+                "status": "待支付",
+                "offerNum": "3",
+                "num": "3吨",
+                "time": "2014-11-20",
+                "logistics": true
+            },
+            {
+                "id": 6,
+                "title": "高密度聚乙烯HDPE独山子48025555",
+                "status": null,
+                "offerNum": "3",
+                "num": "3吨",
+                "time": "2014-11-20",
+                "logistics": false
+            }        
+        ]
+    }
+}

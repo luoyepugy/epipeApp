@@ -1,0 +1,1 @@
+define(["./app"],function(n){return n.config(["$ionicConfigProvider","$compileProvider",function(n,o){n.tabs.position("bottom")}]).run(["$ionicPlatform",function(n){n.ready(function(){window.onerror=function(n,o,i){var r=o.lastIndexOf("/");return r>-1&&(o=o.substring(r+1)),console.log("ERROR in "+o+" (line #"+i+"): "+n),!1}})}])});

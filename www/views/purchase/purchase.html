@@ -1,0 +1,34 @@
+<!-- 侧边菜单 -->
+<ion-side-menus>
+<!-- 中间内容 -->
+<ion-side-menu-content>
+    <ion-nav-bar class="bar-energized" align-title="center">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-tabs class="tabs-icon-bottom tabs-dark">
+        <ion-tab title="发布采购" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline"  href="#/purchase/publish">
+            <ion-nav-view name="purchase-publish"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="采购单" icon-on="ion-ios-list" icon-off="ion-ios-list-outline"  href="#/purchase/list"> 
+            <ion-nav-view  name="purchase-list"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="个人中心" icon-on="ion-ios-person" icon-off="ion-ios-person-outline" href="#/purchase/user">
+            <ion-nav-view name="purchase-user"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-side-menu-content>
+<!-- 左侧菜单 -->
+<ion-side-menu side="right">
+  <ion-header-bar class="bar-dark" align-title="center">
+    <h3 class="title">设置</h3>
+    <ion-button class="button-icon icon pull-right ion-gear-b"></ion-button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list class="inset-list">
+      <!-- <ion-item ng-repeat="item in items">{{item.text}}</ion-item> -->
+    </ion-list>
+  </ion-content>
+</ion-side-menu>
+
+</ion-side-menus>

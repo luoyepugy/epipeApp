@@ -1,0 +1,1 @@
+define(["./httpSvc"],function(){});

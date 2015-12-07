@@ -1,0 +1,33 @@
+
+<ion-view  view-title="采购单">
+    <ion-nav-buttons side="right">
+        <button class="button icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher
+              pulling-text="下拉刷新..." 
+              refreshing-text="刷新成功" 
+              on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list class="list list-inset list-space">
+            <ion-item class="purchase-item" ng-repeat="item in list">
+                <span class="black elimit13 db">{{item.title}}</span>
+                <span class="badge badge-assertive fr" ng-show="{true: flase, false: true}[item.logistics]">{{item.offerNum}}</span>
+                <p>
+                    <span>数量：{{item.num}}</span>
+                    <span class="fr blue" ng-if="{null: false, '已完成': true, '待支付': true}[item.status]">{{item.status}}</span>
+                    <a class="fr blue" href="#/purchase/offer" ng-if="{null: true}[item.status]">商家报价</a>
+                </p>
+                <p>
+                    <span class="gray_mid mr10">{{item.time}}</span>
+                    <a href="#/purchase/logistics" class="green">{{item.logistics ? '物流追踪' : ''}}</a>
+                </p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll 
+                ng-if="hasMore"
+                on-infinite="loadMore()" 
+                distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
