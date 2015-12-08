@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.controller("purOfferCtrl",["$scope","$ionicLoading","httpService",function(e,n,o){var r="./json/purchase-offer.json";e.hasMore=!0,n.show({template:"<ion-spinner></ion-spinner><h3>加载中...</h3>",duration:3e3});var t=o.getData(r);t.then(function(o){var r=o.data;n.hide(),e.product=r.product,e.list=r.offer})}])});

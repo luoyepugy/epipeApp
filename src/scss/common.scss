@@ -13,10 +13,30 @@
 //   width: calc(100% - 155px);
 // }
 
+// 换行
+.pre-wrap {
+  white-space: normal;
+  overflow: auto;
+  text-overflow: initial;
+  word-wrap:break-word;
+}
 // 圆角按钮
 .button-round {
   border-radius: 30px;
-  margin: 0 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.button-avatar {
+  &:after {
+    border: 1px solid $main-orange;
+    border-radius: 25px;
+    @include size(40px);
+    display: block;
+  }
+}
+// 圆角列表
+.list-round {
+  border-radius: 10px;
 }
 
 // 设置全局背景色
@@ -67,7 +87,7 @@
 @include color('gray_light', '#bbb');
 @include color('gray_mid', '#666');
 @include color('green', '#1b9f60');
-@include color('orange', '#ff802e');
+@include color('orange', '#ff6c21');
 @include color('blue', '#1baee4');
 @include color('red');
 @include color('white');

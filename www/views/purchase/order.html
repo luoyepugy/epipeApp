@@ -1,0 +1,35 @@
+
+<ion-view  view-title="采购单">
+    <ion-nav-buttons side="right">
+        <button class="button icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list class="list list-inset card list-round order-mutual">
+            <ion-item class="tc orange order-title">订单</ion-item>
+            <ion-item class="row row-center">
+                <div class="col col-50 tc">
+                    <p><button class="button icon button-icon button-clear ion-ios-person-outline button-energized button-avatar"></button></p>
+                    <p>{{purchase.name}}</p>
+                    <p>TEL：{{purchase.tel}}</p> 
+                </div>
+                <div class="col col-10"><i class="ion-heart red"></i></div>
+                <div class="col col-50 tc">
+                    <p><button class="button icon button-icon button-clear ion-ios-person-outline button-energized button-avatar"></button></p>
+                    <p>{{offer.name}}</p>
+                    <p>TEL：{{offer.tel}}</p> 
+                </div>
+            </ion-item>
+        	<ion-item>
+                <p>编号：{{product.id}}</p>
+                <p>商品：{{product.name}}</p>
+                <p>单价：{{offer.price}}元／{{product.unit}}</p>
+                <p>数量：{{product.num}}{{product.unit}}</p>
+                <p>总价：<span class="red">{{product.num * offer.price}}元</span></p>
+        	</ion-item>
+            <ion-item>
+                <a href="#/purchase/pay" class="button button-full button-energized button-round">确定</a>
+                <a href="#" class="button button-full button-stable button-round">我还要考虑一下，取消</a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -11,7 +11,7 @@
         </ion-refresher>
         <ion-list class="list list-inset list-space">
             <ion-item class="purchase-item" ng-repeat="item in list">
-                <span class="black elimit13 db">{{item.title}}</span>
+                <span class="black elimit13 db">{{item.name}}</span>
                 <span class="badge badge-assertive fr" ng-show="{true: flase, false: true}[item.logistics]">{{item.offerNum}}</span>
                 <p>
                     <span>数量：{{item.num}}</span>

@@ -1,0 +1,85 @@
+
+
+@import "../custom/mixin";
+@import "ios-picker";
+
+
+// ==================================
+// ============= 发布采购 ============
+// ==================================
+// 购物车和支付图标
+.icon-center {
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 3.5em;
+  @include inside-center(80px);
+  margin: 20px auto;
+}
+// 采购列表项目
+.purchase-item {
+  .item-a {
+    @include position();
+    @include size(100%);
+  }
+}
+
+// ==================================
+// ============ 报价商家列表 ==========
+// ==================================
+.offer-item {
+  .item-radio {
+    border: 0;
+  }
+  .button-avatar {
+    @include position-basic(absolute, left, 30px, top, 25px);
+    &:after {
+      @include position-basic(relative, left, -30px, top, 0);
+    }
+  } 
+}
+
+// ==================================
+// ============= 订单双方 ============
+// ==================================
+.order-mutual {
+  .button-avatar {
+    &:after {
+      @include position-basic(relative, left, 0, top, -40px);
+    }
+  }
+  .item p{
+    white-space: normal;
+    word-wrap:break-word;
+  }
+  .col-50 {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+.order-title {
+  @include gradient-grid(#f3f3f3, 10px, 1px);
+}
+
+// ==================================
+// ============= 物流追踪 ============
+// ==================================
+.logistics {
+  overflow: hidden;
+  .button {
+    left: 25px;
+  }
+  .line {
+    border-left: 1px solid #ccc;
+    display: block;
+    width: 1px;
+    height: 100px;
+    margin-right: -7px;
+  }
+}
+.border0 {
+  border: 0;
+}
+.border-bottom {
+  border-bottom: 2px solid #eee;
+}

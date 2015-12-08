@@ -19,7 +19,7 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-publish':{
 		            templateUrl: "views/purchase/publish.html",
-		            controller: 'publishCtrl'
+		            controller: 'purPublishCtrl'
 		        }
 		    }
 		})
@@ -28,7 +28,7 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/list.html",
-		            controller: 'purchaseListCtrl'
+		            controller: 'purListCtrl'
 		        }
 		    }
 		})
@@ -36,7 +36,25 @@ define(['./app'], function (app) {
 		    url: '/offer',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "views/purchase/offer.html"
+		            templateUrl: "views/purchase/offer.html",
+		            controller: 'purOfferCtrl'
+		        }
+		    }
+		})
+		.state('purchase.order', {
+		    url: '/order',
+		    views:{
+		        'purchase-list':{
+		            templateUrl: "views/purchase/order.html",
+		            controller: 'purOrderCtrl'
+		        }
+		    }
+		})
+		.state('purchase.pay', {
+		    url: '/pay',
+		    views:{
+		        'purchase-list':{
+		            templateUrl: "views/purchase/pay.html"
 		        }
 		    }
 		})
@@ -44,7 +62,8 @@ define(['./app'], function (app) {
 		    url: '/logistics',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "views/purchase/logistics.html"
+		            templateUrl: "views/purchase/logistics.html",
+		            controller: 'purLogisticsCtrl'
 		        }
 		    }
 		});

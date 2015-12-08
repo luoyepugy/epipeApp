@@ -7,18 +7,24 @@
         <ion-list>
             <ion-item class="item item-button-left">
                 <button class="button icon button-icon button-clear ion-ios-cart-outline button-dark"></button>
-                <h2>高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555</h2>
-                <p class="">数量: 3吨 {{product.num}}</p>
-                <p class="gray_light font_sm">2015-12-02{{time}}</p>
+                <h2>{{product.name}}</h2>
+                <p>数量: {{product.num}}{{product.unit}}</p>
+                <p>{{product.time}}</p>
             </ion-item>
-            <ion-list class="list list-inset card">
-            	<ion-item class="item item-button-left">
-	                <button class="button icon button-icon button-clear ion-ios-cart-outline button-dark"></button>
-	                <h2>高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555</h2>
-	                <p class="">数量: 3吨 {{product.num}}</p>
-	                <p class="gray_light font_sm">2015-12-02{{time}}</p>
-	            </ion-item>
-            </ion-list>
+        </ion-list>
+        <ion-list class="list list-inset card mt0">
+        	<ion-item class="item item-button-left offer-item" ng-repeat="item in list">
+        	    <button class="button icon button-icon button-clear ion-ios-person-outline button-energized button-avatar"></button>
+        		<ion-radio ng-model="choice" ng-value="{{item.id}}" class="energized">
+	                <h2>{{item.name}}</h2>
+	                <p>单价: {{item.price}}元／{{product.unit}}</p>
+	                <p>总价: <span class="orange">{{item.price * product.num}}元</span></p>
+        		</ion-radio>
+        	</ion-item>
+            <ion-item>
+                <a href="#/purchase/order" class="button button-full button-energized button-round">选择商家</a>
+                <a href="#" class="button button-full button-stable button-round">不满意，我要再刷一波商家</a>
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

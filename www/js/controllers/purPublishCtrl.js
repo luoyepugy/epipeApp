@@ -1,0 +1,1 @@
+define(["./module"],function(n){n.controller("purPublishCtrl",["$scope",function(n){}])});

@@ -1,6 +1,6 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purchaseListCtrl',['$scope', '$ionicLoading', 'httpService', function($scope, $ionicLoading, httpService){
+	controllers.controller('purListCtrl',['$scope', '$ionicLoading', 'httpService', function($scope, $ionicLoading, httpService){
 
 		// 最后一个item的id
 		var lastId = 0;
