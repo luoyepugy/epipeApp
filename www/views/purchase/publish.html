@@ -4,8 +4,8 @@
         <button class="button icon button-clear ion-navicon" menu-toggle="right"></button>
     </ion-nav-buttons>
     <ion-content>
-        <div class="icon-center"><i class="ion-ios-cart-outline energized"></i></div>
-        <ion-list class="list list-inset card">
+        <div class="icon-center mt20"><i class="ion-ios-cart-outline energized"></i></div>
+        <ion-list class="list list-inset card list-round">
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="name" placeholder="商品名称" ng-model="product.name" value="{{product.name}}" data-empty="请输入商品名称" />
         	</ion-item>
@@ -15,7 +15,9 @@
         	<ion-item class="item-input">
 				<input type="text" name="location" placeholder="地点" ng-model="product.location" value="{{product.location}}" />
         	</ion-item>
+            <ion-item>
+                <a href="#/purchase/list" class="button button-full button-energized button-round">发布采购</a>
+            </ion-item>
         </ion-list>
-        <a href="#/purchase/list" class="button button-full button-energized button-round">发布采购</a>
     </ion-content>
 </ion-view>

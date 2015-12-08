@@ -14,6 +14,38 @@ define(['./app'], function (app) {
 		    "abstract": true,
 		    templateUrl: "views/purchase/purchase.html"
 		})
+		.state('purchase.userInfo', {
+		    url: '/userInfo',
+		    views:{
+		        'purchase-login':{
+		            templateUrl: "views/purchase/userInfo.html"
+		        }
+		    }
+		})
+		.state('purchase.editUser', {
+		    url: '/editUser',
+		    views:{
+		        'purchase-login':{
+		            templateUrl: "views/purchase/editUser.html"
+		        }
+		    }
+		})
+		.state('purchase.login', {
+		    url: '/login',
+		    views:{
+		        'purchase-login':{
+		            templateUrl: "views/purchase/login.html"
+		        }
+		    }
+		})
+		.state('purchase.register', {
+		    url: '/register',
+		    views:{
+		        'purchase-login':{
+		            templateUrl: "views/purchase/register.html"
+		        }
+		    }
+		})
 		.state('purchase.publish', {
 		    url: '/publish',
 		    views:{

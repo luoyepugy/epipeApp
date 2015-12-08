@@ -14,7 +14,7 @@
   background-color: #fff;
   font-size: 3.5em;
   @include inside-center(80px);
-  margin: 20px auto;
+  @include outside-center();
 }
 // 采购列表项目
 .purchase-item {
@@ -57,7 +57,7 @@
     max-width: 45%;
   }
 }
-.order-title {
+.bg-grid {
   @include gradient-grid(#f3f3f3, 10px, 1px);
 }
 
@@ -82,4 +82,19 @@
 }
 .border-bottom {
   border-bottom: 2px solid #eee;
+}
+
+// ==================================
+// ============= 个人中心 ============
+// ==================================
+.userInfo,
+.userInfo .item{
+  border: 0;
+  background-size: cover;
+  @include gradient-grid(#f3f3f3, 10px, 1px);
+}
+.userInfo .avatar {
+  background-image: url('../../images/bg.png');
+  background-size: cover;
+  padding: 20px 0;
 }
