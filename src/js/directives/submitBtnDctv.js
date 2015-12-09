@@ -6,7 +6,6 @@ define(['./module'], function(directives) {
 		return {
 			restrict: 'A',
 			scope: {
-				url: '@'
 			},
 			link: function(scope, element, attrs) {
 				element.bind('click', function() {

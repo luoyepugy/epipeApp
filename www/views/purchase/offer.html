@@ -13,10 +13,11 @@
         <ion-list class="list list-inset card mt0">
         	<ion-item class="item item-button-left offer-item" ng-repeat="item in list">
         	    <button class="button icon button-icon button-clear ion-ios-person-outline button-energized button-avatar"></button>
-        		<ion-radio ng-model="choice" ng-value="{{item.id}}" class="energized">
+        		<ion-radio name="choiceOffer" ng-model="choiceOffer" ng-value="{{item.id}}" class="energized">
 	                <h2>{{item.name}}</h2>
 	                <p>单价: {{item.price}}元／{{product.unit}}</p>
 	                <p>总价: <span class="orange">{{item.price * product.num}}元</span></p>
+                    <button class="button button-icon icon ion-ios-circle-outline gray_light button-choice"></button>
         		</ion-radio>
         	</ion-item>
             <ion-item>

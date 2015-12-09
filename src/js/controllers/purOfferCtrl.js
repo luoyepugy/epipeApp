@@ -23,12 +23,11 @@ define(['./module'], function(controllers) {
 	    	$ionicLoading.hide();
 	    	$scope.product = datas.product;
 	    	$scope.list = datas.offer;
-	    	// lastId = datas[datas.length-1].id;
 	    });
 
 	    // 选择商家
 	    $scope.order = function() {
-
+	    	console.log($scope.choiceOffer.value);
 	    };
 
 	    // 换一批商家

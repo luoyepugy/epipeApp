@@ -1,1 +1,1 @@
-define(["./offerDctv","./submitBtnDctv"],function(){});
+define(["./offerDctv","./submitBtnDctv","./backBtnDctv","./valiEmailDctv","./valiMobileDctv"],function(){});

@@ -37,6 +37,10 @@
       @include position-basic(absolute, left, -5px, top, 0);
     }
   } 
+  .button.button-choice {
+    left: auto;
+    right: 5px;
+  }
 }
 .sawtooth {
   @include gradient-sawtooth(#fff, 10px);

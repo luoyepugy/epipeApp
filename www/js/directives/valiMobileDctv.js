@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.directive("validateMobile",["messageService",function(e){return{restrict:"AE",scope:{},link:function(i,n,t){n.bind("blur",function(){var i=/^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;i.test(t.value)||e.show("请输入正确的手机号码格式")})}}}])});

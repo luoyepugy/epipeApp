@@ -1,0 +1,1 @@
+define(["./module"],function(n){n.directive("backButton",["$window",function(n){return{restrict:"AE",link:function(i,t,c){t.bind("click",function(){n.history.back()})}}}])});
