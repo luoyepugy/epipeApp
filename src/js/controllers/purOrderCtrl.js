@@ -1,6 +1,8 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purOrderCtrl',['$scope', '$ionicLoading', 'httpService', function($scope, $ionicLoading, httpService){
+	controllers.controller('purOrderCtrl',
+		['$scope', '$ionicLoading', 'httpService', 'messageService', 
+		function($scope, $ionicLoading, httpService, messageService){
 
 		// 最后一个item的id
 		var lastId = 0;
@@ -23,5 +25,6 @@ define(['./module'], function(controllers) {
 	    	$scope.offer = datas.offer;
 	    	$scope.purchase = datas.purchase;
 	    });
+
 	}]);
 });

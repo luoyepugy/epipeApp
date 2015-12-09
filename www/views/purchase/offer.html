@@ -2,12 +2,13 @@
 <ion-view  view-title="采购单">
     <ion-content>
         <ion-list>
-            <ion-item class="item item-button-left">
+            <ion-item class="item item-button-left border0">
                 <button class="button icon button-icon button-clear ion-ios-cart-outline button-dark"></button>
                 <h2>{{product.name}}</h2>
                 <p>数量: {{product.num}}{{product.unit}}</p>
                 <p>{{product.time}}</p>
             </ion-item>
+            <p class="sawtooth"></p>
         </ion-list>
         <ion-list class="list list-inset card mt0">
         	<ion-item class="item item-button-left offer-item" ng-repeat="item in list">
@@ -19,8 +20,8 @@
         		</ion-radio>
         	</ion-item>
             <ion-item>
-                <a href="#/purchase/order" class="button button-full button-energized button-round">选择商家</a>
-                <a href="#" class="button button-full button-stable button-round">不满意，我要再刷一波商家</a>
+                <span class="button button-full button-energized button-round" ng-click="order()">选择商家</span>
+                <span class="button button-full button-stable button-round" ng-click="changeOffer()">不满意，我要再刷一波商家</span>
             </ion-item>
         </ion-list>
     </ion-content>

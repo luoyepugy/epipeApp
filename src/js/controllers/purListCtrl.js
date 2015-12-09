@@ -1,6 +1,8 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purListCtrl',['$scope', '$ionicLoading', 'httpService', function($scope, $ionicLoading, httpService){
+	controllers.controller('purListCtrl',
+		['$scope', '$ionicLoading', 'httpService', 'messageService', '$state',
+		function($scope, $ionicLoading, httpService, messageService, $state){
 
 		// 最后一个item的id
 		var lastId = 0;
@@ -50,5 +52,41 @@ define(['./module'], function(controllers) {
 	            $scope.$broadcast('scroll.infiniteScrollComplete');
 		    });
 	    };
+
+	    // 商家报价
+	    $scope.offer = function() {
+	    	var id = this.item.id;
+			var offerNum = this.item.offerNum;
+			if(offerNum > 0) {
+				// 预加载
+			    $ionicLoading.show({
+			        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
+			        duration: 3000
+			    });
+				httpService.getData('./json/login.json', {'id': id})
+			    .then(function(data) {
+			    	$ionicLoading.hide();
+			    	$state.go('purchase.offer');
+			    });
+			}　else {
+				messageService.show('暂时没有商家报价');
+			}
+	    };
+
+	    // 物流追踪
+	    $scope.logistics = function() {
+	    	var id = this.item.id;
+			// 预加载
+		    $ionicLoading.show({
+		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
+		        duration: 3000
+		    });
+			httpService.getData('./json/login.json', {'id': id})
+		    .then(function(data) {
+		    	$ionicLoading.hide();
+		    	$state.go('purchase.logistics');
+		    });
+	    };
+
 	}]);
 });

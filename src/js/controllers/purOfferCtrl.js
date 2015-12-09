@@ -1,6 +1,8 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purOfferCtrl',['$scope', '$ionicLoading', 'httpService', function($scope, $ionicLoading, httpService){
+	controllers.controller('purOfferCtrl',
+		['$scope', '$ionicLoading', 'httpService', 'messageService',
+		function($scope, $ionicLoading, httpService, messageService){
 
 		// 最后一个item的id
 		var lastId = 0;
@@ -23,5 +25,28 @@ define(['./module'], function(controllers) {
 	    	$scope.list = datas.offer;
 	    	// lastId = datas[datas.length-1].id;
 	    });
+
+	    // 选择商家
+	    $scope.order = function() {
+
+	    };
+
+	    // 换一批商家
+	    $scope.changeOffer = function()　{
+	    	// 预加载
+		    $ionicLoading.show({
+		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
+		        duration: 3000
+		    });
+	    	httpService.getData('./json/purchase-offerChange.json')
+		    .then(function(data) {
+		    	var datas = data.data;
+		    	$ionicLoading.hide();
+		    	$scope.list = datas.offer;
+		    }, function(data) {
+		    	messageService.show(data);
+		    });
+	    };
+
 	}]);
 });

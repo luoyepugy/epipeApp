@@ -1,2 +1,2 @@
 
-define([], function() {});
+define(['./offerDctv', './submitBtnDctv'], function() {});

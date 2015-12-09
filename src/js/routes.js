@@ -1,5 +1,4 @@
 
-
 define(['./app'], function (app) {
     'use strict';
     return app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -17,7 +16,7 @@ define(['./app'], function (app) {
 		.state('purchase.userInfo', {
 		    url: '/userInfo',
 		    views:{
-		        'purchase-login':{
+		        'purchase-userInfo':{
 		            templateUrl: "views/purchase/userInfo.html"
 		        }
 		    }
@@ -25,26 +24,20 @@ define(['./app'], function (app) {
 		.state('purchase.editUser', {
 		    url: '/editUser',
 		    views:{
-		        'purchase-login':{
+		        'purchase-userInfo':{
 		            templateUrl: "views/purchase/editUser.html"
 		        }
 		    }
 		})
-		.state('purchase.login', {
-		    url: '/login',
-		    views:{
-		        'purchase-login':{
-		            templateUrl: "views/purchase/login.html"
-		        }
-		    }
+		.state('purchase-login', {
+		    url: '/purchase/login',
+		    templateUrl: "views/purchase/login.html",
+		    controller: 'purLoginCtrl'
 		})
-		.state('purchase.register', {
-		    url: '/register',
-		    views:{
-		        'purchase-login':{
-		            templateUrl: "views/purchase/register.html"
-		        }
-		    }
+		.state('purchase-egister', {
+		    url: '/purchase/register',
+		    templateUrl: "views/purchase/register.html",
+		    controller: 'purRegisterCtrl'
 		})
 		.state('purchase.publish', {
 		    url: '/publish',

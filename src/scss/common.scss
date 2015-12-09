@@ -12,6 +12,11 @@
 .button-round {
   border-radius: 30px;
 }
+.button-round-space {
+  @extend .button-round;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .button-avatar {
   &:after {
     border: 1px solid $main-orange;
@@ -52,7 +57,7 @@
 
 // 错误提示
 .error_tip {
-  @include position-basic(fixed, bottom, 40px, left, 50%);
+  @include position-basic(fixed, bottom, 60px, left, 50%);
   width: 180px;
   color: #fff;
   background: rgba(0, 0, 0, .7);
@@ -71,8 +76,8 @@
 }
 
 // 颜色
-@include color('gray_light', '#bbb');
-@include color('gray_mid', '#666');
+@include color('gray_light', '#666');
+@include color('gray_mid', '#343434');
 @include color('green', '#1b9f60');
 @include color('orange', '#ff6c21');
 @include color('blue', '#1baee4');

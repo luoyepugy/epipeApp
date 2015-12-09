@@ -2,18 +2,18 @@
 <ion-view  view-title="我要采购">
     <ion-content>
         <div class="icon-center mt20"><i class="ion-ios-cart-outline energized"></i></div>
-        <ion-list class="list list-inset card list-round">
+        <ion-list class="list list-inset card list-round j-form">
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="name" placeholder="商品名称" ng-model="product.name" value="{{product.name}}" data-empty="请输入商品名称" />
         	</ion-item>
         	<ion-item class="item-input">
-				<input type="text" class="j-input" name="num" placeholder="数量" ng-model="product.name" value="{{product.num}}" data-empty="请输入商品数量" />
+				<input type="text" class="j-input" name="num" placeholder="数量" ng-model="product.num" value="{{product.num}}" data-empty="请输入商品数量" />
         	</ion-item>
         	<ion-item class="item-input">
 				<input type="text" name="location" placeholder="地点" ng-model="product.location" value="{{product.location}}" />
         	</ion-item>
             <ion-item>
-                <a href="#/purchase/list" class="button button-full button-energized button-round">发布采购</a>
+                <button class="button button-full button-energized button-round" ng-click="submit()">发布采购</button>
             </ion-item>
         </ion-list>
     </ion-content>

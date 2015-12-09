@@ -1,1 +1,1 @@
-define(["./module"],function(n){n.controller("purPublishCtrl",["$scope",function(n){}])});
+define(["./module"],function(t){t.controller("purPublishCtrl",["$scope","validateService","httpService","messageService","$state",function(t,e,i,n,o){t.submit=function(){var t,s;if(t=e.isEmpty(".j-form .j-input"),1!==t)return n.show(t),!1;s=e.submitData(".j-form");var r=i.getData("./json/login.json",s);r.then(function(t){n.show("发布采购成功"),o.go("purchase.list")},function(t){n.show(t)})}}])});

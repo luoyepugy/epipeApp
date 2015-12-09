@@ -9,16 +9,17 @@
         <ion-list class="list list-inset list-space">
             <ion-item class="purchase-item" ng-repeat="item in list">
                 <span class="black elimit13 db">{{item.name}}</span>
-                <span class="badge badge-assertive fr" ng-show="{true: flase, false: true}[item.logistics]">{{item.offerNum}}</span>
+                <span class="badge badge-assertive fr" ng-show="{null: true, false: false, true: false}[item.status]">{{item.offerNum}}</span>
                 <p>
                     <span>数量：{{item.num}}</span>
                     <span class="fr blue" ng-if="{null: false, '已完成': true, '待支付': true}[item.status]">{{item.status}}</span>
-                    <a class="fr blue" href="#/purchase/offer" ng-if="{null: true}[item.status]">商家报价</a>
+                    <span class="fr blue" ng-if="{null: true}[item.status]" ng-click="offer()">商家报价</span>
                 </p>
                 <p>
                     <span class="gray_mid mr10">{{item.time}}</span>
-                    <a href="#/purchase/logistics" class="green">{{item.logistics ? '物流追踪' : ''}}</a>
+                    <span class="green" ng-click="logistics()">{{item.status === null ? '': '物流追踪'}}</span>
                 </p>
+                <input type="hidden" name="id" value="{{item.id}}" ng-model="item.id" />
             </ion-item>
         </ion-list>
         <ion-infinite-scroll 

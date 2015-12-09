@@ -6,58 +6,52 @@
         "items": 
         [
             {
-                "id": 1,
+                "id": "1",
                 "name": "高密度聚乙烯HDPE独山子48025555",
                 "status": "待支付",
-                "offerNum": "13",
+                "offerNum": "3",
                 "num": "3吨",
-                "time": "2014-11-20",
-                "logistics": true
+                "time": "2014-11-20"
             },
             {
-                "id": 2,
+                "id": "2",
                 "name": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
                 "status": "已完成",
                 "offerNum": "3",
                 "num": "3吨",
-                "time": "2014-11-20",
-                "logistics": true
+                "time": "2014-11-20"
             },
             {
-                "id": 3,
+                "id": "3",
                 "name": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
                 "status": null,
-                "offerNum": "23",
+                "offerNum": "0",
                 "num": "3吨",
-                "time": "2014-11-20",
-                "logistics": false
+                "time": "2014-11-20"
             },
             {
-                "id": 4,
+                "id": "4",
                 "name": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
                 "status": "已完成",
                 "offerNum": "103",
                 "num": "3吨",
-                "time": "2014-11-20",
-                "logistics": true
+                "time": "2014-11-20"
             },
             {
-                "id": 5,
+                "id": "5",
                 "name": "高密度聚乙烯HDPE独山子48025555高密度聚乙烯HDPE独山子48025555",
                 "status": "待支付",
                 "offerNum": "3",
                 "num": "3吨",
-                "time": "2014-11-20",
-                "logistics": true
+                "time": "2014-11-20"
             },
             {
-                "id": 6,
+                "id": "6",
                 "name": "高密度聚乙烯HDPE独山子48025555",
                 "status": null,
                 "offerNum": "103",
                 "num": "3吨",
-                "time": "2014-11-20",
-                "logistics": false
+                "time": "2014-11-20"
             }        
         ]
     }

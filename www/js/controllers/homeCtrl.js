@@ -1,1 +1,1 @@
-define(["./module"],function(o){o.controller("homeCtrl",["$scope",function(o){}])});
+define(["./module"],function(n){n.controller("homeCtrl",["$scope","httpService","$state","messageService",function(n,o,e,t){var i="./json/login.json";n.login=function(){var n=o.getData(i);n.then(function(n){n.login?e.go("purchase.publish"):e.go("purchase-login")},function(n){t.show(n)})}}])});
