@@ -1,1 +1,1 @@
-define(["./module"],function(e){e.controller("purUserCtrl",["$scope","userService",function(e,r){e.user=r.user}])});
+define(["./module"],function(e){e.controller("purUserCtrl",["$scope","userService","validateService","messageService","httpService","$state",function(e,r,t,n,o,s){e.user=r.user,e.submit=function(){var e,i;if(e=t.isEmpty(".j-form .j-input"),1!==e)return n.show(e),!1;i=t.submitData(".j-form");var u=o.getData("./json/login.json",i);u.then(function(e){n.show("修改成功"),r.user=i,s.go("purchase.userInfo")},function(e){n.show(e)})}}])});

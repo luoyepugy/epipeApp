@@ -1,10 +1,9 @@
 
 define(['./module'], function(controllers) {
 	controllers.controller('purLoginCtrl',
-		['$scope','validateService', 'httpService', 'messageService', '$state',
-		function($scope, validateService, httpService, messageService, $state){
+		['$scope','validateService', 'httpService', 'messageService', '$state', 'userService',
+		function($scope, validateService, httpService, messageService, $state, userService){
 		$scope.submit = function() {
-			var valid = $scope.valid;
 			var resultsIsEmpty,
 				resultsDatas;
 			resultsIsEmpty = validateService.isEmpty('.j-form .j-input');
@@ -12,18 +11,15 @@ define(['./module'], function(controllers) {
 				messageService.show(resultsIsEmpty);
 				return false;
 			}
-			if(valid) {
-				resultsDatas = validateService.submitData('.j-form');
-				var promise = httpService.getData('./json/login.json', resultsDatas);
-			    promise.then(function(data) {
-			    	messageService.show('登录成功');
-			    	$state.go('purchase.publish');
-			    }, function(data) {
-			    	messageService.show(data);
-			    });
-			}　else {
-				return false;
-			}
+			resultsDatas = validateService.submitData('.j-form');
+			var promise = httpService.getData('./json/login.json', resultsDatas);
+		    promise.then(function(data) {
+		    	messageService.show('登录成功');
+		    	userService.user = resultsDatas;
+		    	$state.go('purchase.publish');
+		    }, function(data) {
+		    	messageService.show(data);
+		    });
 		};
 	}]);
 });

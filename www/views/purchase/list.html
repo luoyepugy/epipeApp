@@ -7,17 +7,17 @@
               on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list class="list list-inset list-space">
-            <ion-item class="purchase-item" ng-repeat="item in list">
+            <ion-item class="purchase-item" ng-repeat="item in list" ng-click="listDetail()">
                 <span class="black elimit13 db">{{item.name}}</span>
-                <span class="badge badge-assertive fr" ng-show="{null: true, false: false, true: false}[item.status]">{{item.offerNum}}</span>
+                <span class="badge badge-assertive fr" ng-if="{null: true, '已完成': false, '待支付': false}[item.status]">{{item.offerNum}}</span>
                 <p>
                     <span>数量：{{item.num}}</span>
                     <span class="fr blue" ng-if="{null: false, '已完成': true, '待支付': true}[item.status]">{{item.status}}</span>
-                    <span class="fr blue" ng-if="{null: true}[item.status]" ng-click="offer()">商家报价</span>
+                    <span class="fr blue" ng-if="{null: true, '已完成': false, '待支付': false}[item.status]">商家报价</span>
                 </p>
                 <p>
                     <span class="gray_mid mr10">{{item.time}}</span>
-                    <span class="green" ng-click="logistics()">{{item.status === null ? '': '物流追踪'}}</span>
+                    <span class="green"　ng-if="{null: false, '已完成': true, '待支付': true}[item.status]">物流追踪<i class="iconfont ml5 icon-truck f20"></i></span>
                 </p>
                 <input type="hidden" name="id" value="{{item.id}}" ng-model="item.id" />
             </ion-item>

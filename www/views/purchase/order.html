@@ -1,17 +1,18 @@
 
 <ion-view  view-title="采购单">
     <ion-content>
+        <div class="icon-needle"></div>
         <ion-list class="list list-inset card list-round order-mutual">
             <ion-item class="tc orange bg-grid">订单</ion-item>
             <ion-item class="row row-center">
                 <div class="col col-50 tc">
-                    <p><button class="button icon button-icon button-clear ion-ios-person-outline button-energized button-avatar"></button></p>
+                    <p><button class="button button-clear button-energized iconfont">&#xe600;</button></p>
                     <p>{{purchase.name}}</p>
                     <p>TEL：{{purchase.tel}}</p> 
                 </div>
-                <div class="col col-10"><i class="ion-heart red"></i></div>
+                <div class="col col-10 tc"><i class="iconfont green icon-woshou"></i></div>
                 <div class="col col-50 tc">
-                    <p><button class="button icon button-icon button-clear ion-ios-person-outline button-energized button-avatar"></button></p>
+                    <p><button class="button button-clear button-energized iconfont icon-user"></button></p>
                     <p>{{offer.name}}</p>
                     <p>TEL：{{offer.tel}}</p> 
                 </div>

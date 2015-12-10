@@ -17,14 +17,7 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-.button-avatar {
-  &:after {
-    border: 1px solid $main-orange;
-    border-radius: 25px;
-    @include size(40px);
-    display: block;
-  }
-}
+
 // 圆角列表
 .list-round {
   border-radius: 10px;
@@ -78,7 +71,7 @@
 // 颜色
 @include color('gray_light', '#bbb');
 @include color('gray_mid', '#343434');
-@include color('green', '#1b9f60');
+@include color('green', '#24ccab');
 @include color('orange', '#ff6c21');
 @include color('blue', '#1baee4');
 @include color('red');

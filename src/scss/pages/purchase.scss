@@ -3,7 +3,22 @@
 @import "../custom/mixin";
 @import "ios-picker";
 
-
+.mt-5 {
+  margin-top: -5px;
+}
+// 图标
+.icon-sprite {
+  background-image: url('../../images/icon.png');
+  @include size(90px,80px);
+  background-repeat: no-repeat;
+  display: block;
+}
+.icon-needle {
+  @extend .icon-sprite;
+  background-position: 0 0;
+  @include position-basic(absolute, left, 10px,top, -20px);
+  z-index: 3;
+}
 // ==================================
 // ============= 发布采购 ============
 // ==================================
@@ -31,30 +46,30 @@
   .item-radio {
     border: 0;
   }
-  .button-avatar {
-    @include position-basic(absolute, left, 30px, top, 25px);
-    &:after {
-      @include position-basic(absolute, left, -5px, top, 0);
-    }
-  } 
+  .iconfont {
+    @include position-basic(absolute, left, 25px, top, 25px);
+    font-size: 32px;
+  }
   .button.button-choice {
     left: auto;
     right: 5px;
   }
 }
 .sawtooth {
-  @include gradient-sawtooth(#fff, 10px);
   @include size(100%, 7px);
+  background-image: url('../../images/sawtooth.png');
+  background-repeat: repeat-x;
+  position: relative;
+  z-index: 3;
 }
 
 // ==================================
 // ============= 订单双方 ============
 // ==================================
 .order-mutual {
-  .button-avatar {
-    &:after {
-      @include position-basic(relative, left, 0, top, -40px);
-    }
+  margin: 30px;
+  .iconfont {
+    font-size: 32px;
   }
   .item p{
     white-space: normal;
