@@ -21,6 +21,6 @@ define(['./module'], function(controllers) {
 		    }, function(data) {
 		    	messageService.show(data);
 		    });
-		}
+		};
 	}]);
 });
