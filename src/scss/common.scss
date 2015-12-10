@@ -2,12 +2,6 @@
 @import 'custom/custom.scss';
 @import 'custom/mixin.scss';
 
-// 字符长度限制
-@include elimit(13);
-
-// 图片大小
-@include size-icon(90);
-
 // 圆角按钮
 .button-round {
   border-radius: 30px;
@@ -41,13 +35,6 @@
   white-space: normal;
 }
 
-// 分割线
-.division {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #ddd;
-}
-
 // 错误提示
 .error_tip {
   @include position-basic(fixed, bottom, 60px, left, 50%);
@@ -61,11 +48,6 @@
   margin-left: -90px;
   font-size: .9em;
   z-index: 10;
-}
-
-// 链接
-.link-green {
-  @include link(#33cd5f);
 }
 
 // 颜色

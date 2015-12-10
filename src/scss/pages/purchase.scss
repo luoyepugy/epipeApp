@@ -37,6 +37,11 @@
     @include position();
     @include size(100%);
   }
+  .ellipsis {
+    @include overflow(ellipsis);
+    width: calc(100% - 60px);
+    display: block;
+  }
 }
 
 // ==================================
