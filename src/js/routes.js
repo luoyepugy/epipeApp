@@ -11,13 +11,13 @@ define(['./app'], function (app) {
 
 		.state('purchase-login', {
 		    url: '/purchase/login',
-		    templateUrl: "views/purchase/login.html",
-		    controller: 'purLoginCtrl'
+		    templateUrl: "views/purchase/login.html"
+		    // controller: 'purLoginCtrl'
 		})
 		.state('purchase-register', {
 		    url: '/purchase/register',
-		    templateUrl: "views/purchase/register.html",
-		    controller: 'purRegisterCtrl'
+		    templateUrl: "views/purchase/register.html"
+		    // controller: 'purRegisterCtrl'
 		})
 
 		.state('purchase', {
@@ -46,8 +46,8 @@ define(['./app'], function (app) {
 		    url: '/editUser',
 		    views:{
 		        'purchase-userInfo':{
-		            templateUrl: "views/purchase/editUser.html",
-		            controller: 'purUserCtrl'
+		            templateUrl: "views/purchase/editUser.html"
+		            // controller: 'purUserCtrl'
 		        }
 		    }
 		})
@@ -55,8 +55,8 @@ define(['./app'], function (app) {
 		    url: '/publish',
 		    views:{
 		        'purchase-publish':{
-		            templateUrl: "views/purchase/publish.html",
-		            controller: 'purPublishCtrl'
+		            templateUrl: "views/purchase/publish.html"
+		            // controller: 'purPublishCtrl'
 		        }
 		    }
 		})
