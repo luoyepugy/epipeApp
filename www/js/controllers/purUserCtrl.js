@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.controller("purUserCtrl",["$scope","userService",function(e,r){e.user=r.user}])});

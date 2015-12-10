@@ -8,27 +8,7 @@ define(['./app'], function (app) {
 		    templateUrl: "views/home.html",
 		    controller: 'homeCtrl'
 		})
-		.state('purchase', {
-			url: "/purchase",
-		    "abstract": true,
-		    templateUrl: "views/purchase/purchase.html"
-		})
-		.state('purchase.userInfo', {
-		    url: '/userInfo',
-		    views:{
-		        'purchase-userInfo':{
-		            templateUrl: "views/purchase/userInfo.html"
-		        }
-		    }
-		})
-		.state('purchase.editUser', {
-		    url: '/editUser',
-		    views:{
-		        'purchase-userInfo':{
-		            templateUrl: "views/purchase/editUser.html"
-		        }
-		    }
-		})
+
 		.state('purchase-login', {
 		    url: '/purchase/login',
 		    templateUrl: "views/purchase/login.html",
@@ -38,6 +18,30 @@ define(['./app'], function (app) {
 		    url: '/purchase/register',
 		    templateUrl: "views/purchase/register.html",
 		    controller: 'purRegisterCtrl'
+		})
+
+		.state('purchase', {
+			url: "/purchase",
+		    "abstract": true,
+		    templateUrl: "views/purchase/purchase.html"
+		})
+		.state('purchase.userInfo', {
+		    url: '/userInfo',
+		    views:{
+		        'purchase-userInfo':{
+		            templateUrl: "views/purchase/userInfo.html",
+		            controller: 'purUserCtrl'
+		        }
+		    }
+		})
+		.state('purchase.editUser', {
+		    url: '/editUser',
+		    views:{
+		        'purchase-userInfo':{
+		            templateUrl: "views/purchase/editUser.html",
+		            controller: 'purUserCtrl'
+		        }
+		    }
 		})
 		.state('purchase.publish', {
 		    url: '/publish',
@@ -80,6 +84,14 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/pay.html"
+		        }
+		    }
+		})
+		.state('purchase.payHelp', {
+		    url: '/payHelp',
+		    views:{
+		        'purchase-list':{
+		            templateUrl: "views/purchase/payHelp.html"
 		        }
 		    }
 		})

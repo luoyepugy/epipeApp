@@ -3,13 +3,13 @@
     <ion-content class="userInfo">
     	<div class="avatar">
     		<div class="icon-center"><i class="ion-ios-person-outline energized"></i></div>
-    		<div class="white tc mt10">burce-ko@163.com</div>
+    		<div class="white tc mt10">{{user.email}}</div>
     	</div>
         <ion-list>
-        	<ion-item class="gray_mid">
-        		<div class="mb10">公司：深圳市市政工程总公司</div>
-        		<div class="mb10">电话：13008885248</div>
-        		<div>邮箱：burce-ko@163.com</div>
+        	<ion-item class="gray_mid border0">
+        		<div class="mb10">公司：{{user.company}}</div>
+        		<div class="mb10">电话：{{user.phone}}</div>
+        		<div>邮箱：{{user.email}}</div>
         		<p class="tr"><a href="#/purchase/editUser" class="button button-icon icon ion-ios-compose-outline blue"></a></p>
         	</ion-item>
         </ion-list>

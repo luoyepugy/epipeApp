@@ -12,7 +12,6 @@ define(['./module'], function(controllers) {
 				messageService.show(resultsIsEmpty);
 				return false;
 			}
-			console.log(valid);
 			if(valid) {
 				resultsDatas = validateService.submitData('.j-form');
 				var promise = httpService.getData('./json/login.json', resultsDatas);

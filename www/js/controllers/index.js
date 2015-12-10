@@ -1,1 +1,1 @@
-define(["./homeCtrl","./purPublishCtrl","./purListCtrl","./purOfferCtrl","./purOrderCtrl","./purLogisticsCtrl","./purLoginCtrl","./purRegisterCtrl"],function(){});
+define(["./homeCtrl","./purPublishCtrl","./purListCtrl","./purOfferCtrl","./purOrderCtrl","./purLogisticsCtrl","./purLoginCtrl","./purRegisterCtrl","./purUserCtrl"],function(){});

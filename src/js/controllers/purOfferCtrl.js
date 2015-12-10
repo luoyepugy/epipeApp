@@ -1,14 +1,11 @@
 
 define(['./module'], function(controllers) {
 	controllers.controller('purOfferCtrl',
-		['$scope', '$ionicLoading', 'httpService', 'messageService',
-		function($scope, $ionicLoading, httpService, messageService){
+		['$scope', '$ionicLoading', 'httpService', 'messageService', '$state',
+		function($scope, $ionicLoading, httpService, messageService, $state){
 
 		// 最后一个item的id
-		var lastId = 0;
 		var baseUrl = './json/purchase-offer.json';
-		// 更多数据判断
-		$scope.hasMore = true;
 
 		// 预加载
 	    $ionicLoading.show({
@@ -27,7 +24,27 @@ define(['./module'], function(controllers) {
 
 	    // 选择商家
 	    $scope.order = function() {
-	    	console.log($scope.choiceOffer.value);
+	    	var radios = document.getElementsByName('choiceOffer');
+	    	var choice;
+	    	for(var i = 0; i < radios.length; i++) {
+	    		if(radios[i].checked) {
+	    			choice = radios[i].value;
+	    		}
+	    	}
+	    	if(choice !== null && choice !== undefined) {
+	    		// 预加载
+			    $ionicLoading.show({
+			        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
+			        duration: 3000
+			    });
+		    	httpService.getData('./json/login.json', {"choiceId": choice})
+			    .then(function(data) {
+			    	$ionicLoading.hide();
+			    	$state.go('purchase.order');
+			    }, function(data) {
+			    	messageService.show(data);
+			    });
+	    	}
 	    };
 
 	    // 换一批商家

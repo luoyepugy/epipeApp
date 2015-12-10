@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.factory("userService",function(){var e={};return e.user={company:"深圳市市政工程总公司",id:"77878556999",password:"1234",phone:"13008885784",email:"burce-ko@163.com"},e})});
