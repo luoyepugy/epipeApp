@@ -7,17 +7,10 @@ define(['./module'], function(controllers) {
 		// 最后一个item的id
 		var baseUrl = './json/purchase-offer.json';
 
-		// 预加载
-	    $ionicLoading.show({
-	        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
-	        duration: 3000
-	    });
-
 	    // 初始化
 	    var promise = httpService.getData(baseUrl);
 	    promise.then(function(data) {
 	    	var datas = data.data;
-	    	$ionicLoading.hide();
 	    	$scope.product = datas.product;
 	    	$scope.list = datas.offer;
 	    });
@@ -32,14 +25,8 @@ define(['./module'], function(controllers) {
 	    		}
 	    	}
 	    	if(choice !== null && choice !== undefined) {
-	    		// 预加载
-			    $ionicLoading.show({
-			        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
-			        duration: 3000
-			    });
 		    	httpService.getData('./json/login.json', {"choiceId": choice})
 			    .then(function(data) {
-			    	$ionicLoading.hide();
 			    	$state.go('purchase.order');
 			    }, function(data) {
 			    	messageService.show(data);
@@ -49,15 +36,9 @@ define(['./module'], function(controllers) {
 
 	    // 换一批商家
 	    $scope.changeOffer = function()　{
-	    	// 预加载
-		    $ionicLoading.show({
-		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>',
-		        duration: 3000
-		    });
 	    	httpService.getData('./json/purchase-offerChange.json')
 		    .then(function(data) {
 		    	var datas = data.data;
-		    	$ionicLoading.hide();
 		    	$scope.list = datas.offer;
 		    }, function(data) {
 		    	messageService.show(data);

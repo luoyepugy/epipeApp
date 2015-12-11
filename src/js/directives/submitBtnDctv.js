@@ -1,8 +1,8 @@
 
 define(['./module'], function(directives) {
 	directives.directive('submitButton', 
-		['httpService', '$ionicLoading', 'messageService', 'validateService', '$state',
-		function(httpService, $ionicLoading ,messageService,validateService, $state) {
+		['httpService', 'messageService', 'validateService', '$state',
+		function(httpService, messageService,validateService, $state) {
 		return {
 			restrict: 'E',
 			template: '<button class="button button-full button-energized button-round">{{text}}</button>',
@@ -19,6 +19,8 @@ define(['./module'], function(directives) {
 				var resultsIsEmpty,
 					resultsDatas;
 				element.bind('click', function() {
+					var form = this.closest('form');
+					
 					resultsIsEmpty = validateService.isEmpty('.j-form .j-input');
 					if(resultsIsEmpty !== 1) {
 						messageService.show(resultsIsEmpty);
@@ -26,9 +28,9 @@ define(['./module'], function(directives) {
 					}
 
 					resultsDatas = validateService.submitData('.j-form');
-                    if (resultsDatas.email !== null && resultsDatas.email !== undefined && !email_regexp.test(resultsDatas.email) == true) {
+                    if (resultsDatas.email !== null && resultsDatas.email !== undefined && email_regexp.test(resultsDatas.email) === false) {
                     	messageService.show('请输入正确的邮箱格式');
-					} else if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && !phone_regexp.test(resultsDatas.phone) == true) {
+					} else if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
 						messageService.show('请输入正确的手机号码格式');
 					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {
 						messageService.show('两次密码输入不一致');

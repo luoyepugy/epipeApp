@@ -1,2 +1,2 @@
 
-define(['./offerDctv', './submitBtnDctv', './backBtnDctv', './valiEmailDctv', './valiMobileDctv', './dropdownListDctv'], function() {});
+define(['./offerDctv', './submitBtnDctv', './backBtnDctv', './dropdownListDctv'], function() {});
