@@ -17,6 +17,7 @@ define(['./module'], function(directives) {
 				element.bind('click', function() {
 					resultsIsEmpty = validateService.isEmpty('.j-form .j-input');
 					if(resultsIsEmpty !== 1) {
+						console.log(resultsIsEmpty);
 						messageService.show(resultsIsEmpty);
 						return false;
 					}

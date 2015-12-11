@@ -5,9 +5,11 @@ define(['./module'], function(directives) {
 			restrict: 'AE',
             template: '<div>' +
                         '<input type="text" class="{{inputClass}}"　 name="{{name}}" placeholder="{{placeholder}}" ng-model="val" value="{{val}}"  data-empty="{{empty}}" />' +
-                        '<ul class="downList" ng-if="downListShow">' +
-                            '<li ng-click="choiceItem()" ng-repeat="item in list">{{item.name}}</li>' +
-                        '</ul>' +
+                        '<ion-scroll class="downList" ng-if="downListShow">' +
+                            '<ul>' +
+                                '<li ng-click="choiceItem()" ng-repeat="item in list">{{item.name}}</li>' +
+                            '</ul>' +
+                        '</ion-scroll>' +
                       '</div>',
             replace: true,
             scope: {
