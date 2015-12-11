@@ -33,6 +33,22 @@
 }
 
 
+// height生成器
+//
+// 参数列表依次为（间距值、开始值、结束值）,值不带单位，默认为px
+// 可以在样式表中引用生成的class（ex .w200）
+//
+
+@mixin height($step, $start, $end, $unit: px) {
+  $n: $start;
+  @while $n <= $end {
+    .h#{$n} {
+      height: #{$n}#{$unit};
+      $n: $n + $step;
+    }
+  }
+}
+
 
 // padding生成器
 //

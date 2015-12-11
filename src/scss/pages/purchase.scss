@@ -3,6 +3,45 @@
 @import "../custom/mixin";
 @import "ios-picker";
 
+// 购物车和支付图标
+.icon-center {
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 3.5em;
+  @include inside-center(80px);
+  @include outside-center();
+}
+// 0边框
+.border0 {
+  border: 0;
+}
+// 格子背景
+.bg-grid {
+  @include gradient-grid(#f3f3f3, 10px, 1px, #fff);
+}
+// 边框锯齿
+.sawtooth {
+  @include size(100%, 7px);
+  background-image: url('../../images/sawtooth.png');
+  background-repeat: repeat-x;
+  position: relative;
+  z-index: 3;
+}
+// 修改默认底部tabs
+.purchase.tabs-striped.tabs-stable .tab-item.tab-item-active, 
+.purchase.tabs-striped.tabs-stable .tab-item.active, 
+.purchase.tabs-striped.tabs-stable .tab-item.activated {
+  border-color: $main-orange;
+  color: $main-orange;
+}
+.purchase.tabs-striped.tabs-stable .tabs {
+  border-top: 1px solid #ccc;
+}
+.purchase .list {
+  background: transparent;
+}
+// 外边距
 .mt-5 {
   margin-top: -5px;
 }
@@ -20,19 +59,20 @@
   z-index: 3;
 }
 // ==================================
-// ============= 发布采购 ============
+// ============= 采购列表 ============
 // ==================================
-// 购物车和支付图标
-.icon-center {
-  border-radius: 40px;
-  overflow: hidden;
-  background-color: #fff;
-  font-size: 3.5em;
-  @include inside-center(80px);
-  @include outside-center();
-}
-// 采购列表项目
-.purchase-item {
+.purchase-list {
+  .item {
+    border-radius: 10px;
+  }
+  .item:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .item:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
   .item-a {
     @include position();
     @include size(100%);
@@ -47,7 +87,10 @@
 // ==================================
 // ============ 报价商家列表 ==========
 // ==================================
-.offer-item {
+.offer {
+  .item h2 {
+    white-space: normal;
+  }
   .item-radio {
     border: 0;
   }
@@ -59,13 +102,6 @@
     left: auto;
     right: 5px;
   }
-}
-.sawtooth {
-  @include size(100%, 7px);
-  background-image: url('../../images/sawtooth.png');
-  background-repeat: repeat-x;
-  position: relative;
-  z-index: 3;
 }
 
 // ==================================
@@ -85,9 +121,6 @@
     max-width: 45%;
   }
 }
-.bg-grid {
-  @include gradient-grid(#f3f3f3, 10px, 1px);
-}
 
 // ==================================
 // ============= 物流追踪 ============
@@ -101,15 +134,12 @@
     border-left: 1px solid #ccc;
     display: block;
     width: 1px;
-    height: 100px;
+    height: 150px;
     margin-right: -7px;
   }
-}
-.border0 {
-  border: 0;
-}
-.border-bottom {
-  border-bottom: 2px solid #eee;
+  .border-bottom {
+    border-bottom: 2px solid #eee;
+  }
 }
 
 // ==================================

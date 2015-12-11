@@ -25,20 +25,20 @@ define(['./app'], function (app) {
 		    "abstract": true,
 		    templateUrl: "views/purchase/purchase.html"
 		})
-		.state('purchase.changePwd', {
-		    url: '/changePwd',
-		    views:{
-		        'purchase-publish':{
-		            templateUrl: "views/purchase/changePwd.html"
-		        }
-		    }
-		})
 		.state('purchase.userInfo', {
 		    url: '/userInfo',
 		    views:{
 		        'purchase-userInfo':{
 		            templateUrl: "views/purchase/userInfo.html",
 		            controller: 'purUserCtrl'
+		        }
+		    }
+		})
+		.state('purchase.changePwd', {
+		    url: '/changePwd',
+		    views:{
+		        'purchase-userInfo':{
+		            templateUrl: "views/purchase/changePwd.html"
 		        }
 		    }
 		})

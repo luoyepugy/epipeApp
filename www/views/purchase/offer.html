@@ -1,6 +1,6 @@
 
 <ion-view  view-title="采购单">
-    <ion-content>
+    <ion-content class="offer">
         <ion-list>
             <ion-item class="item item-button-left border0">
                 <button class="button icon button-icon button-clear ion-ios-cart-outline button-dark"></button>
@@ -11,7 +11,7 @@
             <p class="sawtooth"></p>
         </ion-list>
         <ion-list class="list list-inset card mt-5">
-        	<ion-item class="item item-button-left offer-item" ng-repeat="item in list">
+        	<ion-item class="item item-button-left" ng-repeat="item in list">
         	    <button class="button button-clear button-energized iconfont icon-user"></button>
         		<ion-radio name="choiceOffer" ng-model="choiceOffer" ng-value="{{item.id}}" class="energized">
 	                <h2>{{item.name}}</h2>

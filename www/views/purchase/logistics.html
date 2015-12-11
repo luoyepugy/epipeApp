@@ -9,7 +9,10 @@
                 <p>商品：<span class="black">{{product.name}}</span></p>
         	</ion-item>
             <ion-item ng-repeat="item in list" class="item-button-left border0 logistics">
-                <div class="button button-clear"><i class="line"></i><i ng-class="{true: 'ion-ios-circle-filled assertive', false: 'ion-ios-circle-filled'}[item.current]"></i></div>
+                <div class="button button-clear h100">
+                    <i class="line"></i>
+                    <i ng-class="{true: 'ion-ios-circle-filled assertive', false: 'ion-ios-circle-filled'}[item.current]"></i>
+                </div>
                 <p>{{item.time}}</p>
                 <p><span ng-class="{true: 'green', false: 'gray_mid'}[item.current]">{{item.content}}</span></p>
             </ion-item>
