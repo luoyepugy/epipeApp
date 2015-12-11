@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.controller("purChangePwdCtrl",["$scope","userService",function(e,r){e.user={},e.user.oldPwd=r.user.password}])});

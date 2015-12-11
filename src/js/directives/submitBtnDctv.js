@@ -1,17 +1,13 @@
 
 define(['./module'], function(directives) {
 	directives.directive('submitButton', 
-		['httpService', 'messageService', 'validateService', '$state',
-		function(httpService, messageService,validateService, $state) {
+		['httpService', 'messageService', 'validateService', '$state', 'userService',
+		function(httpService, messageService,validateService, $state, userService) {
 		return {
 			restrict: 'E',
 			template: '<button class="button button-full button-energized button-round">{{text}}</button>',
 			replace: true,
-			scope: {
-				action: '@',
-				state: '@',
-				text: '@'
-			},
+			scope: {},
 			link: function(scope, element, attrs) {
 				scope.text = attrs.text;
 				var email_regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -19,8 +15,6 @@ define(['./module'], function(directives) {
 				var resultsIsEmpty,
 					resultsDatas;
 				element.bind('click', function() {
-					var form = this.closest('form');
-					
 					resultsIsEmpty = validateService.isEmpty('.j-form .j-input');
 					if(resultsIsEmpty !== 1) {
 						messageService.show(resultsIsEmpty);
@@ -39,6 +33,10 @@ define(['./module'], function(directives) {
 					    promise.then(function(data) {
 					    	messageService.show(data.message);
 					    	$state.go(attrs.state);
+					    	if(attrs.user === 'true') {
+					    		userService.user = scope.$parent.user;
+					    		console.log(userService.user);
+					    	}
 					    }, function(data) {
 					    	messageService.show(data);
 					    });

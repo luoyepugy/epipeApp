@@ -2,19 +2,18 @@
 <ion-view  view-title="编辑资料">
     <ion-content>
         <div class="icon-center mt20"><i class="ion-person-add energized"></i></div>
-        <ion-list class="list list-inset card list-round">
+        <ion-list class="list list-inset card list-round j-form">
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="email" placeholder="邮箱" ng-model="user.email" value="{{user.email}}" data-empty="请输入邮箱" />
         	</ion-item>
         	<ion-item class="item-input">
-				<input type="text" name="phone" placeholder="电话号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入电话号码" />
+				<input type="text" class="j-input" name="phone" placeholder="电话号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入电话号码" />
         	</ion-item>
             <ion-item class="item-input">
-                <input type="text" name="company" placeholder="公司名称" ng-model="user.company" value="{{user.company}}" data-empty="请输入公司名称" />
+                <input type="text" class="j-input" name="company" placeholder="公司名称" ng-model="user.company" value="{{user.company}}" data-empty="请输入公司名称" />
             </ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存"></submit-button>
-                <!-- <span href="#" class="button button-full button-energized button-round" ng-click="submit()">提交保存</span> -->
+                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存" user="true"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

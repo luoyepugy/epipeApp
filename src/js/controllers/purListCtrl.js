@@ -9,7 +9,8 @@ define(['./module'], function(controllers) {
 		var baseUrl = './json/purchase-list.json';
 		// 更多数据判断
 		$scope.hasMore = true;
-
+		$scope.list = [];
+		
 	    // 初始化
 	    var promise = httpService.getData(baseUrl);
 	    promise.then(function(data) {

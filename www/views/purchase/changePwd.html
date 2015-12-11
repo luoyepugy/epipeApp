@@ -12,8 +12,7 @@
                 <input type="password" class="j-input" name="confirmPwd" ng-model="user.confirmPwd" placeholder="请再次输入新密码" value="" data-empty="请再次输入新密码" />
             </ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存"></submit-button>
-                <!-- <span class="button button-full button-energized button-round" ng-click="submit()">提交保存</span> -->
+                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存" user="true"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

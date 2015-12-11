@@ -38,7 +38,8 @@ define(['./app'], function (app) {
 		    url: '/changePwd',
 		    views:{
 		        'purchase-userInfo':{
-		            templateUrl: "views/purchase/changePwd.html"
+		            templateUrl: "views/purchase/changePwd.html",
+		            controller: 'purChangePwdCtrl'
 		        }
 		    }
 		})
@@ -46,8 +47,8 @@ define(['./app'], function (app) {
 		    url: '/editUser',
 		    views:{
 		        'purchase-userInfo':{
-		            templateUrl: "views/purchase/editUser.html"
-		            // controller: 'purUserCtrl'
+		            templateUrl: "views/purchase/editUser.html",
+		            controller: 'purUserCtrl'
 		        }
 		    }
 		})

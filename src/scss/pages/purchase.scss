@@ -3,6 +3,25 @@
 @import "../custom/mixin";
 @import "ios-picker";
 
+// 下拉列表
+.downList {
+  @include size(100%, 200px);
+  border: 1px solid #ccc;
+  @include position-basic(relative, top, 25px, left, 0);
+  background: #eee;
+  z-index: 10;
+  li {
+    line-height: 35px;
+    padding-left: 5px;
+    width: 100%;
+    border: 1px solid black;
+  }
+}
+// .downList-item {
+//   line-height: 35px;
+//   padding-left: 5px;
+//   width: 100%;
+// }
 // 购物车和支付图标
 .icon-center {
   border-radius: 40px;
@@ -36,7 +55,7 @@
   color: $main-orange;
 }
 .purchase.tabs-striped.tabs-stable .tabs {
-  border-top: 1px solid #ccc;
+  border-top: 2px solid #ccc;
 }
 .purchase .list {
   background: transparent;
@@ -138,7 +157,7 @@
     margin-right: -7px;
   }
   .border-bottom {
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #ccc;
   }
 }
 
