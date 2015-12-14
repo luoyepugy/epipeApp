@@ -22,20 +22,6 @@
     }
   }
 }
-.purchase-publish {
-  position: relative;
-  z-index: 1;
-  .item {
-    z-index: 2;
-  }
-  .first {
-    z-index: 3;
-    overflow: visible;
-  }
-  .downList {
-    z-index: 5;
-  }
-}
 // 购物车和支付图标
 .icon-center {
   border-radius: 40px;
@@ -91,6 +77,25 @@
   @include position-basic(absolute, left, 10px,top, -20px);
   z-index: 3;
 }
+
+// ==================================
+// ============= 发布采购 ============
+// ==================================
+.purchase-publish {
+  position: relative;
+  z-index: 1;
+  .item {
+    z-index: 2;
+  }
+  .first {
+    z-index: 3;
+    overflow: visible;
+  }
+  .downList {
+    z-index: 5;
+  }
+}
+
 // ==================================
 // ============= 采购列表 ============
 // ==================================
