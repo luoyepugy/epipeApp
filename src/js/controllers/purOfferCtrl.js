@@ -1,8 +1,8 @@
 
 define(['./module'], function(controllers) {
 	controllers.controller('purOfferCtrl',
-		['$scope', '$ionicLoading', 'httpService', 'messageService', '$state',
-		function($scope, $ionicLoading, httpService, messageService, $state){
+		['$scope', 'httpService', '$state',
+		function($scope, httpService, $state){
 
 		// 最后一个item的id
 		var baseUrl = './json/purchase-offer.json';
@@ -28,8 +28,6 @@ define(['./module'], function(controllers) {
 		    	httpService.getData('./json/login.json', {"choiceId": choice})
 			    .then(function(data) {
 			    	$state.go('purchase.order');
-			    }, function(data) {
-			    	messageService.show(data);
 			    });
 	    	}
 	    };
@@ -40,8 +38,6 @@ define(['./module'], function(controllers) {
 		    .then(function(data) {
 		    	var datas = data.data;
 		    	$scope.list = datas.offer;
-		    }, function(data) {
-		    	messageService.show(data);
 		    });
 	    };
 

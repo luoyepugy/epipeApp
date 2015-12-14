@@ -2,10 +2,10 @@
 <ion-view  view-title="我要采购">
     <ion-content>
         <div class="icon-center mt20"><i class="ion-ios-cart-outline energized"></i></div>
-        <ion-list class="list list-inset card list-round j-form purchase-publish">
-        	<ion-item class="item-input">
+        <ion-list class="list list-inset card list-round j-publish purchase-publish">
+        	<ion-item class="item-input first">
 				<!-- <input down-list type="text" class="j-input"　 name="name" placeholder="商品名称" ng-model="product.name" value="{{product.name}}" data-empty="请输入商品名称" /> -->
-                <down-list inputClass="j-input" name="name" empty="请输入商品名称" placeholder="商品名称" val="product.name"></down-list>
+                <down-list inputClass="j-input" class="w100" name="name" empty="请输入商品名称" placeholder="商品名称" val="product.name"></down-list>
         	</ion-item>
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="num" placeholder="数量" ng-model="product.num" value="{{product.num}}" data-empty="请输入商品数量" />
@@ -14,7 +14,7 @@
 				<input type="text" name="location" placeholder="地点" ng-model="product.location" value="{{product.location}}" />
         	</ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase.list" text="发布采购"></submit-button>
+                <submit-button action="./json/login.json" state="purchase.list" text="发布采购" form=".j-publish"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

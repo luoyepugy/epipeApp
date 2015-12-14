@@ -1,6 +1,6 @@
 
 define(['./module'], function(services) {
-	services.service('httpService', ['$q', '$http',　'$ionicLoading', function($q, $http, $ionicLoading) {
+	services.service('httpService', ['$q', '$http',　'$ionicLoading', 'messageService', function($q, $http, $ionicLoading, messageService) {
 		this.getData = function(url, datas) {
 			// 预加载
 		    $ionicLoading.show({
@@ -14,12 +14,14 @@ define(['./module'], function(services) {
 	                if(response.success === true) {
 	                	deferred.resolve(response);
 					} else {
-						deferred.reject(response.message);
+						// deferred.reject(response.message);
+						messageService.show(response.message);
 					}
 	            })
 	            .error(function(data){
 	            	$ionicLoading.hide();
-	            	deferred.reject('服务器请求失败');
+	            	messageService.show('服务器请求失败');
+	            	// deferred.reject('服务器请求失败');
 	            });
 	        return deferred.promise;
 		};

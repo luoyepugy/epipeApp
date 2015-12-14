@@ -1,8 +1,8 @@
 
 <ion-view  view-title="编辑资料">
     <ion-content>
-        <div class="icon-center mt20"><i class="ion-person-add energized"></i></div>
-        <ion-list class="list list-inset card list-round j-form">
+        <div class="icon-center mt20"><i class="ion-ios-person-outline energized"></i></div>
+        <ion-list class="list list-inset card list-round j-editUser">
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="email" placeholder="邮箱" ng-model="user.email" value="{{user.email}}" data-empty="请输入邮箱" />
         	</ion-item>
@@ -13,7 +13,7 @@
                 <input type="text" class="j-input" name="company" placeholder="公司名称" ng-model="user.company" value="{{user.company}}" data-empty="请输入公司名称" />
             </ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存" user="true"></submit-button>
+                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存" user="true" form=".j-editUser"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

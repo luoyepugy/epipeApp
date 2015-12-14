@@ -1,1 +1,1 @@
-define(["./module"],function(n){n.controller("homeCtrl",["$scope","httpService","$state","messageService",function(n,o,e,t){var i="./json/login.json";n.login=function(){var n=o.getData(i);n.then(function(n){n.login?e.go("purchase.publish"):e.go("purchase-login")},function(n){t.show(n)})}}])});
+define(["./module"],function(e){e.controller("homeCtrl",["$scope","httpService","$state","messageService",function(e,n,o,t){var i="./json/login.json";e.login=function(){var e=n.getData(i);e.then(function(e){e.login?o.go("purchase.publish"):o.go("purchase-login")})}}])});

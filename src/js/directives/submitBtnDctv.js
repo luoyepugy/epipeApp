@@ -15,14 +15,13 @@ define(['./module'], function(directives) {
 				var resultsIsEmpty,
 					resultsDatas;
 				element.bind('click', function() {
-					resultsIsEmpty = validateService.isEmpty('.j-form .j-input');
+					resultsIsEmpty = validateService.isEmpty(attrs.form);
 					if(resultsIsEmpty !== 1) {
-						console.log(resultsIsEmpty);
 						messageService.show(resultsIsEmpty);
 						return false;
 					}
 
-					resultsDatas = validateService.submitData('.j-form');
+					resultsDatas = validateService.submitData(attrs.form);
                     if (resultsDatas.email !== null && resultsDatas.email !== undefined && email_regexp.test(resultsDatas.email) === false) {
                     	messageService.show('请输入正确的邮箱格式');
 					} else if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
@@ -35,11 +34,12 @@ define(['./module'], function(directives) {
 					    	messageService.show(data.message);
 					    	$state.go(attrs.state);
 					    	if(attrs.user === 'true') {
-					    		userService.user = scope.$parent.user;
-					    		console.log(userService.user);
+					    		for(var i in scope.$parent.user) {
+					    			userService.user[i] = scope.$parent.user[i];
+					    		}
+					    	} else if(attrs.login === 'true') {
+					    		userService.user = data.user;
 					    	}
-					    }, function(data) {
-					    	messageService.show(data);
 					    });
 					}
 				});

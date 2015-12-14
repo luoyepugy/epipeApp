@@ -1,5 +1,12 @@
 {
     "success": true,
-    "message": "失败",
-    "login": true
+    "message": "成功2",
+    "login": false,
+    "user": {
+    	"company": "深圳市市政工程总公司2",
+        "id": "77878556999",
+        "password": "1234",
+        "phone": "13008885784",
+        "email": "burce-ko@163.com"
+    }
 }

@@ -7,7 +7,7 @@
     </ion-nav-bar>
     <ion-content>
         <div class="icon-center mt20"><i class="ion-person-add energized"></i></div>
-        <ion-list class="list list-inset card list-round j-form">
+        <ion-list class="list list-inset card list-round j-register">
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="email" placeholder="邮箱" ng-model="user.email" value="{{user.email}}" data-empty="请输入邮箱" />
         	</ion-item>
@@ -24,8 +24,7 @@
                 <input type="password" class="j-input" name="confirmPwd" placeholder="请再次输入密码" value="" data-empty="请再次输入密码" />
             </ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase-login" text="注册"></submit-button>
-                <!-- <span class="button button-full button-energized button-round" ng-click="submit()">注册</span> -->
+                <submit-button action="./json/login.json" state="purchase-login" text="注册" form=".j-register"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

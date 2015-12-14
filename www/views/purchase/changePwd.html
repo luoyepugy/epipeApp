@@ -1,7 +1,7 @@
 
 <ion-view view-title="修改密码">
     <ion-content>
-        <ion-list class="list list-inset card list-round j-form">
+        <ion-list class="list list-inset card list-round j-changePwd">
             <ion-item class="item-input">
                 <input type="password" class="j-input" name="oldPwd" ng-model="user.oldPwd" placeholder="请输入旧密码" value="" data-empty="请输入旧密码"  />
             </ion-item>
@@ -12,7 +12,7 @@
                 <input type="password" class="j-input" name="confirmPwd" ng-model="user.confirmPwd" placeholder="请再次输入新密码" value="" data-empty="请再次输入新密码" />
             </ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存" user="true"></submit-button>
+                <submit-button action="./json/login.json" state="purchase.userInfo" text="提交保存" user="true" form=".j-changePwd"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

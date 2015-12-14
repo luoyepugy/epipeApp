@@ -12,12 +12,10 @@ define(['./app'], function (app) {
 		.state('purchase-login', {
 		    url: '/purchase/login',
 		    templateUrl: "views/purchase/login.html"
-		    // controller: 'purLoginCtrl'
 		})
 		.state('purchase-register', {
 		    url: '/purchase/register',
 		    templateUrl: "views/purchase/register.html"
-		    // controller: 'purRegisterCtrl'
 		})
 
 		.state('purchase', {
@@ -57,7 +55,6 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-publish':{
 		            templateUrl: "views/purchase/publish.html"
-		            // controller: 'purPublishCtrl'
 		        }
 		    }
 		})

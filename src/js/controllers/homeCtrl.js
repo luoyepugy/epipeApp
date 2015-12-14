@@ -12,8 +12,6 @@ define(['./module'], function(controllers) {
 		    	}　else  {
 		    		$state.go('purchase-login');
 		    	}
-		    }, function(data) {
-		    	messageService.show(data);
 		    });
 		};
 	}]);

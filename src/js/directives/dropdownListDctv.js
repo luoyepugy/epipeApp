@@ -28,15 +28,13 @@ define(['./module'], function(directives) {
                             　　　　scope.list = data.data;
                                　scope.downListShow　= true;
                             }
-                        }, function(data) {
-                            messageService.show(data);
                         });
                     }
                 });
                 scope.choiceItem = function() {
                     scope.val = this.item.name;
                     scope.downListShow　= false;
-                }
+                };
             }    
 		};
 	}]);
