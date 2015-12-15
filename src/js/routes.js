@@ -28,7 +28,7 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-userInfo':{
 		            templateUrl: "views/purchase/userInfo.html",
-		            controller: 'purUserCtrl'
+		            controller: 'purUserInfoCtrl'
 		        }
 		    }
 		})
@@ -46,7 +46,7 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-userInfo':{
 		            templateUrl: "views/purchase/editUser.html",
-		            controller: 'purUserCtrl'
+		            controller: 'purEditUserCtrl'
 		        }
 		    }
 		})

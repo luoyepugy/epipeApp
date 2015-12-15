@@ -12,6 +12,7 @@ define(['./module'], function(controllers) {
 		    	}　else  {
 		    		$state.go('purchase-login');
 		    	}
+		    	// userService.user = data.user;
 		    });
 		};
 	}]);

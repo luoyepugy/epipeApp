@@ -1,8 +1,8 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purUserCtrl',
+	controllers.controller('purUserInfoCtrl',
 		['$scope', 'userService',
 		function($scope, userService){
-		$scope.user = userService.user;
+		$scope.user = userService.user;	
 	}]);
 });

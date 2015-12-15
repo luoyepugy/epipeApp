@@ -1,6 +1,6 @@
 
 define(['./module'], function(directives) {
-	directives.directive('downList', ['httpService', 'messageService', function(httpService, messageService) {
+	directives.directive('dropdownList', ['httpService', 'messageService', function(httpService, messageService) {
 		return {
 			restrict: 'AE',
             template: '<div>' +
@@ -27,6 +27,8 @@ define(['./module'], function(directives) {
                             if(data.data.length > 0) {
                             　　　　scope.list = data.data;
                                　scope.downListShow　= true;
+                            }　else {
+                                return false;
                             }
                         });
                     }

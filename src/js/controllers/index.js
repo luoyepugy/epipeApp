@@ -1,3 +1,3 @@
 
 define(['./homeCtrl', './purListCtrl', './purOfferCtrl', './purOrderCtrl', 
-	'./purLogisticsCtrl', './purUserCtrl', './purChangePwdCtrl'], function() {});
+	'./purLogisticsCtrl', './purEditUserCtrl', './purChangePwdCtrl', './purUserInfoCtrl'], function() {});

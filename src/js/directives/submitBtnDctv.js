@@ -10,6 +10,7 @@ define(['./module'], function(directives) {
 			scope: {},
 			link: function(scope, element, attrs) {
 				scope.text = attrs.text;
+				var state = attrs.state || '';
 				var email_regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 				var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
 				var resultsIsEmpty,
@@ -32,7 +33,7 @@ define(['./module'], function(directives) {
 						var promise = httpService.getData(attrs.action, resultsDatas);
 					    promise.then(function(data) {
 					    	messageService.show(data.message);
-					    	$state.go(attrs.state);
+					    	$state.go(state);
 					    	if(attrs.user === 'true') {
 					    		for(var i in scope.$parent.user) {
 					    			userService.user[i] = scope.$parent.user[i];
