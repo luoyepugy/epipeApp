@@ -1,7 +1,6 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purLogisticsCtrl',['$scope', '$ionicLoading', 'httpService', '$stateParams',function($scope, $ionicLoading, httpService, $stateParams){
-		var id = $stateParams.id;
+	controllers.controller('purLogisticsCtrl',['$scope', '$ionicLoading', 'httpService', '$stateParams',function($scope, $ionicLoading, httpService){
 		var baseUrl = './json/purchase-logistics.json';
 
 	    // 初始化

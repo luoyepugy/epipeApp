@@ -8,15 +8,15 @@ define(['./module'], function(directives) {
 			replace: false,
 			scope: false,
 			link: function(scope, element, attrs) {
-				element.on('click', function(id) {
+				element.on('click', function() {
 					var status = scope.$parent.item.status;
-			    	id = scope.$parent.item.id;
+			    	var id = scope.$parent.item.id;
 			    	if(status === null) {
 						var offerNum = scope.$parent.item.offerNum;
 						if(offerNum > 0) {
 							// httpService.getData('./json/login.json', {'id': id})
 						 //    .then(function(data) {
-						    	$state.go('purchase.offer', {id: id});
+						    	$state.go('purchase.offer', {'id': id});
 						 //    });
 						}　else {
 							messageService.show('暂时没有商家报价');
@@ -24,7 +24,7 @@ define(['./module'], function(directives) {
 			    	}　else {
 						// httpService.getData('./json/login.json', {'id': id})
 					 //    .then(function(data) {
-					    	$state.go('purchase.logistics', {id: id});
+					    	$state.go('purchase.logistics', {'id': id});
 					 //    });
 			    	}
 				});
