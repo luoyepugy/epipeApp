@@ -68,7 +68,7 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.offer', {
-		    url: '/offer',
+		    url: '/offer/:id',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/offer.html",
@@ -102,7 +102,7 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.logistics', {
-		    url: '/logistics',
+		    url: '/logistics/:id',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/logistics.html",

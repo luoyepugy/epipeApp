@@ -1,9 +1,10 @@
 
 define(['./module'], function(controllers) {
 	controllers.controller('purOfferCtrl',
-		['$scope', 'httpService', '$state',
-		function($scope, httpService, $state){
+		['$scope', 'httpService', '$state', '$stateParams',
+		function($scope, httpService, $state, $stateParams){
 
+		var id = $stateParams.id;
 		// 最后一个item的id
 		var baseUrl = './json/purchase-offer.json';
 

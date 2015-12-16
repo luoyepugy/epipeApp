@@ -1,1 +1,1 @@
-define(["./module"],function(t){t.controller("purLogisticsCtrl",["$scope","$ionicLoading","httpService",function(t,o,i){var c="./json/purchase-logistics.json",n=i.getData(c);n.then(function(o){var i=o.data;t.product=i.product,t.list=i.logistics})}])});
+define(["./module"],function(t){t.controller("purLogisticsCtrl",["$scope","$ionicLoading","httpService","$stateParams",function(t,i,o,c){var n=(c.id,"./json/purchase-logistics.json"),s=o.getData(n);s.then(function(i){var o=i.data;t.product=o.product,t.list=o.logistics})}])});

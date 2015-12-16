@@ -1,7 +1,9 @@
 
 define(['./module'], function(controllers) {
-	controllers.controller('purLogisticsCtrl',['$scope', '$ionicLoading', 'httpService', function($scope, $ionicLoading, httpService){
+	controllers.controller('purLogisticsCtrl',['$scope', '$ionicLoading', 'httpService', '$stateParams',function($scope, $ionicLoading, httpService, $stateParams){
+		var id = $stateParams.id;
 		var baseUrl = './json/purchase-logistics.json';
+
 	    // 初始化
 	    var promise = httpService.getData(baseUrl);
 	    promise.then(function(data) {
