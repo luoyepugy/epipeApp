@@ -23,7 +23,8 @@ define(['./app'], function (app) {
 		.state('purchase', {
 			url: "/purchase",
 		    "abstract": true,
-		    templateUrl: "views/purchase/purchase.html"
+		    templateUrl: "views/purchase/purchase.html",
+		    controller: 'purchaseCtrl'
 		})
 		.state('purchase.userInfo', {
 		    url: '/userInfo',

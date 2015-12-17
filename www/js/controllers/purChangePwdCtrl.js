@@ -1,1 +1,1 @@
-define(["./module"],function(e){e.controller("purChangePwdCtrl",["$scope","userService",function(e,t){e.user={},t.getItem("location")&&(e.user.location=t.getItem("location")),t.getItem("email")&&(e.user.email=t.getItem("email"))}])});
+define(["./module"],function(e){e.controller("purChangePwdCtrl",["$scope","userService",function(e,t){e.user={},null!==t.getItem("location")&&(e.user.location=t.getItem("location")),null!==t.getItem("email")&&(e.user.email=t.getItem("email"))}])});

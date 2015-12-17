@@ -4,10 +4,10 @@ define(['./module'], function(controllers) {
 		['$scope', 'userService',
 		function($scope, userService){
 		$scope.user = {};
-		if(userService.getItem('location')) {
+		if(userService.getItem('location')　!== null) {
 			$scope.user.location = userService.getItem('location');
 		}
-		if(userService.getItem('email')) {
+		if(userService.getItem('email') !== null) {
 			$scope.user.email = userService.getItem('email');
 		}
 		

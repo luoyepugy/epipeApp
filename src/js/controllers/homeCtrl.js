@@ -5,7 +5,7 @@ define(['./module'], function(controllers) {
 		function($scope, httpService, $state, userService){
 		// var baseUrl = './json/login.json';
 		$scope.login = function() {
-			if(userService.getItem('email')) {
+			if(userService.getItem('email') !== null) {
 				$state.go('purchase.publish');
 			} else {
 				$state.go('purchase-login');

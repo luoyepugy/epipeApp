@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.controller("purchaseCtrl",["$scope","userService","$state",function(e,c,n){e.exit=function(){c.clear(),n.go("purchase-login")}}])});

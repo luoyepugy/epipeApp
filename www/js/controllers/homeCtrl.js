@@ -1,1 +1,1 @@
-define(["./module"],function(e){e.controller("homeCtrl",["$scope","httpService","$state","userService",function(e,o,t,i){e.login=function(){i.getItem("email")?t.go("purchase.publish"):t.go("purchase-login")}}])});
+define(["./module"],function(e){e.controller("homeCtrl",["$scope","httpService","$state","userService",function(e,o,n,t){e.login=function(){null!==t.getItem("email")?n.go("purchase.publish"):n.go("purchase-login")}}])});
