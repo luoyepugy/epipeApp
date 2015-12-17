@@ -14,18 +14,26 @@ define(['./module'], function(directives) {
 			    	if(status === null) {
 						var offerNum = scope.$parent.item.offerNum;
 						if(offerNum > 0) {
-							// httpService.getData('./json/login.json', {'id': id})
-						 //    .then(function(data) {
-						    	$state.go('purchase.offer', {'id': id});
-						 //    });
+							httpService.getData('./json/login.json', {'id': id})
+	                        .then(function(data) {
+	                            $state.go('purchase.offer');
+	                        });
+						    // $state.go('purchase.offer', {'id': id});
 						}　else {
 							messageService.show('暂时没有商家报价');
 						}
-			    	}　else {
-						// httpService.getData('./json/login.json', {'id': id})
-					 //    .then(function(data) {
-					    	$state.go('purchase.logistics', {'id': id});
-					 //    });
+			    	}　else if(status === '已完成'){
+			    		httpService.getData('./json/login.json', {'id': id})
+                        .then(function(data) {
+                            $state.go('purchase.logistics');
+                        });
+					    // $state.go('purchase.logistics', {'id': id});
+			    	} else {
+			    		httpService.getData('./json/login.json', {'id': id})
+                        .then(function(data) {
+                            $state.go('purchase.orderSucce');
+                        });
+			    		// $state.go('purchase.orderSucce', {'id': id});
 			    	}
 				});
 			}

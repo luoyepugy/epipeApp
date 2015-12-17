@@ -11,11 +11,13 @@ define(['./app'], function (app) {
 
 		.state('purchase-login', {
 		    url: '/purchase/login',
-		    templateUrl: "views/purchase/login.html"
+		    templateUrl: "views/purchase/login.html",
+		    controller: 'purChangePwdCtrl'
 		})
 		.state('purchase-register', {
 		    url: '/purchase/register',
-		    templateUrl: "views/purchase/register.html"
+		    templateUrl: "views/purchase/register.html",
+		    controller: 'purChangePwdCtrl'
 		})
 
 		.state('purchase', {
@@ -54,7 +56,8 @@ define(['./app'], function (app) {
 		    url: '/publish',
 		    views:{
 		        'purchase-publish':{
-		            templateUrl: "views/purchase/publish.html"
+		            templateUrl: "views/purchase/publish.html",
+		            controller: 'purChangePwdCtrl'
 		        }
 		    }
 		})
@@ -68,7 +71,7 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.offer', {
-		    url: '/offer/:id',
+		    url: '/offer',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/offer.html",
@@ -81,6 +84,15 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/order.html",
+		            controller: 'purOrderCtrl'
+		        }
+		    }
+		})
+		.state('purchase.orderSucce', {
+		    url: '/orderSucce',
+		    views:{
+		        'purchase-list':{
+		            templateUrl: "views/purchase/orderSucce.html",
 		            controller: 'purOrderCtrl'
 		        }
 		    }
@@ -102,7 +114,7 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.logistics', {
-		    url: '/logistics/:id',
+		    url: '/logistics',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/logistics.html",

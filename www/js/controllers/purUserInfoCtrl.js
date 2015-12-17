@@ -1,1 +1,1 @@
-define(["./module"],function(e){e.controller("purUserInfoCtrl",["$scope","userService",function(e,r){e.user=r.user}])});
+define(["./module"],function(e){e.controller("purUserInfoCtrl",["$scope","userService",function(e,r){e.user=r.get()}])});

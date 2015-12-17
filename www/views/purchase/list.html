@@ -17,7 +17,7 @@
                 </p>
                 <p>
                     <span class="gray_mid mr10">{{item.time}}</span>
-                    <span class="green" ng-if="{null: false, '已完成': true, '待支付': true}[item.status]">物流追踪<i class="iconfont ml5 icon-truck f20"></i></span>
+                    <span class="green" ng-if="{null: false, '已完成': true, '待支付': false}[item.status]">物流追踪<i class="iconfont ml5 icon-truck f20"></i></span>
                 </p>
                 <input type="hidden" name="id" value="{{item.id}}" ng-model="item.id" />
             </ion-item>

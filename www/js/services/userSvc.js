@@ -1,1 +1,1 @@
-define(["./module"],function(e){e.factory("userService",function(){var e={};return e.user={},e})});
+define(["./module"],function(e){e.factory("userService",function(){var e={},n=window.localStorage;return e.set=function(e){for(var t in e)n[t]=e[t]},e.get=function(){return n},e.getItem=function(e){return n.getItem(e)},e.removeItem=function(e){n.removeItem(e)},e.clear=function(){n.clear()},e.user={},e})});

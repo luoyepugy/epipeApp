@@ -7,13 +7,16 @@
                 <dropdown-list inputClass="j-input" class="w100" name="name" empty="请输入商品名称" placeholder="商品名称" val="product.name"></dropdown-list>
         	</ion-item>
         	<ion-item class="item-input">
-				<input type="text" class="j-input" name="num" placeholder="数量" ng-model="product.num" value="{{product.num}}" data-empty="请输入商品数量" />
+				<input type="text" class="j-input" name="num" placeholder="商品数量" ng-model="product.num" value="{{product.num}}" data-empty="请输入商品数量" />
         	</ion-item>
+            <ion-item class="item-input">
+                <input type="text" class="j-input" name="unit" placeholder="商品单位" ng-model="product.unit" value="{{product.unit}}" data-empty="请输入商品单位" />
+            </ion-item>
         	<ion-item class="item-input">
-				<input type="text" name="location" placeholder="地点" ng-model="product.location" value="{{product.location}}" />
+				<input type="text" name="location" placeholder="地点" ng-model="user.location" value="{{user.location}}" />
         	</ion-item>
             <ion-item>
-                <submit-button action="./json/login.json" state="purchase.list" text="发布采购" form=".j-publish"></submit-button>
+                <submit-button action="./json/login.json" state="purchase.list" text="发布采购" form=".j-publish" user="true"></submit-button>
             </ion-item>
         </ion-list>
     </ion-content>

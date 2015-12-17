@@ -4,8 +4,9 @@ define(['./module'], function(controllers) {
 		['$scope', 'userService',
 		function($scope, userService){
 		$scope.user = {};
-		for(var i in userService.user) {
-			$scope.user[i] = userService.user[i];
-		}
+		var obj = userService.get();
+		for(var i in obj) {
+            $scope.user[i] = obj[i]; 
+        }
 	}]);
 });

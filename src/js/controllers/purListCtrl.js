@@ -27,7 +27,11 @@ define(['./module'], function(controllers) {
 	    	var promise = httpService.getData(baseUrl, {'status': 'refresh', 'id': firstId});
 		    promise.then(function(data) {
 		    	var datas = data.data.items;
-		    	$scope.list = datas;
+		    	if(datas > 0) {
+		    		$scope.list.unshift(datas);
+		    	} else {
+		    		messageService.show('没有更多新的数据');
+		    	}
 		    	$scope.$broadcast('scroll.refreshComplete');
 		    });
 	    };
