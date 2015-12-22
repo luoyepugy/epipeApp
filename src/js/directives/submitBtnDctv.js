@@ -12,6 +12,7 @@ define(['./module'], function(directives) {
 				scope.text = attrs.text;
 				var state = attrs.state || '';
 				var user = attrs.user || '';
+				var login = attrs.login || '';
 				var email_regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 				var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
 				var resultsIsEmpty,
@@ -42,8 +43,9 @@ define(['./module'], function(directives) {
 					    		// for(var i in scope.$parent.user) {
 					    		// 	userService.user[i] = scope.$parent.user[i];
 					    		// }
-					    	} else if(attrs.login === 'true') {
-					    		userService.set(data.user);
+					    	}
+					    	if(login === 'true') {
+					    		userService.set(data.data);
 					    	}
 					    });
 					}

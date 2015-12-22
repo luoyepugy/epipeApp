@@ -11,7 +11,7 @@
                 <span class="black ellipsis">{{item.name}}</span>
                 <span class="badge badge-assertive fr" ng-if="{null: true, '已完成': false, '待支付': false}[item.status]">{{item.offerNum}}</span>
                 <p>
-                    <span>数量：{{item.num}}</span>
+                    <span>数量：{{item.num}}{{item.unit}}</span>
                     <span class="fr blue" ng-if="{null: false, '已完成': true, '待支付': true}[item.status]">{{item.status}}</span>
                     <span class="fr blue" ng-if="{null: true, '已完成': false, '待支付': false}[item.status]">商家报价</span>
                 </p>

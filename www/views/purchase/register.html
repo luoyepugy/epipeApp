@@ -6,12 +6,12 @@
     </ion-nav-bar>
     <ion-content>
         <div class="icon-center mt20"><i class="ion-person-add energized"></i></div>
-        <ion-list class="list list-inset card list-round j-register">
+        <ion-list class="list card list-round j-register">
         	<ion-item class="item-input">
-				<input type="text" class="j-input" name="email" placeholder="邮箱" ng-model="user.email" value="{{user.email}}" data-empty="请输入邮箱" />
+				<input type="email" class="j-input" name="email" placeholder="邮箱" ng-model="user.email" value="{{user.email}}" data-empty="请输入邮箱" />
         	</ion-item>
         	<ion-item class="item-input">
-				<input type="text" class="j-input" name="phone" placeholder="电话号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入电话号码" />
+				<input type="number" class="j-input" name="phone" placeholder="电话号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入电话号码" />
         	</ion-item>
             <ion-item class="item-input">
                 <input type="text" class="j-input" name="company" placeholder="公司名称" ng-model="user.company" value="{{user.company}}" data-empty="请输入公司名称" />

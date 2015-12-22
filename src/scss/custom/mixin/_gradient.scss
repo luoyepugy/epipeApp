@@ -119,15 +119,25 @@
 //
 // 参数依次为（背景颜色，渐变角度 0-90deg，背景颜色间距 实际为位置，偶数行背景色）
 //
-@mixin gradient-grid($bg, $size: 15px, $line-width: 2px, $other-bg: rgba(255,255,255,.5)) {
+@mixin gradient-grid($bg, $size: 15px, $line-width: 1px, $other-bg: rgba(255,255,255,.5)) {
   background-image: linear-gradient(0deg, #fff $line-width, transparent 0), 
-                    linear-gradient(90deg, #fff $line-width, transparent 0), 
+                    linear-gradient(90deg, #fff $line-width, transparent 0),
                     linear-gradient(0deg, $other-bg 1px,transparent 0), 
                     linear-gradient(90deg, $other-bg 1px,transparent 0);
-  background-size: $size * 5 $size * 5, $size * 5 $size * 5, $size $size, $size $size;
+  background-size: $size $size;
   background-color: $bg;
 }
 
+// 渐变网格2
+//
+// 参数依次为（背景颜色，渐变角度 0-90deg，背景颜色间距 实际为位置，偶数行背景色）
+//
+@mixin gradient-grid2($bg, $size: 15px, $line-width: 1px, $line-color: rgba(255,255,255,.5)) {
+  background-image: linear-gradient(0deg, $line-color $line-width, transparent $line-width, transparent), 
+                    linear-gradient(90deg, $line-color $line-width, transparent $line-width, transparent);
+  background-size: $size $size;
+  background-color: $bg;
+}
 
 // 渐变-波尔卡圆点
 //

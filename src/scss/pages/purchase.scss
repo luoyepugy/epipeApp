@@ -1,7 +1,6 @@
 
 
 @import "../custom/mixin";
-@import "ios-picker";
 
 // 下拉列表
 .downList {
@@ -36,7 +35,7 @@
 }
 // 格子背景
 .bg-grid {
-  @include gradient-grid(#f3f3f3, 10px, 1px, #fff);
+  background: url(../../images/bg-grid.jpg) repeat;
 }
 // 边框锯齿
 .sawtooth {
@@ -45,6 +44,7 @@
   background-repeat: repeat-x;
   position: relative;
   z-index: 3;
+  margin-bottom: -5px;
 }
 // 修改默认底部tabs
 .purchase.tabs-striped.tabs-stable .tab-item.tab-item-active, 
@@ -52,9 +52,11 @@
 .purchase.tabs-striped.tabs-stable .tab-item.activated {
   border-color: $main-orange;
   color: $main-orange;
+  border-top-width: 2px;
+
 }
 .purchase.tabs-striped.tabs-stable .tabs {
-  border-top: 2px solid #ccc;
+  border-top: 1px solid #ccc !important;
 }
 .purchase .list {
   background: transparent;
@@ -73,7 +75,7 @@
 .icon-needle {
   @extend .icon-sprite;
   background-position: 0 0;
-  @include position-basic(absolute, left, 10px,top, -20px);
+  @include position-basic(absolute, left, 10px,top, -19px);
   z-index: 3;
 }
 
@@ -116,7 +118,7 @@
   }
   .ellipsis {
     @include overflow(ellipsis);
-    width: calc(100% - 60px);
+    padding-right: 60px;
     display: block;
   }
 }
@@ -125,7 +127,8 @@
 // ============ 报价商家列表 ==========
 // ==================================
 .offer {
-  .item h2 {
+  .item h2,
+  .item p {
     white-space: normal;
   }
   .item-radio {
@@ -139,13 +142,18 @@
     left: auto;
     right: 5px;
   }
+  // 修改ionic默认点击单选选中时背景颜色
+  .item-radio input:checked+.radio-content .item-content {
+      background: #fff;
+  }
 }
 
 // ==================================
 // ============= 订单双方 ============
 // ==================================
 .order-mutual {
-  margin: 30px;
+  margin: 20px;
+  margin-top: 30px;
   .iconfont {
     font-size: 32px;
   }
@@ -163,16 +171,14 @@
 // ============= 物流追踪 ============
 // ==================================
 .logistics {
-  overflow: hidden;
   .button {
     left: 25px;
   }
   .line {
-    border-left: 1px solid #ccc;
-    display: block;
     width: 1px;
-    height: 300px;
-    margin-right: -7px;
+    height: 100%;
+    @include position-basic(absolute, top, 0, left, 38px);
+    background: #ddd;
   }
   .border-bottom {
     border-bottom: 2px solid #ccc;
@@ -184,9 +190,13 @@
 // ==================================
 .userInfo,
 .userInfo .item{
+  background: url(../../images/bg-grid.jpg) repeat;
+  background-size: initial; 
+}
+.userInfo .item {
   border: 0;
-  background-size: cover;
-  @include gradient-grid(#f3f3f3, 10px, 1px);
+  padding: 35px;
+  white-space: normal;
 }
 .userInfo .avatar {
   background-image: url('../../images/bg.png');

@@ -2,7 +2,7 @@
     "success": true,
     "message": "成功",
     "login": false,
-    "user": {
+    "data": {
     	"company": "深圳市市政工程总公司2",
         "id": "77878556999",
         "password": "123",
