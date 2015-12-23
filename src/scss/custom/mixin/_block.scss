@@ -9,7 +9,7 @@
 @mixin inside-center($width, $height: $width) {
   width: $width;
   text-align: center;
-  @include line-height($height);
+  line-height: $height;
 }
 
 

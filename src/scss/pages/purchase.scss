@@ -20,6 +20,31 @@
     }
   }
 }
+// 首页背景图
+.home-splash {
+  background-image: url(../../images/splash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include size(100%);
+  position: relative;
+}
+.home-btn {
+  @include skin-fgbd($main-orange, $main-orange);
+  border-width: 3px;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 15px;
+  background: transparent;
+  @include inside-center(150px, 45px);
+  position: fixed;
+  left: 50%;
+  margin-left: -75px;
+  bottom: 70px;
+  display: block;
+  &:hover {
+    color: $main-orange;
+  }
+}
 // 购物车和支付图标
 .icon-center {
   border-radius: 40px;
@@ -203,4 +228,18 @@
   background-image: url('../../images/bg.png');
   background-size: cover;
   padding: 20px 0;
+}
+
+// ==================================
+// ============= 支付帮助 ============
+// ==================================
+.payHelp {
+  padding: 30px;
+  h3 {
+    font-size: 15px;
+    line-height: 35px;
+  }
+  li {
+    line-height: 30px;
+  }
 }
