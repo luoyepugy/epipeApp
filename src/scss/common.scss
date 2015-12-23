@@ -16,6 +16,19 @@
   border-radius: 10px;
 }
 
+// 0边框
+.border0 {
+  border: 0;
+}
+// 外边距
+.mt-5 {
+  margin-top: -5px;
+}
+// 格子背景
+.bg-grid {
+  background: url(../../images/bg-grid.jpg) repeat;
+}
+
 // 设置全局背景色
 .scroll-content,
 .bg-main {
@@ -41,7 +54,56 @@
   background-color: #fff;
   white-space: normal;
 }
+// 修改默认底部tabs
+.purchase.tabs-striped.tabs-stable .tab-item.tab-item-active, 
+.purchase.tabs-striped.tabs-stable .tab-item.active, 
+.purchase.tabs-striped.tabs-stable .tab-item.activated {
+  border-color: $main-orange;
+  color: $main-orange;
+  border-top-width: 2px;
 
+}
+.purchase.tabs-striped.tabs-stable .tabs {
+  border-top: 1px solid #ccc !important;
+}
+
+// 修改list背景色
+.purchase .list {
+  background: transparent;
+}
+
+// 曲别针图标
+.icon-sprite {
+  background-image: url('../../images/icon.png');
+  @include size(90px,80px);
+  background-repeat: no-repeat;
+  display: block;
+}
+.icon-needle {
+  @extend .icon-sprite;
+  background-position: 0 0;
+  @include position-basic(absolute, left, 10px,top, -19px);
+  z-index: 3;
+}
+
+// 边框锯齿
+.sawtooth {
+  @include size(100%, 7px);
+  background-image: url('../../images/sawtooth.png');
+  background-repeat: repeat-x;
+  position: relative;
+  z-index: 3;
+  margin-bottom: -5px;
+}
+// 购物车和支付图标
+.icon-center {
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 3.5em;
+  @include inside-center(80px);
+  @include outside-center();
+}
 // 错误提示
 .error_tip {
   @include position-basic(fixed, bottom, 60px, left, 50%);
@@ -55,6 +117,25 @@
   margin-left: -90px;
   font-size: .9em;
   z-index: 10;
+}
+
+// 下拉列表
+.downList {
+  width: 100%;
+  max-height: 105px;
+  border: 1px solid #ccc;
+  @include position-basic(absolute, top, 42px, left, 0);
+  background: #eee;
+  z-index: 5;
+  li {
+    line-height: 35px;
+    padding-left: 15px;
+    color: #666;
+    width: 100%;
+    &:hover {
+      background-color: #ddd;
+    }
+  }
 }
 
 // 颜色
