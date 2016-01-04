@@ -6,7 +6,7 @@ define(['./module'], function(directives) {
 			restrict: 'E',
 			scope: {},
 			replace: true,
-			template: '<input type="text" name="city" placeholder="{{placeholder}}" ng-model="$parent.user.city" value="{{$parent.user.city}}" readonly />',
+			template: '<input type="text" name="location" placeholder="{{placeholder}}" ng-model="$parent.user.location" value="{{$parent.user.city}}" readonly />',
 			link: function(scope, element, attrs) {
 				cityModel = null;
 				scope.user = {};
