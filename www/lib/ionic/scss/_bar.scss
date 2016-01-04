@@ -8,7 +8,7 @@
   @include display-flex();
   @include translate3d(0,0,0);
   @include user-select(none);
-  position: relative;
+  position: absolute;
   right: 0;
   left: 0;
   z-index: $z-index-bar;
@@ -262,7 +262,8 @@
 
 }
 
-.platform-android {
+.platform-android,
+.platform-ios {
 
   .nav-bar-has-subheader .bar {
     background-image: none;
