@@ -1,10 +1,12 @@
 
 
 @import "../custom/mixin";
+@import "ios-picker";
 
 // ==================================
 // =============== 首页 ==============
 // ==================================
+
 // 首页背景图
 .home-splash {
   background-image: url(../../images/splash.jpg);

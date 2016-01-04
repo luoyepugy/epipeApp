@@ -13,7 +13,8 @@
                 <input type="text" class="j-input" name="unit" placeholder="商品单位" ng-model="product.unit" value="{{product.unit}}" data-empty="请输入商品单位" />
             </ion-item>
         	<ion-item class="item-input">
-				<input type="text" name="location" placeholder="地点" ng-model="user.location" value="{{user.location}}" />
+                <ionic-city></ionic-city>
+				<!-- <input type="text" name="location" placeholder="地点" ng-model="user.location" value="{{user.location}}" /> -->
         	</ion-item>
             <ion-item>
                 <submit-button action="./json/login.json" state="purchase.list" text="发布采购" form=".j-publish" user="true"></submit-button>

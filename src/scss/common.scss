@@ -26,7 +26,7 @@
 }
 // 格子背景
 .bg-grid {
-  background: url(../../images/bg-grid.jpg) repeat;
+  background: url(../images/bg-grid.jpg) repeat;
 }
 
 // 设置全局背景色
@@ -89,7 +89,7 @@
 // 边框锯齿
 .sawtooth {
   @include size(100%, 7px);
-  background-image: url('../../images/sawtooth.png');
+  background-image: url('../images/sawtooth.png');
   background-repeat: repeat-x;
   position: relative;
   z-index: 3;
