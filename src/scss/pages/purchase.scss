@@ -108,6 +108,7 @@
     white-space: normal;
     word-wrap:break-word;
   }
+  @include link-a(#666);
   .col-50 {
     flex: 0 0 45%;
     max-width: 45%;

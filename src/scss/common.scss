@@ -73,13 +73,11 @@
 }
 
 // 曲别针图标
-.icon-sprite {
-  background-image: url('../../images/icon.png');
-  @include size(90px,80px);
+.icon-needle {
+  background-image: url('../images/icon.png');
+  @include size(70px,65px);
   background-repeat: no-repeat;
   display: block;
-}
-.icon-needle {
   @extend .icon-sprite;
   background-position: 0 0;
   @include position-basic(absolute, left, 10px,top, -19px);

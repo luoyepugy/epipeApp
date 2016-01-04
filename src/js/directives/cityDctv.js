@@ -13,7 +13,7 @@ define(['./module'], function(directives) {
 				scope.provinceHandle="provinceHandle";
         		scope.cityHandle="cityHandle";
         		scope.countryHandle="countryHandle";
-				scope.placeholder = attrs.placeholder || '未设置';
+				scope.placeholder = attrs.placeholder || '地点';
 				scope.okText = attrs.oktext || '完成';
 				scope.barCssClass = attrs.barcssclass || "bar-dark";
 				scope.cityData = cityService.cityList;
