@@ -1,1 +1,11 @@
-define(["./module"],function(e){e.controller("purchaseCtrl",["$scope","userService","$state",function(e,c,n){e.exit=function(){c.clear(),n.go("purchase-login")}}])});
+
+define(['./module'], function(controllers) {
+    controllers.controller('purchaseCtrl',
+        ['$scope', 'userService', '$state',
+        function($scope, userService, $state){
+        $scope.exit = function() {
+            userService.clear();
+            $state.go('purchase-login');
+        };
+    }]);
+});

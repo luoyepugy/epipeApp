@@ -1,1 +1,35 @@
-define(["./module","zepto"],function(t,i){t.service("validateService",function(){this.isEmpty=function(t){var n=0,e=i(t).find(".j-input").length,a="";return i(t).find(".j-input").each(function(){var t=(i(this).attr("name"),i.trim(i(this).val()));return""===t||void 0===t||null===t?(a=i(this).data("empty"),!1):void n++}),n===e?1:a},this.submitData=function(t){var n={};return i(t).find("input[name],textarea[name],select[name]").each(function(){var t=i(this).attr("name"),e=i.trim(i(this).val());n[t]=e}),n}})});
+
+define(['./module', 'zepto'], function(services, $) {
+	services.service('validateService', function() {
+		this.isEmpty = function(form) {
+			var inputs = {},
+                num = 0,
+                total = $(form).find('.j-input').length,
+                results = '';
+            $(form).find('.j-input').each(function() {
+                var key = $(this).attr('name');
+                var val = $.trim($(this).val());
+                if(val === '' || val === undefined || val === null) {
+                    results = $(this).data('empty');
+                    return false;
+                } else {
+                    num++;
+                }
+            });
+            if(num === total) {
+                return 1;
+            } else {
+                return results;
+            }
+		};
+        this.submitData = function(form) {
+            var datas = {};
+            $(form).find('input[name],textarea[name],select[name]').each(function() {
+                var key =  $(this).attr('name');
+                var val = $.trim($(this).val());
+                datas[key] = val;
+            });
+            return datas;
+        };
+	});
+});

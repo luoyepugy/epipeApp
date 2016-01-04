@@ -1,1 +1,56 @@
-define(["./module"],function(e){e.directive("submitButton",["httpService","messageService","validateService","$state","userService",function(e,t,n,i,o){return{restrict:"E",template:'<button class="button button-full button-energized button-round">{{text}}</button>',replace:!0,scope:{},link:function(s,u,r){s.text=r.text;var l,a,c=r.state||"",m=r.user||"",d=r.login||"",f=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,w=/^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;u.bind("click",function(){if(l=n.isEmpty(r.form),1!==l)return t.show(l),!1;if(a=n.submitData(r.form),null!==a.email&&void 0!==a.email&&f.test(a.email)===!1)t.show("请输入正确的邮箱格式");else if(null!==a.phone&&void 0!==a.phone&&w.test(a.phone)===!1)t.show("请输入正确的手机号码格式");else if(null!==a.confirmPwd&&void 0!==a.confirmPwd&&a.confirmPwd!==a.password)t.show("两次密码输入不一致");else if(null!==a.num&&void 0!==a.num&&isNaN(a.num)===!0||Number(a.num)<=0)t.show("请输入正确的商品数量格式");else{var u=e.getData(r.action,a);u.then(function(e){t.show(e.message),i.go(c),"true"===m&&o.set(s.$parent.user),"true"===d&&o.set(e.data)})}})}}}])});
+
+define(['./module'], function(directives) {
+	directives.directive('submitButton', 
+		['httpService', 'messageService', 'validateService', '$state', 'userService',
+		function(httpService, messageService,validateService, $state, userService) {
+		return {
+			restrict: 'E',
+			template: '<button class="button button-full button-energized button-round">{{text}}</button>',
+			replace: true,
+			scope: {},
+			link: function(scope, element, attrs) {
+				scope.text = attrs.text;
+				var state = attrs.state || '';
+				var user = attrs.user || '';
+				var login = attrs.login || '';
+				var email_regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
+				var resultsIsEmpty,
+					resultsDatas;
+				element.bind('click', function() {
+					resultsIsEmpty = validateService.isEmpty(attrs.form);
+					if(resultsIsEmpty !== 1) {
+						messageService.show(resultsIsEmpty);
+						return false;
+					}
+
+					resultsDatas = validateService.submitData(attrs.form);
+                    if (resultsDatas.email !== null && resultsDatas.email !== undefined && email_regexp.test(resultsDatas.email) === false) {
+                    	messageService.show('请输入正确的邮箱格式');
+					} else if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
+						messageService.show('请输入正确的手机号码格式');
+					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {
+						messageService.show('两次密码输入不一致');
+					} else if (resultsDatas.num !== null && resultsDatas.num !== undefined && isNaN(resultsDatas.num) === true ||　Number(resultsDatas.num) <= 0) {
+						messageService.show('请输入正确的商品数量格式');
+					} else {
+						var promise = httpService.getData(attrs.action, resultsDatas);
+					    promise.then(function(data) {
+					    	messageService.show(data.message);
+					    	$state.go(state);
+					    	if(user === 'true') {
+					    		userService.set(scope.$parent.user);
+					    		// for(var i in scope.$parent.user) {
+					    		// 	userService.user[i] = scope.$parent.user[i];
+					    		// }
+					    	}
+					    	if(login === 'true') {
+					    		userService.set(data.data);
+					    	}
+					    });
+					}
+				});
+			}
+		};
+	}]);
+});

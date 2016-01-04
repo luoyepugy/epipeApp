@@ -1,1 +1,13 @@
-define(["./module"],function(n){n.directive("backButton",["$window",function(n){return{restrict:"AE",link:function(i,t,c){t.bind("click",function(){n.history.back()})}}}])});
+
+define(['./module'], function(directives) {
+	directives.directive('backButton', ['$window', function($window) {
+		return {
+			restrict: 'AE',
+            link: function (scope, elem, attrs) {
+                elem.bind('click', function () {
+                    $window.history.back();
+                });
+            }    
+		};
+	}]);
+});

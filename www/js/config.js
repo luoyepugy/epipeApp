@@ -1,1 +1,58 @@
-define(["./app"],function(n){return n.config(["$ionicConfigProvider","$compileProvider",function(n,o){n.tabs.position("bottom")}]).run(["$ionicPlatform",function(n){n.ready(function(){window.onerror=function(n,o,i){var r=o.lastIndexOf("/");return r>-1&&(o=o.substring(r+1)),console.log("ERROR in "+o+" (line #"+i+"): "+n),!1}})}])});
+
+define(['./app'], function(app) {
+	return app.config(['$ionicConfigProvider', '$compileProvider', function($ionicConfigProvider, $compileProvider) {
+	  		$ionicConfigProvider.tabs.position("bottom");
+	  	}])
+	  	.run(['$ionicPlatform', function($ionicPlatform) {
+	  // 		document.addEventListener("deviceready", function() {
+	  // 			// 状态栏显示
+			// 	if(window.StatusBar) {
+			// 		window.StatusBar.overlaysWebView(false);
+			// 	    window.StatusBar.backgroundColorByHexString('#96aa39');
+			// 	    window.StatusBar.styleLightContent();
+			// 	}
+				
+			// 	$cordovaBadge.set(3).then(function() {
+			// 	    // You have permission, badge set.
+			// 	}, function(err) {
+			// 	    // You do not have permission.
+			// 	});
+	  // 		}, false);
+			
+	  // 		document.addEventListener('pause', function () {
+			//     $cordovaBadge.decrease(count).then(function() {
+			// 	    if(count === 0) {
+			// 	    	$cordovaBadge.clear().then(function() {
+			// 			    // You have permission, badge cleared.
+			// 			}, function(err) {
+			// 			    // You do not have permission.
+			// 			});
+			// 	    }
+			// 	}, function(err) {
+			// 	    // You do not have permission.
+			// 	});
+			// }, false);
+
+			$ionicPlatform.ready(function() {
+
+			    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+			    // for form inputs)
+			    // if(window.cordova && window.cordova.plugins.Keyboard) {
+			      // cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+			    // }
+			    //启动极光推送服务 
+				// window.plugins.jPushPlugin.init(); 
+				//调试模式 
+				// window.plugins.jPushPlugin.setDebugMode(true); 
+
+				window.onerror = function(msg, url, line) {  
+				   	var idx = url.lastIndexOf("/");  
+				   	if(idx > -1) {  
+				    url = url.substring(idx+1);  
+				   	}  
+				   	console.log("ERROR in " + url + " (line #" + line + "): " + msg);  
+				   	return false;  
+				};
+			});
+		}]);
+});

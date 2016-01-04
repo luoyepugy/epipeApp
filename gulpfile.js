@@ -49,7 +49,7 @@ gulp.task('js', function() {
     //     };
     // }))
     // .pipe(gulp.dest('www/js/'))
-    .pipe(plugins.uglify())
+    // .pipe(plugins.uglify())
     // .pipe(plugins.rename({ extname: '.min.js' }))
     .pipe(gulp.dest('www/js/'));
 });

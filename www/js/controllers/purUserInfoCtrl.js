@@ -1,1 +1,9 @@
-define(["./module"],function(e){e.controller("purUserInfoCtrl",["$scope","userService",function(e,r){e.user=r.get()}])});
+
+define(['./module'], function(controllers) {
+	controllers.controller('purUserInfoCtrl',
+		['$scope', 'userService',
+		function($scope, userService){
+		$scope.user = userService.get();
+		// $scope.user = userService.user;	
+	}]);
+});

@@ -8,9 +8,11 @@ controllers/homeCtrl.js
 controllers/purListCtrl.js
 controllers/purOfferCtrl.js
 controllers/purOrderCtrl.js
+controllers/purchaseCtrl.js
 controllers/purLogisticsCtrl.js
-controllers/purUserCtrl.js
+controllers/purEditUserCtrl.js
 controllers/purChangePwdCtrl.js
+controllers/purUserInfoCtrl.js
 controllers/index.js
 directives/module.js
 directives/offerDctv.js

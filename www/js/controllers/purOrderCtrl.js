@@ -1,1 +1,19 @@
-define(["./module"],function(e){e.controller("purOrderCtrl",["$scope","$ionicLoading","httpService","messageService",function(e,r,o,c){var n="./json/purchase-order.json",t=o.getData(n);t.then(function(r){var o=r.data;e.product=o.product,e.offer=o.offer,e.purchase=o.purchase})}])});
+
+define(['./module'], function(controllers) {
+	controllers.controller('purOrderCtrl',
+		['$scope', '$ionicLoading', 'httpService', 'messageService', 
+		function($scope, $ionicLoading, httpService, messageService){
+
+		var baseUrl = './json/purchase-order.json';
+
+	    // 初始化
+	    var promise = httpService.getData(baseUrl);
+	    promise.then(function(data) {
+	    	var datas = data.data;
+	    	$scope.product = datas.product;
+	    	$scope.offer = datas.offer;
+	    	$scope.purchase = datas.purchase;
+	    });
+
+	}]);
+});

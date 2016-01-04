@@ -1,1 +1,12 @@
-define(["./module"],function(e){e.controller("purEditUserCtrl",["$scope","userService",function(e,r){e.user={};var n=r.get();for(var o in n)e.user[o]=n[o]}])});
+
+define(['./module'], function(controllers) {
+	controllers.controller('purEditUserCtrl',
+		['$scope', 'userService',
+		function($scope, userService){
+		$scope.user = {};
+		var obj = userService.get();
+		for(var i in obj) {
+            $scope.user[i] = obj[i]; 
+        }
+	}]);
+});
