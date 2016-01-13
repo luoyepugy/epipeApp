@@ -13,7 +13,7 @@ define(['./module'], function(controllers) {
 		$scope.list = [];
 		
 	    // 初始化
-	    var promise = httpService.getData(baseUrl);
+	    var promise = httpService.get(baseUrl);
 	    promise.then(function(data) {
 	    	var datas = data.data.items;
 	    	$scope.list = datas;
@@ -24,7 +24,7 @@ define(['./module'], function(controllers) {
 	    $scope.doRefresh = function() {
 	    	var length = $scope.list.length;
 	    	firstId = $scope.list[0].id;
-	    	var promise = httpService.getData(baseUrl, {'status': 'refresh', 'id': firstId});
+	    	var promise = httpService.get(baseUrl, {'status': 'refresh', 'id': firstId});
 		    promise.then(function(data) {
 		    	var datas = data.data.items;
 		    	if(datas > 0) {
@@ -36,18 +36,25 @@ define(['./module'], function(controllers) {
 		    });
 	    };
 
+
 	    // 加载更多
 	    $scope.loadMore = function() {
 	    	var length = $scope.list.length;
-	    	lastId = $scope.list[length - 1].id;
-	    	var promise = httpService.getData(baseUrl, {'status': 'loadmore', 'id': lastId});
+	    	if(length === 0) {
+	    		lastId = null;
+	    	} else {
+	    		lastId = $scope.list[length - 1].id;
+	    	}
+	    	var promise = httpService.get('./json/purchase-list2.json', {'status': 'loadmore', 'id': lastId});
 		    promise.then(function(data) {
 		    	var datas = data.data.items;
-		    	for(var i = 0; i < datas.length; i++) {
-	            	$scope.list.push(datas[i]);
-	            }
-	            if(data.length === 0) {
+	            if(datas.length === 0) {
 	            	$scope.hasMore = false;
+	            	messageService.show('没有更多新的数据');
+	            } else {
+	            	for(var i = 0; i < datas.length; i++) {
+		            	$scope.list.push(datas[i]);
+		            }
 	            }
 	            $scope.$broadcast('scroll.infiniteScrollComplete');
 		    });
