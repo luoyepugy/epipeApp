@@ -27,7 +27,7 @@ define(['./module'], function(directives) {
 						messageService.show('请输入正确的手机号码格式');
 					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {
 						messageService.show('两次密码输入不一致');
-					} else if (resultsDatas.num !== null && resultsDatas.num !== undefined && isNaN(resultsDatas.num) === true ||　Number(resultsDatas.num) <= 0) {
+					} else if (resultsDatas.productAmount !== null && resultsDatas.productAmount !== undefined && isNaN(resultsDatas.productAmount) === true ||　Number(resultsDatas.productAmount) <= 0) {
 						messageService.show('请输入正确的商品数量格式');
 					} else {
 						var promise = httpService.post(attrs.action, resultsDatas);

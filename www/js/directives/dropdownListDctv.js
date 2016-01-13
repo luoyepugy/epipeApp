@@ -22,7 +22,7 @@ define(['./module'], function(directives) {
                 scope.name = attrs.name || '';
                 elem.bind('keyup', function () {
                     if(scope.val.length > 2) {
-                        var promise = httpService.getData('./json/down-list.json', {'q': scope.val});
+                        var promise = httpService.get('./json/down-list.json', {'q': scope.val});
                         promise.then(function(data) {
                             if(data.data.length > 0) {
                             　　　　scope.list = data.data;

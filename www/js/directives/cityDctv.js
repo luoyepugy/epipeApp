@@ -6,7 +6,7 @@ define(['./module'], function(directives) {
 			restrict: 'E',
 			scope: {},
 			replace: true,
-			template: '<input type="text" name="city" placeholder="{{placeholder}}" ng-model="$parent.user.city" value="{{$parent.user.city}}" readonly />',
+			template: '<input type="text" name="shipAddress" placeholder="{{placeholder}}" ng-model="$parent.shipAddress" value="{{$parent.shipAddress}}" readonly />',
 			link: function(scope, element, attrs) {
 				cityModel = null;
 				scope.user = {};
@@ -72,9 +72,9 @@ define(['./module'], function(directives) {
 		            		}
 		            		//数据同步
 				        	if(scope.city.sub && scope.city.sub.length>0) {
-				        		scope.$parent.user.city = scope.province.name + scope.tag + scope.city.name + scope.tag + scope.country.name;
+				        		scope.$parent.shipAddress = scope.province.name + scope.tag + scope.city.name + scope.tag + scope.country.name;
 				        	} else {
-				        		scope.$parent.user.city = scope.province.name + scope.tag + scope.city.name;
+				        		scope.$parent.shipAddress = scope.province.name + scope.tag + scope.city.name;
 				        	}
 				        }, 150);
 				    } else {
