@@ -1,12 +1,11 @@
 
 define(['./module'], function(controllers) {
 	controllers.controller('purEditUserCtrl',
-		['$scope', 'userService',
-		function($scope, userService){
-		$scope.user = {};
-		var obj = userService.get();
-		for(var i in obj) {
-            $scope.user[i] = obj[i]; 
-        }
+		['$scope', 'httpService',
+		function($scope, httpService){
+			httpService.post('http://192.168.1.154:8083/user/changeProfile')
+			.then(function(data) {
+				$scope.user = data.data;
+			});
 	}]);
 });

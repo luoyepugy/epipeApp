@@ -1,8 +1,8 @@
 
 define(['./module'], function(directives) {
 	directives.directive('submitButton', 
-		['httpService', 'messageService', 'validateService', '$state', 'userService',
-		function(httpService, messageService,validateService, $state, userService) {
+		['httpService', 'messageService', 'validateService', '$state',
+		function(httpService, messageService,validateService, $state) {
 		return {
 			restrict: 'E',
 			template: '<button class="button button-full button-energized button-round">{{text}}</button>',
@@ -34,14 +34,8 @@ define(['./module'], function(directives) {
 					    promise.then(function(data) {
 					    	// messageService.show(data.message);
 					    	$state.go(state);
-					    	if(user === 'true') {
-					    		userService.set(scope.$parent.user);
-					    		// for(var i in scope.$parent.user) {
-					    		// 	userService.user[i] = scope.$parent.user[i];
-					    		// }
-					    	}
 					    	if(login === 'true') {
-					    		userService.set(data.data);
+					    		window.localStorage.token = data.token;
 					    	}
 					    });
 					}
