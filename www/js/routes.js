@@ -33,8 +33,8 @@ define(['./app'], function (app) {
 		        }
 		    }
 		})
-		.state('purchase.changePwd', {
-		    url: '/changePwd',
+		.state('purchase/changePwd', {
+		    url: 'purchase/changePwd',
 		    cache: 'false',
 		    views:{
 		        'purchase-userInfo':{

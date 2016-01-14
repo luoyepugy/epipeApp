@@ -51,11 +51,11 @@ define(['./module'], function(controllers) {
 			    	$scope.list = datas.quotations;
 			    	totalPage = datas.totolPage;
 			    });
-			    // httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
-			    // .then(function(data) {
-			    // 	var datas = data.data;
-			    // 	$scope.product = datas;
-			    // });
+			    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+			    .then(function(data) {
+			    	var datas = data.data;
+			    	$scope.product = datas;
+			    });
 	    	}　else {
 	    		pageIndex -= 1;
 	    		if(pageIndex === 1) {
@@ -66,6 +66,11 @@ define(['./module'], function(controllers) {
 				    	var datas = data.data;
 				    	$scope.list = datas.quotations;
 				    	totalPage = datas.totolPage;
+				    });
+				    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+				    .then(function(data) {
+				    	var datas = data.data;
+				    	$scope.product = datas;
 				    });
 	    		}
 	    	}

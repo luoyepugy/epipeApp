@@ -1,12 +1,15 @@
 
 define(['./module'], function(services) {
 	services.service('httpService', 
-		['$q', '$http',　'$ionicLoading', 'messageService', '$state',
-		function($q, $http, $ionicLoading, messageService, $state) {
+		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$ionicPlatform', '$cordovaDevice',
+		function($q, $http, $ionicLoading, messageService, $state, $ionicPlatform, $cordovaDevice) {
+		// header上的token
 		var token = '';
 		if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
 			token = window.localStorage.getItem('token');	
 		}
+		// 设备判断
+		var device = window.localStorage.getItem('device');
 		this.get = function(url, datas) {
 			// 预加载
 		    $ionicLoading.show({
@@ -32,11 +35,12 @@ define(['./module'], function(services) {
             })
             .error(function(data, status){
             	$ionicLoading.hide();
-            	console.log(status);
             	if(status === 401) {
             		$state.go('purchase-login');
-            	} else if (status === 403) {
+            	} else if (status === 403 && device === 'iOS') {
             		window.location.href = 'http//www.epipe.cn/download/cgb.ipa';
+            	} else if (status === 403 && device === 'Android') {
+            		window.location.href = 'http//www.epipe.cn/download/cgb.apk';
             	} else {
             		messageService.show('服务器请求失败');
             	}
@@ -68,11 +72,12 @@ define(['./module'], function(services) {
             })
             .error(function(data, status){
             	$ionicLoading.hide();
-            	console.log(status);
             	if(status === 401) {
             		$state.go('purchase-login');
-            	} else if (status === 403) {
+            	} else if (status === 403 && device === 'iOS') {
             		window.location.href = 'http//www.epipe.cn/download/cgb.ipa';
+            	} else if (status === 403 && device === 'Android') {
+            		window.location.href = 'http//www.epipe.cn/download/cgb.apk';
             	} else {
             		messageService.show('服务器请求失败');
             	}
