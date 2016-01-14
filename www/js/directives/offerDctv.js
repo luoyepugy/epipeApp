@@ -9,31 +9,23 @@ define(['./module'], function(directives) {
 			scope: false,
 			link: function(scope, element, attrs) {
 				element.on('click', function() {
-					var status = scope.$parent.item.status;
-			    	var id = scope.$parent.item.id;
-			    	if(status === null) {
-						var offerNum = scope.$parent.item.offerNum;
+					var status = scope.$parent.item.state;
+			    	var id = scope.$parent.item.name;
+			    	if(status === '报价') {
+						var offerNum = scope.$parent.item.quotationCount;
 						if(offerNum > 0) {
-							httpService.getData('./json/login.json', {'id': id})
-	                        .then(function(data) {
-	                            $state.go('purchase.offer');
-	                        });
-						    // $state.go('purchase.offer', {'id': id});
+	                        $state.go('purchase.offer', {'id': id});
 						}　else {
 							messageService.show('暂时没有商家报价');
 						}
 			    	}　else if(status === '已完成'){
-			    		httpService.getData('./json/login.json', {'id': id})
-                        .then(function(data) {
-                            $state.go('purchase.logistics');
-                        });
-					    // $state.go('purchase.logistics', {'id': id});
-			    	} else {
-			    		httpService.getData('./json/login.json', {'id': id})
-                        .then(function(data) {
-                            $state.go('purchase.orderSucce');
-                        });
-			    		// $state.go('purchase.orderSucce', {'id': id});
+                        $state.go('purchase.logistics', {'id': id});
+			    	}　else if(status === '已发货'){
+                        $state.go('purchase.logistics', {'id': id});
+			    	}　else if(status === '待支付'){
+                        $state.go('purchase.order', {'id': id});
+			    	}else if(status === '已支付'){
+                        $state.go('purchase.orderSucce', {'id': id});
 			    	}
 				});
 			}

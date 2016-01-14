@@ -9,10 +9,12 @@ define(['./module'], function(directives) {
             link: function (scope, elem, attrs) {
                 scope.user = {};
                 elem.bind('blur', function() {
-                    httpService.get('http://192.168.1.154:8083/user/checkPhone/', {'phone': scope.user.phone})
-                    .then(function(data) {
-                    	return true;
-                    });
+                    if(scope.user.phone !== '' && scope.user.phone != null) {
+                        httpService.get('http://192.168.1.154:8083/user/checkPhone/' + scope.user.phone)
+                        .then(function(data) {
+                            return true;
+                        }); 
+                    }
                 });
             }    
 		};

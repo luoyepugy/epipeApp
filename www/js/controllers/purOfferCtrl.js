@@ -1,18 +1,23 @@
 
 define(['./module'], function(controllers) {
 	controllers.controller('purOfferCtrl',
-		['$scope', 'httpService', '$state',
-		function($scope, httpService, $state){
+		['$scope', 'httpService', '$state','$stateParams',
+		function($scope, httpService, $state, $stateParams){
 
 		// 最后一个item的id
-		var baseUrl = './json/purchase-offer.json';
-
+		var baseUrl = 'http://192.168.1.154:8083/order/getPurQuotations/';
+		var id =  $stateParams.id;
 	    // 初始化
-	    var promise = httpService.getData(baseUrl);
-	    promise.then(function(data) {
+	    httpService.get(baseUrl + id)
+	    .then(function(data) {
 	    	var datas = data.data;
-	    	$scope.product = datas.product;
-	    	$scope.list = datas.offer;
+	    	$scope.list = datas;
+	    });
+	    
+	    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+	    .then(function(data) {
+	    	var datas = data.data;
+	    	$scope.product = datas;
 	    });
 
 	    // 选择商家
@@ -25,16 +30,16 @@ define(['./module'], function(controllers) {
 	    		}
 	    	}
 	    	if(choice !== null && choice !== undefined) {
-		    	httpService.getData('./json/login.json', {"choiceId": choice})
+		    	httpService.post('http://192.168.1.154:8083/order/chooseOrderQuotation', {"orderName": id, "quotationId": choice})
 			    .then(function(data) {
-			    	$state.go('purchase.order');
+			    	$state.go('purchase.order', {'id': id});
 			    });
 	    	}
 	    };
 
 	    // 换一批商家
 	    $scope.changeOffer = function()　{
-	    	httpService.getData('./json/purchase-offerChange.json')
+	    	httpService.get('./json/purchase-offerChange.json')
 		    .then(function(data) {
 		    	var datas = data.data;
 		    	$scope.list = datas.offer;

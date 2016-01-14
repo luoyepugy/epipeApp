@@ -63,6 +63,7 @@ define(['./app'], function (app) {
 		})
 		.state('purchase.list', {
 		    url: '/list',
+		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/list.html",
@@ -71,7 +72,8 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.offer', {
-		    url: '/offer',
+		    url: '/offer/:id',
+		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/offer.html",
@@ -80,7 +82,8 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.order', {
-		    url: '/order',
+		    url: '/order/:id',
+		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/order.html",
@@ -89,7 +92,8 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.orderSucce', {
-		    url: '/orderSucce',
+		    url: '/orderSucce/:id',
+		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/orderSucce.html",
@@ -114,7 +118,8 @@ define(['./app'], function (app) {
 		    }
 		})
 		.state('purchase.logistics', {
-		    url: '/logistics',
+		    url: '/logistics/:id',
+		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/logistics.html",

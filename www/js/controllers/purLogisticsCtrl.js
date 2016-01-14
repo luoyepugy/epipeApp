@@ -4,7 +4,7 @@ define(['./module'], function(controllers) {
 		var baseUrl = './json/purchase-logistics.json';
 
 	    // 初始化
-	    var promise = httpService.getData(baseUrl);
+	    var promise = httpService.get(baseUrl);
 	    promise.then(function(data) {
 	    	var datas = data.data;
 	    	$scope.product = datas.product;
