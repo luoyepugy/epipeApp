@@ -21,8 +21,7 @@ define(['./app'], function (app) {
 		.state('purchase', {
 			url: "/purchase",
 		    "abstract": true,
-		    templateUrl: "views/purchase/purchase.html",
-		    controller: 'purchaseCtrl'
+		    templateUrl: "views/purchase/purchase.html"
 		})
 		.state('purchase.userInfo', {
 		    url: '/userInfo',

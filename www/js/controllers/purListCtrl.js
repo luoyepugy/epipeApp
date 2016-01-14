@@ -16,8 +16,9 @@ define(['./module'], function(controllers) {
 	    // 初始化
 	    var promise = httpService.get(baseUrl + count +'/' + $scope.list.length +'/' + oldMaxCount);
 	    promise.then(function(data) {
-	    	$scope.list = data.data.orders;
-	    	oldMaxCount = data.data.maxCount;
+	    	var datas = data.data;
+	    	$scope.list = datas.orders;
+	    	oldMaxCount = datas.maxCount;
 	    });
 
 	    

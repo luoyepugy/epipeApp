@@ -17,7 +17,7 @@ define(['./module'], function(services) {
 		    	method: 'GET', 
 			  　　url: url,
 			    data: datas, 
-			  　　headers: {'x-access-token': token}
+			  　　headers: {'x-app-version': '0.0.1', 'x-access-token': token}
 		    })
 		    .success(function(response) {
         		$ionicLoading.hide();
@@ -32,8 +32,11 @@ define(['./module'], function(services) {
             })
             .error(function(data, status){
             	$ionicLoading.hide();
+            	console.log(status);
             	if(status === 401) {
             		$state.go('purchase-login');
+            	} else if (status === 403) {
+            		window.location.href = 'http//www.epipe.cn/download/cgb.ipa';
             	} else {
             		messageService.show('服务器请求失败');
             	}
@@ -50,7 +53,7 @@ define(['./module'], function(services) {
 		    	method: 'POST', 
 			  　　url: url,
 			    data: datas, 
-			  　　headers: {'x-access-token': token}
+			  　　headers: {'x-app-version': '0.0.1', 'x-access-token': token}
 		    })	
         	.success(function(response) {
         		$ionicLoading.hide();
@@ -65,8 +68,11 @@ define(['./module'], function(services) {
             })
             .error(function(data, status){
             	$ionicLoading.hide();
+            	console.log(status);
             	if(status === 401) {
             		$state.go('purchase-login');
+            	} else if (status === 403) {
+            		window.location.href = 'http//www.epipe.cn/download/cgb.ipa';
             	} else {
             		messageService.show('服务器请求失败');
             	}
