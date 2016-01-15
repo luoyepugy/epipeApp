@@ -4,16 +4,14 @@ define(['./module'], function(controllers) {
 		['$scope', '$state','$http', 'config',
 		function($scope, $state, $http, config){
 
-		$http.get('http://www.epipe.cn/download/appConfig.json')
-		.success(function(data) {
-			config.host = data['api_host'];
-			host();
-		}).error(function(data) {
-			host();
-		});
-
 		$scope.welcome = function() {
-			host();
+			$http.get('http://www.epipe.cn/download/appConfig.json')
+			.success(function(data) {
+				config.host = data['api_host'];
+				host();
+			}).error(function(data) {
+				host();
+			});
 		};
 
 		function host() {
