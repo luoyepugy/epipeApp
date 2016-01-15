@@ -10,7 +10,7 @@
                 'bootstrap',
                 'app',
                 'routes',
-		'config'
+		        'config'
             ],
             out: 'bundle.js'
         }

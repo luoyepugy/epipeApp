@@ -10,7 +10,7 @@ define(['./module'], function(directives) {
                 scope.user = {};
                 elem.bind('blur', function() {
                     if(scope.user.phone !== '' && scope.user.phone != null) {
-                        httpService.get('http://192.168.1.154:8083/user/checkPhone/' + scope.user.phone)
+                        httpService.getDatas('GET', '/user/checkPhone/' + scope.user.phone)
                         .then(function(data) {
                             return true;
                         }); 

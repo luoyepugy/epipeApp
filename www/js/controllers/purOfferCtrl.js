@@ -9,16 +9,16 @@ define(['./module'], function(controllers) {
 			pageIndex = 1,
 			count = 3;
 		var totalPage = 1;
-		var baseUrl = 'http://192.168.1.154:8083/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count;
+		var baseUrl = '/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count;
 	    // 初始化
-	    httpService.get(baseUrl)
+	    httpService.getDatas('GET',baseUrl)
 	    .then(function(data) {
 	    	var datas = data.data;
 	    	$scope.list = datas.quotations;
 	    	totalPage = datas.totolPage;
 	    });
 	    
-	    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+	    httpService.getDatas('GET','/order/getByOrderName/' + id)
 	    .then(function(data) {
 	    	var datas = data.data;
 	    	$scope.product = datas;
@@ -34,7 +34,7 @@ define(['./module'], function(controllers) {
 	    		}
 	    	}
 	    	if(choice !== null && choice !== undefined) {
-		    	httpService.post('http://192.168.1.154:8083/order/chooseOrderQuotation', {"orderName": id, "quotationId": choice})
+		    	httpService.getDatas('POST','/order/chooseOrderQuotation', {"orderName": id, "quotationId": choice})
 			    .then(function(data) {
 			    	$state.go('purchase.order', {'id': id});
 			    });
@@ -45,13 +45,13 @@ define(['./module'], function(controllers) {
 	    $scope.changeOffer = function()　{
 	    	pageIndex += 1;
 	    	if(pageIndex <= totalPage) {
-	    		httpService.get(baseUrl)
+	    		httpService.getDatas('GET',baseUrl)
 			    .then(function(data) {
 			    	var datas = data.data;
 			    	$scope.list = datas.quotations;
 			    	totalPage = datas.totolPage;
 			    });
-			    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+			    httpService.getDatas('GET','/order/getByOrderName/' + id)
 			    .then(function(data) {
 			    	var datas = data.data;
 			    	$scope.product = datas;
@@ -61,13 +61,13 @@ define(['./module'], function(controllers) {
 	    		if(pageIndex === 1) {
 	    			messageService.show('没有更多商家可供选择了');
 	    		} else {
-	    			httpService.get('http://192.168.1.154:8083/order/getPurQuotations/' + id + '/1/' + count)
+	    			httpService.getDatas('GET','/order/getPurQuotations/' + id + '/1/' + count)
 				    .then(function(data) {
 				    	var datas = data.data;
 				    	$scope.list = datas.quotations;
 				    	totalPage = datas.totolPage;
 				    });
-				    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+				    httpService.getDatas('GET','/order/getByOrderName/' + id)
 				    .then(function(data) {
 				    	var datas = data.data;
 				    	$scope.product = datas;

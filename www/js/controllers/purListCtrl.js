@@ -10,11 +10,11 @@ define(['./module'], function(controllers) {
 		
 		var count = 10,
 			oldCount = $scope.list.length;
-		var baseUrl = 'http://192.168.1.154:8083/order/getMyOldOrders/';
+		var baseUrl = '/order/getMyOldOrders/';
 		
 		var oldMaxCount = 0;
 	    // 初始化
-	    var promise = httpService.get(baseUrl + count +'/' + $scope.list.length +'/' + oldMaxCount);
+	    var promise = httpService.getDatas('GET',baseUrl + count +'/' + $scope.list.length +'/' + oldMaxCount);
 	    promise.then(function(data) {
 	    	var datas = data.data;
 	    	$scope.list = datas.orders;
@@ -24,7 +24,7 @@ define(['./module'], function(controllers) {
 	    
 	    // 刷新
 	    $scope.doRefresh = function() {
-	    	var promise = httpService.get('http://192.168.1.154:8083/order/getMyNewOrders/' + $scope.list.length +'/' + oldMaxCount);
+	    	var promise = httpService.getDatas('GET','/order/getMyNewOrders/' + $scope.list.length +'/' + oldMaxCount);
 		    promise.then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;
@@ -40,7 +40,7 @@ define(['./module'], function(controllers) {
 
 	    // 加载更多
 	    $scope.loadMore = function() {
-	    	var promise = httpService.get(baseUrl + count +'/' + $scope.list.length +'/' + oldMaxCount);
+	    	var promise = httpService.getDatas('GET',baseUrl + count +'/' + $scope.list.length +'/' + oldMaxCount);
 		    promise.then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;

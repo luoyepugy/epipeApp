@@ -4,10 +4,10 @@ define(['./module'], function(controllers) {
 		['$scope', 'httpService', '$stateParams','$state',
 		function($scope, httpService, $stateParams, $state){
 
-		var baseUrl = 'http://192.168.1.154:8083/order/getLogistics/';
+		var baseUrl = '/order/getLogistics/';
 		var id =  $stateParams.id;
 	    // 初始化
-	    var promise = httpService.get(baseUrl + id);
+	    var promise = httpService.getDatas('GET',baseUrl + id);
 	    promise.then(function(data) {
 	    	var datas = data.data;
 	    	$scope.list = datas;
@@ -20,14 +20,14 @@ define(['./module'], function(controllers) {
 	    	}
 	    });
 
-	    httpService.get('http://192.168.1.154:8083/order/getByOrderName/' + id)
+	    httpService.getDatas('GET','/order/getByOrderName/' + id)
 	    .then(function(data) {
 	    	var datas = data.data;
 	    	$scope.product = datas;
 	    });
-
+	    
 	    $scope.confirmGoods = function() {
-	    	httpService.post('http://192.168.1.154:8083/order/finshOrder', {"orderName": id})
+	    	httpService.getDatas('POST','/order/finshOrder', {"orderName": id})
 		    .then(function(data) {
 		    	$state.go('purchase.list');
 		    });

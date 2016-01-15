@@ -5,14 +5,14 @@
     <ion-content>
         <ion-list class="list card list-round j-login">
         	<ion-item class="item-input">
-                <phone></phone>
+                <input type="text" class="j-input" name="phone" placeholder="手机号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入手机号码" />
         	</ion-item>
             <ion-item class="item-input">
                 <input type="password" class="j-input" name="password" ng-model="user.password" placeholder="请输入密码" value="" data-empty="请输入密码" />
             </ion-item>
             <input type="hidden" name="userType" value="采购商">
             <ion-item>
-                <submit-button action="http://192.168.1.154:8083/user/login" login="true" state="purchase.publish" text="登录" form=".j-login"></submit-button>
+                <submit-button action="/user/login" login="true" state="purchase.publish" text="登录" form=".j-login"></submit-button>
                 <a href="#/purchase/register" class="button button-full button-stable button-round">还没有账号，赶紧来注册吧</a>
             </ion-item>
         </ion-list>

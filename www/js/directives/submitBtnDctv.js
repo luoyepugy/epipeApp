@@ -30,7 +30,7 @@ define(['./module'], function(directives) {
 					} else if (resultsDatas.productAmount !== null && resultsDatas.productAmount !== undefined && isNaN(resultsDatas.productAmount) === true ||　Number(resultsDatas.productAmount) <= 0) {
 						messageService.show('请输入正确的商品数量格式');
 					} else {
-						var promise = httpService.post(attrs.action, resultsDatas);
+						var promise = httpService.getDatas('POST', attrs.action, resultsDatas);
 					    promise.then(function(data) {
 					    	// messageService.show(data.message);
 					    	$state.go(state);

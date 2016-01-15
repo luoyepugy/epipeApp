@@ -19,7 +19,7 @@ define(['./module'], function(directives) {
                     sendVcode();
                     function sendVcode() {
                        if(scope.$parent.user.phone !== '' && scope.$parent.user.phone != null) {
-                           　httpService.post('http://192.168.1.154:8083/user/sendPhoneToken', {'phone': scope.$parent.user.phone})
+                           　httpService.getDatas('POST', '/user/sendPhoneToken', {'phone': scope.$parent.user.phone})
                             .then(function(data) {
                                 return true;
                             }); 

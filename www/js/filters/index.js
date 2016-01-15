@@ -1,2 +1,2 @@
 
-define(['./stateOffer', './stateLogistic', './stateOfferO', './confirmGoods', './completeGoods'],function(){});
+define(['./stateOffer', './stateLogistic', './stateOfferO', './statePayed', './confirmGoods', './completeGoods'],function(){});
