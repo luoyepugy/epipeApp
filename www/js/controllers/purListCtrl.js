@@ -8,8 +8,7 @@ define(['./module'], function(controllers) {
 		$scope.hasMore = true;
 		$scope.list = [];
 		
-		var count = 10,
-			oldCount = $scope.list.length;
+		var count = 10;
 		var baseUrl = '/order/getMyOldOrders/';
 		
 		var oldMaxCount = 0;

@@ -73,6 +73,22 @@
   }
 }
 
+// 过滤器菜单
+.listFilterWrap {
+  width: 90px;
+  @include position-basic(absolute, right, 5px, top, 47px);
+  @include skin-basic($main-orange, #fff);
+  padding: 10px;
+  border-radius: 4px;
+  li {
+    @include inside-center(70px, 30px);
+    border-bottom: 1px solid #dc6213;
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
 // ==================================
 // ============ 报价商家列表 ==========
 // ==================================

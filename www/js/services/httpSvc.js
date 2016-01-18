@@ -31,7 +31,7 @@ define(['./module','cordova'], function(services) {
 		    // 403错误时弹窗更新提示
 		    function updatePopup(path) {
 		    	var updateAlert = $ionicPopup.alert({
-			     	title: '更新',
+			     	title: '<strong>更新<strong>',
 			     	template: '下载可用的更新',
 			     	okText: '确定',
 			     	okType: 'button-energized'
@@ -81,6 +81,25 @@ define(['./module','cordova'], function(services) {
             });
 	        return deferred.promise;
 		};
+
+		this.get = function(method, url, datas) {
+			var deferred = $q.defer();
+			// http请求
+		    $http({
+		    	method: method, 
+			  　　url: url,
+			    data: datas
+		    })
+		    .success(function(response) {
+                if(response.success === true) {
+                	deferred.resolve(response);
+				}
+            })
+            .error(function(data, status){
+            	messageService.show('服务器请求失败');
+            });
+            return deferred.promise;
+		}
 
 	}]);
 });
