@@ -24,7 +24,7 @@ define(['./module'], function(directives) {
                         $state.go('purchase.logistics', {'id': id});
 			    	}　else if(status === '待支付'){
                         $state.go('purchase.order', {'id': id});
-			    	}else if(status === '已支付'){
+			    	} else if(status === '已支付'){
                         $state.go('purchase.order', {'id': id});
 			    	}
 				});

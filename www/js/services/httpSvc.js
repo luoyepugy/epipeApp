@@ -1,33 +1,53 @@
 
 define(['./module','cordova'], function(services) {
 	services.service('httpService', 
-		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', '$cordovaDevice', '$cordovaInAppBrowser', '$ionicPopup', 'config',
-		function($q, $http, $ionicLoading, messageService, $state, $location, $cordovaDevice, $cordovaInAppBrowser, $ionicPopup, config) {
-
-		document.addEventListener("deviceready", function () {
-			window.localStorage.device = $cordovaDevice.getPlatform();
-		}, false);
-
-		var device = window.localStorage.getItem('device') || '';
+		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', '$cordovaInAppBrowser', '$ionicPopup', 'config',
+		function($q, $http, $ionicLoading, messageService, $state, $location, $cordovaInAppBrowser, $ionicPopup, config) {
 
 		this.getDatas = function(method, url, datas) {
+			var deferred = $q.defer();
+
+			// 主机名称，从配置中获取值
 			var host = config.host;
-			// header上的token
-			var token = '';
-			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
-				token = window.localStorage.getItem('token');	
-			}
-			// 预加载
-		    $ionicLoading.show({
-		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
-		    });
-		    var deferred = $q.defer();
+
+			// cordovaInAppBrowser的选项变量
 		    var options = {
 		      location: 'yes',
 		      clearcache: 'yes',
 		      toolbar: 'no'
 		    };
 
+			// header上的token,从localStorage中取出
+			var token = '';
+			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
+				token = window.localStorage.getItem('token');	
+			}
+
+			// 预加载
+		    $ionicLoading.show({
+		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
+		    });
+
+		    // 403错误时弹窗更新提示
+		    function updatePopup(path) {
+		    	var updateAlert = $ionicPopup.alert({
+			     	title: '更新',
+			     	template: '下载可用的更新',
+			     	okText: '确定',
+			     	okType: 'button-energized'
+			    });
+			    updateAlert.then(function(res) {
+			    	$cordovaInAppBrowser.open(path, '_system', options)
+				    .then(function(event) {
+				        // messageService.show('下载可用的更新');
+				    })
+				    .catch(function(event) {
+				        messageService.show('服务器请求失败');
+				    });
+				});
+		    }
+
+		    // http请求
 		    $http({
 		    	method: method, 
 			  　　url: host + url,
@@ -49,36 +69,12 @@ define(['./module','cordova'], function(services) {
             	$ionicLoading.hide();
             	if(status === 401) {
             		$state.go('purchase-login');
-            	} else if (status === 403 && device === 'iOS') {
-            		$ionicPopup.alert({
-					     title: '更新',
-					     template: '下载可用的更新',
-					     okType: 'button-energized'
-					    })
-            			.then(function(res) {
-					    	$cordovaInAppBrowser.open(data.app_ios_path, '_system', options)
-						    .then(function(event) {
-						        messageService.show('下载可用的更新');
-						    })
-						    .catch(function(event) {
-						        messageService.show('服务器请求失败');
-						    });
-						});
-            	} else if (status === 403 && device === 'Android') {
-            		$ionicPopup.alert({
-					     title: '更新',
-					     template: '下载可用的更新',
-					     okType: 'button-energized'
-					    })
-            			.then(function(res) {
-            				$cordovaInAppBrowser.open(data.app_andriod_path, '_system', options)
-						    .then(function(event) {
-						        messageService.show('下载可用的更新');
-						    })
-						    .catch(function(event) {
-						        messageService.show('服务器请求失败');
-						    });
-            			});
+            	} else if (status === 403) {
+            		if(ionic.Platform.isIOS()) {
+            			updatePopup(data.app_ios_path);
+            		} else if(ionic.Platform.isAndroid()) {
+            			updatePopup(data.app_andriod_path);
+            		}
             	} else {
             		messageService.show('服务器请求失败');
             	}
@@ -86,31 +82,5 @@ define(['./module','cordova'], function(services) {
 	        return deferred.promise;
 		};
 
-		this.get = function(method, url, datas) {
-			// 预加载
-		    $ionicLoading.show({
-		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
-		    });
-		    var deferred = $q.defer();
-			$http({
-		    	method: method, 
-			  　　url: url,
-			    data: datas
-		    })
-		    .success(function(response) {
-        		$ionicLoading.hide();
-                if(response.success === true) {
-                	deferred.resolve(response);
-				} else {
-					deferred.reject(response.message);
-				}
-            })
-            .error(function(response) {
-            	$ionicLoading.hide();
-            	messageService.show(response.message);
-            });
-            return deferred.promise;
-		};
-		
 	}]);
 });

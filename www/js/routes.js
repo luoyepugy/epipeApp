@@ -15,6 +15,7 @@ define(['./app'], function (app) {
 		})
 		.state('purchase-register', {
 		    url: '/purchase/register',
+		    cache: 'false',
 		    templateUrl: "views/purchase/register.html",
 		    controller: 'purRegisterCtrl'
 		})
@@ -34,9 +35,8 @@ define(['./app'], function (app) {
 		        }
 		    }
 		})
-		.state('purchase/changePwd', {
-		    url: 'purchase/changePwd',
-		    cache: 'false',
+		.state('purchase.changePwd', {
+		    url: '/changePwd',
 		    views:{
 		        'purchase-userInfo':{
 		            templateUrl: "views/purchase/changePwd.html"

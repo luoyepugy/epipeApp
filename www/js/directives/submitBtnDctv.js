@@ -23,9 +23,11 @@ define(['./module'], function(directives) {
 						return false;
 					}
 					resultsDatas = validateService.submitData(attrs.form);
+					// 个人简介数据使用对象值
 					if(resultsDatas.company != null && resultsDatas.company != '') {
 						resultsDatas.userProfile = {'company': resultsDatas.company };
 					}
+					// 判断表单填入数据格式
 					if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
 						messageService.show('请输入正确的手机号码格式');
 					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {
@@ -35,7 +37,6 @@ define(['./module'], function(directives) {
 					} else {
 						var promise = httpService.getDatas('POST', attrs.action, resultsDatas);
 					    promise.then(function(data) {
-					    	// messageService.show(data.message);
 					    	$state.go(state);
 					    	if(login === 'true') {
 					    		window.localStorage.token = data.token;

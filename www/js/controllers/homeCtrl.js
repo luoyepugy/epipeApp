@@ -4,14 +4,15 @@ define(['./module'], function(controllers) {
 		['$scope', '$state','$http', 'config',
 		function($scope, $state, $http, config){
 
+
 		$scope.welcome = function() {
-			$http.get('http://www.epipe.cn/download/appConfig.js')
-			.success(function(data) {
-				config.host = data['api_host'];
+			// $http.get('http://www.epipe.cn/download/appConfig.js')
+			// .success(function(data) {
+			// 	config.host = data['api_host'];
+			// 	host();
+			// }).error(function(data) {
 				host();
-			}).error(function(data) {
-				host();
-			});
+			// });
 		};
 
 		function host() {
