@@ -2,6 +2,9 @@
 @import 'custom/custom.scss';
 @import 'custom/mixin.scss';
 
+// 图标
+@include size-icon(25);
+
 // 圆角按钮
 .button-round {
   border-radius: 30px;

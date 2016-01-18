@@ -8,6 +8,7 @@ define(['./module'], function(directives) {
             scope: {},
             link: function (scope, elem, attrs) {
                 var flag = false;
+                scope.text = '发送验证码';
                 elem.bind('click', function () {
                     if(flag) {
                         setTimeout(function(){

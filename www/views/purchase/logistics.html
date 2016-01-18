@@ -13,7 +13,7 @@
                 <div class="button button-clear">
                     <i ng-class="{true: 'ion-ios-circle-filled assertive', false: 'ion-ios-circle-filled'}[item.current]"></i>
                 </div>
-                <p>{{item.createdOn}}</p>
+                <p>{{item.createdOn | date:'yyyy-MM-dd'}}</p>
                 <p><span ng-class="{true: 'green', false: 'gray_mid'}[item.current]">{{item.info}}</span></p>
             </ion-item>
             <ion-item class="border0">

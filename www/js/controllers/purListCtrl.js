@@ -28,11 +28,7 @@ define(['./module'], function(controllers) {
 		    promise.then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;
-		    	if(datas > 0) {
-		    		$scope.list = data.data.orders;
-		    	} else {
-		    		messageService.show('没有更多新的数据');
-		    	}
+		    	$scope.list = data.data.orders;
 		    	$scope.$broadcast('scroll.refreshComplete');
 		    });
 	    };
@@ -44,7 +40,7 @@ define(['./module'], function(controllers) {
 		    promise.then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;
-	            if(datas.length === 0) {
+	            if(datas.maxCount === $scope.list.length) {
 	            	$scope.hasMore = false;
 	            	messageService.show('没有更多新的数据');
 	            } else {

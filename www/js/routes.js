@@ -15,7 +15,8 @@ define(['./app'], function (app) {
 		})
 		.state('purchase-register', {
 		    url: '/purchase/register',
-		    templateUrl: "views/purchase/register.html"
+		    templateUrl: "views/purchase/register.html",
+		    controller: 'purRegisterCtrl'
 		})
 
 		.state('purchase', {
@@ -86,16 +87,6 @@ define(['./app'], function (app) {
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "views/purchase/order.html",
-		            controller: 'purOrderCtrl'
-		        }
-		    }
-		})
-		.state('purchase.orderSucce', {
-		    url: '/orderSucce/:id',
-		    cache: 'false',
-		    views:{
-		        'purchase-list':{
-		            templateUrl: "views/purchase/orderSucce.html",
 		            controller: 'purOrderCtrl'
 		        }
 		    }

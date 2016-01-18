@@ -3,19 +3,20 @@ define(['./module','cordova'], function(services) {
 	services.service('httpService', 
 		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', '$cordovaDevice', '$cordovaInAppBrowser', '$ionicPopup', 'config',
 		function($q, $http, $ionicLoading, messageService, $state, $location, $cordovaDevice, $cordovaInAppBrowser, $ionicPopup, config) {
-		// header上的token
-		var token = '';
-		if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
-			token = window.localStorage.getItem('token');	
-		}
-		var device = '';
+
 		document.addEventListener("deviceready", function () {
 			window.localStorage.device = $cordovaDevice.getPlatform();
 		}, false);
 
-		device = window.localStorage.getItem('device');
+		var device = window.localStorage.getItem('device') || '';
+
 		this.getDatas = function(method, url, datas) {
 			var host = config.host;
+			// header上的token
+			var token = '';
+			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
+				token = window.localStorage.getItem('token');	
+			}
 			// 预加载
 		    $ionicLoading.show({
 		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
@@ -84,5 +85,32 @@ define(['./module','cordova'], function(services) {
             });
 	        return deferred.promise;
 		};
+
+		this.get = function(method, url, datas) {
+			// 预加载
+		    $ionicLoading.show({
+		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
+		    });
+		    var deferred = $q.defer();
+			$http({
+		    	method: method, 
+			  　　url: url,
+			    data: datas
+		    })
+		    .success(function(response) {
+        		$ionicLoading.hide();
+                if(response.success === true) {
+                	deferred.resolve(response);
+				} else {
+					deferred.reject(response.message);
+				}
+            })
+            .error(function(response) {
+            	$ionicLoading.hide();
+            	messageService.show(response.message);
+            });
+            return deferred.promise;
+		};
+		
 	}]);
 });

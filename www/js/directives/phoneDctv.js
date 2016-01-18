@@ -4,13 +4,12 @@ define(['./module'], function(directives) {
 		return {
 			restrict: 'E',
 			replace: true,
-			template: '<input type="number" class="j-input" name="phone" placeholder="手机号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入手机号码" />',
+			template: '<input type="number" class="j-input" name="phone" placeholder="手机号码" ng-model="$parent.user.phone" value="{{$parent.user.phone}}" data-empty="请输入手机号码" />',
             scope: {},
             link: function (scope, elem, attrs) {
-                scope.user = {};
                 elem.bind('blur', function() {
-                    if(scope.user.phone !== '' && scope.user.phone != null) {
-                        httpService.getDatas('GET', '/user/checkPhone/' + scope.user.phone)
+                    if(scope.$parent.user.phone !== '' && scope.$parent.user.phone != null) {
+                        httpService.getDatas('GET', '/user/checkPhone/' + scope.$parent.user.phone)
                         .then(function(data) {
                             return true;
                         }); 

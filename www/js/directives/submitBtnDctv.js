@@ -23,6 +23,9 @@ define(['./module'], function(directives) {
 						return false;
 					}
 					resultsDatas = validateService.submitData(attrs.form);
+					if(resultsDatas.company != null && resultsDatas.company != '') {
+						resultsDatas.userProfile = {'company': resultsDatas.company };
+					}
 					if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
 						messageService.show('请输入正确的手机号码格式');
 					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {

@@ -5,7 +5,7 @@ define(['./module'], function(controllers) {
 		function($scope, $state, $http, config){
 
 		$scope.welcome = function() {
-			$http.get('http://www.epipe.cn/download/appConfig.json')
+			$http.get('http://www.epipe.cn/download/appConfig.js')
 			.success(function(data) {
 				config.host = data['api_host'];
 				host();
