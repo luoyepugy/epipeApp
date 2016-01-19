@@ -1,11 +1,11 @@
 
 <ion-view view-title="个人中心">
     <ion-content class="userInfo">
- <!--        <div>
+        <div>
         	<div class="avatar">
         		<div class="icon-center" style="height: 80px;" ng-click="editAvatar()">
-                    <i class="ion-ios-person-outline energized" ng-if="userIcon"></i>
-                    <img class="icon100" ng-if="userImg" ng-src="{{user.avatar}}" alt="用户头像">
+                    <!-- <i class="ion-ios-person-outline energized" ng-if="userIcon"></i> -->
+                    <img class="icon90" ng-src="{{user.avatar}}" alt="用户头像">
                 </div>
         	</div>
             <div class="userContent">
@@ -17,7 +17,7 @@
                 </p>
                 <button ng-click="exit()" class="button button-full button-energized button-round">退出当前账号</button>
             </div>
-        </div> -->
-        <div class="offline">努力加载中。。。</div>
+        </div>
+        <div ng-if="offline" class="offline">网络连接异常，请检查后重试</div>
     </ion-content>
 </ion-view>

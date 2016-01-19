@@ -170,9 +170,16 @@
   background-size: cover;
   padding: 20px 0;
 }
+.userInfo .icon90 {
+  max-width: none;
+  margin-left: -5px;
+  margin-top: -5px;
+}
 
 // 无网络连接
 .offline {
-  @include position-basic(fixed, left, 40%, top, 40%);
-  border: 1px solid black;
+  @include position-basic(fixed, left, 0, top, 40%);
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
 }

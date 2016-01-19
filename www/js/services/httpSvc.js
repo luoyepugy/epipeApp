@@ -1,8 +1,10 @@
 
 define(['./module','cordova'], function(services) {
 	services.service('httpService', 
-		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', '$cordovaInAppBrowser', '$ionicPopup', 'config',
-		function($q, $http, $ionicLoading, messageService, $state, $location, $cordovaInAppBrowser, $ionicPopup, config) {
+		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', 
+		'$cordovaInAppBrowser', '$ionicPopup', 'config', '$cordovaNetwork', '$rootScope',
+		function($q, $http, $ionicLoading, messageService, $state, $location, 
+			$cordovaInAppBrowser, $ionicPopup, config, $cordovaNetwork, $rootScope) {
 
 		this.getDatas = function(method, url, datas) {
 			var deferred = $q.defer();
@@ -23,11 +25,6 @@ define(['./module','cordova'], function(services) {
 				token = window.localStorage.getItem('token');	
 			}
 
-			// 预加载
-		    $ionicLoading.show({
-		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
-		    });
-
 		    // 403错误时弹窗更新提示
 		    function updatePopup(path) {
 		    	var updateAlert = $ionicPopup.alert({
@@ -47,6 +44,11 @@ define(['./module','cordova'], function(services) {
 				});
 		    }
 
+
+		    // 预加载
+		    $ionicLoading.show({
+		        template: '<ion-spinner></ion-spinner><h3>加载中...</h3>'
+		    });
 		    // http请求
 		    $http({
 		    	method: method, 

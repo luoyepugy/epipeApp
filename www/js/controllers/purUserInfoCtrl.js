@@ -4,12 +4,17 @@ define(['./module'], function(controllers) {
 		['$scope', 'httpService','$state',　'$ionicActionSheet', 'cameraService',
 		function($scope, httpService, $state, $ionicActionSheet, cameraService){
 			$scope.user = {};
-			$scope.userIcon = true;
-			$scope.userImg = false;
+			// $scope.userIcon = true;
+			// $scope.userImg = false;
+			if($scope.user.avatar === '' || $scope.user.avatar == null) {
+				$scope.user.avatar = './images/default_avatar.png';
+			}
 			// 首次加载
 			httpService.getDatas('GET','/user/getProfile')
 			.then(function(data) {
 				$scope.user = data.data;
+			}, function(data) {
+				console.log('ereror');
 			});
 
 			$scope.exit =function() {
@@ -43,29 +48,21 @@ define(['./module'], function(controllers) {
 		    // 打开照相机
 		    function getCamera() {
 		    	cameraService.getPicture(0, '拍摄照片失败').then(function(imageURI) {
-		    		uploadPhoto(imageURI);
+		    		uploadPicture(imageURI);
 		    	});
 		    }
-	        function uploadPhoto(imageURI) {
-				var imageURI = 'http://pic.pptbz.com/pptpic/201204/2012041411433867_S.jpg';
-	        	cameraService.uploadPicture(imageURI).then(function(data) {
-		    		// $scope.user.avatar = './images/avatar.jpg';
-		    		$scope.userIcon = false;
-					$scope.userImg = true;
-		    		$scope.user.avatar = 'http://pic.pptbz.com/pptpic/201204/2012041411433867_S.jpg';
-		    	});
-	        }
 	        // 打开图库
 	        function getPhotoLibrary() {
 	        	cameraService.getPicture(1, '获取照片失败').then(function(imageURI) {
 		    		uploadPicture(imageURI);
 		    	});
 		    }
+		    // 上传图片
 			function uploadPicture(imageURI) {
 				cameraService.uploadPicture(imageURI).then(function(data) {
-					$scope.userIcon = false;
-					$scope.userImg = true;
 		    		$scope.user.avatar = imageURI;
+		    		// $scope.user.avatar = './images/avatar.jpg';
+		    		// $scope.user.avatar = 'http://pic.pptbz.com/pptpic/201204/2012041411433867_S.jpg';
 		    	});
 		    }
 	}]);

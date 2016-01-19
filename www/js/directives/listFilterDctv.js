@@ -1,28 +1,40 @@
 
 define(['./module'], function(directives) {
 	directives.directive('listFilter', 
-		['$ionicModal', 'httpService',
-		function($ionicModal, httpService) {
+		['$ionicModal', 'httpService', '$timeout',
+		function($ionicModal, httpService, $timeout) {
 		return {
 			restrict: 'AE',
 			template: '<button class="button button-icon icon ion-android-menu"></button>',
 			replace: true,
 			scope: {},
             link: function (scope, elem, attrs) {
+                var menuModal = null,
+                    hasModal = false;
                 elem.bind('click', function () {
-                     $ionicModal.fromTemplateUrl('./js/templates/listFilterTemp.html', {
+                    if(hasModal) {
+                        if(menuModal) { menuModal.show(); }
+                        return;
+                    }
+                    hasModal = true;
+                    $ionicModal.fromTemplateUrl('./js/templates/listFilterTemp.html', {
 					    scope: scope,
 					    animation: 'fade-in'
-					  }).then(function(modal) {
-					    scope.modal = modal;
-					    scope.modal.show();
-					  });
-					  
+					}).then(function(modal) {
+					    menuModal = modal;
+                        $timeout(function () {
+					       if(menuModal) { menuModal.show(); }
+                        }, 100);
+					});
                 });
                 // 关闭弹窗菜单
                 scope.closeModal = function() {
-                	scope.modal.hide();
+                	if(menuModal) { menuModal.hide(); }
                 };
+                scope.$on('$destroy', function() {
+                    if(menuModal) { menuModal.remove(); }
+                });
+                
 
                 var count = 10;
 				var baseUrl = '/order/getMyOldOrders/';
