@@ -19,6 +19,10 @@ define(['./app'], function (app) {
 		    templateUrl: "views/purchase/register.html",
 		    controller: 'purRegisterCtrl'
 		})
+		.state('purchase-forgetPwd', {
+		    url: '/purchase/forgetPwd',
+		    templateUrl: "views/purchase/forgetPwd.html"
+		})
 
 		.state('purchase', {
 			url: "/purchase",

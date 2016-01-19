@@ -1,8 +1,8 @@
 
 define(['./module'], function(directives) {
 	directives.directive('listFilter', 
-		['$ionicModal', 'httpService', '$timeout',
-		function($ionicModal, httpService, $timeout) {
+		['$ionicModal', 'httpService',
+		function($ionicModal, httpService) {
 		return {
 			restrict: 'AE',
 			template: '<button class="button button-icon icon ion-android-menu"></button>',
@@ -22,9 +22,7 @@ define(['./module'], function(directives) {
 					    animation: 'fade-in'
 					}).then(function(modal) {
 					    menuModal = modal;
-                        $timeout(function () {
-					       if(menuModal) { menuModal.show(); }
-                        }, 100);
+					    if(menuModal) { menuModal.show(); }
 					});
                 });
                 // 关闭弹窗菜单

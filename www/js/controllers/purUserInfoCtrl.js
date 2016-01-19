@@ -4,8 +4,7 @@ define(['./module'], function(controllers) {
 		['$scope', 'httpService','$state',　'$ionicActionSheet', 'cameraService',
 		function($scope, httpService, $state, $ionicActionSheet, cameraService){
 			$scope.user = {};
-			// $scope.userIcon = true;
-			// $scope.userImg = false;
+			// 无头像时使用默认头像
 			if($scope.user.avatar === '' || $scope.user.avatar == null) {
 				$scope.user.avatar = './images/default_avatar.png';
 			}
@@ -13,8 +12,6 @@ define(['./module'], function(controllers) {
 			httpService.getDatas('GET','/user/getProfile')
 			.then(function(data) {
 				$scope.user = data.data;
-			}, function(data) {
-				console.log('ereror');
 			});
 
 			$scope.exit =function() {

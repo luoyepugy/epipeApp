@@ -158,22 +158,25 @@
 .userInfo{
   background: url(../../images/bg-grid.jpg) repeat;
   background-size: initial; 
+  .avatar {
+    background-image: url('../../images/bg.png');
+    background-size: cover;
+    padding: 20px 0;
+  }
+  .icon90 {
+    max-width: none;
+    margin-left: -5px;
+    margin-top: -5px;
+  }
+  .button-icon.icon:before {
+    font-size: 36px;
+  }
 }
 .userContent {
   padding: 35px;
   white-space: normal;
   font-size: 16px;
   color: #343434;
-}
-.userInfo .avatar {
-  background-image: url('../../images/bg.png');
-  background-size: cover;
-  padding: 20px 0;
-}
-.userInfo .icon90 {
-  max-width: none;
-  margin-left: -5px;
-  margin-top: -5px;
 }
 
 // 无网络连接

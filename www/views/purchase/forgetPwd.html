@@ -1,0 +1,18 @@
+
+<ion-view  view-title="找回密码">
+    <ion-nav-bar class="bar-energized" align-title="center">
+      <ion-nav-buttons side="left">
+        <a href="#/purchase/login" class="button button-clear icon button-icon ion-ios-arrow-left"></a>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list class="list card list-round j-forgetPwd">
+        	<ion-item class="item-input">
+                <input type="text" class="j-input" name="phone" placeholder="手机号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入手机号码" />
+        	</ion-item>
+            <input type="hidden" name="userType" value="采购商">
+            <ion-item>
+                <submit-button action="/user/forgetPwd" state="purchase-login" text="密码发送到手机" form=".j-forgetPwd"></submit-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
