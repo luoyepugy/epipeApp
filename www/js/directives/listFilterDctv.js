@@ -5,7 +5,7 @@ define(['./module'], function(directives) {
 		function($ionicModal, httpService) {
 		return {
 			restrict: 'AE',
-			template: '<button class="button button-icon icon ion-plus-round"></button>',
+			template: '<button class="button button-icon icon ion-android-menu"></button>',
 			replace: true,
 			scope: {},
             link: function (scope, elem, attrs) {

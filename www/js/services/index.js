@@ -1,2 +1,2 @@
 
-define(['./httpSvc', './messageSvc', './validateSvc', './citySvc', './storageSvc'], function() {});
+define(['./httpSvc', './messageSvc', './validateSvc', './citySvc', './cameraSvc'], function() {});

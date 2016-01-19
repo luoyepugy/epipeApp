@@ -14,7 +14,7 @@ define(['./module','cordova'], function(services) {
 		    var options = {
 		      location: 'yes',
 		      clearcache: 'yes',
-		      toolbar: 'no'
+		      toolbar: 'yes'
 		    };
 
 			// header上的token,从localStorage中取出

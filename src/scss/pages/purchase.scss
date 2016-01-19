@@ -170,3 +170,9 @@
   background-size: cover;
   padding: 20px 0;
 }
+
+// 无网络连接
+.offline {
+  @include position-basic(fixed, left, 40%, top, 40%);
+  border: 1px solid black;
+}
