@@ -1,11 +1,11 @@
 
 define(['./module', 'cordova'], function(services) {
 	services.factory('cameraService', 
-	['$q', '$ionicPopup', '$cordovaFileTransfer', '$cordovaCamera', '$ionicLoading',
-	function($q, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $ionicLoading) {
+	['$q', '$ionicPopup', '$cordovaFileTransfer', '$cordovaCamera', '$ionicLoading', '$timeout',
+	function($q, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $ionicLoading, $timeout) {
 		var camera = {};
 
-		camera.getPicture = function(options, errorMessage) {
+		camera.getPicture = function(options) {
 			var deferred = $q.defer();
 			if(options === 0) {
 				options = {
@@ -20,36 +20,40 @@ define(['./module', 'cordova'], function(services) {
 			}
 			$cordovaCamera.getPicture(options).then(function(imageURI) {
 		      	deferred.resolve(imageURI);
-		    }, function(err) {
-		    	$ionicPopup.alert({
-			       title: '提示',
-			       template: errorMessage,
-			       okText: '确定',
-			       okType: 'button-energized'
-			    });
+		    }, function(error) {
+		    	// $ionicPopup.alert({
+			    //    title: '提示',
+			    //    template: errorMessage,
+			    //    okText: '确定',
+			    //    okType: 'button-energized'
+			    // });
+				deferred.reject(error);
 		    });
             return deferred.promise;
 		};
 
-		camera.uploadPicture = function(imageURI) {
+		camera.uploadPicture = function(uploadUrl, imageURI) {
+			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
+				var token = window.localStorage.getItem('token') || '';	
+			}
 			var options = {
 			    fileKey: "file",
 			    fileName: imageURI.substr(imageURI.lastIndexOf('/') + 1),
 			    chunkedMode: false,
 			    mimeType: "image/jpg",
-			 	params : {'directory':'upload', 'fileName':imageURI.substr(imageURI.lastIndexOf('/') + 1)}
+			 	params : {'directory':'upload', 'fileName':imageURI.substr(imageURI.lastIndexOf('/') + 1), 'gallery': 'avatar'},
+			 	headers: {'x-app-version': '0.0.1', 'x-access-token': token}
 			};
+
 			var deferred = $q.defer();
-			$cordovaFileTransfer.upload('http://www.baidu.com', imageURI, options)
+			$cordovaFileTransfer.upload(uploadUrl, imageURI, options)
 			    .then(function(response) {
-			        deferred.resolve(response);
+			    	var result = JSON.parse(response.response);
+			    	if(result.status) {
+			    		deferred.resolve(result.data);
+			    	}
 			    }, function(error) {
-			        $ionicPopup.alert({
-				       title: '提示',
-				       template: JSON.stringify(error),
-				       okText: '确定',
-				       okType: 'button-energized'
-				    });
+				    deferred.reject(error);
 			    }, function (progress) {
 					var downloadProgress = (progress.loaded / progress.total) * 100;  
                     $ionicLoading.show({  
@@ -57,6 +61,10 @@ define(['./module', 'cordova'], function(services) {
                     });  
                     if (downloadProgress > 99) {  
                         $ionicLoading.hide();  
+                    } else {
+                    	$timeout(function() {
+                    		$ionicLoading.hide(); 
+                    	}, 10000);
                     }
 			    });
 

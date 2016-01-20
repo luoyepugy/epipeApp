@@ -163,10 +163,13 @@
     background-size: cover;
     padding: 20px 0;
   }
-  .icon90 {
+  .icon-center {
+    border-radius: 60px;
+    @include inside-center(120px);
+    height: 120px;
+  }
+  .icon120 {
     max-width: none;
-    margin-left: -5px;
-    margin-top: -5px;
   }
   .button-icon.icon:before {
     font-size: 36px;

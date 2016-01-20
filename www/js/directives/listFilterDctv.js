@@ -36,41 +36,40 @@ define(['./module'], function(directives) {
                 // 全部
                 scope.stateAll = function() {
                     $rootScope.statusFilter = '所有';
-                    stateFilter('所有');
+                    stateFilter($rootScope.statusFilter);
                 }
                 // 报价
                 scope.stateOffer = function() {
                     $rootScope.statusFilter = '报价';
-                    stateFilter('报价');
+                    stateFilter($rootScope.statusFilter);
                 }
                 // 待支付
                 scope.statePaying = function() {
                     $rootScope.statusFilter = '待支付';
-                    stateFilter('待支付');
+                    stateFilter($rootScope.statusFilter);
                 }
                 // 已支付
                 scope.statePayed = function() {
                     $rootScope.statusFilter = '已支付';
-                    stateFilter('已支付');
+                    stateFilter($rootScope.statusFilter);
                 }
                 // 已发货
                 scope.stateReceiving = function() {
                     $rootScope.statusFilter = '已发货';
-                    stateFilter('已发货');
+                    stateFilter($rootScope.statusFilter);
                 }
                 // 已完成
                 scope.stateReceived = function() {
                     $rootScope.statusFilter = '已完成';
-                    stateFilter('已完成');
+                    stateFilter($rootScope.statusFilter);
                 }
-
-
+                // 过滤列表
                 function stateFilter(state) {
                     var count = 10,
-                        oldMaxCount = 0,
-                        orderState = state,                   
-                        baseUrl = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
-                    console.log(baseUrl);
+                        oldMaxCount = 0,                  
+                        baseUrl = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + state;
+                    // console.log(baseUrl);
+                    $rootScope.hasMore = true;
                     var promise = httpService.getDatas('GET',baseUrl);
                     promise.then(function(data) {
                         var datas = data.data;

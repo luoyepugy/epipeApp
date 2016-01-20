@@ -12,7 +12,7 @@ define(['./module'], function(controllers) {
 		// 5 已完成
 
 		// 更多数据判断
-		$scope.hasMore = true;
+		$rootScope.hasMore = true;
 		$rootScope.purList = [];
 
 		var count = 10,
@@ -20,7 +20,7 @@ define(['./module'], function(controllers) {
 			orderState = $rootScope.statusFilter || '所有';
 			url = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
 
-		console.log(url);
+		// console.log(url);
 	    // 初始化
 	    var promise = httpService.getDatas('GET',url);
 	    promise.then(function(data) {
@@ -34,7 +34,7 @@ define(['./module'], function(controllers) {
 	    $scope.doRefresh = function() {
 	    	orderState = $rootScope.statusFilter || '所有';
 	    	var url = '/order/getMyNewOrders/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
-	    	console.log(url);
+	    	// console.log(url);
 	    	var promise = httpService.getDatas('GET', url);
 		    promise.then(function(data) {
 		    	var datas = data.data;
@@ -49,13 +49,13 @@ define(['./module'], function(controllers) {
 	    $scope.loadMore = function() {
 	    	orderState = $rootScope.statusFilter || '所有';
 	    	var url = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
-	    	console.log(url);
+	    	// console.log(url);
 	    	var promise = httpService.getDatas('GET', url);
 		    promise.then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;
 	            if(datas.maxCount === $rootScope.purList.length) {
-	            	$scope.hasMore = false;
+	            	$rootScope.hasMore = false;
 	            	messageService.show('没有更多新的数据');
 	            } else {
 	            	$rootScope.purList = data.data.orders;

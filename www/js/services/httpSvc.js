@@ -20,9 +20,8 @@ define(['./module','cordova'], function(services) {
 		    };
 
 			// header上的token,从localStorage中取出
-			var token = '';
 			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
-				token = window.localStorage.getItem('token');	
+				var token = window.localStorage.getItem('token') || '';	
 			}
 
 		    // 403错误时弹窗更新提示
@@ -43,11 +42,6 @@ define(['./module','cordova'], function(services) {
 				    });
 				});
 		    }
-		    
-		 //    if($cordovaNetwork.isOffline()) {
-			//     messageService.show('无网络连接');
-			//     return false;
-			// }
 
 		    // 预加载
 		    $ionicLoading.show({
@@ -89,24 +83,24 @@ define(['./module','cordova'], function(services) {
 	        return deferred.promise;
 		};
 
-		this.get = function(method, url, datas) {
-			var deferred = $q.defer();
-			// http请求
-		    $http({
-		    	method: method, 
-			  　　url: url,
-			    data: datas
-		    })
-		    .success(function(response) {
-                if(response.success === true) {
-                	deferred.resolve(response);
-				}
-            })
-            .error(function(data, status){
-            	messageService.show('服务器请求失败');
-            });
-            return deferred.promise;
-		}
+		// this.get = function(method, url, datas) {
+		// 	var deferred = $q.defer();
+		// 	// http请求
+		//     $http({
+		//     	method: method, 
+		// 	  　　url: url,
+		// 	    data: datas
+		//     })
+		//     .success(function(response) {
+  //               if(response.success === true) {
+  //               	deferred.resolve(response);
+		// 		}
+  //           })
+  //           .error(function(data, status){
+  //           	messageService.show('服务器请求失败');
+  //           });
+  //           return deferred.promise;
+		// }
 
 	}]);
 });
