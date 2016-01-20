@@ -59,7 +59,7 @@ define(['./module', 'cordova'], function(services) {
                     $ionicLoading.show({  
                         template: "已经上传：" + Math.floor(downloadProgress) + "%"  
                     });  
-                    if (downloadProgress > 99) {  
+                    if (downloadProgress > 98) {  
                         $ionicLoading.hide();  
                     } else {
                     	$timeout(function() {
