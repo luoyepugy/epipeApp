@@ -1,8 +1,8 @@
 
 define(['./module'], function(directives) {
 	directives.directive('listFilter', 
-		['$ionicModal', 'httpService',
-		function($ionicModal, httpService) {
+		['$ionicModal', 'httpService', '$rootScope',
+		function($ionicModal, httpService, $rootScope) {
 		return {
 			restrict: 'AE',
 			template: '<button class="button button-icon icon ion-android-menu"></button>',
@@ -31,28 +31,52 @@ define(['./module'], function(directives) {
                 };
                 scope.$on('$destroy', function() {
                     if(menuModal) { menuModal.remove(); }
-                });
-                
+                });                 
 
-                var count = 10;
-				var baseUrl = '/order/getMyOldOrders/';
-				
-				var oldMaxCount = 0;
+                // 全部
+                scope.stateAll = function() {
+                    $rootScope.statusFilter = '所有';
+                    stateFilter('所有');
+                }
+                // 报价
+                scope.stateOffer = function() {
+                    $rootScope.statusFilter = '报价';
+                    stateFilter('报价');
+                }
                 // 待支付
-                scope.paying = function() {
-
+                scope.statePaying = function() {
+                    $rootScope.statusFilter = '待支付';
+                    stateFilter('待支付');
                 }
                 // 已支付
-                scope.payed = function() {
-
+                scope.statePayed = function() {
+                    $rootScope.statusFilter = '已支付';
+                    stateFilter('已支付');
                 }
                 // 已发货
-                scope.receiving = function() {
-
+                scope.stateReceiving = function() {
+                    $rootScope.statusFilter = '已发货';
+                    stateFilter('已发货');
                 }
                 // 已完成
-                scope.received = function() {
+                scope.stateReceived = function() {
+                    $rootScope.statusFilter = '已完成';
+                    stateFilter('已完成');
+                }
 
+
+                function stateFilter(state) {
+                    var count = 10,
+                        oldMaxCount = 0,
+                        orderState = state,                   
+                        baseUrl = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
+                    console.log(baseUrl);
+                    var promise = httpService.getDatas('GET',baseUrl);
+                    promise.then(function(data) {
+                        var datas = data.data;
+                        $rootScope.purList = datas.orders;
+                        oldMaxCount = datas.maxCount;
+                    });
                 }
             }    
 		};

@@ -8,8 +8,9 @@ define(['./module'], function(directives) {
             scope: false,
             link: function (scope, elem, attrs) {
                 scope.user = {};
+                var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
                 elem.bind('blur', function() {
-                    if(scope.user.phone !== '' && scope.user.phone != null) {
+                    if(scope.user.phone !== '' && scope.user.phone != null && phone_regexp.test(scope.user.phone) === true) {
                         httpService.getDatas('GET', '/user/checkPhone/' + scope.user.phone)
                         .then(function(data) {
                             return true;

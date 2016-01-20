@@ -1,11 +1,12 @@
 <div>
 	<ion-modal-view style="background: transparent;" ng-click="closeModal()">
 		<ul class="listFilterWrap">
-			<li ng-click="all()">全部</li>
-			<li ng-click="paying()">待支付</li>
-			<li ng-click="payed()">已支付</li>
-			<li ng-click="receiving()">已发货</li>
-			<li ng-click="received()">已完成</li>
+			<li ng-click="stateAll()">全部</li>
+			<li ng-click="stateOffer()">报价</li>
+			<li ng-click="statePaying()">待支付</li>
+			<li ng-click="statePayed()">已支付</li>
+			<li ng-click="stateReceiving()">已发货</li>
+			<li ng-click="stateReceived()">已完成</li>
 		</ul>
 	</ion-modal-view>
 </div>

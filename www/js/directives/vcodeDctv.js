@@ -1,6 +1,6 @@
 
 define(['./module'], function(directives) {
-	directives.directive('vcode', ['httpService', 'messageService', function(httpService, messageService) {
+	directives.directive('vcode', ['httpService', 'messageService', '$timeout', function(httpService, messageService, $timeout) {
 		return {
 			restrict: 'AE',
 			replace: true,
@@ -28,7 +28,8 @@ define(['./module'], function(directives) {
                         wait = 60;
                     } else {
                         wait--;
-                        setTimeout(function() {
+                        // setTimeout(function() {
+                        $timeout(function() {
                             scope.$apply(function() { 
                                 scope.codeBtn = true; 
                                 scope.codeBtnVal = wait + '秒后重试';
@@ -43,8 +44,8 @@ define(['./module'], function(directives) {
                     } else if(!phone_regexp.test(scope.$parent.user.phone)) {
                         messageService.show('请输入正确的手机号码格式');
                     } else {
-                        httpService.getDatas('POST', '/user/sendPhoneToken', {'phone': scope.$parent.user.phone})
-                        // httpService.get('GET', './json/login.json', {'phone': scope.$parent.user.phone})
+                        // httpService.getDatas('POST', '/user/sendPhoneToken', {'phone': scope.$parent.user.phone})
+                        httpService.get('GET', './json/login.json', {'phone': scope.$parent.user.phone})
                         .then(function(data) {
                             return true;
                         });
