@@ -161,14 +161,14 @@
   .avatar {
     background-image: url('../../images/bg.png');
     background-size: cover;
-    padding: 20px 0;
+    padding: 50px 0;
   }
   .icon-center {
-    border-radius: 60px;
-    @include inside-center(120px);
-    height: 120px;
+    border-radius: 50px;
+    @include inside-center(100px);
+    height: 100px;
   }
-  .icon120 {
+  .icon100 {
     max-width: none;
   }
   .button-icon.icon:before {
