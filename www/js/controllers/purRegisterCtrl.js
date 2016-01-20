@@ -8,7 +8,7 @@ define(['./module'], function(controllers) {
 				if($scope.user.phone !== '' && $scope.user.phone != null) {
                     httpService.getDatas('GET', '/user/checkPhone/' + $scope.user.phone)
                     .then(function(data) {
-                        return true;
+                        messageService.show('手机号码已存在');
                     }); 
                 }
 			}

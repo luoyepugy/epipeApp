@@ -4,14 +4,18 @@ define(['./module'], function(controllers) {
 		['$scope', 'httpService','$state',　'$ionicActionSheet', 'cameraService', 'config',
 		function($scope, httpService, $state, $ionicActionSheet, cameraService, config){
 			$scope.user = {};
-			// 无头像时使用默认头像
-			if($scope.user.avatar === '' || $scope.user.avatar == null) {
-				$scope.user.avatar = './images/default_avatar.png';
-			}
+			
 			// 首次加载
 			httpService.getDatas('GET','/user/getProfile')
 			.then(function(data) {
-				$scope.user = data.data;
+				var datas = data.data;
+				$scope.user = datas;
+				// 无头像时使用默认头像
+				if(datas.avatar === '' || datas.avatar == null) {
+					$scope.user.avatar = './images/default_avatar.png';
+				} else {
+					$scope.user.avatar = config.avatar + data.data.avatar;
+				}
 			});
 
 			$scope.exit =function() {
@@ -60,11 +64,13 @@ define(['./module'], function(controllers) {
 		    }
 		    // 上传图片
 			function uploadPicture(imageURI) {
-				var host = config.host,
-					url = host + '/upload/image';
+				var	url = config.upload + '/image';
 				cameraService.uploadPicture(url, imageURI).then(function(data) {
-		    		$scope.user.avatar = host + '/public/avatar/' + data.fileName;
-		    		// alert($scope.user.avatar);
+		    		$scope.user.avatar = config.avatar + data.fileName;
+		    		httpService.getDatas('POST','/user/changeProfile', {'avatar': data.fileName})
+					.then(function(result) {
+						// success
+					});
 		    	}, function(data) {
 		    		messageService.show('上传失败');
 		    		$scope.user.avatar = './images/default_avatar.png';

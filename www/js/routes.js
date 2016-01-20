@@ -21,7 +21,12 @@ define(['./app'], function (app) {
 		})
 		.state('purchase-forgetPwd', {
 		    url: '/purchase/forgetPwd',
-		    templateUrl: "views/purchase/forgetPwd.html"
+		    templateUrl: "views/purchase/forgetPwd.html",
+		    controller: 'purRegisterCtrl'
+		})
+		.state('purchase-resetPwd', {
+		    url: '/purchase/resetPwd',
+		    templateUrl: "views/purchase/resetPwd.html"
 		})
 
 		.state('purchase', {
