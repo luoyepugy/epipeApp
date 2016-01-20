@@ -4,7 +4,7 @@ define(['./module'], function(directives) {
 		return {
 			restrict: 'AE',
 			replace: true,
-			template: '<button class="mr10 button button-energized" ng-disabled="codeBtn">{{codeBtnVal}}</button>',
+			template: '<button style="width: 125px;" class="mr10 button button-energized" ng-disabled="codeBtn">{{codeBtnVal}}</button>',
             scope: {},
             link: function (scope, elem, attrs) {
                 var wait = 60;
