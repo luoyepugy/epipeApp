@@ -1,3 +1,3 @@
 
-define(['./homeCtrl', './purListCtrl', './purOfferCtrl', './purOrderCtrl',
-	'./purLogisticsCtrl', './purEditUserCtrl', './purUserInfoCtrl', './purRegisterCtrl'], function() {});
+define(['./homeCtrl', './purListCtrl', './purOfferCtrl', './purOrderCtrl', './purFindPwdCtrl', './purResetPwdCtrl',
+	'./purLogisticsCtrl', './purUserInfoCtrl', './purRegisterCtrl'], function() {});

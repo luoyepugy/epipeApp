@@ -1,6 +1,6 @@
 
 define(['./module'], function(directives) {
-	directives.directive('phone', ['httpService', function(httpService) {
+	directives.directive('phone', ['httpService', 'messageService', function(httpService, messageService) {
 		return {
 			restrict: 'E',
 			replace: true,
@@ -13,7 +13,7 @@ define(['./module'], function(directives) {
                     if(scope.user.phone !== '' && scope.user.phone != null && phone_regexp.test(scope.user.phone) === true) {
                         httpService.getDatas('GET', '/user/checkPhone/' + scope.user.phone)
                         .then(function(data) {
-                            return true;
+                            messageService.show('手机号码已存在');
                         }); 
                     }
                 });

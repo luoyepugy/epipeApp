@@ -1,9 +1,9 @@
 
 define(['./module','cordova'], function(services) {
 	services.service('httpService', 
-		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', 
+		['$q', '$http',　'$ionicLoading', 'messageService', '$state', '$location', '$window',
 		'$cordovaInAppBrowser', '$ionicPopup', 'config', '$cordovaNetwork', '$rootScope',
-		function($q, $http, $ionicLoading, messageService, $state, $location, 
+		function($q, $http, $ionicLoading, messageService, $state, $location, $window,
 			$cordovaInAppBrowser, $ionicPopup, config, $cordovaNetwork, $rootScope) {
 
 		this.getDatas = function(method, url, datas) {
@@ -20,8 +20,8 @@ define(['./module','cordova'], function(services) {
 		    };
 
 			// header上的token,从localStorage中取出
-			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
-				var token = window.localStorage.getItem('token') || '';	
+			if($window.localStorage.getItem('token') != null && $window.localStorage.getItem('token') !== '') {
+				var token = $window.localStorage.getItem('token') || '';	
 			}
 
 		    // 403错误时弹窗更新提示

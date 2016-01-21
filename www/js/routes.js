@@ -16,17 +16,18 @@ define(['./app'], function (app) {
 		.state('purchase-register', {
 		    url: '/purchase/register',
 		    cache: 'false',
-		    templateUrl: "views/purchase/register.html",
-		    controller: 'purRegisterCtrl'
+		    templateUrl: "views/purchase/register.html"
+		    // controller: 'purRegisterCtrl'
 		})
 		.state('purchase-forgetPwd', {
 		    url: '/purchase/forgetPwd',
 		    templateUrl: "views/purchase/forgetPwd.html",
-		    controller: 'purRegisterCtrl'
+		    controller: 'purFindPwdCtrl'
 		})
 		.state('purchase-resetPwd', {
-		    url: '/purchase/resetPwd',
-		    templateUrl: "views/purchase/resetPwd.html"
+		    url: '/purchase/resetPwd/:phone/:code',
+		    templateUrl: "views/purchase/resetPwd.html",
+		    controller: 'purResetPwdCtrl'
 		})
 
 		.state('purchase', {

@@ -4,7 +4,6 @@ define(['./module'], function(controllers) {
 		['$scope', 'httpService','$state',　'$ionicActionSheet', 'cameraService', 'config',
 		function($scope, httpService, $state, $ionicActionSheet, cameraService, config){
 			$scope.user = {};
-			
 			// 首次加载
 			httpService.getDatas('GET','/user/getProfile')
 			.then(function(data) {
@@ -18,6 +17,7 @@ define(['./module'], function(controllers) {
 				}
 			});
 
+			// 退出当前账号
 			$scope.exit =function() {
 				window.localStorage.clear();
             	$state.go('purchase-login');
@@ -64,12 +64,13 @@ define(['./module'], function(controllers) {
 		    }
 		    // 上传图片
 			function uploadPicture(imageURI) {
+				// 上传头像地址
 				var	url = config.upload + '/image';
 				cameraService.uploadPicture(url, imageURI).then(function(data) {
-		    		$scope.user.avatar = config.avatar + data.fileName;
+					// 上传成功后修改userProfile，增加字段avatar
 		    		httpService.getDatas('POST','/user/changeProfile', {'avatar': data.fileName})
 					.then(function(result) {
-						// success
+						$scope.user.avatar = config.avatar + data.fileName;
 					});
 		    	}, function(data) {
 		    		messageService.show('上传失败');

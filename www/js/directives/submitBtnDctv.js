@@ -1,8 +1,8 @@
 
 define(['./module'], function(directives) {
 	directives.directive('submitButton', 
-		['httpService', 'messageService', 'validateService', '$state',
-		function(httpService, messageService,validateService, $state) {
+		['httpService', 'messageService', 'validateService', '$state', '$window',
+		function(httpService, messageService,validateService, $state, $window) {
 		return {
 			restrict: 'E',
 			template: '<button class="button button-full button-energized button-round">{{text}}</button>',
@@ -18,28 +18,20 @@ define(['./module'], function(directives) {
 					resultsDatas;
 				element.bind('click', function() {
 					resultsIsEmpty = validateService.isEmpty(attrs.form);
-					if(resultsIsEmpty !== 1) {
-						messageService.show(resultsIsEmpty);
-						return false;
+					if(!resultsIsEmpty) {
+						return;
 					}
 					resultsDatas = validateService.submitData(attrs.form);
-					// 个人简介数据使用对象值
-					if(resultsDatas.company != null && resultsDatas.company != '') {
-						resultsDatas.userProfile = {'company': resultsDatas.company };
-					}
-					// 判断表单填入数据格式
-					if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
-						messageService.show('请输入正确的手机号码格式');
-					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {
-						messageService.show('两次密码输入不一致');
-					} else if (resultsDatas.productAmount !== null && resultsDatas.productAmount !== undefined && isNaN(resultsDatas.productAmount) === true ||　Number(resultsDatas.productAmount) <= 0) {
-						messageService.show('请输入正确的商品数量格式');
-					} else {
-						var promise = httpService.getDatas('POST', attrs.action, resultsDatas);
+					if(resultsDatas) {
+						var method = attrs.method || 'POST',
+							actionpath = attrs.actionpath || '/user';
+
+						var promise = httpService.getDatas(method, actionpath + attrs.action, resultsDatas);
+						// var promise = httpService.get(method, action, resultsDatas);
 					    promise.then(function(data) {
 					    	$state.go(state);
 					    	if(login === 'true') {
-					    		window.localStorage.token = data.token;
+					    		$window.localStorage.token = data.token;
 					    	}
 					    });
 					}

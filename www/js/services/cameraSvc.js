@@ -21,12 +21,6 @@ define(['./module', 'cordova'], function(services) {
 			$cordovaCamera.getPicture(options).then(function(imageURI) {
 		      	deferred.resolve(imageURI);
 		    }, function(error) {
-		    	// $ionicPopup.alert({
-			    //    title: '提示',
-			    //    template: errorMessage,
-			    //    okText: '确定',
-			    //    okType: 'button-energized'
-			    // });
 				deferred.reject(error);
 		    });
             return deferred.promise;
@@ -64,7 +58,7 @@ define(['./module', 'cordova'], function(services) {
                     } else {
                     	$timeout(function() {
                     		$ionicLoading.hide(); 
-                    	}, 10000);
+                    	}, 15000);
                     }
 			    });
 
