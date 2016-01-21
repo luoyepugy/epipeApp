@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     pngquant = require('imagemin-pngquant'),
     spritesmith = require('gulp.spritesmith'),
+    ngAnnotate = require('gulp-ng-annotate'),
     browserSync = require('browser-sync').create();
 
 // ionicss
@@ -35,9 +36,12 @@ gulp.task('css',function (){
 
 // js
 gulp.task('js', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src('./www/js/**/*.js')
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'))
+    .pipe(plugins.ngAnnotate({
+        add: true
+    }))
     // .pipe(plugins.requirejsOptimize(function(){
     //     return {
     //         name: 'main',
@@ -49,9 +53,9 @@ gulp.task('js', function() {
     //     };
     // }))
     // .pipe(gulp.dest('www/js/'))
-    // .pipe(plugins.uglify())
+    .pipe(plugins.uglify())
     // .pipe(plugins.rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('www/js/'));
+    .pipe(gulp.dest('www/minjs/'));
 });
 
 
@@ -91,7 +95,7 @@ gulp.task('watch', function() {
 
     gulp.watch('www/lib/ionic/**/*.scss', ['ionicss']);
     gulp.watch('src/scss/**/*.scss', ['css']);
-    gulp.watch('src/js/**/*.js', ['js']);
+    gulp.watch('www/js/**/*.js', ['js']);
 
     var files = [
       'www/**/*.html',

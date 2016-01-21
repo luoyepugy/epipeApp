@@ -1,0 +1,1 @@
+!function(){"use strict";define(["./module"],function(e){function o(e,o){function t(e){$(".error_tip").length<1&&($("body").append('<p class="error_tip">'+e+"</p>"),o(function(){$(".error_tip").remove()},2500))}return{show:t}}o.$inject=["$rootScope","$timeout"],e.factory("messageService",o)})}();

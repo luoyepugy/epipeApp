@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.filter("statePayed",function(){return function(e){switch(e){case"待支付":return!0;default:return!1}}})});

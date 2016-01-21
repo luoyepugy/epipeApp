@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.controller("purRegisterCtrl",["$scope","httpService","$state","messageService","validateService",function(e,t,i,r,c){}])});

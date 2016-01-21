@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.filter("stateLo",function(){return function(e){switch(e){case"报价":return!1;case"待支付":return!1;case"已支付":return!1;default:return!0}}})});

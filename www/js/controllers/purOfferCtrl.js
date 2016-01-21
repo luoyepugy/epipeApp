@@ -61,7 +61,8 @@ define(['./module'], function(controllers) {
 	    		if(pageIndex === 1) {
 	    			messageService.show('没有更多商家可供选择了');
 	    		} else {
-	    			httpService.getDatas('GET','/order/getPurQuotations/' + id + '/1/' + count)
+	    			pageIndex = 1;
+	    			httpService.getDatas('GET','/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count)
 				    .then(function(data) {
 				    	var datas = data.data;
 				    	$scope.list = datas.quotations;

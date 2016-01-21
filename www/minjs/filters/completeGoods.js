@@ -1,0 +1,1 @@
+define(["./module"],function(e){e.filter("completeGoods",function(){return function(e){switch(e){case"已完成":return!1;default:return!0}}})});

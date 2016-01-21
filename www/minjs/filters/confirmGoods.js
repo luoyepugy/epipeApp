@@ -1,0 +1,1 @@
+define(["./module"],function(n){n.filter("confirmGoods",function(){return function(n){switch(n){case"已发货":return!0;default:return!1}}})});

@@ -5,7 +5,8 @@ requirejs.config({
         domReady: "../lib/requirejs-domready/domReady",
         zepto: "../lib/zepto/zepto.min",
         ngCordova: '../lib/ngCordova/dist/ng-cordova.min',
-        cordova: '../cordova'
+        cordova: '../cordova',
+        app: './app.module'
 　　　　},
     shim: {
         angular: {

@@ -1,7 +1,21 @@
+(function() {
+    'use strict';
+
 
 define(['./module', 'zepto'], function(services, $) {
-	services.service('validateService', ['messageService', function(messageService) {
-		this.isEmpty = function(form) {
+	services.factory('validateService', validateService);
+
+    /* @ngInject */
+    function validateService(messageService) {
+
+        var validate = {
+            'isEmpty': isEmpty,
+            'submitData': submitData
+        };
+        return validate;
+
+
+        function isEmpty(form) {
 			var inputs = {},
                 num = 0,
                 total = $(form).find('.j-input').length,
@@ -21,9 +35,10 @@ define(['./module', 'zepto'], function(services, $) {
                 return true;
             }
 		};
-        this.submitData = function(form) {
-            var datas = {};
-            var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
+
+        function submitData(form) {
+            var datas = {},
+                phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
             $(form).find('input[name],textarea[name],select[name]').each(function() {
                 var key =  $(this).attr('name');
                 var val = $.trim($(this).val());
@@ -46,7 +61,9 @@ define(['./module', 'zepto'], function(services, $) {
             } else {
                 return datas;
             }
-
         };
-	}]);
+
+	};
 });
+
+})();

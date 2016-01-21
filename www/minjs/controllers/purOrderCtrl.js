@@ -1,0 +1,1 @@
+define(["./module"],function(r){r.controller("purOrderCtrl",["$scope","httpService","$stateParams",function(r,e,t){var a="/order/getByOrderName/",p=t.id,u=e.getDatas("GET",a+p);u.then(function(e){var t=e.data;r.product=t,r.purchase=t.purchaser,r.supplier=t.supplier})}])});

@@ -1,8 +1,11 @@
+(function() {
+    'use strict';
 
 define(['./module'], function(directives) {
-	directives.directive('submitButton', 
-		['httpService', 'messageService', 'validateService', '$state', '$window',
-		function(httpService, messageService,validateService, $state, $window) {
+	directives.directive('submitButton', submitButton);
+
+	/* @ngInject */
+	function submitButton(httpService, messageService,validateService, $state, $window) {
 		return {
 			restrict: 'E',
 			template: '<button class="button button-full button-energized button-round">{{text}}</button>',
@@ -16,11 +19,14 @@ define(['./module'], function(directives) {
 				var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
 				var resultsIsEmpty,
 					resultsDatas;
+
 				element.bind('click', function() {
+
 					resultsIsEmpty = validateService.isEmpty(attrs.form);
 					if(!resultsIsEmpty) {
 						return;
 					}
+
 					resultsDatas = validateService.submitData(attrs.form);
 					if(resultsDatas) {
 						var method = attrs.method || 'POST',
@@ -38,5 +44,7 @@ define(['./module'], function(directives) {
 				});
 			}
 		};
-	}]);
+	};
 });
+
+})();

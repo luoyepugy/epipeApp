@@ -1,0 +1,1 @@
+!function(){"use strict";define(["./module"],function(e){function t(e){function t(e){for(var t in e)u[t]=e[t]}function n(){return u}function r(e){return u.getItem(e)}function o(e){u.removeItem(e)}function c(){u.clear()}var i={set:t,get:n,getItem:r,removeItem:o,clear:c},u=e.localStorage;return i}t.$inject=["$window"],e.factory("storageService",t)})}();

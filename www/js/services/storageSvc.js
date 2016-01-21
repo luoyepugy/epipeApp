@@ -1,25 +1,42 @@
+(function() {
+    'use strict';
 
 define(['./module'], function(services) {
-    services.factory('storageService', function() {
-        var storage = {};
-        var storage = window.localStorage;
-        storage.set = function(obj) {
+    services.factory('storageService', storageService);
+
+    /* @ngInject */
+    function storageService($window) {
+        
+        var storage = {
+            'set': set,
+            'get': get,
+            'getItem': getItem,
+            'removeItem': removeItem,
+            'clear': clear
+        },
+        localStorage = $window.localStorage;
+        return storage;
+
+
+        function set(obj) {
             for(var i in obj) {
-                storage[i] = obj[i]; 
+                localStorage[i] = obj[i]; 
             }
         };
-        storage.get = function() {
-            return storage;
+        function get() {
+            return localStorage;
         };
-        storage.getItem = function(item) {
-            return storage.getItem(item);
+        function getItem(item) {
+            return localStorage.getItem(item);
         };
-        storage.removeItem = function(item) {
-            storage.removeItem(item);
+        function removeItem(item) {
+            localStorage.removeItem(item);
         };
-        storage.clear =function() {
-            storage.clear();
+        function clear() {
+            localStorage.clear();
         };
-        return storage;
-    });
+        
+    };
 });
+
+})();
