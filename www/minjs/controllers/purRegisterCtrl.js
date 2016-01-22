@@ -1,1 +1,1 @@
-define(["./module"],function(e){e.controller("purRegisterCtrl",["$scope","httpService","$state","messageService","validateService",function(e,t,i,r,c){}])});
+define(["./module"],function(e){e.controller("purRegisterCtrl",["$scope","httpService","$state","messageService","validateService",function(e,n,t,o,r){e.user={};e.phone=function(){""!==e.user.phone&&null!=e.user.phone&&n.getDatas("GET","/user/checkPhone/"+e.user.phone).then(function(e){o.show("手机号码已存在")})}}])});

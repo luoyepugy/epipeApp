@@ -1,1 +1,1 @@
-define(["./app"],function(a){var t={host:"http://192.168.1.154:8083"};return t.avatar=t.host+"/public/avatar/",t.upload=t.host+"/upload",a.constant("config",t)});
+define(["./app"],function(n){var t={host:"http://192.168.1.154:8083"};return n.constant("config",t)});

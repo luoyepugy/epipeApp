@@ -1,22 +1,21 @@
 
 <ion-view view-title="个人中心">
     <ion-content class="userInfo">
-        <div>
-        	<div class="avatar">
-        		<div class="icon-center" ng-click="editAvatar()">
-                    <img class="icon100" src="./images/default_avatar.png" ng-src="{{user.avatar}}" />
-                </div>
-        	</div>
-            <div class="userContent">
-        		<div class="mb10">公司：{{user.company}}</div>
-        		<div class="mb10">电话：{{user.phone}}</div>
-        		<p class="tr">
-                    <a href="#/purchase/editUser" style="margin-top: 2px;" class="button button-icon"><i style="font-size: 40px;" class="ion-ios-compose-outline blue"></i></a>
-                    <a href="#/purchase/changePwd" class="button button-icon icon ion-unlocked blue"></a>
-                </p>
-                <button ng-click="exit()" class="button button-full button-energized button-round">退出当前账号</button>
+    	<div class="avatar">
+    		<div class="icon-center">
+                <img class="icon100" src="./images/default_avatar.png" ng-src="{{user.avatar}}" />
             </div>
+    	</div>
+        <div class="userContent">
+    		<div class="mb10">公司：{{user.company}}</div>
+    		<div class="mb10">电话：{{user.phone}}</div>
+    		<p class="tr">
+                <a href="#/purchase/editUser" style="margin-top: 2px;" class="button button-icon"><i style="font-size: 40px;" class="ion-ios-compose-outline blue"></i></a>
+                <a href="#/purchase/changePwd" class="button button-icon icon ion-unlocked blue"></a>
+            </p>
+            <button ng-click="exit()" class="button button-full button-energized button-round">退出当前账号</button>
         </div>
+
         <!-- <div ng-if="offline" class="offline">网络连接异常，请检查后重试</div> -->
     </ion-content>
 </ion-view>

@@ -2,14 +2,14 @@
 <ion-view  view-title="注册">
     <ion-nav-bar class="bar-energized" align-title="center">
       <ion-nav-buttons side="left">
-        <a href="#/purchase/login" class="button button-clear icon button-icon ion-ios-arrow-left"></a>
+        <button class="button button-clear icon button-icon ion-ios-arrow-left" back-button></button>
     </ion-nav-bar>
     <ion-content>
         <div class="icon-center mt20"><i class="ion-person-add energized"></i></div>
         <ion-list class="list card list-round j-register">
         	<ion-item class="item-input">
-                <!-- <input type="number" ng-blur="phone()" class="j-input" name="phone" placeholder="手机号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入手机号码" /> -->
-                <phone></phone>
+                <input type="number" ng-blur="phone()" class="j-input" name="phone" placeholder="手机号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入手机号码" />
+                <!-- <phone></phone> -->
         	</ion-item>
             <ion-item class="item-input">
                 <input type="text" class="j-input" name="code" placeholder="验证码" ng-model="user.code" value="{{user.code}}" data-empty="请输入验证码" />

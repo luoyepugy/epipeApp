@@ -161,15 +161,7 @@
   .avatar {
     background-image: url('../../images/bg.png');
     background-size: cover;
-    padding: 50px 0;
-  }
-  .icon-center {
-    border-radius: 50px;
-    @include inside-center(100px);
-    height: 100px;
-  }
-  .icon100 {
-    max-width: none;
+    padding: 20px 0 50px 0;
   }
   .button-icon.icon:before {
     font-size: 36px;
@@ -180,6 +172,23 @@
   white-space: normal;
   font-size: 16px;
   color: #343434;
+}
+
+
+// ==================================
+// ============= 编辑资料 ============
+// ==================================
+.userEdit,
+.userInfo{
+  .icon-center {
+    border-radius: 50px;
+    @include inside-center(100px);
+    height: 100px;
+    margin-top: 30px;
+  }
+  .icon100 {
+    max-width: none;
+  }
 }
 
 // 无网络连接

@@ -1,8 +1,11 @@
 
 <ion-view  view-title="编辑资料">
-    <ion-content>
-        <div class="icon-center mt20"><i class="ion-ios-person-outline energized"></i></div>
-        <ion-list class="list card list-round j-editUser">
+    <ion-content class="userEdit j-editUser">       
+        <div class="icon-center" ng-click="editAvatar()">
+            <img class="icon100" src="./images/default_avatar.png" ng-src="{{user.avatar}}" />
+            <input type="hidden" name="avatar" ng-modal="user.avatarFileName" value="{{user.avatarFileName}}">
+        </div>
+        <ion-list class="list card list-round">
         	<ion-item class="item-input">
 				<input type="text" class="j-input" name="phone" placeholder="电话号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入电话号码" readonly="readonly" />
         	</ion-item>

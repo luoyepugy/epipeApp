@@ -16,14 +16,18 @@ define(['./module', 'cordova'], function(services) {
 
 		function getPicture(index) {
 			var deferred = $q.defer(),
-				varSourceType = Camera.PictureSourceType.PHOTOLIBRARY,
+				options;
+      		// 选择拍照还是图库	
+			if(index === 0) {
 				options = {
 					destinationType: Camera.DestinationType.FILE_URI,
-      				sourceType: varSourceType
+      				sourceType: Camera.PictureSourceType.CAMERA
       			};
-      			
-			if(index === 0) {
-      			varSourceType = Camera.PictureSourceType.CAMERA
+			} else {
+				options = {
+					destinationType: Camera.DestinationType.FILE_URI,
+      				sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+      			};
 			}
 
 			$cordovaCamera.getPicture(options).then(function(imageURI) {

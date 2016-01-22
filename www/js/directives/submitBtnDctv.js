@@ -32,9 +32,9 @@ define(['./module'], function(directives) {
 						var method = attrs.method || 'POST',
 							actionpath = attrs.actionpath || '/user';
 
-						var promise = httpService.getDatas(method, actionpath + attrs.action, resultsDatas);
-						// var promise = httpService.get(method, action, resultsDatas);
-					    promise.then(function(data) {
+						httpService.getDatas(method, actionpath + attrs.action, resultsDatas)
+						// httpService.get(method, action, resultsDatas);
+					    .then(function(data) {
 					    	$state.go(state);
 					    	if(login === 'true') {
 					    		$window.localStorage.token = data.token;
