@@ -6,41 +6,41 @@ define(['app'], function (app) {
     	// home
     	.state('home', {
 		    url: "/home",
-		    templateUrl: "app/others/home.html",
+		    templateUrl: "others/home.html",
 		    controller: 'homeCtrl'
 		})
     	// account
 		.state('login', {
 		    url: '/login',
-		    templateUrl: "app/account/login.html"
+		    templateUrl: "account/login.html"
 		})
 		.state('register', {
 		    url: '/register',
 		    cache: 'false',
-		    templateUrl: "app/account/register.html",
+		    templateUrl: "account/register.html",
 		    controller: 'registerCtrl'
 		})
 		.state('findPwd', {
 		    url: '/findPwd',
-		    templateUrl: "app/account/findPwd.html",
+		    templateUrl: "account/findPwd.html",
 		    controller: 'findPwdCtrl'
 		})
 		.state('resetPwd', {
 		    url: '/resetPwd/:phone/:code',
-		    templateUrl: "app/account/resetPwd.html",
+		    templateUrl: "account/resetPwd.html",
 		    controller: 'resetPwdCtrl'
 		})
 		// purchase
 		.state('purchase', {
 			url: "/purchase",
 		    "abstract": true,
-		    templateUrl: "app/others/purchase.html"
+		    templateUrl: "others/purchase.html"
 		})
 		.state('purchase.publish', {
 		    url: '/publish',
 		    views:{
 		        'purchase-publish':{
-		            templateUrl: "app/purchase-publish/publish.html"
+		            templateUrl: "purchase-publish/publish.html"
 		        }
 		    }
 		})
@@ -49,7 +49,7 @@ define(['app'], function (app) {
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "app/purchase-list/list.html",
+		            templateUrl: "purchase-list/list.html",
 		            controller: 'listCtrl'
 		        }
 		    }
@@ -60,7 +60,7 @@ define(['app'], function (app) {
 		    cache: 'false',
 		    views:{
 		        'user-getProfile':{
-		            templateUrl: "app/user/getProfile.html",
+		            templateUrl: "user/getProfile.html",
 		            controller: 'getProfileCtrl'
 		        }
 		    }
@@ -72,7 +72,7 @@ define(['app'], function (app) {
 		    cache: 'false',
 		    views:{
 		        'user-getProfile':{
-		            templateUrl: "app/user/changeProfile.html",
+		            templateUrl: "user/changeProfile.html",
 		            controller: 'changeProfileCtrl'
 		        }
 		    }
@@ -81,7 +81,7 @@ define(['app'], function (app) {
 		    url: '/changePwd',
 		    views:{
 		        'user-getProfile':{
-		            templateUrl: "app/user/changePwd.html"
+		            templateUrl: "user/changePwd.html"
 		        }
 		    }
 		})
@@ -92,7 +92,7 @@ define(['app'], function (app) {
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "app/purchase-process/offer.html",
+		            templateUrl: "purchase-process/offer.html",
 		            controller: 'purOfferCtrl'
 		        }
 		    }
@@ -102,7 +102,7 @@ define(['app'], function (app) {
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "app/purchase-process/order.html",
+		            templateUrl: "purchase-process/order.html",
 		            controller: 'purOrderCtrl'
 		        }
 		    }
@@ -111,7 +111,7 @@ define(['app'], function (app) {
 		    url: '/payment',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "app/others/payment.html"
+		            templateUrl: "others/payment.html"
 		        }
 		    }
 		})
@@ -119,7 +119,7 @@ define(['app'], function (app) {
 		    url: '/payHelp',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "app/purchase-process/payHelp.html"
+		            templateUrl: "purchase-process/payHelp.html"
 		        }
 		    }
 		})
@@ -128,7 +128,7 @@ define(['app'], function (app) {
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "app/purchase-process/logistics.html",
+		            templateUrl: "purchase-process/logistics.html",
 		            controller: 'purLogisticsCtrl'
 		        }
 		    }

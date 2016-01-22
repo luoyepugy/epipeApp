@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-define(['./module'], function(services) {
+define(['./services.module'], function(services) {
 	services.factory('messageService', messageService);
 
 	/* @ngInject */

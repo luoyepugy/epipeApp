@@ -1,8 +1,8 @@
 (function() {
 	'use strict';
 
-define(['./module', 'cordova'], function(services) {
-	services.factory('cameraService', cameraService);
+define(['./user.module', 'cordova'], function(user) {
+	user.factory('cameraService', cameraService);
 
 	/* @ngInject */
 	function cameraService($q, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $ionicLoading, $timeout) {

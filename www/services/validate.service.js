@@ -2,7 +2,7 @@
     'use strict';
 
 
-define(['./module', 'zepto'], function(services, $) {
+define(['./services.module', 'zepto'], function(services, $) {
 	services.factory('validateService', validateService);
 
     /* @ngInject */
