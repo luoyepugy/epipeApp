@@ -119,7 +119,7 @@ define(['app'], function (app) {
 		    url: '/payHelp',
 		    views:{
 		        'purchase-list':{
-		            templateUrl: "purchase-process/payHelp.html"
+		            templateUrl: "others/pay-help.html"
 		        }
 		    }
 		})

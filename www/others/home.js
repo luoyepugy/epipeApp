@@ -5,7 +5,6 @@ define(['./others.module'], function(others) {
 	/* @ngInject */
 	function homeCtrl($scope, $state, $http, config){
 
-
 		$scope.welcome = function() {
 			// $http.get('http://www.epipe.cn/download/appConfig.js')
 			// .success(function(data) {
@@ -22,7 +21,6 @@ define(['./others.module'], function(others) {
 			} else {
 				$state.go('purchase-login');
 			}
-		}
-
+		};
 	};
 });

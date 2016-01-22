@@ -1,6 +1,5 @@
 
 define(['./list.module'], function(list) {
-	console.log(list);
 	list.controller('listCtrl', listCtrl);
 
 	/* @ngInject */
