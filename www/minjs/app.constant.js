@@ -1,1 +1,0 @@
-define(["./app"],function(n){var t={host:"http://192.168.1.154:8083"};return n.constant("config",t)});
