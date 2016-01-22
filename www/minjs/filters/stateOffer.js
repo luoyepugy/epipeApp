@@ -1,1 +1,0 @@
-define(["./module"],function(e){e.filter("stateOffer",function(){return function(e){switch(e){case"报价":return!1;default:return!0}}})});

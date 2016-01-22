@@ -1,1 +1,0 @@
-define(["./module"],function(o){o.controller("homeCtrl",["$scope","$state","$http","config",function(o,e,t,n){function l(){null!=window.localStorage.getItem("token")&&""!==window.localStorage.getItem("token")?e.go("purchase.publish"):e.go("purchase-login")}o.welcome=function(){l()}}])});
