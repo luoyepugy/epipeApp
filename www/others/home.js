@@ -19,7 +19,7 @@ define(['./others.module'], function(others) {
 			if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
 				$state.go('purchase.publish');	
 			} else {
-				$state.go('purchase-login');
+				$state.go('login');
 			}
 		};
 	};

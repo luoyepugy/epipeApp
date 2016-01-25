@@ -19,7 +19,7 @@ define(['./account.module'], function(account) {
 			if(resultsDatas) {
 				httpService.getDatas('POST',baseUrl, {'phone': phone, 'code': code, 'password': $scope.user.password})
 			    .then(function(data) {
-			    	$state.go('purchase-login');
+			    	$state.go('login');
 			    });
 			}
 	   	}  
