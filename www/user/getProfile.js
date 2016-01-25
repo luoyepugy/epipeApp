@@ -24,7 +24,7 @@ define(['./user.module'], function(user) {
 			// 退出当前账号
 			$scope.exit =function() {
 				window.localStorage.clear();
-            	$state.go('purchase-login');
+            	$state.go('login');
 			}
 
 	};

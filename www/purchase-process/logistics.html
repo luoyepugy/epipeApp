@@ -17,8 +17,8 @@
                 <p><span ng-class="{true: 'green', false: 'gray_mid'}[item.current]">{{item.info}}</span></p>
             </ion-item>
             <ion-item class="border0">
-                <button ng-click="confirmGoods()" ng-if="product.state | confirmGoods" class="button button-full button-energized button-round">确认收货</button>
-                <a href="tel:{{product.supplier.userProfile.phone}}" ng-if="product.state | completeGoods" class="button button-full button-stable button-round">没收到货，联系商家</a>
+                <button ng-click="confirmGoods()" ng-if="product.state | deliveredFilter" class="button button-full button-energized button-round">确认收货</button>
+                <a href="tel:{{product.supplier.userProfile.phone}}" ng-if="product.state | finishedFilter" class="button button-full button-stable button-round">没收到货，联系商家</a>
             </ion-item>
         </ion-list>
     </ion-content>

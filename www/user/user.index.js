@@ -2,5 +2,6 @@
 define([
 	'./getProfile',
 	'./changeProfile',
-	'./changeProfile.service'
+	'./changeProfile.service',
+	'./changeProfile.directive'
 	], function() {});

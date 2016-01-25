@@ -18,7 +18,7 @@ define(['./list.module'], function(list) {
                         return;
                     }
                     hasModal = true;
-                    $ionicModal.fromTemplateUrl('./app/purchase-list/list-filter.directive.html', {
+                    $ionicModal.fromTemplateUrl('./purchase-list/list-filter.directive.html', {
 					    scope: scope,
 					    animation: 'fade-in'
 					}).then(function(modal) {
@@ -55,12 +55,12 @@ define(['./list.module'], function(list) {
                     stateFilter($rootScope.statusFilter);
                 }
                 // 已发货
-                scope.stateReceiving = function() {
+                scope.stateReceived = function() {
                     $rootScope.statusFilter = '已发货';
                     stateFilter($rootScope.statusFilter);
                 }
                 // 已完成
-                scope.stateReceived = function() {
+                scope.stateFinished = function() {
                     $rootScope.statusFilter = '已完成';
                     stateFilter($rootScope.statusFilter);
                 }

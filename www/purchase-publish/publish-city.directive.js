@@ -97,7 +97,7 @@ define(['./publish.module'], function(publish) {
 		            }
 		            attrs.checked = true;
 		            // 显示模型
-		            $ionicModal.fromTemplateUrl('./js/templates/cityTemp.html', {
+		            $ionicModal.fromTemplateUrl('./purchase-publish/publish-city.directive.html', {
 		              scope: scope,
 		              animation: 'slide-in-up',
 		              backdropClickToClose: true

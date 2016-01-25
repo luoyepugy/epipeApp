@@ -95,7 +95,7 @@ gulp.task('watch', function() {
 
     gulp.watch('www/lib/ionic/**/*.scss', ['ionicss']);
     gulp.watch('src/scss/**/*.scss', ['css']);
-    gulp.watch('www/js/**/*.js', ['js']);
+    gulp.watch('src/js/**/*.js', ['js']);
 
     var files = [
       'www/**/*.html',

@@ -17,7 +17,7 @@ define(['./account.module'], function(account) {
 			if(resultsDatas) {
 				httpService.getDatas('GET',baseUrl + $scope.user.phone + '/' + $scope.user.code)
 			    .then(function(data) {
-			    	$state.go('purchase-resetPwd', {'phone': $scope.user.phone, 'code': $scope.user.code});
+			    	$state.go('resetPwd', {'phone': $scope.user.phone, 'code': $scope.user.code});
 			    });
 			}
 	   	}  

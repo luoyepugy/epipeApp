@@ -1,6 +1,6 @@
 
 define(['./list.module'], function(list) {
-	list.filter('stateOffer', function() {
+	list.filter('logisticsShow', function() {
 		return function(item){
 			switch(item) {
 				case '报价': return false; break;

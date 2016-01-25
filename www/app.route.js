@@ -9,6 +9,7 @@ define(['app'], function (app) {
 		    templateUrl: "others/home.html",
 		    controller: 'homeCtrl'
 		})
+		
     	// account
 		.state('login', {
 		    url: '/login',
@@ -30,6 +31,7 @@ define(['app'], function (app) {
 		    templateUrl: "account/resetPwd.html",
 		    controller: 'resetPwdCtrl'
 		})
+
 		// purchase
 		.state('purchase', {
 			url: "/purchase",
@@ -56,7 +58,6 @@ define(['app'], function (app) {
 		})
 		.state('purchase.getProfile', {
 		    url: '/user',
-		    "abstract": true,
 		    cache: 'false',
 		    views:{
 		        'user-getProfile':{
@@ -67,7 +68,7 @@ define(['app'], function (app) {
 		})
 
 		// user
-		.state('user.changeProfile', {
+		.state('purchase.changeProfile', {
 		    url: '/changeProfile',
 		    cache: 'false',
 		    views:{
@@ -77,7 +78,7 @@ define(['app'], function (app) {
 		        }
 		    }
 		})
-		.state('user.changePwd', {
+		.state('purchase.changePwd', {
 		    url: '/changePwd',
 		    views:{
 		        'user-getProfile':{
@@ -87,27 +88,27 @@ define(['app'], function (app) {
 		})
 		
 		// purchase-process	
-		.state('list.offer', {
+		.state('purchase.offer', {
 		    url: '/offer/:id',
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "purchase-process/offer.html",
-		            controller: 'purOfferCtrl'
+		            controller: 'offerCtrl'
 		        }
 		    }
 		})
-		.state('list.order', {
+		.state('purchase.order', {
 		    url: '/order/:id',
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "purchase-process/order.html",
-		            controller: 'purOrderCtrl'
+		            controller: 'orderCtrl'
 		        }
 		    }
 		})
-		.state('list.pay', {
+		.state('purchase.payment', {
 		    url: '/payment',
 		    views:{
 		        'purchase-list':{
@@ -115,7 +116,7 @@ define(['app'], function (app) {
 		        }
 		    }
 		})
-		.state('list.payHelp', {
+		.state('purchase.payHelp', {
 		    url: '/payHelp',
 		    views:{
 		        'purchase-list':{
@@ -123,13 +124,13 @@ define(['app'], function (app) {
 		        }
 		    }
 		})
-		.state('list.logistics', {
+		.state('purchase.logistics', {
 		    url: '/logistics/:id',
 		    cache: 'false',
 		    views:{
 		        'purchase-list':{
 		            templateUrl: "purchase-process/logistics.html",
-		            controller: 'purLogisticsCtrl'
+		            controller: 'logisticsCtrl'
 		        }
 		    }
 		});

@@ -1,16 +1,16 @@
 ({
     // appDir: './src/',
-    baseUrl: 'www/js/',
+    baseUrl: 'www/',
     dir: 'www/bundle/',
-    mainConfigFile: 'www/js/main.js',
+    mainConfigFile: 'www/main.js',
     modules: [
         {
             name: 'main',
             include: [
                 'bootstrap',
                 'app',
-                'routes',
-		        'config'
+                'app.route',
+		      　　'app.config'
             ],
             out: 'bundle.js'
         }

@@ -11,7 +11,6 @@ define(['./services.module'], function(services) {
 			'show': show
 		};
 		
-
 		function show(tips) {
 			// if(tips != null && tips !== '') {
 			// 	$rootScope.messageShow = true;

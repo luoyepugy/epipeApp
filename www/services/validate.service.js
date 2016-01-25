@@ -1,7 +1,6 @@
 (function() {
     'use strict';
 
-
 define(['./services.module', 'zepto'], function(services, $) {
 	services.factory('validateService', validateService);
 
@@ -14,7 +13,7 @@ define(['./services.module', 'zepto'], function(services, $) {
         };
         return validate;
 
-
+        // 验证输入框是否为空
         function isEmpty(form) {
 			var inputs = {},
                 num = 0,
@@ -36,11 +35,12 @@ define(['./services.module', 'zepto'], function(services, $) {
             }
 		};
 
+        // 验证提交表单验证
         function submitData(form) {
             var datas = {},
                 phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
             $(form).find('input[name],textarea[name],select[name]').each(function() {
-                var key =  $(this).attr('name');
+                var key = $(this).attr('name');
                 var val = $.trim($(this).val());
                 datas[key] = val;
             });

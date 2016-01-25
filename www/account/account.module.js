@@ -1,7 +1,5 @@
 
-define(['angular',
-	'../user/user.module'
-	], function(angular, user) {
-		'use strict';
-		return angular.module('myApp.account', ['myApp.user']);
-	});
+define(['angular'], function(angular) {
+	'use strict';
+	return angular.module('myApp.account', []);
+});

@@ -3,7 +3,7 @@ define(['./user.module'], function(user) {
 	user.controller('changeProfileCtrl', changeProfileCtrl);
 
 	/* @ngInject */
-	function changeProfileCtrl($scope, httpService, $state, $ionicActionSheet, cameraService, config){
+	function changeProfileCtrl($scope, httpService, $state, $ionicActionSheet, cameraService, uploadService, config){
 			$scope.user = {};
 			// 头像保存地址
 			var avatarUrl = config.host + '/public/avatar/';
@@ -64,14 +64,9 @@ define(['./user.module'], function(user) {
 		    }
 		    // 上传图片
 			function uploadPicture(imageURI) {
-				cameraService.uploadPicture(uploadImage, imageURI).then(function(data) {
-					// 上传成功后修改userProfile，增加字段avatar
-		   //  		httpService.getDatas('POST','/user/changeProfile', {'avatar': data.fileName})
-					// .then(function(result) {
-						$scope.user.avatar = avatarUrl + data.fileName;
-						$scope.user.avatarFileName = data.fileName;
-					// });
-					// messageService.show('上传成功');
+				uploadService.uploadPicture(uploadImage, imageURI).then(function(data) {
+					$scope.user.avatar = avatarUrl + data.fileName;
+					$scope.user.avatarFileName = data.fileName;
 		    	}, function(data) {
 		    		messageService.show('上传失败');
 		    		$scope.user.avatar = './images/default_avatar.png';
