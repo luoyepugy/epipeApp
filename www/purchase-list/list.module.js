@@ -1,5 +1,5 @@
 
 define(['angular'], function(angular) {
-	'use strict';
-	return angular.module('myApp.purchaseList', []);
+    'use strict';
+    return angular.module('myApp.purchaseList', []);
 });

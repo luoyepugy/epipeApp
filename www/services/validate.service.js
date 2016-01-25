@@ -2,7 +2,7 @@
     'use strict';
 
 define(['./services.module', 'zepto'], function(services, $) {
-	services.factory('validateService', validateService);
+    services.factory('validateService', validateService);
 
     /* @ngInject */
     function validateService(messageService) {
@@ -15,7 +15,7 @@ define(['./services.module', 'zepto'], function(services, $) {
 
         // 验证输入框是否为空
         function isEmpty(form) {
-			var inputs = {},
+            var inputs = {},
                 num = 0,
                 total = $(form).find('.j-input').length,
                 results = '';
@@ -33,7 +33,7 @@ define(['./services.module', 'zepto'], function(services, $) {
             if(num === total) {
                 return true;
             }
-		};
+        };
 
         // 验证提交表单验证
         function submitData(form) {
@@ -63,7 +63,7 @@ define(['./services.module', 'zepto'], function(services, $) {
             }
         };
 
-	};
+    };
 });
 
 })();

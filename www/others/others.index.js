@@ -1,5 +1,5 @@
-	
+    
 define([
-	'./home',
-	'./others.constant'
-	], function() {});
+    './home',
+    './others.constant'
+    ], function() {});

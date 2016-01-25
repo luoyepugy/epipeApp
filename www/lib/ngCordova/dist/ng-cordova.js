@@ -3962,11 +3962,11 @@ angular.module('ngCordova.plugins.healthKit', [])
        * Sample any kind of health data through a given date range.
        * sampleQuery of the format:
        {
-									'startDate': yesterday, // mandatory
-									'endDate': tomorrow, // mandatory
-									'sampleType': 'HKQuantityTypeIdentifierHeight',
-									'unit' : 'cm'
-							},
+                                    'startDate': yesterday, // mandatory
+                                    'endDate': tomorrow, // mandatory
+                                    'sampleType': 'HKQuantityTypeIdentifierHeight',
+                                    'unit' : 'cm'
+                            },
        */
       querySampleType: function (sampleQuery) {
         var q = $q.defer();
@@ -4446,7 +4446,7 @@ angular.module('ngCordova.plugins.launchNavigator', [])
           function (error){
             q.reject(error);
           },
-		  options);
+          options);
         return q.promise;
       }
     };
@@ -6376,10 +6376,10 @@ angular.module("oauth.providers", ["oauth.utils"])
 
             /*
              * Sign into the ADFS service (ADFS 3.0 onwards)
-			 *
+             *
              * @param    string clientId (client registered in ADFS, with redirect_uri configured to: http://localhost/callback)
-             * @param	 string adfsServer (url of the ADFS Server)
-             * @param	 string relyingPartyId (url of the Relying Party (resource relying on ADFS for authentication) configured in ADFS)
+             * @param     string adfsServer (url of the ADFS Server)
+             * @param     string relyingPartyId (url of the Relying Party (resource relying on ADFS for authentication) configured in ADFS)
              * @return   promise
              */
             adfs: function(clientId, adfsServer, relyingPartyId) {
@@ -6440,8 +6440,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open("https://www.dropbox.com/1/oauth2/authorize?client_id=" + appKey + "&redirect_uri=" + redirect_uri + "&response_type=token", "_blank", "location=no,clearsessioncache=yes,clearcache=yes");
                         browserRef.addEventListener("loadstart", function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -6539,8 +6539,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(" ") + '&approval_prompt=force&response_type=token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener("loadstart", function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                           		browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                   browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -6644,8 +6644,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open(flowUrl, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7022,8 +7022,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://secure.meetup.com/oauth2/authorize/?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = {};
@@ -7284,8 +7284,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://foursquare.com/oauth2/authenticate?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function (event) {
                             if ((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7429,8 +7429,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         browserRef.addEventListener('loadstart', function(event) {
                             var tmp = (event.url).split("#");
                             if (tmp[0] == 'https://oauth.vk.com/blank.html' || tmp[0] == 'http://oauth.vk.com/blank.html') {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7460,7 +7460,7 @@ angular.module("oauth.providers", ["oauth.utils"])
                 return deferred.promise;
             },
 
-			/*
+            /*
             * Sign into the Odnoklassniki service
             *
             * @param    string clientId
@@ -7537,8 +7537,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://api.imgur.com/oauth2/authorize?client_id=' + clientId + '&response_type=token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7585,8 +7585,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=token&scope=' + appScope.join(" "), '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7731,8 +7731,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://www.yammer.com/dialog/oauth?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7780,8 +7780,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://api.venmo.com/v1/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=token&scope=' + appScope.join(" "), '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];
@@ -7979,8 +7979,8 @@ angular.module("oauth.providers", ["oauth.utils"])
                         var browserRef = window.open('https://api.envato.com/authorization?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
                         browserRef.addEventListener('loadstart', function(event) {
                             if((event.url).indexOf(redirect_uri) === 0) {
-                            	browserRef.removeEventListener("exit",function(event){});
-                            	browserRef.close();
+                                browserRef.removeEventListener("exit",function(event){});
+                                browserRef.close();
                                 var callbackResponse = (event.url).split("#")[1];
                                 var responseParameters = (callbackResponse).split("&");
                                 var parameterMap = [];

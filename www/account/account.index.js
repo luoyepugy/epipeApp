@@ -1,6 +1,6 @@
-	
+    
 define([
-	'./register',
-	'./findPwd',
-	'./resetPwd'
-	], function() {});
+    './register',
+    './findPwd',
+    './resetPwd'
+    ], function() {});

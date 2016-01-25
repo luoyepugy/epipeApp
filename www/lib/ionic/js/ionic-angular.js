@@ -1251,7 +1251,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
     /**
      * @ngdoc method
      * @name $ionicHistory#clearCache
-	 * @return promise
+     * @return promise
      * @description Removes all cached views within every {@link ionic.directive:ionNavView}.
      * This both removes the view element from the DOM, and destroy it's scope.
      */

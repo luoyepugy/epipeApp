@@ -2,13 +2,13 @@
     'use strict';
 
 define(['./directives.module'], function(directives) {
-	directives.directive('backButton', backButton);
+    directives.directive('backButton', backButton);
 
-	/* @ngInject */
-	function backButton($window) {
+    /* @ngInject */
+    function backButton($window) {
 
-		var directive = {
-			restrict: 'A',
+        var directive = {
+            restrict: 'A',
             link: link
         };
         return directive;
@@ -17,8 +17,8 @@ define(['./directives.module'], function(directives) {
             elem.bind('click', function () {
                 $window.history.back();
             });
-		};
-	};
+        };
+    };
 });
 
 })();

@@ -1,7 +1,7 @@
 
 define([
-	'./message.service',
-	'./http.service',
-	'./validate.service',
-	'./upload.service'
-	], function() {});
+    './message.service',
+    './http.service',
+    './validate.service',
+    './upload.service'
+    ], function() {});

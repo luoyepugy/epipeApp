@@ -1,26 +1,26 @@
 (function() {
-	'use strict';
+    'use strict';
 
 define(['./services.module', 'zepto'], function(services, $) {
-	services.factory('messageService', messageService);
+    services.factory('messageService', messageService);
 
-	/* @ngInject */
-	function messageService($rootScope, $timeout) {
+    /* @ngInject */
+    function messageService($rootScope, $timeout) {
 
-		return {
-			'show': show
-		};
-		
-		function show(tips) {
-			if($('.error_tip').length < 1) {
+        return {
+            'show': show
+        };
+        
+        function show(tips) {
+            if($('.error_tip').length < 1) {
                 $('body').append('<p class="error_tip">' + tips +'</p>');
                 $timeout(function(){
                     $('.error_tip').remove();
                 }, 2500);
             }
-		};
-	}
-		
+        };
+    }
+        
 });
 
 })();

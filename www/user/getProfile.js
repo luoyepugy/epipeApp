@@ -1,41 +1,41 @@
 (function() {
-	'use strict';
+    'use strict';
 
 define(['./user.module'], function(user) {
-	user.controller('getProfileCtrl', getProfileCtrl);
+    user.controller('getProfileCtrl', getProfileCtrl);
 
-	/* @ngInject */
-	function getProfileCtrl($scope, httpService, $state, config){
-		var vm = $scope;
-			vm.exitAccount = exitAccount;
-			vm.user = {};
-			// 首次加载
-			load();
+    /* @ngInject */
+    function getProfileCtrl($scope, httpService, $state, config){
+        var vm = $scope;
+            vm.exitAccount = exitAccount;
+            vm.user = {};
+            // 首次加载
+            load();
 
-		// 头像保存地址
-		var avatarUrl = config.host + '/public/avatar/';
+        // 头像保存地址
+        var avatarUrl = config.host + '/public/avatar/';
 
-		function load() {
-			httpService.getDatas('GET','/user/getProfile')
-			.then(function(data) {
-				var datas = data.data;
-				vm.user = datas;
-				// 无头像时使用默认头像
-				if(datas.avatar === '' || datas.avatar == null) {
-					vm.user.avatar = './images/default_avatar.png';
-				} else {
-					vm.user.avatar = avatarUrl + datas.avatar;
-				}
-			});
-		};
-		
-		// 退出当前账号	
-		function exitAccount() {
-			window.localStorage.clear();
-        	$state.go('login');
-		}
+        function load() {
+            httpService.getDatas('GET','/user/getProfile')
+            .then(function(data) {
+                var datas = data.data;
+                vm.user = datas;
+                // 无头像时使用默认头像
+                if(datas.avatar === '' || datas.avatar == null) {
+                    vm.user.avatar = './images/default_avatar.png';
+                } else {
+                    vm.user.avatar = avatarUrl + datas.avatar;
+                }
+            });
+        };
+        
+        // 退出当前账号    
+        function exitAccount() {
+            window.localStorage.clear();
+            $state.go('login');
+        }
 
-	};
+    };
 });
 
 })();

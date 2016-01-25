@@ -1,7 +1,7 @@
 
 define(['./publish.module'], function(publish) {
-	publish.service('cityService', function() {
-	this.cityList = [
+    publish.service('cityService', function() {
+    this.cityList = [
     {
         "name":"北京",
         "sub":[

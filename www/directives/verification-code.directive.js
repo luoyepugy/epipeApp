@@ -2,7 +2,7 @@
     'use strict';
 
 define(['./directives.module'], function(directives) {
-	directives.directive('vcode', vcode);
+    directives.directive('vcode', vcode);
 
     /* @ngInject */
     function vcode(httpService, messageService, $timeout) {
@@ -69,7 +69,7 @@ define(['./directives.module'], function(directives) {
             };
                                   
         };   
-	};
+    };
 
 });
 

@@ -1,19 +1,19 @@
 (function() {
-	'use strict';
+    'use strict';
 
 define(['app', 'cordova'], function(app) {
-	return app.config(config).run(runApp);
+    return app.config(config).run(runApp);
 
-	/* @ngInject */
-	function config($ionicConfigProvider) {
-  		$ionicConfigProvider.tabs.position("bottom");
-  	};
+    /* @ngInject */
+    function config($ionicConfigProvider) {
+          $ionicConfigProvider.tabs.position("bottom");
+      };
 
-  	/* @ngInject */
-	function runApp($ionicPlatform, $ionicPopup, $location, $ionicHistory) {
-  		//主页面显示退出提示框  
+      /* @ngInject */
+    function runApp($ionicPlatform, $ionicPopup, $location, $ionicHistory) {
+          //主页面显示退出提示框  
         $ionicPlatform.registerBackButtonAction(function (e) {  
- 			// 是否退出应用提示弹窗
+             // 是否退出应用提示弹窗
             function showConfirm() {  
                 var confirmPopup = $ionicPopup.confirm({  
                     title: '<strong>退出应用?</strong>',  
@@ -37,31 +37,31 @@ define(['app', 'cordova'], function(app) {
             } else if($ionicHistory.backView()) {  
                 $ionicHistory.goBack(); 
             } else {
-            	showConfirm();
+                showConfirm();
             }  
             e.preventDefault();
             return false; 
 
         }, 101);  
 
-		$ionicPlatform.ready(function() {
-			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        $ionicPlatform.ready(function() {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            	cordova.plugins.Keyboard.disableScroll(true);
+                cordova.plugins.Keyboard.disableScroll(true);
             }
-            // 错误提示		
-			window.onerror = function(msg, url, line) {  
-			   	var idx = url.lastIndexOf("/");  
-			   	if(idx > -1) {  
-			    	url = url.substring(idx+1);  
-			   	}  
-			   	console.log("ERROR in " + url + " (line #" + line + "): " + msg);  
-			   	return false;  
-			};
-		});
-	};
+            // 错误提示        
+            window.onerror = function(msg, url, line) {  
+                   var idx = url.lastIndexOf("/");  
+                   if(idx > -1) {  
+                    url = url.substring(idx+1);  
+                   }  
+                   console.log("ERROR in " + url + " (line #" + line + "): " + msg);  
+                   return false;  
+            };
+        });
+    };
 });
 
 })();

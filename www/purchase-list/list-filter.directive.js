@@ -2,10 +2,10 @@
     'use strict';
 
 define(['./list.module'], function(list) {
-	list.directive('listFilter', listFilter);
-	
+    list.directive('listFilter', listFilter);
+    
     /* @ngInject */
-	function listFilter($ionicModal, httpService, $rootScope, messageService) {
+    function listFilter($ionicModal, httpService, $rootScope, messageService) {
         var directive = {
             restrict: 'E',
             replace: true,
@@ -37,19 +37,19 @@ define(['./list.module'], function(list) {
                 }
                 hasModal = true;
                 $ionicModal.fromTemplateUrl('./purchase-list/list-filter.directive.html', {
-				    scope: scope,
-				    animation: 'fade-in'
-				}).then(function(modal) {
-				    menuModal = modal;
-				    if(menuModal) { menuModal.show(); }
-				});
+                    scope: scope,
+                    animation: 'fade-in'
+                }).then(function(modal) {
+                    menuModal = modal;
+                    if(menuModal) { menuModal.show(); }
+                });
             });
             // 关闭弹窗菜单
             function　closeModal() {
-            	if(menuModal) { menuModal.hide(); }
+                if(menuModal) { menuModal.hide(); }
             };
 
-            scope.$on('$destroy', function() {
+            vm.$on('$destroy', function() {
                 if(menuModal) { menuModal.remove(); }
             });                 
 
@@ -102,8 +102,8 @@ define(['./list.module'], function(list) {
                     }
                 });
             }  
-		};
-	};
+        };
+    };
 });
 
 })();
