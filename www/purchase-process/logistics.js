@@ -22,7 +22,7 @@ define(['./process.module'], function(process) {
 		    .then(function(data) {
 		    	var datas = data.data;
 		    	vm.list = datas;
-		    	for(i = 0; i < datas.length; i++) {
+		    	for(var i = 0; i < datas.length; i++) {
 		    		if(i === 0) {
 		    			vm.list[i].current = true;
 			    	} else {

@@ -5,7 +5,7 @@ define(['./list.module'], function(list) {
 	list.directive('listFilter', listFilter);
 	
     /* @ngInject */
-	function listFilter($ionicModal, httpService, $rootScope) {
+	function listFilter($ionicModal, httpService, $rootScope, messageService) {
         var directive = {
             restrict: 'E',
             replace: true,
@@ -91,11 +91,15 @@ define(['./list.module'], function(list) {
                     baseUrl = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + state;
                 // console.log(baseUrl);
                 $rootScope.hasMore = true;
-                var promise = httpService.getDatas('GET',baseUrl);
-                promise.then(function(data) {
+
+                httpService.getDatas('GET',baseUrl)
+                .then(function(data) {
                     var datas = data.data;
                     $rootScope.purList = datas.orders;
                     oldMaxCount = datas.maxCount;
+                    if(datas.maxCount === 0 && state !== '所有') {
+                        messageService.show('没有' + state + '订单');
+                    }
                 });
             }  
 		};
