@@ -18,7 +18,7 @@ define(['./account.module'], function(account) {
             code = $stateParams.code;
 
         // 重新登录
-           function submit() {
+        function submit() {
                var resultsIsEmpty = validateService.isEmpty('.j-resetPwd');
             if(!resultsIsEmpty) {
                 return;
@@ -30,7 +30,7 @@ define(['./account.module'], function(account) {
                     $state.go('login');
                 });
             }
-           };  
+        };  
 
     };
 });

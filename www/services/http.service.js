@@ -86,8 +86,8 @@ define(['./services.module','cordova'], function(services) {
                         messageService.show('服务器请求失败');
                     });
                 });
-            }
-        }        
+            };
+        };      
 
     // this.get = function(method, url, datas) {
     //     var deferred = $q.defer();

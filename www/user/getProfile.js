@@ -33,7 +33,7 @@ define(['./user.module'], function(user) {
         function exitAccount() {
             window.localStorage.clear();
             $state.go('login');
-        }
+        };
 
     };
 });

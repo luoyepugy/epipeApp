@@ -14,7 +14,7 @@ define(['./account.module'], function(account) {
         var baseUrl = '/user/checkPhoneToken/';
         
         // 提交表单
-           function submit() {
+        function submit() {
                var resultsIsEmpty,
                    resultsDatas;
 
@@ -30,7 +30,7 @@ define(['./account.module'], function(account) {
                     $state.go('resetPwd', {'phone': vm.user.phone, 'code': vm.user.code});
                 });
             }
-           };  
+        };  
     };
 });
 

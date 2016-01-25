@@ -29,7 +29,7 @@ define(['./user.module'], function(user) {
                     vm.user.avatar = avatarUrl + datas.avatar;
                 }
             });
-        };
+        }
 
         // 更改头像操作表
         function editAvatar() {
@@ -53,7 +53,7 @@ define(['./user.module'], function(user) {
                     return true;
                 }
             });
-        };
+        }
         // 打开照相机
         function getCamera() {
             cameraService.getPicture(0).then(function(imageURI) {
@@ -61,7 +61,7 @@ define(['./user.module'], function(user) {
             }, function(data) {
                 messageService.show('拍摄照片失败');
             });
-        };
+        }
         // 打开图库
         function getPhotoLibrary() {
             cameraService.getPicture(1).then(function(imageURI) {
@@ -69,7 +69,7 @@ define(['./user.module'], function(user) {
             }, function(data) {
                 messageService.show('获取照片失败');
             });
-        };
+        }
         // 上传图片
         function uploadPicture(imageURI) {
             uploadService.uploadPicture(uploadImage, imageURI).then(function(data) {
@@ -79,8 +79,8 @@ define(['./user.module'], function(user) {
                 messageService.show('上传失败');
                 vm.user.avatar = './images/default_avatar.png';
             });
-        };
-    };
+        }
+    }
 });
 
 })();

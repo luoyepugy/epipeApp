@@ -21,6 +21,5 @@ define(['./process.module'], function(process) {
                 vm.supplier = datas.supplier;
             });
         };
-
     };
 });

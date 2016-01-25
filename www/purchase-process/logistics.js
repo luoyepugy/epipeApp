@@ -44,8 +44,7 @@ define(['./process.module'], function(process) {
             .then(function(data) {
                 $state.go('purchase.list');
             });
-        }
-
+        };
     };
 });
 

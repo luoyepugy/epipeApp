@@ -21,7 +21,7 @@ define(['./account.module'], function(account) {
                     messageService.show('手机号码已存在');
                 }); 
             }
-        }
+        };
     };
 });
 
