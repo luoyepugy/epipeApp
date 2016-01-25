@@ -11,7 +11,6 @@ define(['./services.module','cordova'], function(services) {
 		return {
 			'getDatas': getDatas
 		};
-
 	
 		function getDatas(method, url, datas) {
 			var deferred = $q.defer(),

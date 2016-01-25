@@ -1,7 +1,12 @@
+(function() {
+	'use strict';
 
 define(['app'], function (app) {
     'use strict';
-    return app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    return app.config(route);
+
+    /* @ngInject */
+    function route($stateProvider, $urlRouterProvider) {
     	$stateProvider
     	// home
     	.state('home', {
@@ -136,6 +141,8 @@ define(['app'], function (app) {
 		});
 
 		$urlRouterProvider.otherwise('/home');
-	}]);
+	};
 		
 });
+
+})();

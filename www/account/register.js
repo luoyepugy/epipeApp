@@ -1,14 +1,22 @@
+(function() {
+	'use strict';
 
 define(['./account.module'], function(account) {
 	account.controller('registerCtrl', registerCtrl);
 	
 	/* @ngInject */
 	function registerCtrl($scope, httpService, $state, messageService, validateService){
-		$scope.user = {};
+		var vm = $scope;
+			vm.hasPhone = hasPhone;
+			vm.user = {};
+
+		// 手机号码正则表达式
 		var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
-		$scope.phone = function() {
-			if($scope.user.phone !== '' && $scope.user.phone != null) {
-                httpService.getDatas('GET', '/user/checkPhone/' + $scope.user.phone)
+		
+		// 手机号码是否存在
+		function hasPhone() {
+			if(vm.user.phone !== '' && vm.user.phone != null) {
+                httpService.getDatas('GET', '/user/checkPhone/' + vm.user.phone)
                 .then(function(data) {
                     messageService.show('手机号码已存在');
                 }); 
@@ -16,3 +24,5 @@ define(['./account.module'], function(account) {
 		}
 	};
 });
+
+})();

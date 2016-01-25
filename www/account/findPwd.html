@@ -5,7 +5,7 @@
         <button class="button button-clear icon button-icon ion-ios-arrow-left" back-button></button>
     </ion-nav-bar>
     <ion-content>
-        <ion-list class="list card list-round j-forgetPwd">
+        <ion-list class="list card list-round j-findPwd">
         	<ion-item class="item-input">
                 <input type="number" class="j-input" name="phone" placeholder="手机号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入手机号码" />
         	</ion-item>
@@ -16,7 +16,6 @@
             <input type="hidden" name="userType" value="采购商">
             <ion-item>
                 <button class="button button-full button-round button-energized" ng-click="submit()">重置密码</button>
-                <!-- <submit-button action="/checkPhoneToken" method="GET" state="purchase-resetPwd" text="重置密码" form=".j-forgetPwd"></submit-button> -->
             </ion-item>
         </ion-list>
     </ion-content>

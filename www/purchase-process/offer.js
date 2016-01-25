@@ -1,34 +1,44 @@
+(function() {
+	'use strict';
 
 define(['./process.module'], function(process) {
 	process.controller('offerCtrl',offerCtrl);
 	
 	/* @ngInject */
 	function offerCtrl($scope, httpService, $state, $stateParams, messageService){
+		var vm = $scope;
+			vm.chooseOffer = chooseOffer;
+			vm.changeOffer = changeOffer;
 
-		// 最后一个item的id
-		var id =  $stateParams.id,
-			pageIndex = 1,
-			count = 3;
-		var totalPage = 1;
-		var baseUrl = '/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count;
-	    // 初始化
-	    httpService.getDatas('GET',baseUrl)
-	    .then(function(data) {
-	    	var datas = data.data;
-	    	$scope.list = datas.quotations;
-	    	totalPage = datas.totolPage;
-	    });
+		var id =  $stateParams.id,	// 订单id
+			pageIndex = 1,			// 当前页数
+			count = 3,				// 请求数目
+			totalPage = 1;			// 总页数
 	    
-	    httpService.getDatas('GET','/order/getByOrderName/' + id)
-	    .then(function(data) {
-	    	var datas = data.data;
-	    	$scope.product = datas;
-	    });
+	    // 初步加载
+	    load();
 
+	    function load() {
+	    	// 获取报价信息
+	    	httpService.getDatas('GET','/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count)
+		    .then(function(data) {
+		    	var datas = data.data;
+		    	vm.list = datas.quotations;
+		    	totalPage = datas.totolPage;
+		    });
+		    // 获取商品信息
+		    httpService.getDatas('GET','/order/getByOrderName/' + id)
+		    .then(function(data) {
+		    	var datas = data.data;
+		    	vm.product = datas;
+		    });
+	    };
+	    
 	    // 选择商家
-	    $scope.order = function() {
-	    	var radios = document.getElementsByName('choiceOffer');
-	    	var choice;
+	    function chooseOffer() {
+	    	var choice,
+	    	 	radios = document.getElementsByName('choiceOffer');
+	    	
 	    	for(var i = 0; i < radios.length; i++) {
 	    		if(radios[i].checked) {
 	    			choice = radios[i].value;
@@ -43,40 +53,22 @@ define(['./process.module'], function(process) {
 	    };
 
 	    // 换一批商家
-	    $scope.changeOffer = function()　{
+	    function changeOffer()　{
 	    	pageIndex += 1;
 	    	if(pageIndex <= totalPage) {
-	    		httpService.getDatas('GET',baseUrl)
-			    .then(function(data) {
-			    	var datas = data.data;
-			    	$scope.list = datas.quotations;
-			    	totalPage = datas.totolPage;
-			    });
-			    httpService.getDatas('GET','/order/getByOrderName/' + id)
-			    .then(function(data) {
-			    	var datas = data.data;
-			    	$scope.product = datas;
-			    });
+	    		load();
 	    	}　else {
 	    		pageIndex -= 1;
 	    		if(pageIndex === 1) {
 	    			messageService.show('没有更多商家可供选择了');
 	    		} else {
 	    			pageIndex = 1;
-	    			httpService.getDatas('GET','/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count)
-				    .then(function(data) {
-				    	var datas = data.data;
-				    	$scope.list = datas.quotations;
-				    	totalPage = datas.totolPage;
-				    });
-				    httpService.getDatas('GET','/order/getByOrderName/' + id)
-				    .then(function(data) {
-				    	var datas = data.data;
-				    	$scope.product = datas;
-				    });
+	    			load();
 	    		}
 	    	}
 	    };
 
 	};
 });
+
+})();

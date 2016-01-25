@@ -1,68 +1,72 @@
+(function() {
+	'use strict';
 
 define(['./list.module'], function(list) {
 	list.controller('listCtrl', listCtrl);
 
 	/* @ngInject */
 	function listCtrl($scope, httpService, messageService, $state, $rootScope){
-
-		// 0 所有
-		// 1 报价
-		// 2 待支付
-		// 3 已支付
-		// 4 已发货
-		// 5 已完成
+		// 状态------------------------------
+		// 所有，报价，待支付，已支付，已发货，已完成
+		// ---------------------------------
+		var vm = $scope;
+			vm.doRefresh = doRefresh;
+			vm.loadMore = loadMore;
 
 		// 更多数据判断
 		$rootScope.hasMore = true;
 		$rootScope.purList = [];
 
-		var count = 10,
-			oldMaxCount = 0,
-			orderState = $rootScope.statusFilter || '所有';
-			url = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
+		var count = 10,										// 要请求的数目
+			oldMaxCount = 0,								// 旧的最大数目
+			orderState = $rootScope.statusFilter || '所有';	// 订单状态
 
-		// console.log(url);
-	    // 初始化
-	    var promise = httpService.getDatas('GET',url);
-	    promise.then(function(data) {
-	    	var datas = data.data;
-	    	$rootScope.purList = datas.orders;
-	    	oldMaxCount = datas.maxCount;
-	    });
+		// 初步加载
+		load();
 
-	    
+	    function load() {
+	    	var url = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
+	    	httpService.getDatas('GET', url)
+		    .then(function(data) {
+		    	var datas = data.data;
+		    	$rootScope.purList = datas.orders;
+		    	oldMaxCount = datas.maxCount;
+		    });
+	    };
+	    	    
 	    // 刷新
-	    $scope.doRefresh = function() {
+	    function doRefresh() {
 	    	orderState = $rootScope.statusFilter || '所有';
 	    	var url = '/order/getMyNewOrders/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
 	    	// console.log(url);
-	    	var promise = httpService.getDatas('GET', url);
-		    promise.then(function(data) {
+	    	httpService.getDatas('GET', url)
+		    .then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;
-		    	$rootScope.purList = data.data.orders;
+		    	$rootScope.purList = datas.orders;
 		    	$scope.$broadcast('scroll.refreshComplete');
 		    });
 	    };
 
-
 	    // 加载更多
-	    $scope.loadMore = function() {
+	    function loadMore() {
 	    	orderState = $rootScope.statusFilter || '所有';
 	    	var url = '/order/getMyOldOrders/'　+ count +'/' + $rootScope.purList.length +'/' + oldMaxCount +'/' + orderState;
 	    	// console.log(url);
-	    	var promise = httpService.getDatas('GET', url);
-		    promise.then(function(data) {
+	    	httpService.getDatas('GET', url)
+		    .then(function(data) {
 		    	var datas = data.data;
 		    	oldMaxCount = datas.maxCount;
 	            if(datas.maxCount === $rootScope.purList.length) {
 	            	$rootScope.hasMore = false;
-	            	messageService.show('没有更多新的数据');
+	            	messageService.show('没有更多数据了');
 	            } else {
-	            	$rootScope.purList = data.data.orders;
+	            	$rootScope.purList = datas.orders;
 	            }
 	            $scope.$broadcast('scroll.infiniteScrollComplete');
 		    });
 	    };
 	};
 });
+
+})();
