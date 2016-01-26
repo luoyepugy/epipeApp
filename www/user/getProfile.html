@@ -3,17 +3,17 @@
     <ion-content class="userInfo">
         <div class="avatar">
             <div class="icon-center">
-                <img class="icon100" src="./images/default_avatar.png" ng-src="{{user.avatar}}" />
+                <img class="icon100" src="./images/default_avatar.png" ng-src="{{vm.user.avatar}}" />
             </div>
         </div>
         <div class="userContent">
-            <div class="mb10">公司：{{user.company}}</div>
-            <div class="mb10">电话：{{user.phone}}</div>
+            <div class="mb10">公司：{{vm.user.company}}</div>
+            <div class="mb10">电话：{{vm.user.phone}}</div>
             <p class="tr">
                 <a href="#/purchase/changeProfile" class="button button-icon"><i style="font-size: 45px;" class="ion-ios-compose-outline blue"></i></a>
                 <a href="#/purchase/changePwd" class="button button-icon icon ion-unlocked blue"></a>
             </p>
-            <button ng-click="exitAccount()" class="button button-full button-energized button-round">退出当前账号</button>
+            <button ng-click="vm.exitAccount()" class="button button-full button-energized button-round">退出当前账号</button>
         </div>
 
         <!-- <div ng-if="offline" class="offline">网络连接异常，请检查后重试</div> -->

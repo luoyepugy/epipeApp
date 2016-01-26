@@ -10,16 +10,17 @@ define(['./list.module'], function(list) {
         // 所有，报价，待支付，已支付，已发货，已完成
         // ---------------------------------
         var vm = $scope;
-            vm.doRefresh = doRefresh;
-            vm.loadMore = loadMore;
 
         // 更多数据判断
         $rootScope.hasMore = true;
         $rootScope.purList = [];
 
-        var count = 10,                                        // 要请求的数目
-            oldMaxCount = 0,                                // 旧的最大数目
-            orderState = $rootScope.statusFilter || '所有';    // 订单状态
+        var count = 10,                                      // 要请求的数目
+            oldMaxCount = 0,                                 // 旧的最大数目
+            orderState = $rootScope.statusFilter || '所有';   // 订单状态
+
+        vm.doRefresh = doRefresh;
+        vm.loadMore = loadMore;
 
         // 初步加载
         load();

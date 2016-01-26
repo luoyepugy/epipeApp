@@ -19,10 +19,10 @@ define(['./directives.module'], function(directives) {
             scope.text = attrs.text || '提交保存';
 
             var state = attrs.state || '',
-                 user = attrs.user || '',
-                 login = attrs.login || '',
-                 phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/,
-                 resultsIsEmpty,
+                user = attrs.user || '',
+                login = attrs.login || '',
+                phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/,
+                resultsIsEmpty,
                 resultsDatas;
 
             element.bind('click', function() {

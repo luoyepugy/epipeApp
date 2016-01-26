@@ -5,15 +5,17 @@ define(['./user.module'], function(user) {
     user.controller('getProfileCtrl', getProfileCtrl);
 
     /* @ngInject */
-    function getProfileCtrl($scope, httpService, $state, config){
-        var vm = $scope;
-            vm.exitAccount = exitAccount;
-            vm.user = {};
-            // 首次加载
-            load();
+    function getProfileCtrl(httpService, $state, config){
+        var vm = this;
 
         // 头像保存地址
         var avatarUrl = config.host + '/public/avatar/';
+
+        vm.exitAccount = exitAccount;
+        vm.user = {};
+
+        // 首次加载
+        load();    
 
         function load() {
             httpService.getDatas('GET','/user/getProfile')

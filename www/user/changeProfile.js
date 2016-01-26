@@ -5,8 +5,8 @@ define(['./user.module'], function(user) {
     user.controller('changeProfileCtrl', changeProfileCtrl);
 
     /* @ngInject */
-    function changeProfileCtrl($scope, httpService, $state, $ionicActionSheet, cameraService, uploadService, config){
-        var vm = $scope;
+    function changeProfileCtrl(httpService, $state, $ionicActionSheet, cameraService, uploadService, config){
+        var vm = this;
             vm.editAvatar = editAvatar;
             vm.user = {};
             // 首次加载

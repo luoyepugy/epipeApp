@@ -67,7 +67,8 @@ define(['app'], function (app) {
             views:{
                 'user-getProfile':{
                     templateUrl: "user/getProfile.html",
-                    controller: 'getProfileCtrl'
+                    controller: 'getProfileCtrl',
+                    controllerAs: 'vm'                   
                 }
             }
         })
@@ -79,7 +80,8 @@ define(['app'], function (app) {
             views:{
                 'user-getProfile':{
                     templateUrl: "user/changeProfile.html",
-                    controller: 'changeProfileCtrl'
+                    controller: 'changeProfileCtrl',
+                    controllerAs: 'vm'
                 }
             }
         })
