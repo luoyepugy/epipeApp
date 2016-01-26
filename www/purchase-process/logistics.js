@@ -5,20 +5,23 @@ define(['./process.module'], function(process) {
     process.controller('logisticsCtrl', logisticsCtrl);
     
     /* @ngInject */
-    function logisticsCtrl($scope, httpService, $stateParams, $state){
-        var vm = $scope;
-            vm.confirmGoods = confirmGoods;
-
-        var baseUrl = '/order/getLogistics/';
-        // 订单id
-        var id =  $stateParams.id;
+    function logisticsCtrl(httpService, $stateParams, $state){
+        var vm = this;
+            
+        var logisticsUrl = '/order/getLogistics/',
+            orderUrl = '/order/getByOrderName/',
+            finishOrderUrl = '/order/finshOrder',
+            id =  $stateParams.id;    // 订单id
+            
+        vm.list = [];
+        vm.confirmGoods = confirmGoods;
 
         // 初步加载
         load();
 
         function load() {
             // 获取物流信息
-            httpService.getDatas('GET',baseUrl + id)
+            httpService.getDatas('GET',logisticsUrl + id)
             .then(function(data) {
                 var datas = data.data;
                 vm.list = datas;
@@ -31,7 +34,7 @@ define(['./process.module'], function(process) {
                 }
             });
             // 获取商品信息
-            httpService.getDatas('GET','/order/getByOrderName/' + id)
+            httpService.getDatas('GET',orderUrl + id)
             .then(function(data) {
                 var datas = data.data;
                 vm.product = datas;
@@ -40,9 +43,9 @@ define(['./process.module'], function(process) {
         
         // 确认收货
         function confirmGoods() {
-            httpService.getDatas('POST','/order/finshOrder', {"orderName": id})
+            httpService.getDatas('POST', finishOrderUrl, {"orderName": id})
             .then(function(data) {
-                $state.go('purchase.list');
+                $state.go('purchase.list', {'state': '所有'});
             });
         };
     };

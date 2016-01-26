@@ -3,7 +3,7 @@ define([
     './list',
     './list-filter.directive',
     './list-route.directive',
-    './logisticsShow.filter',
-    './stateShow.filter',
-    './offerShow.filter'
+    './list-logisticsShow.filter',
+    './list-stateShow.filter',
+    './list-offerShow.filter'
     ], function() {});

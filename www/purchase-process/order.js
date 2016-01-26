@@ -3,17 +3,21 @@ define(['./process.module'], function(process) {
     process.controller('orderCtrl',orderCtrl);
     
     /* @ngInject */
-    function orderCtrl($scope, httpService, $stateParams){
-        var vm = $scope;
+    function orderCtrl(httpService, $stateParams){
+        var vm = this;
 
-        var baseUrl = '/order/getByOrderName/',    // 获取订单信息服务器地址
-            id =  $stateParams.id;                // 订单id
+        var orderUrl = '/order/getByOrderName/',   // 获取订单信息服务器地址
+            id =  $stateParams.id;                 // 订单id
 
+        vm.product = {};               
+        vm.purchase = {};
+        vm.supplier = {};
+        
         // 初步加载
         load();
 
         function load() {
-            httpService.getDatas('GET',baseUrl + id)
+            httpService.getDatas('GET',orderUrl + id)
             .then(function(data) {
                 var datas = data.data;
                 vm.product = datas;

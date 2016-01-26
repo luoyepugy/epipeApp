@@ -5,29 +5,35 @@ define(['./process.module'], function(process) {
     process.controller('offerCtrl',offerCtrl);
     
     /* @ngInject */
-    function offerCtrl($scope, httpService, $state, $stateParams, messageService){
-        var vm = $scope;
-            vm.chooseOffer = chooseOffer;
-            vm.changeOffer = changeOffer;
-
+    function offerCtrl(httpService, $state, $stateParams, messageService){
+        var vm = this;
+    
         var id =  $stateParams.id,    // 订单id
             pageIndex = 1,            // 当前页数
             count = 3,                // 请求数目
-            totalPage = 1;            // 总页数
-        
+            totalPage = 1,            // 总页数
+            offerUrl = '/order/getPurQuotations/',
+            orderUrl = '/order/getByOrderName/',
+            chooseOfferUrl = '/order/chooseOrderQuotation';
+            
+        vm.list = [];
+
+        vm.chooseOffer = chooseOffer;
+        vm.changeOffer = changeOffer;
+
         // 初步加载
         load();
 
         function load() {
             // 获取报价信息
-            httpService.getDatas('GET','/order/getPurQuotations/' + id + '/' + pageIndex + '/' + count)
+            httpService.getDatas('GET', offerUrl + id + '/' + pageIndex + '/' + count)
             .then(function(data) {
                 var datas = data.data;
                 vm.list = datas.quotations;
                 totalPage = datas.totolPage;
             });
             // 获取商品信息
-            httpService.getDatas('GET','/order/getByOrderName/' + id)
+            httpService.getDatas('GET', orderUrl + id)
             .then(function(data) {
                 var datas = data.data;
                 vm.product = datas;
@@ -45,7 +51,7 @@ define(['./process.module'], function(process) {
                 }
             }
             if(choice !== null && choice !== undefined) {
-                httpService.getDatas('POST','/order/chooseOrderQuotation', {"orderName": id, "quotationId": choice})
+                httpService.getDatas('POST', chooseOfferUrl, {"orderName": id, "quotationId": choice})
                 .then(function(data) {
                     $state.go('purchase.order', {'id': id});
                 });

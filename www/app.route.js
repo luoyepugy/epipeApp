@@ -24,17 +24,20 @@ define(['app'], function (app) {
             url: '/register',
             cache: 'false',
             templateUrl: "account/register.html",
-            controller: 'registerCtrl'
+            controller: 'registerCtrl',
+            controllerAs: 'vm'
         })
         .state('findPwd', {
             url: '/findPwd',
             templateUrl: "account/findPwd.html",
-            controller: 'findPwdCtrl'
+            controller: 'findPwdCtrl',
+            controllerAs: 'vm'
         })
         .state('resetPwd', {
             url: '/resetPwd/:phone/:code',
             templateUrl: "account/resetPwd.html",
-            controller: 'resetPwdCtrl'
+            controller: 'resetPwdCtrl',
+            controllerAs: 'vm'
         })
 
         // purchase
@@ -52,12 +55,13 @@ define(['app'], function (app) {
             }
         })
         .state('purchase.list', {
-            url: '/list',
+            url: '/list/:state',
             cache: 'false',
             views:{
                 'purchase-list':{
                     templateUrl: "purchase-list/list.html",
-                    controller: 'listCtrl'
+                    controller: 'listCtrl',
+                    controllerAs: 'vm'
                 }
             }
         })
@@ -101,7 +105,8 @@ define(['app'], function (app) {
             views:{
                 'purchase-list':{
                     templateUrl: "purchase-process/offer.html",
-                    controller: 'offerCtrl'
+                    controller: 'offerCtrl',
+                    controllerAs: 'vm'
                 }
             }
         })
@@ -111,7 +116,8 @@ define(['app'], function (app) {
             views:{
                 'purchase-list':{
                     templateUrl: "purchase-process/order.html",
-                    controller: 'orderCtrl'
+                    controller: 'orderCtrl',
+                    controllerAs: 'vm'
                 }
             }
         })
@@ -137,7 +143,8 @@ define(['app'], function (app) {
             views:{
                 'purchase-list':{
                     templateUrl: "purchase-process/logistics.html",
-                    controller: 'logisticsCtrl'
+                    controller: 'logisticsCtrl',
+                    controllerAs: 'vm'
                 }
             }
         });

@@ -1,17 +1,16 @@
 
 <ion-view  view-title="采购单">
     <ion-nav-buttons side="right">
-        <list-filter></list-filter>
+        <list-filter ng-if="vm.listFilterBtn"></list-filter>
     </ion-nav-buttons>
     <ion-content class="j-content">
-        <input type="hidden" ng-model="statusFilter" value="{{$root.statusFilter}}">
         <ion-refresher
               pulling-text="下拉刷新..." 
               refreshing-text="刷新成功" 
-              on-refresh="doRefresh()">
+              on-refresh="vm.doRefresh()">
         </ion-refresher>
         <ion-list class="list list-inset list-space purchase-list j-list">
-            <ion-item ng-repeat="item in $root.purList" list-route>
+            <ion-item ng-repeat="item in vm.list" list-route>
                 <span class="black ellipsis">{{item.productName}}</span>
                 <span class="badge badge-assertive fr" ng-if="item.state | offerShow">{{item.quotationCount}}</span>
                 <p>
@@ -27,8 +26,8 @@
             </ion-item>
         </ion-list>
         <ion-infinite-scroll 
-                ng-if="$root.hasMore"
-                on-infinite="loadMore()" 
+                ng-if="vm.hasMore"
+                on-infinite="vm.loadMore()" 
                 distance="2%"
                 immediate-check="false">
         </ion-infinite-scroll>

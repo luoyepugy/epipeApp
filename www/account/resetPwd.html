@@ -7,15 +7,14 @@
     <ion-content>
         <ion-list class="list card list-round j-resetPwd">
             <ion-item class="item-input">
-                <input type="password" class="j-input" name="password" ng-model="user.password" placeholder="请输入新密码" value="" data-empty="请输入新密码" />
+                <input type="password" class="j-input" name="password" ng-model="vm.user.password" placeholder="请输入新密码" value="" data-empty="请输入新密码" />
             </ion-item>
             <ion-item class="item-input">
                 <input type="password" class="j-input" name="confirmPwd" placeholder="请再次输入新密码" value="" data-empty="请再次输入新密码" />
             </ion-item>
             <input type="hidden" name="userType" value="采购商">
             <ion-item>
-                <button class="button button-full button-round button-energized" ng-click="submit()">重新登录</button>
-                <!-- <submit-button action="/resetPassword" state="purchase-login" text="重新登录" form=".j-resetPwd"></submit-button> -->
+                <button class="button button-full button-round button-energized" ng-click="vm.submit()">重新登录</button>
             </ion-item>
         </ion-list>
     </ion-content>
