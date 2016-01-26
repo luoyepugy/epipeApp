@@ -74,7 +74,7 @@ define(['./services.module','cordova'], function(services) {
                 var updateAlert = $ionicPopup.alert({
                      title: '<strong>更新<strong>',
                      template: '下载可用的更新',
-                     okText: '确定',
+                     okText: '立即更新',
                      okType: 'button-energized'
                 });
                 updateAlert.then(function(res) {

@@ -55,6 +55,10 @@
 // 列表
 .list {
   display: block;
+  // readonly背景色
+  input[readonly]:not(.cloned-text-input) {
+    background: #fff;
+  }
 }
 .list-space .item {
   margin-bottom: 10px;
@@ -65,13 +69,13 @@
 .purchase.tabs-striped.tabs-stable .tab-item.tab-item-active, 
 .purchase.tabs-striped.tabs-stable .tab-item.active, 
 .purchase.tabs-striped.tabs-stable .tab-item.activated {
-  border-color: $main-orange;
+  border-color: #fff;
   color: $main-orange;
-  border-top-width: 0;
+  border-top-width: 2px;
 
 }
 .purchase.tabs-striped.tabs-stable .tabs {
-  border-top: 1px solid #ccc !important;
+  border-top: 1px solid #ddd !important;
 }
 
 // 修改list背景色
