@@ -2,10 +2,11 @@
 requirejs.config({
     paths: {
         angular: "lib/ionic/js/ionic.bundle",
-        domReady: "lib/requirejs-domready/domReady",
+        domReady: "lib/domReady/domReady",
         zepto: "lib/zepto/zepto.min",
         ngCordova: 'lib/ngCordova/dist/ng-cordova.min',
         cordova: 'cordova',
+        // module
         app: 'app.module'
 　　　　},
     shim: {

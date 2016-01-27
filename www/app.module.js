@@ -1,12 +1,16 @@
+(function() {
+    'use strict';
 
-define(['angular',
-    './directives/directives.index',
-    './services/services.index',
-    './purchase-process/process.index'
-    ], function(angular, directives, services, process){
-    return angular.module('myApp',['ionic','ngCordova',
-            'myApp.directives',
-            'myApp.services',
-            'myApp.purchaseProcess'
+    define(['angular', 
+        './purchase/purchase.index',
+        './common/common.index',
+        './user/user.index'
+        ], function(angular) {
+        return angular.module('myApp', ['ionic','ngCordova',                     
+            'myApp.purchase',
+            'myApp.common',
+            'myApp.user'
         ]);
-});
+    });
+    
+})();

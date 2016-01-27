@@ -1,13 +1,13 @@
 (function() {
     'use strict';
 
-define(['app', 'cordova'], function(app) {
-    return app.config(config).run(runApp);
+define(['app'], function(app) {
+    app.config(config).run(runApp);
 
     /* @ngInject */
     function config($ionicConfigProvider) {
-          $ionicConfigProvider.tabs.position("bottom");
-      };
+        $ionicConfigProvider.tabs.position("bottom");
+    };
 
       /* @ngInject */
     function runApp($ionicPlatform, $ionicPopup, $location, $ionicHistory) {

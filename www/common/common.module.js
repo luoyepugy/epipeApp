@@ -1,9 +1,9 @@
+
 (function() {
     'use strict';
 
 	define(['angular'], function(angular) {
-	    'use strict';
-	    return angular.module('myApp.user', []);
+	    return angular.module('myApp.common', []);
 	});
-	
+
 })();

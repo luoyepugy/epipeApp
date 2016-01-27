@@ -1,9 +1,8 @@
 (function() {
     'use strict';
 
-define(['app'], function (app) {
-    'use strict';
-    return app.config(route);
+define(['app'], function(app) {
+    app.config(route);
 
     /* @ngInject */
     function route($stateProvider, $urlRouterProvider) {
@@ -11,31 +10,31 @@ define(['app'], function (app) {
         // home
         .state('home', {
             url: "/home",
-            templateUrl: "others/home.html",
+            templateUrl: "purchase/home/home.html",
             controller: 'homeCtrl'
         })
         
         // account
         .state('login', {
             url: '/login',
-            templateUrl: "account/login.html"
+            templateUrl: "user/account/login.html"
         })
         .state('register', {
             url: '/register',
             cache: 'false',
-            templateUrl: "account/register.html",
+            templateUrl: "user/account/register.html",
             controller: 'registerCtrl',
             controllerAs: 'vm'
         })
         .state('findPwd', {
             url: '/findPwd',
-            templateUrl: "account/findPwd.html",
+            templateUrl: "user/account/findPwd.html",
             controller: 'findPwdCtrl',
             controllerAs: 'vm'
         })
         .state('resetPwd', {
             url: '/resetPwd/:phone/:code',
-            templateUrl: "account/resetPwd.html",
+            templateUrl: "user/account/resetPwd.html",
             controller: 'resetPwdCtrl',
             controllerAs: 'vm'
         })
@@ -44,13 +43,13 @@ define(['app'], function (app) {
         .state('purchase', {
             url: "/purchase",
             "abstract": true,
-            templateUrl: "others/purchase.html"
+            templateUrl: "purchase/purchase.html"
         })
         .state('purchase.publish', {
             url: '/publish',
             views:{
                 'purchase-publish':{
-                    templateUrl: "purchase-publish/publish.html"
+                    templateUrl: "purchase/purchase-publish/publish.html"
                 }
             }
         })
@@ -59,7 +58,7 @@ define(['app'], function (app) {
             cache: 'false',
             views:{
                 'purchase-list':{
-                    templateUrl: "purchase-list/list.html",
+                    templateUrl: "purchase/purchase-list/list.html",
                     controller: 'listCtrl',
                     controllerAs: 'vm'
                 }
@@ -70,7 +69,7 @@ define(['app'], function (app) {
             cache: 'false',
             views:{
                 'user-getProfile':{
-                    templateUrl: "user/getProfile.html",
+                    templateUrl: "user/user-profile/getProfile.html",
                     controller: 'getProfileCtrl',
                     controllerAs: 'vm'                   
                 }
@@ -83,7 +82,7 @@ define(['app'], function (app) {
             cache: 'false',
             views:{
                 'user-getProfile':{
-                    templateUrl: "user/changeProfile.html",
+                    templateUrl: "user/user-profile/changeProfile.html",
                     controller: 'changeProfileCtrl',
                     controllerAs: 'vm'
                 }
@@ -93,7 +92,7 @@ define(['app'], function (app) {
             url: '/changePwd',
             views:{
                 'user-getProfile':{
-                    templateUrl: "user/changePwd.html"
+                    templateUrl: "user/user-profile/changePwd.html"
                 }
             }
         })
@@ -104,7 +103,7 @@ define(['app'], function (app) {
             cache: 'false',
             views:{
                 'purchase-list':{
-                    templateUrl: "purchase-process/offer.html",
+                    templateUrl: "purchase/purchase-process/offer.html",
                     controller: 'offerCtrl',
                     controllerAs: 'vm'
                 }
@@ -115,7 +114,7 @@ define(['app'], function (app) {
             cache: 'false',
             views:{
                 'purchase-list':{
-                    templateUrl: "purchase-process/order.html",
+                    templateUrl: "purchase/purchase-process/order.html",
                     controller: 'orderCtrl',
                     controllerAs: 'vm'
                 }
@@ -125,7 +124,7 @@ define(['app'], function (app) {
             url: '/payment',
             views:{
                 'purchase-list':{
-                    templateUrl: "others/payment.html"
+                    templateUrl: "purchase/pay/payment.html"
                 }
             }
         })
@@ -133,7 +132,7 @@ define(['app'], function (app) {
             url: '/payHelp',
             views:{
                 'purchase-list':{
-                    templateUrl: "others/pay-help.html"
+                    templateUrl: "purchase/pay/pay-help.html"
                 }
             }
         })
@@ -142,7 +141,7 @@ define(['app'], function (app) {
             cache: 'false',
             views:{
                 'purchase-list':{
-                    templateUrl: "purchase-process/logistics.html",
+                    templateUrl: "purchase/purchase-process/logistics.html",
                     controller: 'logisticsCtrl',
                     controllerAs: 'vm'
                 }
@@ -151,7 +150,7 @@ define(['app'], function (app) {
 
         $urlRouterProvider.otherwise('/home');
     };
-        
+
 });
 
 })();
