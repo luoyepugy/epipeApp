@@ -7,15 +7,17 @@ define(['../user.module'], function(user) {
     /* @ngInject */
     function changeProfileCtrl(httpService, $state, $ionicActionSheet, cameraService, uploadService, config){
         var vm = this;
-            vm.editAvatar = editAvatar;
-            vm.user = {};
-            // 首次加载
-            load();    
-
+    
         // 头像保存地址
         var avatarUrl = config.host + '/public/avatar/';
         // 上传头像地址
         var uploadImage = config.host + '/upload/image';
+
+        vm.user = {};
+        vm.editAvatar = editAvatar;
+
+        // 首次加载
+        load(); 
 
         function load() {
             httpService.getDatas('GET','/user/getProfile')
