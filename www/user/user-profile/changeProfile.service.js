@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-define(['./user.module', 'cordova'], function(user) {
+define(['../user.module', 'cordova'], function(user) {
     user.factory('cameraService', cameraService);
 
     /* @ngInject */

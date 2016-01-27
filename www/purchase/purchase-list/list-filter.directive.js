@@ -32,7 +32,7 @@ define(['../purchase.module'], function(purchase) {
                     return;
                 }
                 hasModal = true;
-                $ionicModal.fromTemplateUrl('./purchase-list/list-filter.directive.html', {
+                $ionicModal.fromTemplateUrl('./purchase/purchase-list/list-filter.directive.html', {
                     scope: scope,
                     animation: 'fade-in'
                 }).then(function(modal) {

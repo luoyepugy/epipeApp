@@ -112,7 +112,7 @@ define(['../purchase.module'], function(purchase) {
                 }
                 attrs.checked = true;
                 // 显示模型
-                $ionicModal.fromTemplateUrl('./purchase-publish/publish-city.directive.html', {
+                $ionicModal.fromTemplateUrl('./purchase/purchase-publish/publish-city.directive.html', {
                   scope: scope,
                   animation: 'slide-in-up',
                   backdropClickToClose: true

@@ -80,7 +80,7 @@ define(['../user.module'], function(user) {
                 vm.user.avatar = './images/default_avatar.png';
             });
         }
-    }
+    };
 });
 
 })();

@@ -2,7 +2,7 @@
     'use strict';
 
 define(['../user.module'], function(user) {
-    user.controller('findPwdCtrl', findPwdCtrl);
+    user.controller('resetPwdCtrl', resetPwdCtrl);
         
     /* @ngInject */
     function resetPwdCtrl(httpService, validateService, $stateParams, $state){

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-define(['common', 'zepto'], function(common, $) {
+define(['../common.module', 'zepto'], function(common, $) {
     common.factory('validateService', validateService);
 
     /* @ngInject */

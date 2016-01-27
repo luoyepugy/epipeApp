@@ -89,7 +89,7 @@ define(['../common.module'], function(common) {
             };
         };      
 
-    }
+    };
 });
 
 })();

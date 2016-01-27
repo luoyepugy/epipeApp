@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-define(['common', 'zepto'], function(common, $) {
+define(['../common.module', 'zepto'], function(common, $) {
     common.factory('messageService', messageService);
 
     /* @ngInject */
@@ -19,7 +19,7 @@ define(['common', 'zepto'], function(common, $) {
                 }, 2500);
             }
         };
-    }
+    };
         
 });
 

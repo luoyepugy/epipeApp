@@ -78,7 +78,7 @@
   padding: 10px;
   border-radius: 4px;
   li {
-    @include inside-center(70px, 30px);
+    @include inside-center(70px, 35px);
     border-bottom: 1px solid #dc6213;
     &:last-child {
       border: 0;
