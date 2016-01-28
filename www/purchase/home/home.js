@@ -14,9 +14,12 @@ define(['../purchase.module'], function(purchase) {
             // 主机地址是否发生变化
             // $http.get('http://www.epipe.cn/download/appConfig.js')
             // .success(function(data) {
-            //     config.host = data['api_host'];
-            //     host();
-            // }).error(function(data) {
+            //     if(data['api_host'] != null && data['api_host'] != '') {
+            //         config.host = data['api_host']; 
+            //     }
+            //     hasToken();
+            // })
+            // .error(function(data) {
                 hasToken();
             // });
         };

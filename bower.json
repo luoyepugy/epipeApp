@@ -7,5 +7,8 @@
   "dependencies": {
     "domReady": "requirejs-domready#~2.0.1",
     "requirejs": "~2.1.22"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
   }
 }

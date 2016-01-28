@@ -18,6 +18,5 @@ define([
     './purchase-list/list-stateShow.filter',
     './purchase-list/list-offerShow.filter',
     // home
-    './home/home',
-    './home/home.spec'
+    './home/home'
     ], function() {});

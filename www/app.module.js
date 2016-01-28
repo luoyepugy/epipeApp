@@ -5,7 +5,7 @@
         './purchase/purchase.index',
         './common/common.index',
         './user/user.index'
-        ], function(angular) {
+        ], function(angular, purchase, common, user) {
         return angular.module('myApp', ['ionic','ngCordova',                     
             'myApp.purchase',
             'myApp.common',

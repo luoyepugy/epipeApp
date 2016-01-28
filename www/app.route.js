@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-define(['app'], function(app) {
+define(['./app.module'], function(app) {
     app.config(route);
 
     /* @ngInject */
