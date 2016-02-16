@@ -56,7 +56,6 @@ define(['./list', 'angularMocks',
                 'quotationCount': '2', 'state': '报价', 'createdOn': '2016-02-05', 'name': '201602051425'
                 // {'quotationCount': '1', 'state': '待支付', 'createdOn': '2016-02-02', 'name': '201602021425'},
                 // {'quotationCount': '3', 'state': '已完成', 'createdOn': '2016-02-01', 'name': '201602011425'}
-
             });
             expect(scope.list.length).toBe(1);
         });
