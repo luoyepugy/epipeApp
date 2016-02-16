@@ -8,7 +8,7 @@ define(['../common.module'], function(common) {
     function submitButton(httpService, messageService,validateService, $state, $window) {
         var directive = {
             restrict: 'E',
-            template: '<button class="button button-full button-energized button-round">{{text}}</button>',
+            template: '<button name="submitBtn" class="button button-full button-energized button-round">{{text}}</button>',
             replace: true,
             scope: {},
             link: link

@@ -5,7 +5,7 @@ exports.config = {
 
   SeleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
-  specs: ['./www/purchase/**/*.e2e.js'],
+  specs: ['./www/test/e2e/*.e2e.js'],
 
   capabilities: {
     'browserName': 'chrome',
