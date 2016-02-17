@@ -5,7 +5,7 @@ define(['../common.module'], function(common) {
     common.directive('submitButton', submitButton);
 
     /* @ngInject */
-    function submitButton(httpService, messageService,validateService, $state, $window) {
+    function submitButton(httpService, messageService,validateService, $state, $window, $rootScope) {
         var directive = {
             restrict: 'E',
             template: '<button name="submitBtn" class="button button-full button-energized button-round">{{text}}</button>',
@@ -17,7 +17,6 @@ define(['../common.module'], function(common) {
 
         function link(scope, element, attrs) {
             scope.text = attrs.text || '提交保存';
-
             var state = attrs.state || '',
                 user = attrs.user || '',
                 login = attrs.login || '',
@@ -26,11 +25,13 @@ define(['../common.module'], function(common) {
                 resultsDatas;
 
             element.bind('click', function() {
+
                 // 验证是否为空
                 resultsIsEmpty = validateService.isEmpty(attrs.form);
                 if(!resultsIsEmpty) {
-                    return;
+                    return false;
                 }
+                console.log($rootScope.tips);
                 // 提交表单数据
                 resultsDatas = validateService.submitData(attrs.form);
                 if(resultsDatas) {

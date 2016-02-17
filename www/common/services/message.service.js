@@ -7,17 +7,23 @@ define(['../common.module', 'zepto'], function(common, $) {
     /* @ngInject */
     function messageService($rootScope, $timeout) {
 
-        return {
+        var messages = {
             'show': show
         };
+        return messages;
         
-        function show(tips) {
-            if($('.error_tip').length < 1) {
-                $('body').append('<p class="error_tip">' + tips +'</p>');
-                $timeout(function(){
-                    $('.error_tip').remove();
-                }, 2500);
-            }
+        function show(message) {
+            $rootScope.tips = message;
+            $('.error_tip').removeClass('none');
+            $timeout(function(){
+                $('.error_tip').addClass('none');
+            }, 2500);
+            // if($('.error_tip').length < 1) {
+            //     $('body').append('<p class="error_tip">' + tips +'</p>');
+            //     $timeout(function(){
+            //         $('.error_tip').remove();
+            //     }, 2500);
+            // }
         };
     };
         

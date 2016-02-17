@@ -9,7 +9,7 @@ exports.config = {
 
   capabilities: {
     'browserName': 'chrome',
-    'platform': 'LINUX'
+    'platform': 'ANDROID'
   },
 
   framework: 'jasmine',

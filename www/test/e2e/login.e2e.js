@@ -1,60 +1,75 @@
 'use strict';
 
-describe('登录页面运行正常', function() {
-	var phone = element(by.model('phone'));
-	var password = element(by.model('password'));
-	var submitBtn = element(by.name('submitBtn'));
-	// var error_tip = element(by.class('error_tip'));
+describe('登录页面输入框验证', function() {
 
-	beforeEach(function() {
-	    browser.get('/#/login');
-	});		
+    var phone = element(by.model('user.phone'));
+    var password = element(by.model('user.password'));
+    var submitBtn = element(by.name('submitBtn'));
+    var errorTip = element(by.model('tips'));
 
-	it('输入正确的用户名与密码，点击提交按钮，跳转到发布页面', function() {
-		phone.sendkeys('13008885781');
-		password.sendkeys('1234');
-		submitBtn.click();
-		expect(browser.getLocationAbsUrl()).toMatch("/purchase-publish");
-	});
+    beforeEach(function() {
+        browser.get('/#/login');
+    }); 
 
-	it('输入错误的密码，点击提交按钮，无跳转，错误消息提示', function() {
-		phone.sendkeys('13008885781');
-		password.sendkeys('123');
-		submitBtn.click();
-		expect(browser.getLocationAbsUrl()).toMatch("/login");
-		// expect(error_tip.getText()).toMatch('用户名或密码错误');
-	});
+    function login(name, psd) {
+        phone.sendKeys(name);
+        password.sendKeys(psd);
+        // browser.pause();
+        submitBtn.click();
+    };  
 
-	it('输入不存在的用户名，点击提交按钮，无跳转，错误消息提示', function() {
-		phone.sendkeys('13008885780');
-		password.sendkeys('1234');
-		submitBtn.click();
-		expect(browser.getLocationAbsUrl()).toMatch("/login");
-		// expect(error_tip.getText()).toMatch('用户名或密码错误');
-	});
+    xit('输入正确的用户名与密码，点击提交按钮，跳转到发布页面', function() {
+        browser.get('/#/login');
+        login('13008885781', 'aaaa');
+        expect(browser.getLocationAbsUrl()).toMatch("/purchase/publish");
+    });
 
-	it('输入错误的用户名格式，点击提交按钮，无跳转，错误消息提示', function() {
-		phone.sendkeys('1300888578');
-		password.sendkeys('1234');
-		submitBtn.click();
-		expect(browser.getLocationAbsUrl()).toMatch("/login");
-		// expect(error_tip.getText()).toMatch('请输入正确的手机号码格式');
-	});
+    xit('输入错误的用户名，点击提交按钮，无跳转，错误消息提示', function() {
+        login('13008885781', '123');
+        expect(browser.getLocationAbsUrl()).toMatch("/login");
+        expect(errorTip.getText()).toMatch('用户名或密码错误');
 
-	it('输入空的或只有空格的密码，点击提交按钮，无跳转，错误消息提示', function() {
-		phone.sendkeys('13008885781');
-		password.sendkeys(' ');
-		submitBtn.click();
-		expect(browser.getLocationAbsUrl()).toMatch("/login");
-		// expect(error_tip.getText()).toMatch('请输入密码');
-	});
+    });
 
-	it('输入空的或只有空格的用户名，点击提交按钮，无跳转，错误消息提示', function() {
-		phone.sendkeys(' ');
-		password.sendkeys('1234');
-		submitBtn.click();
-		expect(browser.getLocationAbsUrl()).toMatch("/login");
-		// expect(error_tip.getText()).toMatch('请输入手机号码');
-	});
+    xit('输入错误的密码，点击提交按钮，无跳转，错误消息提示', function() {
+        login('13008885780', '1234');
+        expect(browser.getLocationAbsUrl()).toMatch("/login");
+        expect(errorTip.getText()).toMatch('用户名或密码错误');
+    });
 
+    xit('输入错误的用户名格式，点击提交按钮，无跳转，错误消息提示', function() {
+        login('1300888578', '1234');
+        expect(browser.getLocationAbsUrl()).toMatch("/login");
+        expect(errorTip.getText()).toMatch('请输入正确的手机号码格式');
+    });
+
+    xit('输入空的用户名或密码，点击提交按钮，无跳转，错误消息提示', function() {
+        login('13008885781', '');
+        expect(browser.getLocationAbsUrl()).toMatch("/login");
+        expect(errorTip.getText()).toMatch('请输入密码');
+    });
+
+    it('输入空的用户名或密码，点击提交按钮，无跳转，错误消息提示', function() {
+        login('', '1234');
+        expect(errorTip.getText()).toMatch('请输入手机号码');
+        expect(browser.getLocationAbsUrl()).toMatch("/login");       
+    });   
+
+});
+
+xdescribe('登录页面跳转正常', function() {
+
+    beforeEach(function() {
+        browser.get('/#/login');
+    });
+
+    it('点击注册按钮，跳转注册页面', function() {      
+        element(by.linkText('还没有账号，赶紧来注册吧')).click();
+        expect(browser.getLocationAbsUrl()).toMatch("/register");
+    });
+
+    it('点击找回密码按钮，跳转找回密码页面', function() {
+        element(by.linkText('忘记密码？')).click();
+        expect(browser.getLocationAbsUrl()).toMatch("/findPwd");
+    });
 });

@@ -5,7 +5,7 @@ define(['../purchase.module'], function(purchase) {
     purchase.controller('listCtrl', listCtrl);
 
     /* @ngInject */
-    function listCtrl($scope, httpService, messageService, $stateParams){
+    function listCtrl($scope, messageService, $stateParams, httpService){
         
         // 状态------------------------------
         // 所有，报价，待支付，已支付，已发货，已完成

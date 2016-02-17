@@ -1,11 +1,10 @@
 
 'use strict';
 
-define(['./list', 'angularMocks',
-     '../../common/services/http.service',
-      '../../common/services/message.service'], function(httpService, messageService) {
+define(['./list', 'angularMocks'], function() {
     describe('myApp.purchase.listCtrl', function() {
         var scope, listCtrl, mockBackend, httpService, messageService, state, stateParams;
+        
         var count = 10,             // 要请求的数目
             oldMaxCount = 0,        // 旧的最大数目
             orderOldUrl = '/order/getMyOldOrders/',
@@ -17,7 +16,6 @@ define(['./list', 'angularMocks',
             $provide.value('$stateParams', stateParams = {state: '报价'});
         }));
         beforeEach(inject(function($rootScope, $controller, _$httpBackend_){ 
-
             mockBackend = _$httpBackend_;         
             scope = $rootScope.$new();
 
@@ -49,7 +47,7 @@ define(['./list', 'angularMocks',
             expect(scope.loadMore).toBeDefined();
         });
 
-        it('doRefresh函数触发，scope.list应该变化', function() {
+        xit('doRefresh函数触发，scope.list应该变化', function() {
             var url = orderNewUrl + '3' +'/' + oldMaxCount +'/' + stateParams.state;
             mockBackend.expectGET(url).respond({
 
@@ -60,11 +58,11 @@ define(['./list', 'angularMocks',
             expect(scope.list.length).toBe(1);
         });
 
-        it('loadMore函数触发，若maxCount不等于列表长度,scope.list应该变化', function() {
+        xit('loadMore函数触发，若maxCount不等于列表长度,scope.list应该变化', function() {
             var url = orderOldUrl　+ count +'/' + '3' +'/' + oldMaxCount +'/' + stateParams.state;
         });
 
-        it('loadMore函数触发，若maxCount等于列表长度，scope.hasMore应该为false', function() {
+        xit('loadMore函数触发，若maxCount等于列表长度，scope.hasMore应该为false', function() {
             var url = orderOldUrl　+ count +'/' + '3' +'/' + oldMaxCount +'/' + stateParams.state;
         });
 

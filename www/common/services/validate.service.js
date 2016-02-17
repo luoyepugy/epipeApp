@@ -32,6 +32,8 @@ define(['../common.module', 'zepto'], function(common, $) {
             });
             if(num === total) {
                 return true;
+            } else {
+                return false;
             }
         };
 

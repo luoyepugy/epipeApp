@@ -5,7 +5,7 @@ define(['../common.module'], function(common) {
     common.factory('httpService', httpService);
 
     /* @ngInject */
-    function httpService($q, $http, $ionicLoading, messageService, $state, $location, $window,
+    function httpService($q, $http, $ionicLoading, messageService, $state, $location, $window, 
         $cordovaInAppBrowser, $ionicPopup, config, $cordovaNetwork, $rootScope) {
 
         return {
