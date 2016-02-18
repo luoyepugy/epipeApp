@@ -1,0 +1,30 @@
+{
+  "name": "ionic-service-deploy-private",
+  "homepage": "http://ionic.io",
+  "authors": [
+    "Joel Weirauch <joel@drifty.com>"
+  ],
+  "description": "Ionic Mobile Platform Deploy client",
+  "main": "ionic-deploy.js",
+  "license": "Apache2",
+  "dependencies": {
+    "ionic-service-core": ">= 0.0.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_source": "https://github.com/a631807682/ionic-service-deploy-private.git",
+  "_release": "9a383c0c2c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9a383c0c2cb88ea45a53b1fe5ff7ccae2e4471fd"
+  },
+  "_target": "*",
+  "_originalSource": "https://github.com/a631807682/ionic-service-deploy-private.git",
+  "_direct": true
+}

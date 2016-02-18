@@ -1,7 +1,7 @@
 
 <ion-view  view-title="编辑资料">
     <ion-content class="userEdit j-editUser">       
-        <div class="icon-center" ng-click="editAvatar()">
+        <div class="icon-center" ng-click="vm.editAvatar()">
             <img class="icon100" src="./images/default_avatar.png" ng-src="{{vm.user.avatar}}" />
             <input type="hidden" name="avatar" ng-modal="vm.user.avatarFileName" value="{{vm.user.avatarFileName}}">
         </div>

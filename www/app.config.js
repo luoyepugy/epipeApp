@@ -5,13 +5,29 @@ define(['app', 'cordova'], function(app) {
     return app.config(config).run(runApp);
 
     /* @ngInject */
-    function config($ionicConfigProvider) {
-          $ionicConfigProvider.tabs.position("bottom");
+    function config($ionicConfigProvider, $ionicAppProvider) {
+        $ionicConfigProvider.tabs.position("bottom");
+
+        // Identify app
+        $ionicAppProvider.identify({
+            // Your App ID
+            app_id: '24e596f',
+            // The public API key services will use for this app
+            api_key: '',
+            domain: 'http://192.168.1.154:8100',
+            channel_tag: 'production'
+        });
       };
 
       /* @ngInject */
-    function runApp($ionicPlatform, $ionicPopup, $location, $ionicHistory) {
-          //主页面显示退出提示框  
+    function runApp($ionicPlatform, $ionicPopup, $location, $ionicHistory, updateAppService, $cordovaAppVersion) {
+
+        document.addEventListener("deviceready", function () {
+            // 检查版本更新
+            updateAppService.checkUpdate();
+        }, false);
+
+        //主页面显示退出提示框  
         $ionicPlatform.registerBackButtonAction(function (e) {  
              // 是否退出应用提示弹窗
             function showConfirm() {  

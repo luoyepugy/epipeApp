@@ -3,5 +3,6 @@ define([
     './message.service',
     './http.service',
     './validate.service',
-    './upload.service'
+    './upload.service',
+    './updateApp.service'
     ], function() {});

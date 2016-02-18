@@ -17,11 +17,11 @@ define(['./services.module','cordova'], function(services) {
                 // 主机名称，从配置中获取值
                 host = config.host,
                 // cordovaInAppBrowser的选项变量
-                options = {
-                  location: 'yes',
-                  clearcache: 'yes',
-                  toolbar: 'yes'
-                },
+                // options = {
+                //   location: 'yes',
+                //   clearcache: 'yes',
+                //   toolbar: 'yes'
+                // },
                 // header上的token
                 token = '';
 
@@ -56,13 +56,13 @@ define(['./services.module','cordova'], function(services) {
                 $ionicLoading.hide();
                 if(status === 401) {
                     $state.go('purchase-login');
-                } else if (status === 403) {
+                // } else if (status === 403) {
                     // ios／android平台判断
-                    if(ionic.Platform.isIOS()) {
-                        updatePopup(data.app_ios_path);
-                    } else if(ionic.Platform.isAndroid()) {
-                        updatePopup(data.app_andriod_path);
-                    }
+                    // if(ionic.Platform.isIOS()) {
+                    //     updatePopup(data.app_ios_path);
+                    // } else if(ionic.Platform.isAndroid()) {
+                    //     updatePopup(data.app_andriod_path);
+                    // }
                 } else {
                     messageService.show('服务器请求失败');
                 }
@@ -87,26 +87,7 @@ define(['./services.module','cordova'], function(services) {
                     });
                 });
             };
-        };      
-
-    // this.get = function(method, url, datas) {
-    //     var deferred = $q.defer();
-    //     // http请求
-    //     $http({
-    //         method: method, 
-    //       　　url: url,
-    //         data: datas
-    //     })
-    //     .success(function(response) {
-//               if(response.success === true) {
-//                   deferred.resolve(response);
-    //         }
-//           })
-//           .error(function(data, status){
-//               messageService.show('服务器请求失败');
-//           });
-//           return deferred.promise;
-    // }
+        }; 
 
     }
     

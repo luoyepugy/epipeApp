@@ -2,6 +2,7 @@
   "name": "HelloIonic",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.1"
+    "ionic": "driftyco/ionic-bower#1.1.1",
+    "ionic-service-deploy-private": "https://github.com/a631807682/ionic-service-deploy-private.git"
   }
 }
