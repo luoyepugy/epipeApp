@@ -1,7 +1,7 @@
 'use strict';
 
-describe('列表页面运行正常', function() {
-	// var list = element.all(by.css('.list .item'));
+xdescribe('列表页面运行正常', function() {
+	var list = element.all(by.repeater('item in vm.list'));
 
 	beforeEach(function() {
 
@@ -14,8 +14,10 @@ describe('列表页面运行正常', function() {
     });		
 
 	it('列表页面第一个的名称为a', function() {
-		// browser.pause();
-		// expect(list.first().getText()).toContain('a');	
+		list.first().then(function(ele) {
+			expect(ele.findElement.all(by.tagName('span')).get(0)).toEqual('a');
+		});
+		// expect(list.get(0).getText()).toEqual('a');	
 	});
 
 });

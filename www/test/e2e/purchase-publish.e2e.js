@@ -1,6 +1,6 @@
 'use strict';
 
-xdescribe('采购发布页面输入框验证', function() {
+describe('采购发布页面输入框验证', function() {
 
     var name = element(by.model('product.name'));
     var num = element(by.model('product.num'));
@@ -16,7 +16,7 @@ xdescribe('采购发布页面输入框验证', function() {
         );
     }); 
 
-    it('输入正确采购信息，点击提交按钮，跳转到列表页面', function() {      
+    xit('输入正确采购信息，点击提交按钮，跳转到列表页面', function() {      
         name.sendKeys('a');
         num.sendKeys('3');
         unit.sendKeys('吨');
@@ -24,5 +24,11 @@ xdescribe('采购发布页面输入框验证', function() {
         submitBtn.click();
 
         expect(browser.getLocationAbsUrl()).toMatch("/purchase/list");
+    });
+
+    it('点击底部按钮栏列表按钮，跳转到列表页面且第一个为a', function() {
+        element.all(by.css('.tab-nav a')).get(1).click();
+        expect(browser.getLocationAbsUrl()).toMatch("/purchase/list");
+        expect(element.all(by.css('span')).first().getText()).toEqual('a');
     });
 });
