@@ -31,7 +31,7 @@ define(['../common.module'], function(common) {
                 if(!resultsIsEmpty) {
                     return false;
                 }
-                console.log($rootScope.tips);
+
                 // 提交表单数据
                 resultsDatas = validateService.submitData(attrs.form);
                 if(resultsDatas) {

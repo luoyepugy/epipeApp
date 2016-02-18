@@ -1,6 +1,6 @@
 'use strict';
 
-describe('登录页面输入框验证', function() {
+xdescribe('登录页面输入框验证', function() {
 
     var phone = element(by.model('user.phone'));
     var password = element(by.model('user.password'));
@@ -51,7 +51,9 @@ describe('登录页面输入框验证', function() {
 
     it('输入空的用户名或密码，点击提交按钮，无跳转，错误消息提示', function() {
         login('', '1234');
-        expect(errorTip.getText()).toMatch('请输入手机号码');
+        // expect(errorTip.getText()).toMatch('请输入手机号码');
+        expect(element(by.model('tips')).getText()).toMatch('请输入手机号码');
+        expect(element(by.id('test')).getText()).toEqual('12345');
         expect(browser.getLocationAbsUrl()).toMatch("/login");       
     });   
 

@@ -16,7 +16,7 @@ xdescribe('采购发布页面输入框验证', function() {
         );
     }); 
 
-    it('输入正确采购信息，点击提交按钮，跳转到列表页面', function() {
+    it('输入正确采购信息，点击提交按钮，跳转到列表页面', function() {      
         name.sendKeys('a');
         num.sendKeys('3');
         unit.sendKeys('吨');

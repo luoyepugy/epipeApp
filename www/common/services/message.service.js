@@ -19,7 +19,7 @@ define(['../common.module', 'zepto'], function(common, $) {
                 $('.error_tip').addClass('none');
             }, 2500);
             // if($('.error_tip').length < 1) {
-            //     $('body').append('<p class="error_tip">' + tips +'</p>');
+            //     $('body').append('<p id="messages" class="error_tip">' + tips +'</p>');
             //     $timeout(function(){
             //         $('.error_tip').remove();
             //     }, 2500);
