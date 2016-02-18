@@ -11,7 +11,7 @@ define(['app', 'cordova'], function(app) {
         // Identify app
         $ionicAppProvider.identify({
             // Your App ID
-            app_id: '24e596f',
+            app_id: '808a828e',
             // The public API key services will use for this app
             api_key: '',
             domain: 'http://192.168.1.154:8100',
