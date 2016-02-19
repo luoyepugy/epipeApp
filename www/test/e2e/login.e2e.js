@@ -19,7 +19,7 @@ xdescribe('登录页面', function() {
             password.clear();
         };     
 
-        it('输入错误的用户名，点击提交按钮，无跳转，错误消息提示', function() {
+        it('输入错误的密码，点击提交按钮，无跳转，错误消息提示', function() {
             browser.get('/#/login');
             clear();
             login('13008885781', '123');
@@ -28,7 +28,7 @@ xdescribe('登录页面', function() {
 
         });
 
-        it('输入错误的密码，点击提交按钮，无跳转，错误消息提示', function() {
+        it('输入错误的用户名，点击提交按钮，无跳转，错误消息提示', function() {
             clear();
             login('13008885780', '1234');
             expect(browser.getLocationAbsUrl()).toMatch("/login");
