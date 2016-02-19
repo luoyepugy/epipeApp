@@ -17,7 +17,7 @@ define(['app', 'cordova'], function(app) {
             domain: 'http://192.168.1.154:8100',
             channel_tag: 'production'
         });
-      };
+    };
 
       /* @ngInject */
     function runApp($ionicPlatform, $ionicPopup, $location, $ionicHistory, updateAppService, $cordovaAppVersion) {
