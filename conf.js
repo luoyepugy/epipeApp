@@ -1,15 +1,16 @@
 exports.config = {
   allScriptsTimeout: 11000,
 
+  SeleniumAddress: 'http://localhost:4444/wd/hub',
+
+  directConnect: true,
+
   baseUrl: 'http://localhost:8100',
 
-  SeleniumAddress: 'http://localhost:4444/wd/hub',
-  directConnect: true,
   specs: ['./www/test/e2e/*.e2e.js'],
 
   capabilities: {
-    'browserName': 'chrome',
-    'platform': 'ANDROID'
+    'browserName': 'chrome'
   },
 
   framework: 'jasmine',

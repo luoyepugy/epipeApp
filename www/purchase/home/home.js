@@ -8,7 +8,6 @@ define(['../purchase.module'], function(purchase) {
     function homeCtrl($scope, $state, $http, config){
         var vm = $scope;
             vm.welcome = welcome;
-
         // 立即体验按钮
         function　welcome() {
             // 主机地址是否发生变化

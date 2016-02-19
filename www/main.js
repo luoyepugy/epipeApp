@@ -5,6 +5,7 @@ requirejs.config({
         domReady: "lib/domReady/domReady",
         zepto: "lib/zepto/zepto.min",
         ngCordova: 'lib/ngCordova/dist/ng-cordova.min',
+        angularMocks: 'lib/angular-mocks/angular-mocks',
         cordova: 'cordova'
 　　　　},
     shim: {
@@ -21,6 +22,10 @@ requirejs.config({
         cordova: {
             deps: ['ngCordova'],
             exports: 'cordova'
+        },
+        angularMocks: {
+            deps: ['angular'],
+            exports: 'angularMocks'
         }
     },
     deps: ['./bootstrap']

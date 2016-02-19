@@ -54,13 +54,13 @@ define(['../common.module'], function(commoon) {
             };
             // 点击发送验证码按钮
             function sendVcode() {
-                if(scope.$parent.user.phone === '' || scope.$parent.user.phone == null) {
+                if(scope.$parent.vm.user.phone === '' || scope.$parent.vm.user.phone == null) {
                     messageService.show('请输入手机号码');
-                } else if(!phone_regexp.test(scope.$parent.user.phone)) {
+                } else if(!phone_regexp.test(scope.$parent.vm.user.phone)) {
                     messageService.show('请输入正确的手机号码格式');
                 } else {
                     flag = true;
-                    httpService.getDatas('POST', '/user/sendPhoneToken', {'phone': scope.$parent.user.phone})
+                    httpService.getDatas('POST', '/user/sendPhoneToken', {'phone': scope.$parent.vm.user.phone})
                     // httpService.get('GET', './json/login.json', {'phone': scope.$parent.user.phone})
                     .then(function(data) {
                         return true;

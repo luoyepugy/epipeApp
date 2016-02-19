@@ -8,7 +8,7 @@ xdescribe('首页运行正常', function() {
 	    browser.get('/#/home');
 	});		
 
-	it('点击welcome按钮，判断localStorage.token值，跳转到登录页面/发布页面', function() {
+	it('点击welcome按钮，判断localStorage.token值，跳转到登录页面/发布页面', function() {		
 		homeBtn.click();
 		browser.executeScript('token = window.localStorage.getItem("token")');
 		if(token != null && token !== '') {

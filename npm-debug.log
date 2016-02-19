@@ -1,8 +1,11 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'protractor' ]
 2 info using npm@2.11.3
 3 info using node@v0.12.7
-4 verbose stack Error: missing script: start
+4 verbose stack Error: missing script: protractor
 4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:142:19)
 4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:58:5
 4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:345:5
@@ -15,10 +18,10 @@
 4 verbose stack     at FSReqWrap.oncomplete (evalmachine.<anonymous>:95:15)
 5 verbose cwd /home/zh/project/epipeApp
 6 error Linux 3.16.0-59-generic
-7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "protractor"
 8 error node v0.12.7
 9 error npm  v2.11.3
-10 error missing script: start
+10 error missing script: protractor
 11 error If you need help, you may report this error at:
 11 error     <https://github.com/npm/npm/issues>
 12 verbose exit [ 1, true ]

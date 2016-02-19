@@ -11,7 +11,6 @@
                 <input type="password" class="j-input" name="password" ng-model="user.password" placeholder="请输入密码" value="{{user.password}}" data-empty="请输入密码" />
             </ion-item>
             <input type="hidden" name="userType" value="采购商">
-            <p id="test">{{user.phone + user.password}}</p>
             <ion-item>
                 <submit-button action="/login" login="true" state="purchase.publish" text="登录" form=".j-login"></submit-button>
                 <a href="#/register" class="button button-full button-stable button-round">还没有账号，赶紧来注册吧</a>
