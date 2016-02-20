@@ -3,10 +3,9 @@
 
 xdescribe('修改密码页面', function() {
 
-    var changePwdBtn = element.all(by.css('.tr a')).get(1);   
-    var errorTips = element(by.css('.messages'));
-    var phone = element(by.model('user.oldPwd'));
-    var password = element(by.model('user.password'));
+    var changePwdBtn = element.all(by.css('.tr a')).get(1);
+    var phone = element(by.name('oldPwd'));
+    var password = element(by.name('password'));
     var confirmPwd = element(by.name('confirmPwd'));
     var submitBtn = element(by.name('submitBtn'));
     var errorTip = element(by.css('.messages'));
@@ -22,6 +21,7 @@ xdescribe('修改密码页面', function() {
         password.clear();
         confirmPwd.clear();
     };
+
 
     xdescribe('输入框验证', function() {
         
@@ -50,6 +50,7 @@ xdescribe('修改密码页面', function() {
         });  
     });
 
+
     describe('修改密码成功', function() {
 
         beforeEach(function() {
@@ -72,7 +73,6 @@ xdescribe('修改密码页面', function() {
             changePwd('aaaa', '1234', '1234');
             expect(browser.getLocationAbsUrl()).toMatch('/purchase/user');
         }); 
-
     });
 
 });

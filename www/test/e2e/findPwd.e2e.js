@@ -1,8 +1,9 @@
 'use strict';
 
 xdescribe('找回密码页面', function() {
-    var phone = element(by.model('vm.user.phone'));
-    var code = element(by.model('vm.user.code'));
+
+    var phone = element(by.name('phone'));
+    var code = element(by.name('code'));
     var submitBtn = element.all(by.css('.button')).last();
     var errorTip = element(by.css('.error_tip'));
     var sendCodeBtn = element.all(by.css('.button-energized')).get(0);
@@ -24,6 +25,7 @@ xdescribe('找回密码页面', function() {
   
 
     describe('点击发送验证码', function() {
+
         it('手机号码为空', function() {
             browser.get('/#/findPwd');
             clear();
@@ -51,6 +53,7 @@ xdescribe('找回密码页面', function() {
 
 
     describe('输入框验证', function() {
+
         it('输入空的手机号码，无跳转，错误信息提示', function() {
             browser.get('/#/findPwd');
             findPwd('', '');
@@ -78,8 +81,5 @@ xdescribe('找回密码页面', function() {
             expect(browser.getLocationAbsUrl()).toMatch('/findPwd');
             expect(errorTip.getText()).toEqual('请填写正确的验证码');
         });
-    }); 
-
-    
-
+    });
 });

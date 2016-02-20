@@ -2,31 +2,32 @@
 
 xdescribe('注册页面', function() {
 
-    xdescribe('输入框验证', function() {
-        
-        var phone = element(by.model('vm.user.phone'));
-        var code = element(by.model('vm.user.code'));
-        var company = element(by.model('vm.user.company'));
-        var password = element(by.model('vm.user.password'));
-        var confirmPwd = element(by.name('confirmPwd'));
-        var submitBtn = element(by.name('submitBtn'));
-        var errorTip = element(by.css('.messages'));
+    var phone = element(by.name('phone'));
+    var code = element(by.name('code'));
+    var company = element(by.name('company'));
+    var password = element(by.name('password'));
+    var confirmPwd = element(by.name('confirmPwd'));
+    var submitBtn = element(by.name('submitBtn'));
+    var errorTip = element(by.css('.messages'));
 
-        function register(name, ucode, ucompany, psd, cpsd) {
-            phone.sendKeys(name);
-            code.sendKeys(ucode);
-            company.sendKeys(ucompany);
-            password.sendKeys(psd);
-            confirmPwd.sendKeys(cpsd);
-            submitBtn.click();
-        }; 
-        function clear() {
-            phone.clear();
-            code.clear();
-            company.clear();
-            password.clear();
-            confirmPwd.clear();
-        };     
+    function register(name, ucode, ucompany, psd, cpsd) {
+        phone.sendKeys(name);
+        code.sendKeys(ucode);
+        company.sendKeys(ucompany);
+        password.sendKeys(psd);
+        confirmPwd.sendKeys(cpsd);
+        submitBtn.click();
+    }; 
+    function clear() {
+        phone.clear();
+        code.clear();
+        company.clear();
+        password.clear();
+        confirmPwd.clear();
+    };
+
+
+    xdescribe('输入框验证', function() {             
 
         it('输入空的用户名，点击提交按钮，无跳转，错误消息提示', function() {
             browser.get('/#/register');
@@ -91,6 +92,7 @@ xdescribe('注册页面', function() {
 
 
     describe('左上角返回按钮', function() {
+        
         var backBtn = element.all(by.css('.left-buttons')).get(1);
 
         beforeEach(function() {

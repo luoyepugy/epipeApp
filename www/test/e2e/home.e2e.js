@@ -1,6 +1,7 @@
 'use strict';
 
 xdescribe('首页运行正常', function() {
+	
 	var homeBtn = element(by.name('homeBtn'));
 	var token = '';
 

@@ -2,25 +2,26 @@
 
 xdescribe('登录页面', function() {
 
+    var phone = element(by.name('phone'));
+    var password = element(by.name('password'));
+    var submitBtn = element(by.name('submitBtn'));
+    var errorTip = element(by.css('.messages'));
+
+    function login(name, psd) {
+        phone.sendKeys(name);
+        password.sendKeys(psd);
+        submitBtn.click();
+    }; 
+    function clear() {
+        phone.clear();
+        password.clear();
+    };
+
+
     describe('输入框验证', function() {
         
-        var phone = element(by.model('user.phone'));
-        var password = element(by.model('user.password'));
-        var submitBtn = element(by.name('submitBtn'));
-        var errorTip = element(by.css('.messages'));
-
-        function login(name, psd) {
-            phone.sendKeys(name);
-            password.sendKeys(psd);
-            submitBtn.click();
-        }; 
-        function clear() {
-            phone.clear();
-            password.clear();
-        };     
-
-        it('输入错误的密码，点击提交按钮，无跳转，错误消息提示', function() {
-            browser.get('/#/login');
+        it('输入错误的密码，点击提交按钮，无跳转，错误消息提示', function() { 
+            browser.get('/#/login');          
             clear();
             login('13008885781', '123');
             expect(browser.getLocationAbsUrl()).toMatch("/login");
@@ -60,9 +61,9 @@ xdescribe('登录页面', function() {
             clear(); 
             login('13008885781', 'aaaa');
             expect(browser.getLocationAbsUrl()).toMatch("/purchase/publish");
-        }); 
-
+        });
     });
+
 
     xdescribe('链接跳转正常', function() {
 

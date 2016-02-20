@@ -1,6 +1,7 @@
 'use strict';
 
 xdescribe('列表页面', function() {
+
     var errorTip = element(by.css('.messages'));
     var item = element.all(by.css('.purchase-list .item'));
     var filterLi = element.all(by.css('.listFilterWrap li'));
@@ -15,7 +16,7 @@ xdescribe('列表页面', function() {
 
 
     describe('点击底部菜单栏采购单按钮跳转', function() {
-        
+
         it('当前页面为list页面', function() {
             expect(browser.getLocationAbsUrl()).toMatch('/purchase/list');
         });
@@ -28,8 +29,9 @@ xdescribe('列表页面', function() {
 
 
     describe('右上角过滤菜单点击', function() {
-        var rightBtn = element(by.css('.right-buttons'));
 
+        var rightBtn = element(by.css('.right-buttons'));
+        
         var offerUrl = '/purchase/list/%E6%8A%A5%E4%BB%B7',
             payingUrl = '/purchase/list/%E5%BE%85%E6%94%AF%E4%BB%98',
             payedUrl = '/purchase/list/%E5%B7%B2%E6%94%AF%E4%BB%98',
