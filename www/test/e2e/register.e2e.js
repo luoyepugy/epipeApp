@@ -1,8 +1,8 @@
 'use strict';
 
-describe('注册页面', function() {
+xdescribe('注册页面', function() {
 
-    describe('输入框验证', function() {
+    xdescribe('输入框验证', function() {
         
         var phone = element(by.model('vm.user.phone'));
         var code = element(by.model('vm.user.code'));
@@ -10,7 +10,7 @@ describe('注册页面', function() {
         var password = element(by.model('vm.user.password'));
         var confirmPwd = element(by.name('confirmPwd'));
         var submitBtn = element(by.name('submitBtn'));
-        var errorTip = element(by.css('.error_tip'));
+        var errorTip = element(by.css('.messages'));
 
         function register(name, ucode, ucompany, psd, cpsd) {
             phone.sendKeys(name);
@@ -28,10 +28,19 @@ describe('注册页面', function() {
             confirmPwd.clear();
         };     
 
+        it('输入空的用户名，点击提交按钮，无跳转，错误消息提示', function() {
+            browser.get('/#/register');
+            clear();
+            register('　', '', '', '', '');
+            expect(browser.getLocationAbsUrl()).toMatch("/register");
+            expect(errorTip.getText()).toEqual('请输入手机号码');
+
+        });
+
         it('输入已存在的用户名，点击提交按钮，无跳转，错误消息提示', function() {
             browser.get('/#/register');
             clear();
-            register('13008885781');
+            register('13008885781', '878', '深圳鼎盛', '1234', '1234');
             expect(browser.getLocationAbsUrl()).toMatch("/register");
             expect(errorTip.getText()).toEqual('手机号码已存在');
 
@@ -58,6 +67,13 @@ describe('注册页面', function() {
             expect(errorTip.getText()).toEqual('请输入密码');
         });
 
+        it('输入空的确认密码，点击提交按钮，无跳转，错误消息提示', function() {
+            clear();
+            register('13008885780', '878', '深圳鼎盛', '1234', '');
+            expect(browser.getLocationAbsUrl()).toMatch("/register");
+            expect(errorTip.getText()).toEqual('请再次输入密码');
+        });
+
         it('第二次输入密码错误，点击提交按钮，无跳转，错误消息提示', function() {
             clear();
             register('13008885780', '878', '深圳鼎盛', '1234', '123');
@@ -65,12 +81,28 @@ describe('注册页面', function() {
             expect(browser.getLocationAbsUrl()).toMatch("/register");       
         });  
 
-        xit('输入正确的用户名与密码，点击提交按钮，跳转到发布页面', function() {  
+        xit('输入正确的用户名与密码，点击提交按钮，跳转到登录页面', function() {  
             clear(); 
             register('13008885780', '878', '深圳鼎盛', '1234', '1234');
             expect(browser.getLocationAbsUrl()).toMatch("/login");
         }); 
 
+    });
+
+
+    describe('左上角返回按钮', function() {
+        var backBtn = element.all(by.css('.left-buttons')).get(1);
+
+        beforeEach(function() {
+            browser.get('/#/login');
+            element(by.linkText('还没有账号，赶紧来注册吧')).click();
+        });
+
+        it('点击返回按钮，跳转到登录页面', function() {
+            expect(browser.getLocationAbsUrl()).toMatch("/register");
+            backBtn.click();
+            expect(browser.getLocationAbsUrl()).toMatch("/login");
+        });   
     });
 
 });

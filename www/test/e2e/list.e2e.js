@@ -1,12 +1,12 @@
 'use strict';
 
 xdescribe('列表页面', function() {
-    var errorTip = element(by.css('.error_tip'));
+    var errorTip = element(by.css('.messages'));
     var item = element.all(by.css('.purchase-list .item'));
     var filterLi = element.all(by.css('.listFilterWrap li'));
 
     beforeEach(function() {
-        browser.get('/#/purchase/list/%E6%89%80%E6%9C%89');
+        browser.get('/#/purchase/publish');
         browser.executeScript(
             "window.localStorage.token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NjljNTliODEyMDg4YTkwZjY4NjRlMjUiLCJleHAiOjE0NTYyOTY5MjUyNjJ9.pkHyv4s8F-h79FNDBvssHl6McMDsf-SPT8zRKEvXC_o';"
         );
@@ -15,6 +15,11 @@ xdescribe('列表页面', function() {
 
 
     describe('点击底部菜单栏采购单按钮跳转', function() {
+        
+        it('当前页面为list页面', function() {
+            expect(browser.getLocationAbsUrl()).toMatch('/purchase/list');
+        });
+
         it('列表页面item数量为10,第一个item的文本包含a，a为商品名称', function() {
             expect(item.count()).toBe(10);
             expect(item.get(0).getText()).toContain('a');

@@ -21,7 +21,6 @@ define(['./app.module'], function(app) {
         })
         .state('register', {
             url: '/register',
-            cache: 'false',
             templateUrl: "user/account/register.html",
             controller: 'registerCtrl',
             controllerAs: 'vm'

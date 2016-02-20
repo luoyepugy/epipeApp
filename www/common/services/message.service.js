@@ -12,12 +12,14 @@ define(['../common.module', 'zepto'], function(common, $) {
         };
         return messages;
         
-        function show(message) {
-            $rootScope.tips = message;
-            $('.error_tip').addClass('error_tip-show');
-            $timeout(function(){
-                $('.error_tip').removeClass('error_tip-show');
-            }, 2500);
+        function show(tips) {           
+            if($('.error_tip').length < 1) {
+                $('body').append('<p class="error_tip">' + tips +'</p>');
+                $rootScope.messages = tips;
+                $timeout(function(){
+                    $('.error_tip').remove();
+                }, 2500);
+            }
         };
     };
         

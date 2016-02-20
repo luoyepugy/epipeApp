@@ -7,7 +7,7 @@ xdescribe('登录页面', function() {
         var phone = element(by.model('user.phone'));
         var password = element(by.model('user.password'));
         var submitBtn = element(by.name('submitBtn'));
-        var errorTip = element(by.css('.error_tip'));
+        var errorTip = element(by.css('.messages'));
 
         function login(name, psd) {
             phone.sendKeys(name);
@@ -64,13 +64,13 @@ xdescribe('登录页面', function() {
 
     });
 
-    describe('链接跳转正常', function() {
+    xdescribe('链接跳转正常', function() {
 
         beforeEach(function() {
             browser.get('/#/login');
         });
 
-        it('点击注册按钮，跳转注册页面', function() {      
+        it('点击注册按钮，跳转注册页面', function() {    
             element(by.linkText('还没有账号，赶紧来注册吧')).click();
             expect(browser.getLocationAbsUrl()).toMatch("/register");
         });

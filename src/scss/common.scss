@@ -116,7 +116,8 @@
 // 错误提示
 .error_tip {
   @include position-basic(fixed, bottom, 60px, left, 50%);
-  @include size(0);
+  @include size(180px, 28px);
+  line-height: 28px;
   color: #fff;
   background: rgba(0, 0, 0, .7);
   opacity: .7;
@@ -126,7 +127,7 @@
   font-size: .9em;
   z-index: 10;
 }
-.error_tip-show {
+.error_tip-show { 
   @include size(180px, 28px);
   line-height: 28px;
 }
