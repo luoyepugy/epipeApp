@@ -55,6 +55,8 @@ define(['../purchase.module'], function(purchase) {
                 .then(function(data) {
                     $state.go('purchase.order', {'id': id});
                 });
+            } else {
+                messageService.show('请选择一个商家');
             }
         };
 

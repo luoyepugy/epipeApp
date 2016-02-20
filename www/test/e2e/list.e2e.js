@@ -3,7 +3,7 @@
 xdescribe('列表页面', function() {
 
     var errorTip = element(by.css('.messages'));
-    var item = element.all(by.css('.purchase-list .item'));
+    var item = element.all(by.repeater('item in vm.list'));
     var filterLi = element.all(by.css('.listFilterWrap li'));
 
     beforeEach(function() {
@@ -15,7 +15,7 @@ xdescribe('列表页面', function() {
     });
 
 
-    describe('点击底部菜单栏采购单按钮跳转', function() {
+    xdescribe('点击底部菜单栏采购单按钮跳转', function() {
 
         it('当前页面为list页面', function() {
             expect(browser.getLocationAbsUrl()).toMatch('/purchase/list');
@@ -28,7 +28,7 @@ xdescribe('列表页面', function() {
     });
 
 
-    describe('右上角过滤菜单点击', function() {
+    xdescribe('右上角过滤菜单点击', function() {
 
         var rightBtn = element(by.css('.right-buttons'));
         
@@ -97,6 +97,31 @@ xdescribe('列表页面', function() {
             // 点击第一个item，跳转到物流页面
             item.get(0).click();
             expect(browser.getLocationAbsUrl()).toContain('/purchase/logistics');
+        });
+    });
+
+
+    describe('item路由跳转', function() {
+
+        xit('点击第０个item，无跳转，无报价信息提示', function() {
+            item.get(0).click();
+            expect(browser.getLocationAbsUrl()).toMatch('/purchase/list');
+            expect(errorTip.getText()).toEqual('暂时没有商家报价');
+        });
+
+        xit('点击第１个item，跳转到报价页面', function() {
+            item.get(1).click();
+            expect(browser.getLocationAbsUrl()).toMatch('/purchase/offer');
+        });
+
+        xit('点击第２个item，跳转到报价页面', function() {
+            item.get(2).click();
+            expect(browser.getLocationAbsUrl()).toMatch('/purchase/order');
+        });
+
+        xit('点击第３个item，跳转到报价页面', function() {
+            item.get(3).click();
+            expect(browser.getLocationAbsUrl()).toMatch('/purchase/logistics');
         });
     });
 });
