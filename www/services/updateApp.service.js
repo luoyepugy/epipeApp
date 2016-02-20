@@ -1,11 +1,11 @@
 (function() {
     'use strict';
 
-define(['./services.module'], function(services) {
+define(['./services.module', 'cordova'], function(services) {
     services.factory('updateAppService', updateAppService);
 
     /* @ngInject */
-    function updateAppService($ionicPopup, $ionicDeploy, $timeout, $ionicLoading) {
+    function updateAppService($ionicPopup, $ionicDeploy, $timeout, $ionicLoading, $cordovaInAppBrowser) {
 
         return {
             'checkUpdate': checkUpdate
@@ -19,13 +19,13 @@ define(['./services.module'], function(services) {
                     showUpdateConfirm(result);
                 }
             }, function(err) {
-                $ionicLoading.show({
-                    template: '更新失败,请检查您的网络配置!' + err,
-                    animation: 'fade-in',
-                    showBackdrop: true,
-                    duration: 2000,
-                    showDelay: 0
-                });
+                // $ionicLoading.show({
+                //     template: '更新失败,请检查您的网络配置!' + err,
+                //     animation: 'fade-in',
+                //     showBackdrop: true,
+                //     duration: 2000,
+                //     showDelay: 0
+                // });
             });
         }
 
@@ -62,7 +62,7 @@ define(['./services.module'], function(services) {
                         }, function(err) {
                             $ionicLoading.hide();
                             $ionicLoading.show({
-                                template: '更新失败!' + err,
+                                template: '更新失败!',
                                 animation: 'fade-in',
                                 showBackdrop: true,
                                 duration: 2000,
@@ -82,15 +82,21 @@ define(['./services.module'], function(services) {
                 }
                 //非兼容更新
                 else if (checkResult.available == 'true' && checkResult.compatible != 'true') {
-                    $ionicLoading.show({
-                        template: '请前往' + checkResult.update.url + '更新您的app',
-                        animation: 'fade-in',
-                        showBackdrop: true,
-                        duration: 10000,
-                        showDelay: 0
-                    });
-                }
+                    // cordovaInAppBrowser的选项变量
+                    var options = {
+                        location: 'yes',
+                        clearcache: 'yes',
+                        toolbar: 'yes'
+                    };
 
+                    $cordovaInAppBrowser.open(checkResult.update.url, '_system', options)
+                        .then(function(event) {
+                            // messageService.show('下载可用的更新');
+                        })
+                        .catch(function(event) {
+                            messageService.show('服务器请求失败');
+                        });
+                }
 
             });
         };
