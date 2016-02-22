@@ -1,7 +1,7 @@
 
 'use strict';
 
-describe('报价页面', function() {
+xdescribe('报价页面', function() {
 
     var OfferItem = element.all(by.repeater('item in vm.list'));
     var productInfo = element.all(by.css('.offer .item')).get(0);
@@ -18,7 +18,7 @@ describe('报价页面', function() {
         OfferItem.get(0).click();
     });
 
-    it('list页面第一个item点击，跳转到报价页面', function() {
+    xit('list页面第一个item点击，跳转到报价页面', function() {
         expect(browser.getLocationAbsUrl()).toMatch('/purchase/offer');
         expect(productInfo.getText()).toContain('a');
         expect(OfferItem.count()).toEqual(1);
