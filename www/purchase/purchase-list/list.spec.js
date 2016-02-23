@@ -17,6 +17,7 @@ define(['./list', 'angularMocks'], function() {
         beforeEach(module(function($provide) {
             $provide.value('$stateParams', stateParams = {state: '报价'});
         }));
+        
         beforeEach(function() {
             var mockHttpService = {};
             var mockMessageService = {};

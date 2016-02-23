@@ -5,7 +5,7 @@ define(['../purchase.module'], function(purchase) {
     purchase.directive('listRoute', listRoute);
     
     /* @ngInject */
-    function listRoute(httpService, $ionicLoading ,messageService, $state) {
+    function listRoute(messageService, $state) {
         var directive = {
             restrict: 'AE',
             template: '',

@@ -5,7 +5,7 @@ define(['../purchase.module'], function(purchase) {
     purchase.directive('listFilter', listFilter);
     
     /* @ngInject */
-    function listFilter($ionicModal, httpService, $state, messageService) {
+    function listFilter($ionicModal, $state) {
         var directive = {
             restrict: 'E',
             replace: true,
