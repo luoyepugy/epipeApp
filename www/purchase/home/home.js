@@ -5,23 +5,26 @@ define(['../purchase.module'], function(purchase) {
     purchase.controller('homeCtrl', homeCtrl);
     
     /* @ngInject */
-    function homeCtrl($scope, $state, $http, config){
+    function homeCtrl($state, $http, config){
         var vm = this;
             vm.welcome = welcome;
+            
+            vm.test = config.host;
 
         // 立即体验按钮
         function　welcome() {
             // 主机地址是否发生变化
-            // $http.get('http://www.epipe.cn/download/appConfig.js')
-            // .success(function(data) {
-            //     if(data['api_host'] != null && data['api_host'] != '') {
-            //         config.host = data['api_host']; 
-            //     }
-            //     hasToken();
-            // })
-            // .error(function(data) {
+            $http.get('http://www.epipe.cn/download/appConfig.js')
+            .success(function(data) {
+                if(data['api_host'] != null && data['api_host'] != '') {
+                    config.host = data['api_host']; 
+                    vm.test = config.host;
+                }
                 hasToken();
-            // });
+            })
+            .error(function(data) {
+                hasToken();
+            });
         };
 
         // 判断localStorage里是否存在token

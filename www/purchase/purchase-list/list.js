@@ -52,8 +52,8 @@ define(['../purchase.module'], function(purchase) {
             var url = orderNewUrl + vm.list.length +'/' + oldMaxCount +'/' + $stateParams.state;
             // console.log(url);
             httpService.getDatas('GET', url)
-            .then(function(refreshData) {
-                var datas = refreshData.data;
+            .then(function(data) {
+                var datas = data.data;
                 oldMaxCount = datas.maxCount;
                 vm.list = datas.orders;
                 $scope.$broadcast('scroll.refreshComplete');
@@ -65,8 +65,8 @@ define(['../purchase.module'], function(purchase) {
             var url = orderOldUrl　+ count +'/' + vm.list.length +'/' + oldMaxCount +'/' + $stateParams.state;
             // console.log(url);
             httpService.getDatas('GET', url)
-            .then(function(moreData) {
-                var datas = moreData.data;
+            .then(function(data) {
+                var datas = data.data;
                 oldMaxCount = datas.maxCount;
                 if(datas.maxCount === vm.list.length) {
                     vm.hasMore = false;
