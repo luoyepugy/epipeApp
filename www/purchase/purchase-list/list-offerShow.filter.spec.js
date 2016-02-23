@@ -2,7 +2,7 @@
 
 define(['./list-offerShow.filter', 'angularMocks'], function() {
 
-	describe('列表页面报价字段需要显示的过滤器', function() {
+	xdescribe('列表页面报价字段需要显示的过滤器', function() {
 		var offerShow;
 
 		beforeEach(module('myApp.purchase'));

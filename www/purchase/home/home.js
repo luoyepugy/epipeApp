@@ -6,8 +6,9 @@ define(['../purchase.module'], function(purchase) {
     
     /* @ngInject */
     function homeCtrl($scope, $state, $http, config){
-        var vm = $scope;
+        var vm = this;
             vm.welcome = welcome;
+
         // 立即体验按钮
         function　welcome() {
             // 主机地址是否发生变化

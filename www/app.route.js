@@ -11,7 +11,8 @@ define(['./app.module'], function(app) {
         .state('home', {
             url: "/home",
             templateUrl: "purchase/home/home.html",
-            controller: 'homeCtrl'
+            controller: 'homeCtrl',
+            controllerAs: 'vm'
         })
         
         // account

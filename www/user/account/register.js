@@ -5,7 +5,7 @@ define(['../user.module'], function(user) {
     user.controller('registerCtrl', registerCtrl);
     
     /* @ngInject */
-    function registerCtrl($scope, httpService, $state, messageService, validateService){
+    function registerCtrl($scope, httpService, $state, messageService){
         var vm = this;
 
         // 手机号码正则表达式

@@ -2,7 +2,9 @@
 'use strict';
 
 define(['./home', 'angularMocks'], function() {
-    describe('myApp.purchase.homeCtrl', function() {
+
+    xdescribe('myApp.purchase.homeCtrl', function() {
+
         var scope, state, http, homeCtrl, config;
 
         beforeEach(module('myApp.purchase'));
@@ -11,6 +13,7 @@ define(['./home', 'angularMocks'], function() {
         }));
         beforeEach(inject(function($rootScope, $controller){          
             scope = $rootScope.$new();
+            var vm = scope;
             homeCtrl =  $controller('homeCtrl', 
             {$scope: scope, $state: state, $http: http, config: config}); 
         }));
@@ -20,7 +23,11 @@ define(['./home', 'angularMocks'], function() {
         });
 
         it('welcome函数应该被定义', function(){
-            expect(scope.welcome).toBeDefined();
+            expect(homeCtrl.welcome).toBeDefined();
+        });
+
+        it('homeCtrl应该没有属性vm', function() {
+            expect(homeCtrl.vm).toBeUndefined();
         });
 
         it('config.host应该为http://192.168.1.154:8083', inject(function(host) {
