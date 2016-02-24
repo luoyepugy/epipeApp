@@ -20,6 +20,7 @@ define(['../purchase.module'], function(purchase) {
             var vm = scope.$parent;
 
             element.on('click', function() {
+                
                 var status = vm.item.state,             // 订单状态
                     id = vm.item.name,                  // 商品id
                     offerNum = vm.item.quotationCount;  // 商家报价数目

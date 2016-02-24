@@ -13,10 +13,12 @@ define(['./list', 'angularMocks'], function() {
         var moreData = {"status":true,"data":{"maxCount":0,"orders":[{"_id":"56c520cfaadbd49f2d7b0159","productName":"m","productAmount":"3","productUnit":"吨","shipAddress":"","purUserId":"569c59b812088a90f6864e25","name":"20160218093927927","state":"报价","createdOn":"2016-02-18T01:39:27.927Z","quotationCount":1,"supUer":null,"purUer":{"_id":"569c59b812088a90f6864e25","userName":null,"phone":"13008885781","userType":"采购商","hashPassword":"70c881d4a26984ddce795f6f71817c9cf4480e79","isLockout":false,"createdOn":"2016-01-18T03:19:20.275Z","ifAuditPass":false,"userProfile":{"_id":"569c59b812088a90f6864e26","company":"什么鬼啊","userId":"569c59b812088a90f6864e25","av":"xxxx","avatar":"","phone":"13008885781","userProfile":{"company":"什么鬼啊"}}}}]}};
         var moreData2 = {"status":true,"data":{"maxCount":1,"orders":[{"_id":"56c520cfaadbd49f2d7b0159","productName":"m","productAmount":"3","productUnit":"吨","shipAddress":"","purUserId":"569c59b812088a90f6864e25","name":"20160218093927927","state":"报价","createdOn":"2016-02-18T01:39:27.927Z","quotationCount":1,"supUer":null,"purUer":{"_id":"569c59b812088a90f6864e25","userName":null,"phone":"13008885781","userType":"采购商","hashPassword":"70c881d4a26984ddce795f6f71817c9cf4480e79","isLockout":false,"createdOn":"2016-01-18T03:19:20.275Z","ifAuditPass":false,"userProfile":{"_id":"569c59b812088a90f6864e26","company":"什么鬼啊","userId":"569c59b812088a90f6864e25","av":"xxxx","avatar":"","phone":"13008885781","userProfile":{"company":"什么鬼啊"}}}}]}};
 
+        function resolve(data) {
+            defer.resolve(data);
+            scope.$digest();
+        }
+
         beforeEach(module('myApp.purchase'));
-        beforeEach(module(function($provide) {
-            $provide.value('$stateParams', stateParams = {state: '报价'});
-        }));
         
         beforeEach(function() {
             var mockHttpService = {};
@@ -25,6 +27,7 @@ define(['./list', 'angularMocks'], function() {
             module('myApp.purchase', function($provide) {
                 $provide.value('httpService', mockHttpService);
                 $provide.value('messageService', mockMessageService);
+                $provide.value('$stateParams', stateParams = {state: '报价'});
             });
             inject(function($q) {
                 mockHttpService.getDatas = function() {
@@ -68,16 +71,14 @@ define(['./list', 'angularMocks'], function() {
         });
 
         it('在页面加载时候，maxCount为0，消息提示', function() {
-            defer.resolve(data); 
-            scope.$digest();
+            resolve(data); 
             expect(listCtrl.list.length).toBe(0);
             expect(listCtrl.listFilterBtn).toBe(false);
             expect(rootScope.message).toEqual('没有报价订单');
         });
 
         it('在页面加载时候，列表项应该有１０条数据', function() {
-            defer.resolve(data2); 
-            scope.$digest();
+            resolve(data2); 
             expect(listCtrl.list.length).toBe(10);
             expect(listCtrl.list[0].productName).toEqual('a');
             // 设置　stateParams.state = '所有'　时，下面这条断言为true
@@ -86,16 +87,14 @@ define(['./list', 'angularMocks'], function() {
 
         it('doRefresh功能', inject(function($q) {
             listCtrl.doRefresh();
-            defer.resolve(refreshData);
-            scope.$digest(); 
+            resolve(refreshData);
             expect(listCtrl.list.length).toBe(1);
             expect(listCtrl.list[0].productName).toEqual('u');
         }));
 
         it('loadMore功能, maxCount为0时，与list.length相等，消息提示', function() {
             listCtrl.loadMore();
-            defer.resolve(moreData);
-            scope.$digest(); 
+            resolve(moreData);
             expect(listCtrl.list.length).toBe(0);
             expect(listCtrl.hasMore).toBe(false);
             expect(rootScope.message).toEqual('没有更多数据了');
@@ -103,8 +102,7 @@ define(['./list', 'angularMocks'], function() {
 
         it('loadMore功能, maxCount不为0时，hasMore为true', function() {
             listCtrl.loadMore();
-            defer.resolve(moreData2);
-            scope.$digest(); 
+            resolve(moreData2);
             expect(listCtrl.list.length).toBe(1);
             expect(listCtrl.hasMore).toBe(true);
             expect(listCtrl.list[0].productName).toEqual('m');
