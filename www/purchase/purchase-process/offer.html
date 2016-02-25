@@ -13,7 +13,7 @@
         <ion-list class="list card mt-5">
             <ion-item class="item item-button-left" ng-repeat="item in vm.list">
                 <button class="button button-clear button-energized iconfont icon-user"></button>
-                <ion-radio name="choiceOffer" ng-model="choiceOffer" value="{{item['_id']}}" class="energized">
+                <ion-radio name="choiceOffer" ng-model="vm.choiceOffer" value="{{item['_id']}}" class="energized">
                     <h2>{{item.user.userProfile.company}} 
                         <!-- 认证图标及文字 -->
                         <img class="icon25 mb-6" src='./images/auth.png' ng-if="{true:true, false:false}[item.user.ifAuditPass]" />

@@ -78,9 +78,9 @@ define(['./offer', 'angularMocks'], function() {
 
         describe('加载load()', function() {
 
-            it('获取报价信息', function() {
+            xit('获取报价信息', function() {
                 resolve(dataOffer);
-                expect(offerCtrl.list).toContain('a');
+                expect(offerCtrl.list[0].unitPrice).toEqual('200');
                 expect(offerCtrl.list.length).toBe(2);
             });
 
@@ -90,12 +90,30 @@ define(['./offer', 'angularMocks'], function() {
             });
         });
         
-        xdescribe('其他函数', function() {
-            it('chooseOffer选择商家功能', function() {
-                // offerCtrl.chooseOffer();
+
+        describe('chooseOffer()', function() {
+
+            it('选择商家功能，没有选择一个商家', function() {
+                offerCtrl.choiceOffer = null;
+                offerCtrl.chooseOffer();
+                expect(offerCtrl.choiceOffer).toEqual(null);
+                expect($rootScope.message).toEqual('请选择一个商家');
+
             });
 
-            it('changeOffer换一批商家功能', function() {
+            it('选择商家功能，选择一家商家', function() {
+                offerCtrl.choiceOffer = 'aa';
+                offerCtrl.chooseOffer();
+                expect(offerCtrl.choiceOffer).toEqual('aa');
+                resolve(dataProduct);
+                expect($state.go).toHaveBeenCalledWith('purchase.order', {'id': 'id123'});
+            });     
+        });
+
+
+        describe('changeOffer()', function() {
+
+            it('换一批商家功能', function() {
                 // offerCtrl.changeOffer();
             });
         });

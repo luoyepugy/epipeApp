@@ -42,14 +42,7 @@ define(['../purchase.module'], function(purchase) {
         
         // 选择商家
         function chooseOffer() {
-            var choice,
-                 radios = document.getElementsByName('choiceOffer');
-            
-            for(var i = 0; i < radios.length; i++) {
-                if(radios[i].checked) {
-                    choice = radios[i].value;
-                }
-            }
+            var choice = vm.choiceOffer;
             if(choice != null) {
                 httpService.getDatas('POST', chooseOfferUrl, {"orderName": id, "quotationId": choice})
                 .then(function(data) {
