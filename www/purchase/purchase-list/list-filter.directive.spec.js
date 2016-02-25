@@ -5,10 +5,10 @@ define(['./list-filter.directive', 'angularMocks'], function() {
 
     describe('列表页面过滤菜单指令', function() {
 
-        var $compile, $state, $scope, $rootScope, $ionicModal, directiveElem, defer, mockModal;
+        var $compile, $state, $scope, $rootScope, $ionicModal, directiveElem, defer, element;
 
         function getCompiledElement(){
-            var element = angular.element('<list-filter></list-filter>');
+            element = angular.element('<list-filter></list-filter>');
             var compiledElement = $compile(element)($scope);
             $scope.$digest();
             return compiledElement;
@@ -17,14 +17,20 @@ define(['./list-filter.directive', 'angularMocks'], function() {
         beforeEach(module('myApp.purchase'));
         beforeEach(module('ionic'));
         beforeEach(module('ui.router'));
-
-        function fakeTemplate() {
-            return { 
-                then: function(modal){
-                    $scope.modalTest = modal;
+        beforeEach(function() {
+            var mockIonicModal = {};
+            module('myApp.purchase', function($provide) {
+                $provide.value('$ionicModal', mockIonicModal);
+            });
+            inject(function($q) {
+                mockIonicModal.fromTemplateUrl = function () {
+                    var modal = null;
+                    defer = $q.defer();
+                    defer.resolve(modal);
+                    return defer.promise;
                 }
-            }
-        }
+            });
+        });
 
         beforeEach(inject(function(_$state_, _$compile_, _$rootScope_, _$ionicModal_) {
             $compile = _$compile_;
@@ -33,17 +39,14 @@ define(['./list-filter.directive', 'angularMocks'], function() {
             $scope = $rootScope.$new();
             $ionicModal = _$ionicModal_;
 
-            $ionicModal = 
-            {
-                fromTemplateUrl: jasmine.createSpy('$ionicModal.fromTemplateUrl').and.callFake(fakeTemplate)
-            }; 
-
             spyOn($state, 'go');
-    
+            spyOn($ionicModal, 'fromTemplateUrl');
+
             $scope.closeModal = jasmine.createSpy('closeModal');
             $scope.stateRoute = jasmine.createSpy('stateRoute', function(state) {
                 $state.go('purchase.list', {'state': state});
             });
+
             directiveElem = getCompiledElement();            
         }));
 
@@ -52,9 +55,11 @@ define(['./list-filter.directive', 'angularMocks'], function() {
             expect(directiveElem.find('button')).toBeDefined();
         });
 
-        it('调用$ionicModal', function() {
+        xit('调用$ionicModal', function() {
             directiveElem.triggerHandler('click');
-            // expect($ionicModal.fromTemplateUrl).toHaveBeenCalled();
+            // element[0].click();
+            // $scope.$digest();
+            expect($ionicModal.fromTemplateUrl).toHaveBeenCalled();
         });
 
         it('触发closeModal事件', function() {

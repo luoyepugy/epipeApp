@@ -10,7 +10,7 @@
               on-refresh="vm.doRefresh()">
         </ion-refresher>
         <ion-list class="list list-inset list-space purchase-list j-list">
-            <ion-item ng-repeat="item in vm.list" list-route>
+            <ion-item ng-repeat="item in vm.list" ng-click="vm.route($index)">
                 <span class="black ellipsis">{{item.productName}}</span>
                 <span class="badge badge-assertive fr" ng-if="item.state | offerShow">{{item.quotationCount}}</span>
                 <p>

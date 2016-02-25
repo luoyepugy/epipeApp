@@ -5,7 +5,7 @@ define(['../purchase.module'], function(purchase) {
     purchase.controller('listCtrl', listCtrl);
 
     /* @ngInject */
-    function listCtrl($scope, messageService, $stateParams, httpService){
+    function listCtrl($scope, messageService, $stateParams, httpService, $state){
         
         // 状态------------------------------
         // 所有，报价，待支付，已支付，已发货，已完成
@@ -21,6 +21,7 @@ define(['../purchase.module'], function(purchase) {
         vm.list = [];               // 列表数据变量
         vm.listFilterBtn = true;    // 列表过滤菜单按钮
 
+        vm.route = route;
         vm.doRefresh = doRefresh;
         vm.loadMore = loadMore;
 
@@ -46,7 +47,27 @@ define(['../purchase.module'], function(purchase) {
                 }
             });
         };
-                
+        
+        // 路由跳转
+        function route(index) {
+            var status = vm.list[index].state,             // 订单状态
+                id = vm.list[index].name,                  // 商品id
+                offerNum = vm.list[index].quotationCount;  // 商家报价数目
+
+            // 判断状态处理    
+            if(status == '报价') {
+                if(offerNum > 0) {
+                    $state.go('purchase.offer', {'id': id});
+                }　else {
+                    messageService.show('暂时没有商家报价');
+                }
+            }　else if(status == '已完成' || status == '已发货'){
+                $state.go('purchase.logistics', {'id': id});
+            }　else if(status == '待支付' || status === '已支付'){
+                $state.go('purchase.order', {'id': id});
+            }
+        }   
+
         // 刷新
         function doRefresh() {
             var url = orderNewUrl + vm.list.length +'/' + oldMaxCount +'/' + $stateParams.state;
