@@ -8,8 +8,6 @@ define(['../purchase.module'], function(purchase) {
     function homeCtrl($state, $http, config){
         var vm = this;
             vm.welcome = welcome;
-            
-            vm.test = config.host;
 
         // 立即体验按钮
         function　welcome() {
@@ -17,8 +15,7 @@ define(['../purchase.module'], function(purchase) {
             $http.get('http://www.epipe.cn/download/appConfig.js')
             .success(function(data) {
                 if(data['api_host'] != null && data['api_host'] != '') {
-                    config.host = data['api_host']; 
-                    vm.test = config.host;
+                    config.host = data['api_host'];
                 }
                 hasToken();
             })

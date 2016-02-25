@@ -5,23 +5,33 @@ define(['./home', 'angularMocks'], function() {
 
     xdescribe('myApp.purchase.homeCtrl', function() {
 
-        var $scope, $state, $httpBackend, homeCtrl;
-        var hostValue = {'host': 'http://192.168.1.154:8083'};
+        var $scope, $state, $httpBackend, homeCtrl, config;
 
         beforeEach(module('myApp.purchase'));
         beforeEach(module('ui.router'));
         beforeEach(function() {
+            var mockConfig = {};
             module('myApp.purchase', function($provide) {
-                $provide.constant('config', hostValue);
+                $provide.value('config', mockConfig);
+            });
+            inject(function() {
+                mockConfig.host = 'http://192.168.1.154:8083';
             });
         });
-        beforeEach(inject(function($rootScope, $controller, _$state_, _$httpBackend_){         
+        beforeEach(inject(function($rootScope, $controller, _$state_, _$httpBackend_, _config_){         
             $scope = $rootScope.$new();
             $state = _$state_;
             $httpBackend = _$httpBackend_;
+            config = _config_;
+
             spyOn($state, 'go');
 
-            homeCtrl = $controller('homeCtrl', {$scope: $scope, $state: $state, _$httpBackend_: $httpBackend}); 
+            homeCtrl = $controller('homeCtrl', {
+                $scope: $scope, 
+                $state: $state, 
+                _$httpBackend_: $httpBackend,
+                config: config
+            }); 
         }));
 
         xdescribe('定义', function() {
@@ -53,8 +63,9 @@ define(['./home', 'angularMocks'], function() {
         });
 
         describe('host主机名', function() {
+
             it('host应该为http://192.168.1.154:8083', function() {
-                expect(homeCtrl.test).toEqual('http://192.168.1.154:8083');
+                expect(config.host).toEqual('http://192.168.1.154:8083');
             });
 
             it('请求服务器，修改主机名', function() {
@@ -63,9 +74,9 @@ define(['./home', 'angularMocks'], function() {
                 // $httpBackend
                 //     .when('GET', 'http://www.epipe.cn/download/appConfig.js')
                 //     .respond(200, {"api_host": "http://www.epipe.cn"});
-               
+                // config = 'http://www.epipe.cn';
                 $httpBackend.flush();
-                expect(homeCtrl.test).toEqual('http://www.epipe.cn');
+                expect(config.host).toEqual('http://www.epipe.cn');
             });
         });     
 

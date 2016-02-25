@@ -3,11 +3,11 @@
 
 define(['./resetPwd', 'angularMocks'], function() {
 
-	describe('myApp.user.resetPwdCtrl', function() {
+    describe('myApp.user.resetPwdCtrl', function() {
 
-		var $scope, stateParams, httpService, resetPwdCtrl, $state, defer, validateService;
+        var $scope, stateParams, httpService, resetPwdCtrl, $state, defer, validateService;
 
-		beforeEach(module('myApp.user'));
+        beforeEach(module('myApp.user'));
         beforeEach(module('ui.router'));
         beforeEach(function() {
             var mockHttpService = {};
@@ -42,11 +42,11 @@ define(['./resetPwd', 'angularMocks'], function() {
             spyOn($state, 'go');
 
             resetPwdCtrl = $controller('resetPwdCtrl', {
-            	$scope: $scope, 
-            	$state: $state, 
+                $scope: $scope, 
+                $state: $state, 
                 $stateParams: stateParams,
-            	httpService: httpService,
-            	validateService: validateService 
+                httpService: httpService,
+                validateService: validateService 
             }); 
         }));
 
@@ -55,16 +55,16 @@ define(['./resetPwd', 'angularMocks'], function() {
         });
 
         it('scope.submit函数定义', function() {
-        	expect(resetPwdCtrl.submit).toBeDefined();
+            expect(resetPwdCtrl.submit).toBeDefined();
         });
 
         it('触发submit函数', function() {
-        	resetPwdCtrl.submit();
-        	defer.resolve();
-        	$scope.$digest();
-        	expect($state.go).toHaveBeenCalledWith('login');
+            resetPwdCtrl.submit();
+            defer.resolve();
+            $scope.$digest();
+            expect($state.go).toHaveBeenCalledWith('login');
         });
 
-	});
+    });
 
 });

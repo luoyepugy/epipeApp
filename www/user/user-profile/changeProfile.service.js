@@ -15,21 +15,21 @@ define(['../user.module', 'cordova'], function(user) {
         function getPicture(index) {
             var deferred = $q.defer(),
                 options;
-              // 选择拍照还是图库    
+            // 选择拍照还是图库    
             if(index === 0) {
                 options = {
                     destinationType: Camera.DestinationType.FILE_URI,
-                      sourceType: Camera.PictureSourceType.CAMERA
-                  };
+                    sourceType: Camera.PictureSourceType.CAMERA
+                };
             } else {
                 options = {
                     destinationType: Camera.DestinationType.FILE_URI,
-                      sourceType: Camera.PictureSourceType.PHOTOLIBRARY
-                  };
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+                };
             }
 
             $cordovaCamera.getPicture(options).then(function(imageURI) {
-                  deferred.resolve(imageURI);
+                deferred.resolve(imageURI);
             }, function(error) {
                 deferred.reject(error);
             });

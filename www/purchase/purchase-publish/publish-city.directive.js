@@ -45,19 +45,19 @@ define(['../purchase.module'], function(purchase) {
                 switch(name)
                 {
                     case 'province':
-                          if (!vm.cityData) { return false; }
-                         var province = true; length=vm.cityData.length; Handle=vm.provinceHandle; HandleChild=vm.cityHandle;
+                        if (!vm.cityData) { return false; }
+                        var province = true; length=vm.cityData.length; Handle=vm.provinceHandle; HandleChild=vm.cityHandle;
                         break;
                     case 'city':
-                          if (!vm.province.sub) { return false; }
-                          var city = true; length=vm.province.sub.length; Handle=vm.cityHandle; HandleChild=vm.countryHandle;
+                        if (!vm.province.sub) { return false; }
+                        var city = true; length=vm.province.sub.length; Handle=vm.cityHandle; HandleChild=vm.countryHandle;
                         break;
                     case 'country':
-                          if (!vm.city.sub) { return false; }
-                          var country = true; length=vm.city.sub.length; Handle=vm.countryHandle;
+                        if (!vm.city.sub) { return false; }
+                        var country = true; length=vm.city.sub.length; Handle=vm.countryHandle;
                         break;
                 }
-                  var top = $ionicScrollDelegate.$getByHandle(Handle).getScrollPosition().top;//当前滚动位置
+                var top = $ionicScrollDelegate.$getByHandle(Handle).getScrollPosition().top;//当前滚动位置
                 var index = Math.round(top / 36);
                 //iOS bouncing超出头
                 if (index < 0 ) {

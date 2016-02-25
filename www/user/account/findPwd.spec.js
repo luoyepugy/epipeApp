@@ -3,11 +3,11 @@
 
 define(['./findPwd', 'angularMocks'], function() {
 
-	describe('myApp.user.findPwdCtrl', function() {
+    describe('myApp.user.findPwdCtrl', function() {
 
-		var $scope, httpService, findPwdCtrl, $state, defer, validateService;
+        var $scope, httpService, findPwdCtrl, $state, defer, validateService;
 
-		beforeEach(module('myApp.user'));
+        beforeEach(module('myApp.user'));
         beforeEach(module('ui.router'));
         beforeEach(function() {
             var mockHttpService = {};
@@ -41,10 +41,10 @@ define(['./findPwd', 'angularMocks'], function() {
             spyOn($state, 'go');
 
             findPwdCtrl = $controller('findPwdCtrl', {
-            	$scope: $scope, 
-            	$state: $state, 
-            	httpService: httpService,
-            	validateService: validateService 
+                $scope: $scope, 
+                $state: $state, 
+                httpService: httpService,
+                validateService: validateService 
             }); 
         }));
 
@@ -53,18 +53,18 @@ define(['./findPwd', 'angularMocks'], function() {
         });
 
         it('scope.submit函数定义', function() {
-        	expect(findPwdCtrl.submit).toBeDefined();
+            expect(findPwdCtrl.submit).toBeDefined();
         });
 
         it('触发submit函数', function() {
-        	findPwdCtrl.user.phone = '13008885781';
-        	findPwdCtrl.user.code = '1234'
-        	findPwdCtrl.submit();
-        	defer.resolve();
-        	$scope.$digest();
-        	expect($state.go).toHaveBeenCalledWith('resetPwd', {'phone': '13008885781', 'code': '1234'});
+            findPwdCtrl.user.phone = '13008885781';
+            findPwdCtrl.user.code = '1234'
+            findPwdCtrl.submit();
+            defer.resolve();
+            $scope.$digest();
+            expect($state.go).toHaveBeenCalledWith('resetPwd', {'phone': '13008885781', 'code': '1234'});
         });
 
-	});
+    });
 
 });

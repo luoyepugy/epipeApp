@@ -8,8 +8,8 @@ define(['../purchase.module'], function(purchase) {
     function payingFilter() {
         return function(item){
             switch(item) {
-                case '待支付': return true; break;
-                default: return false; break;
+                case '待支付': return true;
+                default: return false;
             }
         }
     };

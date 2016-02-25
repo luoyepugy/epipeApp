@@ -3,11 +3,11 @@
 
 define(['./register', 'angularMocks'], function() {
 
-	describe('myApp.user.registerCtrl', function() {
+    describe('myApp.user.registerCtrl', function() {
 
-		var $scope, $rootScope, defer, httpService, registerCtrl, messageService;
+        var $scope, $rootScope, defer, httpService, registerCtrl, messageService;
 
-		beforeEach(module('myApp.user'));
+        beforeEach(module('myApp.user'));
         beforeEach(function() {
             var mockHttpService = {};
             var mockMessageService = {};
@@ -35,9 +35,9 @@ define(['./register', 'angularMocks'], function() {
             messageService = _messageService_;
 
             registerCtrl = $controller('registerCtrl', {
-            	$scope: $scope,
-            	httpService: httpService,
-            	messageService: messageService 
+                $scope: $scope,
+                httpService: httpService,
+                messageService: messageService 
             }); 
         }));
 
@@ -46,17 +46,17 @@ define(['./register', 'angularMocks'], function() {
         });
 
         it('scope.hasPhone函数定义', function() {
-        	expect(registerCtrl.hasPhone).toBeDefined();
+            expect(registerCtrl.hasPhone).toBeDefined();
         });
 
-        it('触发hasPhone函数', function() {
+        it('手机号码不为空，触发hasPhone函数', function() {
             registerCtrl.user.phone = '13008885781';
-        	registerCtrl.hasPhone();
-        	defer.resolve();
-        	$scope.$digest();
+            registerCtrl.hasPhone();
+            defer.resolve();
+            $scope.$digest();
             expect($rootScope.message).toEqual('手机号码已存在');
         });
 
-	});
+    });
 
 });

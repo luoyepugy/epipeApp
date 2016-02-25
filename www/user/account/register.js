@@ -10,7 +10,7 @@ define(['../user.module'], function(user) {
 
         // 手机号码正则表达式
         var phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/,
-        	checkPhoneUrl = '/user/checkPhone/';
+            checkPhoneUrl = '/user/checkPhone/';
 
         vm.user = {};
         vm.hasPhone = hasPhone;
