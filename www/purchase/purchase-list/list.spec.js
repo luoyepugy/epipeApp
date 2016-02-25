@@ -24,6 +24,7 @@ define(['./list', 'angularMocks'], function() {
         var moreData2 = {"status":true,"data":{"maxCount":1,"orders":[
             {'productName':'i', 'name':'id9', 'state':'报价','quotationCount':0}
             ]}};
+            
         function resolve(data) {
             defer.resolve(data);
             $scope.$digest();
