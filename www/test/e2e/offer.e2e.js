@@ -12,7 +12,7 @@ xdescribe('报价页面', function() {
     beforeEach(function() {
         browser.get('/#/purchase/publish');
         browser.executeScript(
-            "window.localStorage.token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NjljNTliODEyMDg4YTkwZjY4NjRlMjUiLCJleHAiOjE0NTYyOTY5MjUyNjJ9.pkHyv4s8F-h79FNDBvssHl6McMDsf-SPT8zRKEvXC_o';"
+            "window.localStorage.token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NjljNTliODEyMDg4YTkwZjY4NjRlMjUiLCJleHAiOjE0NTY4MTI4NzYzMzN9.fKQe5QwAS6rA9mbzBqPFI8Tpuy9Im9OsFWn0O5cbDeY';"
         );
         element.all(by.css('.tab-nav a')).get(1).click();
         element.all(by.repeater('item in vm.list')).get(0).click();

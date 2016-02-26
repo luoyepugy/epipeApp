@@ -5,8 +5,7 @@ define(['../common.module'], function(common) {
     common.factory('httpService', httpService);
 
     /* @ngInject */
-    function httpService($q, $http, $ionicLoading, messageService, $state, $location, $window, 
-        $cordovaInAppBrowser, $ionicPopup, config, $cordovaNetwork, $rootScope) {
+    function httpService($q, $http, $ionicLoading, messageService, $state, $cordovaInAppBrowser, $ionicPopup, config) {
 
         return {
             'getDatas': getDatas
@@ -26,8 +25,8 @@ define(['../common.module'], function(common) {
                 token = '';
 
             // 从localStorage中取出token
-            if($window.localStorage.getItem('token') != null && $window.localStorage.getItem('token') !== '') {
-                token = $window.localStorage.getItem('token');
+            if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
+                token = window.localStorage.getItem('token');
             }
 
             // 预加载
