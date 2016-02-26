@@ -55,7 +55,7 @@ define(['./services.module','cordova'], function(services) {
             .error(function(data, status){
                 $ionicLoading.hide();
                 if(status === 401) {
-                    $state.go('purchase-login');
+                    $state.go('login');
                 // } else if (status === 403) {
                     // ios／android平台判断
                     // if(ionic.Platform.isIOS()) {
