@@ -18,12 +18,7 @@ define(['./list.module'], function(list) {
         function link(scope, elem, attrs) {
             var vm = scope;
                 vm.closeModal = closeModal;
-                vm.stateAll = stateAll;
-                vm.stateOffer = stateOffer;
-                vm.statePaying = statePaying;
-                vm.statePayed = statePayed;
-                vm.stateReceived = stateReceived;
-                vm.stateFinished = stateFinished;
+                vm.stateRoute = stateRoute;
                 
             // 过滤菜单模态框
             var menuModal = null,
@@ -54,34 +49,9 @@ define(['./list.module'], function(list) {
             });                 
 
             // 全部
-            function　stateAll() {
-                $rootScope.statusFilter = '所有';
-                stateFilter($rootScope.statusFilter);
-            };
-            // 报价
-            function　stateOffer() {
-                $rootScope.statusFilter = '报价';
-                stateFilter($rootScope.statusFilter);
-            };
-            // 待支付
-            function　statePaying() {
-                $rootScope.statusFilter = '待支付';
-                stateFilter($rootScope.statusFilter);
-            };
-            // 已支付
-            function　statePayed() {
-                $rootScope.statusFilter = '已支付';
-                stateFilter($rootScope.statusFilter);
-            };
-            // 已发货
-            function　stateReceived() {
-                $rootScope.statusFilter = '已发货';
-                stateFilter($rootScope.statusFilter);
-            };
-            // 已完成
-            function　stateFinished() {
-                $rootScope.statusFilter = '已完成';
-                stateFilter($rootScope.statusFilter);
+            function　stateRoute(state) {
+                $rootScope.statusFilter = state;
+                stateFilter(state);
             };
 
             // 过滤列表，发送服务器请求

@@ -12,13 +12,13 @@ define(['./others.module'], function(others) {
         // 立即体验按钮
         function　welcome() {
             // 主机地址是否发生变化
-            // $http.get('http://www.epipe.cn/download/appConfig.js')
-            // .success(function(data) {
-            //     config.host = data['api_host'];
-            //     host();
-            // }).error(function(data) {
+            $http.get('http://www.epipe.cn/download/appConfig.js')
+            .success(function(data) {
+                config.host = data['api_host'];
                 hasToken();
-            // });
+            }).error(function(data) {
+                hasToken();
+            });
         };
 
         // 判断localStorage里是否存在token

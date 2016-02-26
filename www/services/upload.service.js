@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-define(['./services.module'], function(services) {
+define(['./services.module', 'cordova'], function(services) {
     services.factory('uploadService', uploadService);
 
     /* @ngInject */

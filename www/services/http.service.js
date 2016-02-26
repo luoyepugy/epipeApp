@@ -5,8 +5,8 @@ define(['./services.module','cordova'], function(services) {
     services.factory('httpService', httpService);
 
     /* @ngInject */
-    function httpService($q, $http, $ionicLoading, messageService, $state, $location, $window,
-        $cordovaInAppBrowser, $ionicPopup, config, $cordovaNetwork, $rootScope) {
+    function httpService($q, $http, $ionicLoading, messageService, $state, $window,
+        $cordovaInAppBrowser, $ionicPopup, config) {
 
         return {
             'getDatas': getDatas
