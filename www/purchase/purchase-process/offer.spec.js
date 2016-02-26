@@ -113,8 +113,18 @@ define(['./offer', 'angularMocks'], function() {
 
         describe('changeOffer()', function() {
 
-            it('换一批商家功能', function() {
-                // offerCtrl.changeOffer();
+            it('换一批商家功能，totalPage为１时', function() {
+                offerCtrl.pageIndex = 1;
+                offerCtrl.changeOffer(1);
+                expect($rootScope.message).toEqual('没有更多商家可供选择了');
+            });
+
+            it('换一批商家功能，totalPage大于１时', function() {
+                offerCtrl.pageIndex = 1;
+                offerCtrl.changeOffer(2);
+                expect(offerCtrl.pageIndex).toBe(2);
+                offerCtrl.changeOffer(2);
+                expect(offerCtrl.pageIndex).toBe(1);
             });
         });
         

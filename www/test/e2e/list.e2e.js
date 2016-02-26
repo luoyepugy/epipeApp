@@ -1,6 +1,6 @@
 'use strict';
 
-xdescribe('列表页面', function() {
+describe('列表页面', function() {
 
     var errorTip = element(by.css('.messages'));
     var item = element.all(by.repeater('item in vm.list'));
