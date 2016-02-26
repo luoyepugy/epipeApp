@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    define(['angular', 'angularMocks',
+    define(['angular',
         './purchase/purchase.index',
         './common/common.index',
         './user/user.index'
