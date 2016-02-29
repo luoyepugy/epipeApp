@@ -3,7 +3,7 @@
 
 define(['./list', 'angularMocks'], function() {
 
-    xdescribe('myApp.purchase.listCtrl', function() {
+    describe('myApp.purchase.listCtrl', function() {
 
         var $scope, $rootScope, messageService, httpService, listCtrl, $stateParams, defer, $state;
 

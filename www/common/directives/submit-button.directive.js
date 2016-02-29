@@ -5,7 +5,7 @@ define(['../common.module'], function(common) {
     common.directive('submitButton', submitButton);
 
     /* @ngInject */
-    function submitButton(httpService, messageService,validateService, $state, $window, $rootScope) {
+    function submitButton(httpService, messageService, validateService, $state, $window, $rootScope) {
         var directive = {
             restrict: 'E',
             template: '<button name="submitBtn" class="button button-full button-energized button-round">{{text}}</button>',

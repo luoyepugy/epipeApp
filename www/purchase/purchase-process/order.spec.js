@@ -3,7 +3,7 @@
 
 define(['./order', 'angularMocks'], function() {
 
-    xdescribe('myApp.purchase.orderCtrl', function() {
+    describe('myApp.purchase.orderCtrl', function() {
 
         var orderCtrl, $scope, httpService, $stateParams, defer;
         var data = {'status':true, 'data':{

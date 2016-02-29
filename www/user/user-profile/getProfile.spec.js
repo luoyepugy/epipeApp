@@ -3,7 +3,7 @@
 
 define(['./getProfile', 'angularMocks'], function() {
 
-    xdescribe('myApp.user.getProfileCtrl', function() {
+    describe('myApp.user.getProfileCtrl', function() {
 
         var $scope, $state, httpService, defer, getProfileCtrl, config;
         

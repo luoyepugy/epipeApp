@@ -2,7 +2,7 @@
 
 define(['./logistics-finished.filter', 'angularMocks'], function() {
 
-	xdescribe('物流追踪页面已完成字段需要显示的过滤器', function() {
+	describe('物流追踪页面已完成字段需要显示的过滤器', function() {
 		var finishedFilter;
 
 		beforeEach(module('myApp.purchase'));

@@ -8,13 +8,14 @@ define(['../common.module'], function(common) {
     function backButton($window) {
 
         var directive = {
-            restrict: 'A',
+            restrict: 'AE',
             link: link
         };
         return directive;
 
         function link(scope, elem, attrs) {
             elem.bind('click', function () {
+                // scope.test = 'a';
                 $window.history.back();
             });
         };

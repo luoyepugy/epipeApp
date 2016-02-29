@@ -20,8 +20,8 @@ define(['../common.module'], function(common) {
                     fileName: imageURI.substr(imageURI.lastIndexOf('/') + 1),
                     chunkedMode: false,
                     mimeType: "image/jpg",
-                     params : {'directory':'upload', 'fileName':imageURI.substr(imageURI.lastIndexOf('/') + 1), 'gallery': 'avatar'},
-                     headers: {'x-app-version': '0.0.1', 'x-access-token': token}
+                    params : {'directory':'upload', 'fileName':imageURI.substr(imageURI.lastIndexOf('/') + 1), 'gallery': 'avatar'},
+                    headers: {'x-app-version': '0.0.1', 'x-access-token': token}
                 };
 
             if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {

@@ -20,7 +20,7 @@ define(['../user.module'], function(user) {
         function submit() {
             resultsIsEmpty = validateService.isEmpty('.j-findPwd');
             if(!resultsIsEmpty) {
-                return;
+                return false;
             }
 
             resultsDatas = validateService.submitData('.j-findPwd');

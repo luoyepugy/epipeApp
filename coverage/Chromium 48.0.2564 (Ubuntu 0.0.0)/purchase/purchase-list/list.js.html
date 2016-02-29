@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for purchase/purchase-list/list.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">purchase/purchase-list/</a> list.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>51/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>18/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>51/51</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+    'use strict';
+&nbsp;
+define(['../purchase.module'], function(purchase) {
+    purchase.controller('listCtrl', listCtrl);
+&nbsp;
+    /* @ngInject */
+    function listCtrl($scope, messageService, $stateParams, httpService, $state){
+        
+        // 状态------------------------------
+        // 所有，报价，待支付，已支付，已发货，已完成
+        // ---------------------------------
+        var vm = this;
+&nbsp;
+        var count = 10,             // 要请求的数目
+            oldMaxCount = 0,        // 旧的最大数目
+            orderOldUrl = '/order/getMyOldOrders/',
+            orderNewUrl = '/order/getMyNewOrders/';
+      
+        vm.hasMore = true;          // 更多数据判断
+        vm.list = [];               // 列表数据变量
+        vm.listFilterBtn = true;    // 列表过滤菜单按钮
+&nbsp;
+        vm.route = route;
+        vm.doRefresh = doRefresh;
+        vm.loadMore = loadMore;
+&nbsp;
+        
+        // 初步加载
+        load();
+&nbsp;
+        function load() {
+            var url = orderOldUrl　+ count +'/' + vm.list.length +'/' + oldMaxCount +'/' + $stateParams.state;
+            var state = $stateParams.state;
+            // 判断列表过滤按钮是否显示
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(state !== '所有')　{
+                vm.listFilterBtn = false;
+            }
+&nbsp;
+            httpService.getDatas('GET', url)
+            .then(function(data) {
+                var datas = data.data;
+                vm.list = datas.orders;
+                oldMaxCount = datas.maxCount;
+                if(datas.maxCount === 0 &amp;&amp; state !== '所有') {
+                    messageService.show('没有' + state + '订单');
+                }
+            });
+        };
+        
+        // 路由跳转
+        function route(index) {
+            var status = vm.list[index].state,             // 订单状态
+                id = vm.list[index].name,                  // 商品id
+                offerNum = vm.list[index].quotationCount;  // 商家报价数目
+&nbsp;
+            // 判断状态处理    
+            if(status == '报价') {
+                if(offerNum &gt; 0) {
+                    $state.go('purchase.offer', {'id': id});
+                }　else {
+                    messageService.show('暂时没有商家报价');
+                }
+            }　else if(status == '已完成' || status == '已发货'){
+                $state.go('purchase.logistics', {'id': id});
+            }　else <span class="missing-if-branch" title="else path not taken" >E</span>if(status == '待支付' || status === '已支付'){
+                $state.go('purchase.order', {'id': id});
+            }
+        }   
+&nbsp;
+        // 刷新
+        function doRefresh() {
+            var url = orderNewUrl + vm.list.length +'/' + oldMaxCount +'/' + $stateParams.state;
+            // console.log(url);
+            httpService.getDatas('GET', url)
+            .then(function(data) {
+                var datas = data.data;
+                oldMaxCount = datas.maxCount;
+                vm.list = datas.orders;
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        };
+&nbsp;
+        // 加载更多
+        function loadMore() {
+            var url = orderOldUrl　+ count +'/' + vm.list.length +'/' + oldMaxCount +'/' + $stateParams.state;
+            // console.log(url);
+            httpService.getDatas('GET', url)
+            .then(function(data) {
+                var datas = data.data;
+                oldMaxCount = datas.maxCount;
+                if(datas.maxCount === vm.list.length) {
+                    vm.hasMore = false;
+                    messageService.show('没有更多数据了');
+                } else {
+                    vm.list = datas.orders;
+                }
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+            });
+        };
+    };
+});
+&nbsp;
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Feb 29 2016 11:10:41 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

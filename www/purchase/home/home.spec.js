@@ -3,12 +3,13 @@
 
 define(['./home', 'angularMocks'], function() {
 
-    xdescribe('myApp.purchase.homeCtrl', function() {
+    describe('myApp.purchase.homeCtrl', function() {
 
         var $scope, $state, $httpBackend, homeCtrl, config;
 
         beforeEach(module('myApp.purchase'));
         beforeEach(module('ui.router'));
+
         beforeEach(function() {
             var mockConfig = {};
             module('myApp.purchase', function($provide) {
@@ -18,13 +19,12 @@ define(['./home', 'angularMocks'], function() {
                 mockConfig.host = 'http://192.168.1.154:8083';
             });
         });
+
         beforeEach(inject(function($rootScope, $controller, _$state_, _$httpBackend_, _config_){         
             $scope = $rootScope.$new();
             $state = _$state_;
             $httpBackend = _$httpBackend_;
             config = _config_;
-
-            spyOn($state, 'go');
 
             homeCtrl = $controller('homeCtrl', {
                 $scope: $scope, 
@@ -32,9 +32,11 @@ define(['./home', 'angularMocks'], function() {
                 _$httpBackend_: $httpBackend,
                 config: config
             }); 
+
+            spyOn($state, 'go');
         }));
 
-        xdescribe('定义', function() {
+        describe('定义', function() {
             it('homeCtrl控制器应该被定义', function(){
                 expect(homeCtrl).toBeDefined();
             });
@@ -48,16 +50,20 @@ define(['./home', 'angularMocks'], function() {
             });
         });
 
-        xdescribe('hasToken()跳转', function() {
+        describe('hasToken()跳转', function() {
             it('localStorage.token为空，跳转登录页面', function() {
                 window.localStorage.token = '';
                 homeCtrl.welcome();
+                $httpBackend.expectGET('http://www.epipe.cn/download/appConfig.js').respond({"api_host": "http://www.epipe.cn"});
+                $httpBackend.flush();
                 expect($state.go).toHaveBeenCalledWith('login');
             });
 
             it('localStorage.token不为空，跳转发布页面', function() {
                 window.localStorage.token = 'a';
                 homeCtrl.welcome();
+                $httpBackend.expectGET('http://www.epipe.cn/download/appConfig.js').respond({"api_host": "http://www.epipe.cn"});
+                $httpBackend.flush();
                 expect($state.go).toHaveBeenCalledWith('purchase.publish');
             });
         });

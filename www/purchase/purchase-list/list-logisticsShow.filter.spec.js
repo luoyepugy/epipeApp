@@ -2,7 +2,7 @@
 
 define(['./list-logisticsShow.filter', 'angularMocks'], function() {
 
-	xdescribe('列表页面物流字段需要显示的过滤器', function() {
+	describe('列表页面物流字段需要显示的过滤器', function() {
 		var logisticsShow;
 
 		beforeEach(module('myApp.purchase'));

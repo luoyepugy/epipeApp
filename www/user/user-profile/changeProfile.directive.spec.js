@@ -3,7 +3,7 @@
 
 define(['./changeProfile.directive', 'angularMocks'], function() {
 
-	xdescribe('changeProfile.directive', function() {
+	describe('changeProfile.directive', function() {
 
 		var $rootScope, $scope,　messageService, directiveElem, element, $compile;
 

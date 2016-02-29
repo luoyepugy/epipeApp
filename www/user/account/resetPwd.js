@@ -24,7 +24,7 @@ define(['../user.module'], function(user) {
         function submit() {
             resultsIsEmpty = validateService.isEmpty('.j-resetPwd');
             if(!resultsIsEmpty) {
-                return;
+                return false;
             }
             
             resultsDatas = validateService.submitData('.j-resetPwd');

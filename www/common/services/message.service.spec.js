@@ -3,7 +3,7 @@
 
 define(['./message.service', 'angularMocks'], function() {
 
-    describe('', function() {
+    describe('common.messageService', function() {
 
         var $rootScope, $timeout, messageService;
 
