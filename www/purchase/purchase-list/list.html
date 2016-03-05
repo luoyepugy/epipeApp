@@ -15,8 +15,8 @@
                 <span class="badge badge-assertive fr" ng-if="item.state | offerShow">{{item.quotationCount}}</span>
                 <p>
                     <span>数量：{{item.productAmount}}{{item.productUnit}}</span>
-                    <span class="fr blue" ng-if="item.state | stateShow">{{item.state}}</span>
-                    <span class="fr blue" ng-if="item.state | offerShow">商家报价</span>
+                    <span class="fr blue" ng-hide="item.state | offerShow">{{item.state}}</span>
+                    <span class="fr blue" ng-show="item.state | offerShow">商家报价</span>
                 </p>
                 <p>
                     <span class="gray_mid mr10">{{item.createdOn | date:'yyyy-MM-dd'}}</span>

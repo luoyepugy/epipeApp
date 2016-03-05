@@ -15,7 +15,6 @@ define([
     './purchase-list/list-filter.directive',
     './purchase-list/list-route.directive',
     './purchase-list/list-logisticsShow.filter',
-    './purchase-list/list-stateShow.filter',
     './purchase-list/list-offerShow.filter',
     // home
     './home/home'
