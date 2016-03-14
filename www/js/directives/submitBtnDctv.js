@@ -17,28 +17,26 @@ define(['./module'], function(directives) {
 				var resultsIsEmpty,
 					resultsDatas;
 				element.bind('click', function() {
-					resultsIsEmpty = validateService.isEmpty(attrs.form);
-					if(resultsIsEmpty !== 1) {
-						messageService.show(resultsIsEmpty);
-						return false;
-					}
-					resultsDatas = validateService.submitData(attrs.form);
-					if (resultsDatas.phone !== null && resultsDatas.phone !== undefined && phone_regexp.test(resultsDatas.phone) === false) {
-						messageService.show('请输入正确的手机号码格式');
-					} else if (resultsDatas.confirmPwd !== null && resultsDatas.confirmPwd !== undefined &&　resultsDatas.confirmPwd !== resultsDatas.password) {
-						messageService.show('两次密码输入不一致');
-					} else if (resultsDatas.productAmount !== null && resultsDatas.productAmount !== undefined && isNaN(resultsDatas.productAmount) === true ||　Number(resultsDatas.productAmount) <= 0) {
-						messageService.show('请输入正确的商品数量格式');
-					} else {
-						var promise = httpService.getDatas('POST', attrs.action, resultsDatas);
-					    promise.then(function(data) {
-					    	// messageService.show(data.message);
-					    	$state.go(state);
-					    	if(login === 'true') {
-					    		window.localStorage.token = data.token;
-					    	}
-					    });
-					}
+					// 验证是否为空
+	                resultsIsEmpty = validateService.isEmpty(attrs.form);
+	                if(!resultsIsEmpty) {
+	                    return;
+	                }
+	                // 提交表单数据
+	                resultsDatas = validateService.submitData(attrs.form);
+	                if(resultsDatas) {
+	                    var method = attrs.method || 'POST',
+	                        actionpath = attrs.actionpath || '/user';
+	                    
+	                    httpService.getDatas(method, actionpath + attrs.action, resultsDatas)
+	                    // httpService.get(method, action, resultsDatas);
+	                    .then(function(data) {
+	                        $state.go(state);
+	                        if(login === 'true') {
+	                            $window.localStorage.token = data.token;
+	                        }
+	                    });
+	                }
 				});
 			}
 		};
