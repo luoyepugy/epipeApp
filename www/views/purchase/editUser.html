@@ -1,0 +1,17 @@
+
+<ion-view  view-title="编辑资料">
+    <ion-content>
+        <div class="icon-center mt20"><i class="ion-ios-person-outline energized"></i></div>
+        <ion-list class="list card list-round j-editUser">
+        	<ion-item class="item-input">
+				<input type="text" class="j-input" name="phone" placeholder="电话号码" ng-model="user.phone" value="{{user.phone}}" data-empty="请输入电话号码" readonly="readonly" />
+        	</ion-item>
+            <ion-item class="item-input">
+                <input type="text" class="j-input" name="company" placeholder="公司名称" ng-model="user.company" value="{{user.company}}" data-empty="请输入公司名称" />
+            </ion-item>
+            <ion-item>
+                <submit-button action="/user/changeProfile" state="purchase.userInfo" text="提交保存" user="true" form=".j-editUser"></submit-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

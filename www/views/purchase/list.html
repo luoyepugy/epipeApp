@@ -1,0 +1,32 @@
+
+<ion-view  view-title="采购单">
+    <ion-content class="j-content">
+        <ion-refresher
+              pulling-text="下拉刷新..." 
+              refreshing-text="刷新成功" 
+              on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list class="list list-inset list-space purchase-list j-list">
+            <ion-item ng-repeat="item in list" list-detail>
+                <span class="black ellipsis">{{item.productName}}</span>
+                <span class="badge badge-assertive fr" ng-if="item.state | stateOfferO">{{item.quotationCount}}</span>
+                <p>
+                    <span>数量：{{item.productAmount}}{{item.productUnit}}</span>
+                    <span class="fr blue" ng-if="item.state | stateOffer">{{item.state}}</span>
+                    <span class="fr blue" ng-if="item.state | stateOfferO">商家报价</span>
+                </p>
+                <p>
+                    <span class="gray_mid mr10">{{item.createdOn | date:'yyyy-MM-dd'}}</span>
+                    <span class="green" ng-if="item.state | stateLo">物流追踪<i class="iconfont ml5 icon-truck f20"></i></span>
+                </p>
+                <input type="hidden" name="id" value="{{item.name}}" ng-model="item.name" />
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll 
+                ng-if="hasMore"
+                on-infinite="loadMore()" 
+                distance="2%"
+                immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

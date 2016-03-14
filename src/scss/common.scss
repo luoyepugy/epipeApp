@@ -2,9 +2,7 @@
 @import 'custom/custom.scss';
 @import 'custom/mixin.scss';
 
-// 图标
 @include size-icon(25);
-@include size-icon(100);
 
 // 圆角按钮
 .button-round {
@@ -39,7 +37,7 @@
 // 设置全局背景色
 .scroll-content,
 .bg-main {
-  background-image: url('../images/bg.png');
+  background-image: url(../images/bg.png);
   background-size: cover;
 }
 //　设置全局card样式圆角
@@ -55,10 +53,6 @@
 // 列表
 .list {
   display: block;
-  // readonly背景色
-  input[readonly]:not(.cloned-text-input) {
-    background: #fff;
-  }
 }
 .list-space .item {
   margin-bottom: 10px;
@@ -69,13 +63,13 @@
 .purchase.tabs-striped.tabs-stable .tab-item.tab-item-active, 
 .purchase.tabs-striped.tabs-stable .tab-item.active, 
 .purchase.tabs-striped.tabs-stable .tab-item.activated {
-  border-color: #fff;
+  border-color: $main-orange;
   color: $main-orange;
   border-top-width: 2px;
 
 }
 .purchase.tabs-striped.tabs-stable .tabs {
-  border-top: 1px solid #ddd !important;
+  border-top: 1px solid #ccc !important;
 }
 
 // 修改list背景色
@@ -116,20 +110,16 @@
 // 错误提示
 .error_tip {
   @include position-basic(fixed, bottom, 60px, left, 50%);
-  @include size(180px, 28px);
-  line-height: 28px;
+  width: 180px;
   color: #fff;
   background: rgba(0, 0, 0, .7);
   opacity: .7;
   border-radius: 4px;
+  padding: 5px 7px;
   text-align: center;
   margin-left: -90px;
   font-size: .9em;
   z-index: 10;
-}
-.error_tip-show { 
-  @include size(180px, 28px);
-  line-height: 28px;
 }
 
 // 下拉列表

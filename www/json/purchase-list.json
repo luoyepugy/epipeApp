@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "message": "失败",
+    "data": {
+        "total": 2,
+        "items": 
+        [
+            {
+                "id": "1",
+                "name": "高密度聚乙烯HDPE独山子",
+                "status": null,
+                "offerNum": "3",
+                "num": "3",
+                "unit":"吨",
+                "time": "2016-01-06"
+            },
+            {
+                "id": "1",
+                "name": "高密度聚乙烯HDPE独山子",
+                "status": null,
+                "offerNum": "3",
+                "num": "3",
+                "unit":"吨",
+                "time": "2016-01-06"
+            },
+            {
+                "id": "1",
+                "name": "高密度聚乙烯HDPE独山子",
+                "status": null,
+                "offerNum": "3",
+                "num": "3",
+                "unit":"吨",
+                "time": "2016-01-06"
+            },
+            {
+                "id": "1",
+                "name": "高密度聚乙烯HDPE独山子",
+                "status": null,
+                "offerNum": "3",
+                "num": "3",
+                "unit":"吨",
+                "time": "2016-01-06"
+            }        
+        ]
+    }
+}

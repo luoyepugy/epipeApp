@@ -244,28 +244,28 @@ ngCordovaMocks.factory('$cordovaBLE', ['$q', '$timeout', function ($q, $timeout)
 }]);
 
 ngCordovaMocks.factory('$cordovaBrightness', ['$q', function ($q) {
-    var currentBrightness = 100;
+	var currentBrightness = 100;
 
-    return {
-        get: function () {
-            var q = $q.defer();
-            q.resolve(currentBrightness);
-            return q.promise;
-        },
+	return {
+		get: function () {
+			var q = $q.defer();
+			q.resolve(currentBrightness);
+        	return q.promise;
+		},
 
-        set: function (data) {
-            var q = $q.defer();
-            currentBrightness = data;
-            q.resolve('OK');
-            return q.promise;
-        },
+		set: function (data) {
+			var q = $q.defer();
+			currentBrightness = data;
+			q.resolve('OK');
+        	return q.promise;
+		},
 
-        setKeepScreenOn: function (bool) {
-            var q = $q.defer();
-            q.resolve('OK');
-            return q.promise;
-        }
-    };
+		setKeepScreenOn: function (bool) {
+			var q = $q.defer();
+			q.resolve('OK');
+			return q.promise;
+		}
+	};
 }]);
 /**
  * @ngdoc service
@@ -309,7 +309,7 @@ ngCordovaMocks.factory('$cordovaCamera', ['$q', function ($q) {
         defer.reject('There was an error getting the picture.');
       } else {
         if (options) {
-          options = options;    // This is just to get by JSHint.
+          options = options;	// This is just to get by JSHint.
         }
 
         defer.resolve(this.imageData);
@@ -724,7 +724,7 @@ ngCordovaMocks.factory('$cordovaDeviceMotion', ['$interval', '$q', function ($in
       if (this.throwsError) {
         defer.reject('There was an error watching the current acceleration.');
       } else {
-        var delay = 10000;        // The default based on https://github.com/apache/cordova-plugin-device-motion
+        var delay = 10000;		// The default based on https://github.com/apache/cordova-plugin-device-motion
         if (options && options.frequency) {
           delay = options.frequency;
         }
@@ -862,7 +862,7 @@ ngCordovaMocks.factory('$cordovaDeviceOrientation', ['$interval', '$q', function
       if (self.throwsError) {
         defer.reject('There was an error getting the compass heading.');
       } else {
-        var delay = 100;        // The default based on https://github.com/apache/cordova-plugin-device-orientation
+        var delay = 100;		// The default based on https://github.com/apache/cordova-plugin-device-orientation
         if (options && options.frequency) {
           delay = options.frequency;
         }
@@ -1579,7 +1579,7 @@ ngCordovaMocks.factory('$cordovaGeolocation', ['$interval', '$q', function ($int
         defer.reject('There was an error getting the location.');
       } else {
         if (options) {
-          options = options;    // This is just to get by JSHint.
+          options = options;	// This is just to get by JSHint.
         }
 
         if (this.useHostAbilities) {

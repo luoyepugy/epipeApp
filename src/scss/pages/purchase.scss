@@ -42,6 +42,9 @@
   .downList {
     z-index: 5;
   }
+  input[readonly]:not(.cloned-text-input) {
+    background: #fff;
+  }
 }
 
 // ==================================
@@ -67,22 +70,6 @@
     @include overflow(ellipsis);
     padding-right: 60px;
     display: block;
-  }
-}
-
-// 过滤器菜单
-.listFilterWrap {
-  width: 90px;
-  @include position-basic(absolute, right, 5px, top, 47px);
-  @include skin-basic($main-orange, #fff);
-  padding: 10px;
-  border-radius: 4px;
-  li {
-    @include inside-center(70px, 35px);
-    border-bottom: 1px solid #dc6213;
-    &:last-child {
-      border: 0;
-    }
   }
 }
 
@@ -155,14 +142,6 @@
 .userInfo{
   background: url(../../images/bg-grid.jpg) repeat;
   background-size: initial; 
-  .avatar {
-    background-image: url('../../images/bg.png');
-    background-size: cover;
-    padding: 20px 0 50px 0;
-  }
-  .button-icon.icon:before {
-    font-size: 36px;
-  }
 }
 .userContent {
   padding: 35px;
@@ -170,28 +149,8 @@
   font-size: 16px;
   color: #343434;
 }
-
-
-// ==================================
-// ============= 编辑资料 ============
-// ==================================
-.userEdit,
-.userInfo{
-  .icon-center {
-    border-radius: 50px;
-    @include inside-center(100px);
-    height: 100px;
-    margin-top: 30px;
-  }
-  .icon100 {
-    max-width: none;
-  }
-}
-
-// 无网络连接
-.offline {
-  @include position-basic(fixed, left, 0, top, 40%);
-  text-align: center;
-  width: 100%;
-  font-size: 18px;
+.userInfo .avatar {
+  background-image: url('../../images/bg.png');
+  background-size: cover;
+  padding: 20px 0;
 }

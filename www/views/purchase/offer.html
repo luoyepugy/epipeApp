@@ -1,0 +1,33 @@
+
+<ion-view  view-title="采购单">
+    <ion-content class="offer">
+        <ion-list>
+            <ion-item class="item item-button-left border0">
+                <button class="button icon button-icon button-clear ion-ios-cart-outline button-dark"></button>
+                <h2>{{product.productName}}</h2>
+                <p>数量: {{product.productAmount}}{{product.productUnit}}</p>
+                <p>{{product.createdOn | date:'yyyy-MM-dd'}}</p>
+            </ion-item>
+            <p class="sawtooth"></p>
+        </ion-list>
+        <ion-list class="list card mt-5">
+        	<ion-item class="item item-button-left" ng-repeat="item in list">
+        	    <button class="button button-clear button-energized iconfont icon-user"></button>
+        		<ion-radio name="choiceOffer" ng-model="choiceOffer" value="{{item['_id']}}" class="energized">
+	                <h2>{{item.user.userProfile.company}} 
+                        <img class="icon25 mb-6" src='./images/auth.png' ng-if="{true: true, false: false}[item.user.ifAuditPass]" alt="认证图片1">
+                        <img class="icon25 mb-6" src="./images/auth2.png" ng-if="{true: false, false: true}[item.user.ifAuditPass]" alt="认证图片2">
+                        <span class="gray_ligh f12" ng-if="{true: false, false: true}[item.user.ifAuditPass]">未认证</span>
+                    </h2>
+	                <p>单价: {{item.unitPrice}}元／{{product.productUnit}}</p>
+	                <p>总价: <span class="orange">{{item.sumPrice}}元</span></p>
+                    <button class="button button-icon icon ion-ios-circle-outline gray_light button-choice"></button>
+        		</ion-radio>
+        	</ion-item>
+            <ion-item>
+                <span class="button button-full button-energized button-round" ng-click="order()">选择商家</span>
+                <span class="button button-full button-stable button-round" ng-click="changeOffer()">不满意，我要再刷一波商家</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
