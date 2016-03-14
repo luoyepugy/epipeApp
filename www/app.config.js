@@ -14,7 +14,7 @@ define(['app', 'cordova'], function(app) {
             app_id: '808a828e',
             // The public API key services will use for this app
             api_key: '',
-            domain: 'http://192.168.1.154:8100',
+            domain: 'http://192.168.1.154:8083',
             channel_tag: 'production'
         });
     };
