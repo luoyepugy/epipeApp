@@ -25,15 +25,15 @@ define(['./module'], function(directives) {
 	                // 提交表单数据
 	                resultsDatas = validateService.submitData(attrs.form);
 	                if(resultsDatas) {
-	                    var method = attrs.method || 'POST',
-	                        actionpath = attrs.actionpath || '/user';
+	                    var method = attrs.method || 'POST';
+	                        // actionpath = attrs.actionpath || '/user';
 	                    
-	                    httpService.getDatas(method, actionpath + attrs.action, resultsDatas)
+	                    httpService.getDatas(method, attrs.action, resultsDatas)
 	                    // httpService.get(method, action, resultsDatas);
 	                    .then(function(data) {
 	                        $state.go(state);
 	                        if(login === 'true') {
-	                            $window.localStorage.token = data.token;
+	                            window.localStorage.token = data.token;
 	                        }
 	                    });
 	                }
