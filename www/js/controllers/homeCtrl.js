@@ -8,8 +8,8 @@ define(['./module'], function(controllers) {
 			$http.get('http://www.epipe.cn/download/appConfig.js')
 			.success(function(data) {
 				config.host = data['api_host'];
-				host();
-			}).error(function(data) {
+			})
+			.finally(function() {
 				host();
 			});
 		};

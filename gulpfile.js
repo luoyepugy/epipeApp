@@ -35,7 +35,7 @@ gulp.task('css',function (){
 
 // js
 gulp.task('js', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src('www/js/**/*.js')
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'))
     // .pipe(plugins.requirejsOptimize(function(){
@@ -91,7 +91,7 @@ gulp.task('watch', function() {
 
     gulp.watch('www/lib/ionic/**/*.scss', ['ionicss']);
     gulp.watch('src/scss/**/*.scss', ['css']);
-    gulp.watch('src/js/**/*.js', ['js']);
+    gulp.watch('www/js/**/*.js', ['js']);
 
     var files = [
       'www/**/*.html',

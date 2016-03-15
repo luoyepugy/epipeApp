@@ -14,6 +14,7 @@ define(['./module'], function(controllers) {
 	    	$scope.product = datas;
 	    	$scope.purchase = datas.purchaser;
 	    	$scope.supplier = datas.supplier;
+	    	// alert(JSON.stringify(datas));
 	    });
 
 	}]);
