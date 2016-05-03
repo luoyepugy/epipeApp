@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for www/user/user-profile/changeProfile.spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">www/user/user-profile/</a> changeProfile.spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>55/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>55/60</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+'use strict';
+&nbsp;
+define(['./changeProfile', 'angularMocks'], function() {
+&nbsp;
+    describe('myApp.user.changeProfileCtrl', function() {
+        var changeProfileCtrl, $scope, httpService, $state, $ionicActionSheet, cameraService, uploadService, config, $ionicActionSheet;
+        var deferHttp, deferCamera, deferUpload;
+&nbsp;
+        beforeEach(module('myApp.user'));
+        beforeEach(module('ui.router'));
+        beforeEach(module('ionic'));
+&nbsp;
+        beforeEach(function() {
+            var mockHttpService = {};
+            var mockCameraService = {};
+            var mockUploadService = {};
+            var mockConfig = {};
+            var mockIonicActionSheet = {};
+&nbsp;
+            module('myApp.user', function($provide) {
+                $provide.value('httpService', mockHttpService);
+                $provide.value('cameraService', mockCameraService);
+                $provide.value('uploadService', mockUploadService);
+                $provide.value('config', mockConfig);
+                $provide.value('$ionicActionSheet', mockIonicActionSheet);
+            });
+            inject(function($q) {
+                mockHttpService.getDatas = function() {
+                    deferHttp = $q.defer();
+                    return deferHttp.promise;
+                }
+                mockCameraService.getPicture = <span class="fstat-no" title="function not covered" >function(params) {</span>
+<span class="cstat-no" title="statement not covered" >                    deferCamera = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >                    return deferCamera.promise;</span>
+                }
+                mockUploadService.uploadPicture = <span class="fstat-no" title="function not covered" >function(uploadUrl, imageURI) {</span>
+<span class="cstat-no" title="statement not covered" >                    deferUpload = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >                    return deferUpload.promise;</span>
+                }
+                mockConfig.host = 'http://192.168.1.154:8083';
+                mockIonicActionSheet.show = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >                    return true;</span>
+                }
+            });
+        });
+&nbsp;
+        beforeEach(inject(function(_$rootScope_, $controller, _httpService_, _cameraService_, _uploadService_, _$state_, _config_, _$ionicActionSheet_) {
+            $scope = _$rootScope_.$new();
+            httpService = _httpService_;
+            uploadService = _uploadService_;
+            cameraService = _cameraService_;
+            $state = _$state_;
+            config = _config_;
+            $ionicActionSheet = _$ionicActionSheet_;
+&nbsp;
+            spyOn($ionicActionSheet, 'show');
+&nbsp;
+            changeProfileCtrl = $controller('changeProfileCtrl', {
+                $scope: $scope,
+                httpService: httpService,
+                uploadService: uploadService,
+                cameraService: cameraService,
+                $state: $state,
+                config: config,
+                $ionicActionSheet: $ionicActionSheet
+            });
+        }));
+&nbsp;
+        it('changeProfileCtrl控制器被定义', function() {
+            expect(changeProfileCtrl).toBeDefined();
+        });
+&nbsp;
+        it('editAvatar函数被定义', function() {
+            expect(changeProfileCtrl.editAvatar).toBeDefined();
+        });
+&nbsp;
+        it('http请求后datas.avatar为空，显示默认头像', function() {
+            var data = { status: true, data: {avatar: ''} };
+            deferHttp.resolve(data);
+            $scope.$digest();
+            expect(changeProfileCtrl.user.avatar).toEqual('./images/default_avatar.png');
+        });
+&nbsp;
+        it('http请求后datas.avatar不为空，显示用户头像', function() {
+            var data = { status: true, data: {avatar: 'a'} };
+            deferHttp.resolve(data);
+            $scope.$digest();
+            expect(changeProfileCtrl.user.avatar).toEqual('http://192.168.1.154:8083/public/avatar/a');
+        });
+&nbsp;
+        it('editAvatar()点击后，调用$ionicActionSheet.show', function() {
+            expect($ionicActionSheet.show).toBeDefined();
+            changeProfileCtrl.editAvatar();
+            expect($ionicActionSheet.show).toHaveBeenCalled();
+        });
+    });
+&nbsp;
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 17 2016 10:17:59 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

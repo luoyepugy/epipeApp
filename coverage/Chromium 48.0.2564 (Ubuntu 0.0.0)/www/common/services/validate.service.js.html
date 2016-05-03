@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for www/common/services/validate.service.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">www/common/services/</a> validate.service.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.62% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.62% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/37</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+    'use strict';
+&nbsp;
+define(['../common.module', 'zepto'], function(common, $) {
+    common.factory('validateService', validateService);
+&nbsp;
+    /* @ngInject */
+    function validateService(messageService) {
+&nbsp;
+        var validate = {
+            'isEmpty': isEmpty,
+            'submitData': submitData
+        };
+        return validate;
+&nbsp;
+        // 验证输入框是否为空
+<span class="fstat-no" title="function not covered" >        function isEmpty(form) {</span>
+<span class="cstat-no" title="statement not covered" >            var inputs = {},</span>
+                num = 0,
+                total = $(form).find('.j-input').length,
+                results = '';
+<span class="cstat-no" title="statement not covered" >            $(form).find('.j-input').each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                var key = $(this).attr('name');</span>
+<span class="cstat-no" title="statement not covered" >                var val = $.trim($(this).val());</span>
+<span class="cstat-no" title="statement not covered" >                if(val == '' || val == null) {</span>
+<span class="cstat-no" title="statement not covered" >                    results = $(this).data('empty');</span>
+<span class="cstat-no" title="statement not covered" >                    messageService.show(results);</span>
+<span class="cstat-no" title="statement not covered" >                    return false;</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    num++;</span>
+                }
+            });
+<span class="cstat-no" title="statement not covered" >            if(num === total) {</span>
+<span class="cstat-no" title="statement not covered" >                return true;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+            }
+        };
+&nbsp;
+        // 验证提交表单验证
+<span class="fstat-no" title="function not covered" >        function submitData(form) {</span>
+<span class="cstat-no" title="statement not covered" >            var datas = {},</span>
+                phone_regexp = /^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\d{8}$/;
+<span class="cstat-no" title="statement not covered" >            $(form).find('input[name],textarea[name],select[name]').each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                var key = $(this).attr('name');</span>
+<span class="cstat-no" title="statement not covered" >                var val = $.trim($(this).val());</span>
+<span class="cstat-no" title="statement not covered" >                datas[key] = val;</span>
+            });
+            // 个人简介数据使用对象值
+<span class="cstat-no" title="statement not covered" >            if(datas.company != null &amp;&amp; datas.company != '') {</span>
+<span class="cstat-no" title="statement not covered" >                datas.userProfile = {'company': datas.company };</span>
+            }
+            // 判断表单填入数据格式
+<span class="cstat-no" title="statement not covered" >            if (datas.phone != null &amp;&amp; phone_regexp.test(datas.phone) === false) {</span>
+<span class="cstat-no" title="statement not covered" >                messageService.show('请输入正确的手机号码格式');</span>
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (datas.confirmPwd != null &amp;&amp;　datas.confirmPwd !== datas.password) {</span>
+<span class="cstat-no" title="statement not covered" >                messageService.show('两次密码输入不一致');</span>
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (datas.productAmount != null &amp;&amp; isNaN(datas.productAmount) === true ||　Number(datas.productAmount) &lt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >                messageService.show('请输入正确的商品数量格式');</span>
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                return datas;</span>
+            }
+        };
+&nbsp;
+    };
+});
+&nbsp;
+})();</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 17 2016 10:17:59 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

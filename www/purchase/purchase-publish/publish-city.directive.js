@@ -41,7 +41,7 @@ define(['../purchase.module'], function(purchase) {
             function getData(name) {
                 var length, Handle,HandleChild;
                 $timeout.cancel(vm.scrolling);    //取消之前的scrollTo.让位置一次性过渡到最新
-                $timeout.cancel(vm.dataing);    //取消之前的数据绑定.让数据一次性过渡到最新
+                $timeout.cancel(vm.dataing);      //取消之前的数据绑定.让数据一次性过渡到最新
                 switch(name)
                 {
                     case 'province':

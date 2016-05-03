@@ -43,7 +43,7 @@ define(['../common.module'], function(common) {
                     // httpService.get(method, action, resultsDatas);
                     .then(function(data) {
                         
-                        if(stateParams = '所有') {
+                        if(stateParams === '所有') {
                             $state.go(state, {'state': '所有'});
                         } else {
                             $state.go(state);

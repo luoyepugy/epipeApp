@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for www/purchase/purchase-publish/publish-city.directive.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">www/purchase/purchase-publish/</a> publish-city.directive.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.37% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>24/91</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.09% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/53</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>24/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+    'use strict';
+&nbsp;
+define(['../purchase.module'], function(purchase) {
+    purchase.directive('ionicCity', ionicCity);
+&nbsp;
+    /* @ngInject */
+    function ionicCity($ionicModal, $timeout, $ionicScrollDelegate, cityService) {
+        var directive = {
+            restrict: 'E',
+            scope: {},
+            replace: true,
+            template: '&lt;input type="text" name="shipAddress" placeholder="{{placeholder}}" ng-model="$parent.shipAddress" value="{{$parent.shipAddress}}" readonly /&gt;',
+            link: link
+        };
+        return directive;
+&nbsp;
+        function link(scope, element, attrs) {
+            var vm = scope;
+                vm.user = {};
+                vm.provinceHandle = "provinceHandle";
+                vm.cityHandle = "cityHandle";
+                vm.countryHandle = "countryHandle";
+                vm.placeholder = attrs.placeholder || '地点';
+                vm.okText = attrs.oktext || '完成';
+                vm.barCssClass = attrs.barcssclass || "bar-dark";
+                vm.cityData = cityService.cityList;
+                vm.tag = attrs.tag || "-";
+&nbsp;
+                vm.returnOk = returnOk;
+                vm.getData = getData;
+&nbsp;
+            var cityModel = null;
+&nbsp;
+            // 点击确认按钮
+<span class="fstat-no" title="function not covered" >            function returnOk(){</span>
+<span class="cstat-no" title="statement not covered" >                if(cityModel) { <span class="cstat-no" title="statement not covered" >cityModel.hide(); </span>}</span>
+            };
+&nbsp;
+            // 获取数据
+<span class="fstat-no" title="function not covered" >            function getData(name) {</span>
+<span class="cstat-no" title="statement not covered" >                var length, Handle,HandleChild;</span>
+<span class="cstat-no" title="statement not covered" >                $timeout.cancel(vm.scrolling); </span>   //取消之前的scrollTo.让位置一次性过渡到最新
+<span class="cstat-no" title="statement not covered" >                $timeout.cancel(vm.dataing); </span>     //取消之前的数据绑定.让数据一次性过渡到最新
+<span class="cstat-no" title="statement not covered" >                switch(name)</span>
+                {
+                    case 'province':
+<span class="cstat-no" title="statement not covered" >                        if (!vm.cityData) { <span class="cstat-no" title="statement not covered" >return false; </span>}</span>
+<span class="cstat-no" title="statement not covered" >                        var province = true; <span class="cstat-no" title="statement not covered" ></span>length=vm.cityData.length; <span class="cstat-no" title="statement not covered" ></span>Handle=vm.provinceHandle; <span class="cstat-no" title="statement not covered" ></span>HandleChild=vm.cityHandle;</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    case 'city':
+<span class="cstat-no" title="statement not covered" >                        if (!vm.province.sub) { <span class="cstat-no" title="statement not covered" >return false; </span>}</span>
+<span class="cstat-no" title="statement not covered" >                        var city = true; <span class="cstat-no" title="statement not covered" ></span>length=vm.province.sub.length; <span class="cstat-no" title="statement not covered" ></span>Handle=vm.cityHandle; <span class="cstat-no" title="statement not covered" ></span>HandleChild=vm.countryHandle;</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    case 'country':
+<span class="cstat-no" title="statement not covered" >                        if (!vm.city.sub) { <span class="cstat-no" title="statement not covered" >return false; </span>}</span>
+<span class="cstat-no" title="statement not covered" >                        var country = true; <span class="cstat-no" title="statement not covered" ></span>length=vm.city.sub.length; <span class="cstat-no" title="statement not covered" ></span>Handle=vm.countryHandle;</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                var top = $ionicScrollDelegate.$getByHandle(Handle).getScrollPosition().top;/</span>/当前滚动位置
+<span class="cstat-no" title="statement not covered" >                var index = Math.round(top / 36);</span>
+                //iOS bouncing超出头
+<span class="cstat-no" title="statement not covered" >                if (index &lt; 0 ) {</span>
+<span class="cstat-no" title="statement not covered" >                    index = 0;</span>
+                }     
+                //iOS 超出尾            
+<span class="cstat-no" title="statement not covered" >                if (index &gt; length-1 ) {</span>
+<span class="cstat-no" title="statement not covered" >                    index = length-1;</span>
+                } 
+<span class="cstat-no" title="statement not covered" >                if (top===index*36) {</span>
+<span class="cstat-no" title="statement not covered" >                    vm.dataing = $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                        if(province){</span>
+<span class="cstat-no" title="statement not covered" >                            vm.province = vm.cityData[index];</span>
+<span class="cstat-no" title="statement not covered" >                            vm.city = vm.province.sub[0];</span>
+<span class="cstat-no" title="statement not covered" >                            vm.country = {};</span>
+<span class="cstat-no" title="statement not covered" >                            if(vm.city &amp;&amp; vm.city.sub) {</span>
+<span class="cstat-no" title="statement not covered" >                                vm.country = vm.city.sub[0];</span>
+                            }
+                        }
+<span class="cstat-no" title="statement not covered" >                        if(city) {</span>
+<span class="cstat-no" title="statement not covered" >                            vm.city = vm.province.sub[index];</span>
+<span class="cstat-no" title="statement not covered" >                            vm.country = {};</span>
+<span class="cstat-no" title="statement not covered" >                            if(vm.city &amp;&amp; vm.city.sub) {</span>
+<span class="cstat-no" title="statement not covered" >                                vm.country = vm.city.sub[0];</span>
+                            }
+                        } 
+<span class="cstat-no" title="statement not covered" >                        if(country) {</span>
+<span class="cstat-no" title="statement not covered" >                            vm.country = vm.city.sub[index];</span>
+                        }
+                        //数据同步
+<span class="cstat-no" title="statement not covered" >                        if(vm.city.sub &amp;&amp; vm.city.sub.length&gt;0) {</span>
+<span class="cstat-no" title="statement not covered" >                            vm.$parent.shipAddress = vm.province.name + vm.tag + vm.city.name + vm.tag + vm.country.name;</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            vm.$parent.shipAddress = vm.province.name + vm.tag + vm.city.name;</span>
+                        }
+                    }, 150);
+                } else {
+<span class="cstat-no" title="statement not covered" >                    vm.scrolling = $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                        $ionicScrollDelegate.$getByHandle(Handle).scrollTo(0, index*36, true);</span>
+                    }, 150);
+                }
+            };
+&nbsp;
+            // 元素点击事件
+            element.on("click", <span class="fstat-no" title="function not covered" >function() {</span>
+                //零时处理 点击过之后直接显示不再创建
+<span class="cstat-no" title="statement not covered" >                if (!attrs.checked) {</span>
+<span class="cstat-no" title="statement not covered" >                  if(cityModel) { <span class="cstat-no" title="statement not covered" >cityModel.remove(); </span>}</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                  if(cityModel) { <span class="cstat-no" title="statement not covered" >cityModel.show(); </span>}  </span>
+<span class="cstat-no" title="statement not covered" >                  return;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                attrs.checked = true;</span>
+                // 显示模型
+<span class="cstat-no" title="statement not covered" >                $ionicModal.fromTemplateUrl('./purchase/purchase-publish/publish-city.directive.html', {</span>
+                  scope: scope,
+                  animation: 'slide-in-up',
+                  backdropClickToClose: true
+                }).then(<span class="fstat-no" title="function not covered" >function(modal) {</span>
+<span class="cstat-no" title="statement not covered" >                  cityModel = modal;</span>
+                  //初始化 先获取数据后展示
+<span class="cstat-no" title="statement not covered" >                  $timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    vm.getData('province');</span>
+<span class="cstat-no" title="statement not covered" >                    if(cityModel) { <span class="cstat-no" title="statement not covered" >cityModel.show(); </span>}</span>
+                  },100);
+                });
+            });
+&nbsp;
+            //销毁模型
+            scope.$on('$destroy', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >              if(cityModel) { <span class="cstat-no" title="statement not covered" >cityModel.remove(); </span>}</span>
+            });
+        };
+    };
+});
+&nbsp;
+})();</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 17 2016 10:17:59 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
