@@ -25,7 +25,7 @@
                 <p>总价：<span class="red">{{product.sumPrice}}元</span></p>
             </ion-item>
             <ion-item ng-if="product.state | payingFilter">
-                <a href="#/purchase/payment" class="button button-full button-energized button-round">支付</a>
+                <a ui-sref="purchase.payment({id: product.name, price: product.sumPrice})" class="button button-full button-energized button-round">支付</a>
                 <a href="#/purchase/list" class="button button-full button-stable button-round" >我还要考虑一下，取消</a>
             </ion-item>
         </ion-list>

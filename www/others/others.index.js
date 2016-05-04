@@ -1,5 +1,6 @@
     
 define([
     './home',
-    './others.constant'
+    './others.constant',
+    './payment'
     ], function() {});

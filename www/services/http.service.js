@@ -47,6 +47,7 @@ define(['./services.module','cordova'], function(services) {
                 if(response.status) {
                     deferred.resolve(response);
                 } else {
+                    alert(JSON.stringify(response));
                     if(response.errMsg != null && response.errMsg !== '') {
                         messageService.show(response.errMsg);
                     }

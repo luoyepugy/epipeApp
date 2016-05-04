@@ -116,10 +116,11 @@ define(['app'], function (app) {
             }
         })
         .state('purchase.payment', {
-            url: '/payment',
+            url: '/payment/:id/:price',
             views:{
                 'purchase-list':{
-                    templateUrl: "others/payment.html"
+                    templateUrl: "others/payment.html",
+                    controller: 'paymentCtrl'
                 }
             }
         })
